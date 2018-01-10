@@ -5,9 +5,22 @@
     "author": {
         "name": "Henrik Ruscon"
     },
-    "dependencies": {
-        "@std/esm": "^0.19.1"
+    "scripts": {
+        "start": "nodemon server -x \"node -r @std/esm -r dotenv/config\""
     },
+    "dependencies": {
+        "@std/esm": "^0.19.1",
+        "hapi": "^17.2.0",
+        "inert": "^5.0.1",
+        "vision": "^5.3.0"
+    },
+    "devDependencies": {
+        "dotenv": "^4.0.0",
+        "eslint": "^4.15.0",
+        "lab": "^15.2.0",
+        "nodemon": "^1.14.10"
+    },
+    "@std/esm": "js",
     "engines": {
         "node": ">=8.9.0"
     },
