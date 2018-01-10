@@ -1,0 +1,26 @@
+{
+    "name": "hapi-slate",
+    "version": "0.0.0",
+    "description": "",
+    "author": {
+        "name": "Henrik Ruscon"
+    },
+    "dependencies": {
+        "@std/esm": "^0.19.1"
+    },
+    "engines": {
+        "node": ">=8.9.0"
+    },
+    "keywords": [
+        "hapi",
+        "hapijs",
+        "hapi-slate",
+        "slate",
+        "lout",
+        "docs",
+        "documentation",
+        "api"
+    ],
+    "repository": "github:henrikdahl/hapi-slate",
+    "license": "MIT"
+}
