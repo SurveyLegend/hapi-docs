@@ -1,12 +1,10 @@
 {
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:vue-libs/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 8,
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true
-        },
         "sourceType": "module"
     },
     "env": {
