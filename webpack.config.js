@@ -55,6 +55,11 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                loader: 'svg-url-loader'
             }
         ]
     },
