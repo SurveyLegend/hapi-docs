@@ -1,0 +1,66 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    &:after,
+    &:before
+    {
+        box-sizing: border-box;
+    }
+}
+
+html
+{
+    font-size: 14px;
+
+    min-height: 100vh;
+
+    @include font;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+body
+{
+    overflow: hidden;
+}
+
+:focus
+{
+    outline: none;
+}
+
+a
+{
+    user-select: none;
+    text-decoration: none;
+}
+
+b
+{
+    font-weight: 600;
+}
+
+input
+{
+    line-height: 1;
+}
+
+ul,
+li
+{
+    list-style-type: none;
+}
+
+table
+{
+    border-spacing: 0;
+}
+
+[v-cloak]
+{
+    display: none;
+}
