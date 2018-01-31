@@ -1,5 +1,6 @@
 <template>
     <section class="sidebar">
+        <img class="sidebar__logo" src="@/images/logo.png">
         <div class="sidebar__search h-position-relative">
             <input class="sidebar__search__input" type="text" placeholder="Search">
         </div>

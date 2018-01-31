@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AppSidebar from '@/patterns/Sidebar'
+import AppSidebar from '@/js/patterns/Sidebar'
 
 export default {
     components: {

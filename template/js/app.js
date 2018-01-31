@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from '@/layouts/App'
+import App from '@/js/layouts/App'
 
 new Vue({
     el: '#app',

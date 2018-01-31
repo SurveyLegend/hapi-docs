@@ -19,6 +19,11 @@
     background-color: color($grey, dark);
 }
 
+.sidebar__logo
+{
+    max-width: 100%;
+}
+
 .sidebar__search:before
 {
     top: 18px;
