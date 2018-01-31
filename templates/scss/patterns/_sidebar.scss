@@ -1,0 +1,29 @@
+.sidebar
+{
+    font-size: 13px;
+    font-weight: bold;
+
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    width: 230px;
+
+    transition: left .3s ease-in-out;
+
+    background-color: #2e3336;
+}
+
+.sidebar__item
+{
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+    transition-property: background;
+
+    color: #fff;
+}
