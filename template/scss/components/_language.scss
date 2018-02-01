@@ -1,0 +1,42 @@
+.language
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 50%;
+
+    background-color: color($grey, dark);
+}
+
+.language__selector
+{
+    font-weight: bold;
+
+    position: fixed;
+    z-index: z-index(fixed);
+
+    width: 100%;
+
+    border-bottom: 5px solid color($grey, dark);
+    background-color: color($grey, darkest);
+}
+
+.language__selector__link
+{
+    line-height: 30px;
+
+    display: block;
+    float: left;
+
+    padding: 0 10px;
+
+    color: $white;
+    outline: 0;
+
+    &.is-active
+    {
+        background-color: color($grey, dark);
+    }
+}
