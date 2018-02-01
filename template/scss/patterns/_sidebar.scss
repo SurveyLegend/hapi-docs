@@ -26,13 +26,16 @@
 
 .sidebar__search:before
 {
+    position: absolute;
     top: 18px;
     left: 15px;
 
     width: 12px;
     height: 12px;
 
-    @include pseudo-icon('../svg/sidebar--search.svg');
+    content: '';
+
+    @include icon('../svg/sidebar--search.svg');
 }
 
 .sidebar__search__input
@@ -45,10 +48,7 @@
     padding: 6px 0 6px 20px;
 
     color: $white;
-    border-width: 0 0 1px 0;
-    border-color: color($grey, default);
-    border-radius: 0;
-    outline: none;
+    border-bottom: 1px solid color($grey, default);
     background: color($grey, dark);
 }
 
@@ -67,13 +67,10 @@
     display: block;
     overflow-x: hidden;
 
-    padding: 0 15px 0 15px;
+    padding: 0 15px;
 
-    transition-timing-function: linear;
-    transition-duration: 130ms;
-    transition-property: background;
+    transition: background 130ms linear;
     white-space: nowrap;
-    text-decoration: none;
     text-overflow: ellipsis;
 
     color: $white;

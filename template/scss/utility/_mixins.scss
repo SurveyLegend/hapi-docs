@@ -11,14 +11,3 @@
     mask-position: center;
     mask-repeat: no-repeat;
 }
-
-@mixin pseudo-icon($url)
-{
-    position: absolute;
-
-    content: '';
-
-    background-image: url($url);
-    background-repeat: no-repeat;
-    background-position: center;
-}
