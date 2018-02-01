@@ -3,7 +3,7 @@
     z-index: z-index(above);
 
     min-height: 100vh;
-    margin-left: 230px;
+    margin-left: $sidebar-width;
     padding-bottom: 1px;
 
     background-color: color($grey, lighter);

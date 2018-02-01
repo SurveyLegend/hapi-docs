@@ -1,6 +1,11 @@
+$sidebar__search-margin: $x3;
+$sidebar__search-height: $x7;
+$sidebar__search-before-size: $x3;
+
+
 .sidebar
 {
-    font-size: 13px;
+    font-size: $x3;
     font-weight: bold;
 
     position: fixed;
@@ -12,7 +17,7 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    width: 230px;
+    width: $x60;
 
     transition: left .3s ease-in-out;
 
@@ -26,30 +31,45 @@
 
 .sidebar__search:before
 {
-    top: 18px;
-    left: 15px;
+    top: $sidebar__search-margin + $x2;
+    left: $sidebar__search-margin + $x2;
 
-    width: 12px;
-    height: 12px;
+    width: $sidebar__search-before-size;
+    height: $sidebar__search-before-size;
 
     @include pseudo-icon('../svg/sidebar--search.svg');
 }
 
 .sidebar__search__input
 {
-    font-size: 13px;
+    font-size: $x3;
     font-weight: bold;
+    line-height: $sidebar__search-height;
 
-    width: 200px;
-    margin: 10px 15px;
-    padding: 6px 0 6px 20px;
+    box-sizing: border-box;
+    width: calc(100% - #{$sidebar__search-margin * 2});
+    height: $sidebar__search-height;
+    margin: $sidebar__search-margin;
+    padding: 0 $x3 0 #{$sidebar__search-before-size + $x4};
+
+    transition: all .2s ease;
 
     color: $white;
-    border-width: 0 0 1px 0;
-    border-color: color($grey, default);
-    border-radius: 0;
+    border: 1px solid color($grey, default);
+    border-radius: $x05;
     outline: none;
     background: color($grey, dark);
+
+    &:hover
+    {
+        background-color: color($grey, darker);
+    }
+
+    &::placeholder
+    {
+        font-weight: lighter;
+        line-height: $sidebar__search-height;
+    }
 }
 
 .sidebar__item
@@ -58,26 +78,38 @@
     {
         background-color: color($grey, darkest);
     }
+    ul
+    {
+        li
+        {
+            &:last-child
+            {
+                padding-bottom: $x5;
+            }
+        }
+    }
 }
 
 .sidebar__item__link
 {
-    line-height: 28px;
+    line-height: $x9;
 
     display: block;
     overflow-x: hidden;
 
-    padding: 0 15px 0 15px;
+    padding: 0 $x4;
 
-    transition-timing-function: linear;
-    transition-duration: 130ms;
-    transition-property: background;
+    transition: 130ms background linear;
     white-space: nowrap;
     text-decoration: none;
     text-overflow: ellipsis;
 
     color: $white;
 
+    &:hover
+    {
+        background-color: rgba(color($blue, default), .2);
+    }
     &.is-active
     {
         background-color: color($blue, default);
@@ -86,18 +118,18 @@
 
 .sidebar__item__link--sub
 {
-    font-size: 12px;
+    font-size: $x3;
     font-weight: 500;
 
-    padding-left: 25px;
+    padding-left: $x6;
 
     @extend .sidebar__item__link;
 }
 
 .sidebar__item__link--footer
 {
-    font-size: .77em;
-    line-height: 1.7;
+    font-size: 10px;
+    font-weight: lighter;
 
     @extend .sidebar__item__link;
 }
