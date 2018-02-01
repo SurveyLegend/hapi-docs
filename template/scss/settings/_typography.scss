@@ -4,3 +4,10 @@
     font-weight: 400;
     font-style: normal;
 }
+
+@mixin font-code
+{
+    font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+    font-weight: 400;
+    font-style: normal;
+}
