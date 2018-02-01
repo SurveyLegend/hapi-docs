@@ -29,7 +29,7 @@
     h4,
     h5,
     h6,
-    p,
+     > p,
     table,
     ul,
     ol,
@@ -78,6 +78,26 @@
         }
     }
 
+    h2
+    {
+        font-size: 19px;
+
+        margin-top: 4em;
+        margin-bottom: 0;
+        padding-top: 1.2em;
+        padding-bottom: 1.2em;
+
+        border-top: 1px solid color($grey, light);
+        background-image: linear-gradient(to bottom, rgba($white, .2), rgba($white, 0));
+    }
+
+    h1 + h2
+    {
+        margin-top: -21px;
+
+        border-top: none;
+    }
+
     code
     {
         font-size: 12px;
@@ -92,5 +112,75 @@
         background-color: rgba($black, .05);
 
         @include font-code;
+    }
+
+    table
+    {
+        display: block;
+        overflow: auto;
+
+        margin-bottom: 1em;
+
+        tr
+        {
+            &:last-child
+            {
+                border-bottom: 1px solid color($grey, light);
+            }
+
+            &:nth-child(odd) > td
+            {
+                background-color: $white;
+            }
+
+            &:nth-child(even) > td
+            {
+                background-color: color($grey, lighter);
+            }
+        }
+
+        th,
+        td
+        {
+            line-height: 1.6;
+
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th
+        {
+            padding: 5px 10px;
+
+            vertical-align: bottom;
+
+            border-bottom: 1px solid color($grey, light);
+        }
+
+        td
+        {
+            padding: 10px;
+        }
+    }
+
+    blockquote
+    {
+        float: right;
+        clear: right;
+
+        width: 50%;
+        margin: 0;
+
+        color: #fff;
+        background-color: #1e2224;
+
+        p
+        {
+            margin: 0;
+            padding: 13px 2em;
+
+            color: #eee;
+            background-color: #191d1f;
+        }
     }
 }
