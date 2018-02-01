@@ -23,11 +23,6 @@ $sidebar__search-before-size: $x3;
 
     background-color: color($grey, dark);
 }
-.sidebar__logo
-{
-    width: 100%;
-    height: $x20;
-}
 
 .sidebar__logo
 {
@@ -83,20 +78,28 @@ $sidebar__search-before-size: $x3;
     {
         background-color: color($grey, darker);
     }
+    ul
+    {
+        li
+        {
+            &:last-child
+            {
+                padding-bottom: $x5;
+            }
+        }
+    }
 }
 
 .sidebar__item__link
 {
-    line-height: $x8;
+    line-height: $x9;
 
     display: block;
     overflow-x: hidden;
 
     padding: 0 $x4;
 
-    transition-timing-function: linear;
-    transition-duration: 130ms;
-    transition-property: background;
+    transition: 130ms background linear;
     white-space: nowrap;
     text-decoration: none;
     text-overflow: ellipsis;
@@ -105,7 +108,7 @@ $sidebar__search-before-size: $x3;
 
     &:hover
     {
-        background-color: rgba(255,255,255,.2); //TODO: how do we write RGBA colors here?
+        background-color: rgba(color($blue, default), .2);
     }
     &.is-active
     {
@@ -125,7 +128,7 @@ $sidebar__search-before-size: $x3;
 
 .sidebar__item__link--footer
 {
-    font-size: $x2;
+    font-size: 10px;
     font-weight: lighter;
 
     @extend .sidebar__item__link;
