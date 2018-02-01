@@ -18,6 +18,7 @@ html
     min-height: 100vh;
 
     color: color($grey, darker);
+    background-color: color($blue, lighter);
 
     @include font;
     text-rendering: optimizeLegibility;
@@ -28,6 +29,11 @@ html
 :focus
 {
     outline: none;
+}
+
+input
+{
+    border: none;
 }
 
 a
@@ -45,6 +51,7 @@ li
 table
 {
     border-spacing: 0;
+    border-collapse: collapse;
 }
 
 [v-cloak]
