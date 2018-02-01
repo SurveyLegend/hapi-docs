@@ -6,7 +6,7 @@
     margin-left: 230px;
     padding-bottom: 1px;
 
-    background-color: #f3f7f9;
+    background-color: color($grey, lighter);
 }
 
 .main__content
@@ -32,7 +32,7 @@
 
         border-top: 1px solid color($grey, light);
         border-bottom: 1px solid color($grey, light);
-        background-color: #fdfdfd;
+        background-color: color($grey, lightest);
 
         &:first-child
         {
