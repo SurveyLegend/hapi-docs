@@ -15,7 +15,6 @@
                     <li class="sidebar__item"><a class="sidebar__item__link--sub" href="#delete-a-specific-kitten">Delete a Specific Kitten</a></li>
                 </ul>
             </li>
-            <li class="sidebar__item"><a class="sidebar__item__link" href="#errors">Errors</a></li>
         </ul>
         <div class="sidebar__footer">
             <ul>
