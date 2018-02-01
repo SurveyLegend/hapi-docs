@@ -15,7 +15,7 @@
     font-weight: bold;
 
     position: fixed;
-    z-index: z-index(fixed);
+    z-index: z-index(toolbar);
 
     width: 100%;
 
@@ -33,7 +33,6 @@
     padding: 0 10px;
 
     color: $white;
-    outline: 0;
 
     &.is-active
     {
