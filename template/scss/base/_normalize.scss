@@ -17,6 +17,8 @@ html
 
     min-height: 100vh;
 
+    color: color($grey, darker);
+
     @include font;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -32,16 +34,6 @@ a
 {
     user-select: none;
     text-decoration: none;
-}
-
-b
-{
-    font-weight: 600;
-}
-
-input
-{
-    line-height: 1;
 }
 
 ul,
