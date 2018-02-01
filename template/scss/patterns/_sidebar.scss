@@ -29,6 +29,11 @@ $sidebar__search-before-size: $x3;
     height: $x20;
 }
 
+.sidebar__logo
+{
+    max-width: 100%;
+}
+
 .sidebar__search:before
 {
     top: $sidebar__search-margin + $x2;

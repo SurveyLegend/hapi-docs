@@ -5,7 +5,7 @@ const path = require('path')
 
 module.exports = {
     entry: {
-        app: ['webpack-hot-middleware/client', './templates/js/app.js', './templates/scss/app.scss']
+        app: ['webpack-hot-middleware/client', './template/js/app.js', './template/scss/app.scss']
     },
     output: {
         path: path.resolve(__dirname, './public/'),
@@ -16,7 +16,8 @@ module.exports = {
         modules: [path.join(__dirname, './node_modules'), 'node_modules'],
         extensions: ['.js', '.vue'],
         alias: {
-            '@': path.resolve(__dirname, './templates/js')
+            '@': path.resolve(__dirname, './template'),
+            'vue$': 'vue/dist/vue.common.js'
         }
     },
     module: {
@@ -31,8 +32,33 @@ module.exports = {
                 }
             },
             {
+                test: /\.scss$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-url-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/,
+                loader: 'file-loader',
+                exclude: /node_modules/,
+                options: {
+                    name: '[name].[ext]?[hash]',
+                    outputPath: 'images/'
+                }
+            },
+            {
                 test: /\.vue$/,
                 loader: 'vue-loader',
+                exclude: /node_modules/,
                 options: {
                     loaders: {
                         js: {
@@ -46,20 +72,6 @@ module.exports = {
                         }
                     }
                 }
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader']
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.svg$/,
-                exclude: /node_modules/,
-                loader: 'svg-url-loader'
             }
         ]
     },
@@ -69,7 +81,7 @@ module.exports = {
         new FriendlyErrorsWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, './public/index.html'),
-            template: path.resolve(__dirname, './templates/index.html'),
+            template: path.resolve(__dirname, './template/index.html'),
             inject: true
         })
     ],
