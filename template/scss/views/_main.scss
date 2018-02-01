@@ -163,7 +163,8 @@
         }
     }
 
-    blockquote
+    blockquote,
+    pre
     {
         float: right;
         clear: right;
@@ -171,8 +172,8 @@
         width: 50%;
         margin: 0;
 
-        color: #fff;
-        background-color: #1e2224;
+        color: $white;
+        background-color: color($grey, darkest);
 
         p
         {
@@ -180,7 +181,21 @@
             padding: 13px 2em;
 
             color: #eee;
-            background-color: #191d1f;
+            background-color: color($grey, darkester);
+        }
+    }
+
+    pre
+    {
+        padding: 2em 28px;
+        padding-top: 2em;
+        padding-bottom: 2em;
+
+        code
+        {
+            padding: 0;
+
+            background-color: transparent;
         }
     }
 }

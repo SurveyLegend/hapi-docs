@@ -11,7 +11,7 @@
             <blockquote>
                 <p>To authorize, use this code:</p>
             </blockquote>
-
+            <pre><code>const kittn = require('kittn');<br><br>let api = kittn.authorize('meowmeowmeow');</code></pre>
             <blockquote>
                 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
             </blockquote>
@@ -24,9 +24,11 @@
             <h1 id="kittens">Kittens</h1>
             <h2 id="get-all-kittens">Get All Kittens</h2>
 
+            <pre><code>const kittn = require('kittn');<br><br>let api = kittn.authorize('meowmeowmeow');<br>let kittens = api.kittens.get();</code></pre>
             <blockquote>
                 <p>The above command returns JSON structured like this:</p>
             </blockquote>
+            <pre><code></code></pre>
 
             <p>This endpoint retrieves all kittens.</p>
             <h3 id="http-request">HTTP Request</h3>
@@ -56,9 +58,11 @@
             <notice type="success">Remember — a happy kitten is an authenticated kitten!</notice>
             <h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
 
+            <pre><code>const kittn = require('kittn');<br><br>let api = kittn.authorize('meowmeowmeow');<br>let max = api.kittens.get(2);</code></pre>
             <blockquote>
                 <p>The above command returns JSON structured like this:</p>
             </blockquote>
+            <pre><code></code></pre>
 
             <p>This endpoint retrieves a specific kitten.</p>
 
@@ -82,9 +86,11 @@
             </table>
             <h2 id="delete-a-specific-kitten">Delete a Specific Kitten</h2>
 
+            <pre><code>const kittn = require('kittn');<br><br>let api = kittn.authorize('meowmeowmeow');<br>let max = api.kittens.delete(2);</code></pre>
             <blockquote>
                 <p>The above command returns JSON structured like this:</p>
             </blockquote>
+            <pre><code></code></pre>
 
             <p>This endpoint deletes a specific kitten.</p>
             <h3 id="http-request-3">HTTP Request</h3>
