@@ -34,6 +34,7 @@
         "friendly-errors-webpack-plugin": "^1.6.1",
         "hapi-webpack-plugin": "^3.0.0",
         "html-webpack-plugin": "^2.30.1",
+        "import-glob-loader": "^1.1.0",
         "node-sass": "^4.7.2",
         "nodemon": "^1.14.11",
         "sass-loader": "^6.0.6",

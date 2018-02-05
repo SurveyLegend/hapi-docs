@@ -7,13 +7,7 @@
 
 @import 'base/normalize';
 
-@import 'components/language';
-@import 'components/notice';
-
-@import 'patterns/sidebar';
-
-@import 'helpers/states';
-@import 'helpers/position';
-@import 'helpers/text';
-
-@import 'views/main';
+@import 'helpers/**/*';
+@import 'components/**/*';
+@import 'patterns/**/*';
+@import 'views/**/*';
