@@ -68,7 +68,7 @@
 
         border-top: 1px solid color($grey, light);
         border-bottom: 1px solid color($grey, light);
-        background-color: color($grey, lighter);
+        background-color: color($grey, lightest);
 
         &:first-child
         {
@@ -135,7 +135,7 @@
 
             &:nth-child(even) > td
             {
-                background-color: color($grey, lighter);
+                background-color: color($grey, lightest);
             }
         }
 
@@ -180,7 +180,7 @@
             margin: 0;
             padding: 13px 2em;
 
-            color: #eee;
+            color: color($grey, lighter);
             background-color: color($grey, darkester);
         }
     }
