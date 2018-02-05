@@ -17,7 +17,8 @@
         "hapi": "^17.2.0",
         "inert": "^5.1.0",
         "vue": "^2.5.13",
-        "vue-axios": "^2.0.2"
+        "vue-axios": "^2.0.2",
+        "vue-waypoint": "^3.0.3"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
