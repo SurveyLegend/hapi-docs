@@ -1,0 +1,11 @@
+html
+{
+    font-size: 14px;
+
+    min-height: 100vh;
+
+    color: color($grey, darker);
+    background-color: color($blue, lighter);
+
+    @include font;
+}

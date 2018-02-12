@@ -5,8 +5,7 @@
 @import 'utility/functions';
 @import 'utility/mixins';
 
-@import 'base/normalize';
-
+@import 'base/**/*';
 @import 'helpers/**/*';
 @import 'components/**/*';
 @import 'patterns/**/*';
