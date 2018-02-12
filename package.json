@@ -10,6 +10,7 @@
     "scripts": {
         "dev": "NODE_ENV=development nodemon server.mjs -x \"node --experimental-modules --no-warnings -r dotenv/config\""
     },
+    "main": "lib/index.mjs",
     "dependencies": {
         "axios": "^0.17.1",
         "babel-runtime": "^6.26.0",
