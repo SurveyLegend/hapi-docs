@@ -1,8 +1,8 @@
 import Hapi from 'hapi'
-import WebpackPlugin from 'hapi-webpack-plugin'
 import Inert from 'inert'
-import Path from 'path'
+import WebpackPlugin from 'hapi-webpack-plugin'
 import Package from './package'
+import plugin from './lib'
 
 const startServer = async () => {
     const server = Hapi.server({
@@ -18,35 +18,11 @@ const startServer = async () => {
         },
         {
             plugin: Inert
+        },
+        {
+            plugin
         }
     ])
-
-    server.route({
-        method: 'GET',
-        path: '/js/{filepath*}',
-        handler: {
-            directory: {
-                path: Path.join(process.cwd(), './public/js'),
-                listing: false,
-                index: false
-            }
-        },
-        options: {
-            auth: false,
-            cache: {
-                expiresIn: 24 * 60 * 60 * 1000,
-                privacy: 'public'
-            }
-        }
-    })
-
-    server.route({
-        method: 'GET',
-        path: '/{path*}',
-        handler: {
-            file: './public/index.html'
-        }
-    })
 
     await server.start()
 
