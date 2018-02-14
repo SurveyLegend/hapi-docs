@@ -5,7 +5,8 @@ import '@/js/components'
 
 Vue.use(VueWaypoint)
 
+Vue.config.productionTip = false
+
 new Vue({
-    el: '#app',
     ...App
 })
