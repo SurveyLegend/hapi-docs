@@ -11,11 +11,16 @@ const startServer = async () => {
         port: process.env.PORT || 3000
     })
 
+    if (process.env.NODE_ENV === 'development') {
+        await server.register([
+            {
+                plugin: WebpackPlugin,
+                options: './config/webpack.dev.js'
+            }
+        ])
+    }
+
     await server.register([
-        {
-            plugin: WebpackPlugin,
-            options: './webpack.config.js'
-        },
         {
             plugin: Inert
         },
