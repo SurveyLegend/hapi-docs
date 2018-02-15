@@ -10,10 +10,14 @@
     "scripts": {
         "dev": "yarn development",
         "development": "NODE_ENV=development nodemon server.mjs -x \"node --experimental-modules --no-warnings -r dotenv/config\"",
-        "build": "webpack --progress --hide-modules --config config/webpack.prod.js",
+        "build": "NODE_ENV=production webpack --progress --hide-modules --config config/webpack.prod.js",
         "start": "NODE_ENV=production node --experimental-modules --no-warnings -r dotenv/config server.mjs"
     },
     "main": "lib/index.mjs",
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ],
     "dependencies": {
         "axios": "^0.17.1",
         "babel-runtime": "^6.26.0",
@@ -28,12 +32,14 @@
         "vuex": "^3.0.1"
     },
     "devDependencies": {
+        "autoprefixer": "^8.0.0",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-polyfill": "^6.26.0",
         "babel-preset-env": "^1.6.1",
+        "clean-webpack-plugin": "^0.1.18",
         "css-loader": "^0.28.9",
         "eslint": "^4.16.0",
         "eslint-loader": "^1.9.0",

@@ -1,5 +1,7 @@
+const Webpack = require('webpack')
 const Merge = require('webpack-merge')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const Path = require('path')
 const common = require('./webpack.common.js')
 
@@ -16,34 +18,24 @@ module.exports = Merge(common, {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader', 'import-glob-loader']
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            minimize: { discardComments: { removeAll: true } }
+                        }
+                    }, 'postcss-loader', 'sass-loader', 'import-glob-loader']
                 }),
                 exclude: /node_modules/
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                exclude: /node_modules/,
-                options: {
-                    loaders: {
-                        js: {
-                            loader: 'babel-loader'
-                        },
-                        scss: ExtractTextPlugin.extract({
-                            use: 'css-loader!sass-loader',
-                            fallback: 'vue-style-loader'
-                        }),
-                        css: ExtractTextPlugin.extract({
-                            use: 'css-loader',
-                            fallback: 'vue-style-loader'
-                        })
-                    }
-                }
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('css/app.css')
+        new Webpack.optimize.UglifyJsPlugin({
+            sourceMap: true
+        }),
+        new ExtractTextPlugin('assets/css/app.css'),
+        new CleanWebpackPlugin('../public', { allowExternal: true })
     ],
     devtool: 'source-map'
 })

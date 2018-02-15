@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: Path.resolve(__dirname, '../public/'),
         publicPath: '/',
-        filename: 'js/[name].js'
+        filename: 'assets/js/[name].js'
     },
     resolve: {
         extensions: ['.js', '.vue'],
@@ -34,7 +34,25 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {
                     name: '[name].[ext]?[hash]',
-                    outputPath: 'images/'
+                    outputPath: 'assets/images/'
+                }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                exclude: /node_modules/,
+                options: {
+                    loaders: {
+                        js: {
+                            loader: 'babel-loader'
+                        },
+                        scss: {
+                            loader: 'vue-style-loader!css-loader!sass-loader'
+                        },
+                        css: {
+                            loader: 'vue-style-loader!css-loader'
+                        }
+                    }
                 }
             }
         ]
