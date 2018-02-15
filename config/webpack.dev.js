@@ -20,6 +20,29 @@ module.exports = Merge(common, {
                 options: {
                     emitWarning: true
                 }
+            },
+            {
+                test: /\.scss$/,
+                loaders: ['style-loader', 'css-loader', 'sass-loader', 'import-glob-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                exclude: /node_modules/,
+                options: {
+                    loaders: {
+                        js: {
+                            loader: 'babel-loader'
+                        },
+                        scss: {
+                            loader: 'vue-style-loader!css-loader!sass-loader'
+                        },
+                        css: {
+                            loader: 'vue-style-loader!css-loader'
+                        }
+                    }
+                }
             }
         ]
     },

@@ -19,11 +19,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
-                loaders: ['style-loader', 'css-loader', 'sass-loader', 'import-glob-loader'],
-                exclude: /node_modules/
-            },
-            {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
@@ -40,24 +35,6 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]',
                     outputPath: 'images/'
-                }
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                exclude: /node_modules/,
-                options: {
-                    loaders: {
-                        js: {
-                            loader: 'babel-loader'
-                        },
-                        scss: {
-                            loader: 'vue-style-loader!css-loader!sass-loader'
-                        },
-                        css: {
-                            loader: 'vue-style-loader!css-loader'
-                        }
-                    }
                 }
             }
         ]
