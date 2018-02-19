@@ -5,7 +5,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 221px;
+    left: $sidebar-width + 1;
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -39,7 +39,7 @@
 
 .route__copy__padding
 {
-    padding: 20px 40px;
+    padding: $x5 $x10;
 
     &:last-child
     {
@@ -49,28 +49,28 @@
 
 .route__list
 {
-    padding: 40px 40px 0;
+    padding: $x10 $x10 0;
 
     .route__copy__padding + &
     {
-        padding-bottom: 40px;
+        padding-bottom: $x10;
     }
 }
 
 .route__list__group
 {
-    margin-top: 8px;
+    margin-top: $x2;
 
-    border-top: 1px solid #e1e8ed;
+    border-top: 1px solid color($grey, light);
 }
 
 .route__list__item
 {
-    line-height: 24px;
+    line-height: $x6;
 
-    padding: 17px 0;
+    padding: $x4 0;
 
-    border-bottom: 1px solid #f0f4f7;
+    border-bottom: 1px solid color($grey, lighter);
 
     &:after,
     &:before
@@ -96,7 +96,7 @@
 
     float: left;
 
-    width: 180px;
+    width: $x45;
 
     text-align: right;
     white-space: normal;
@@ -113,20 +113,20 @@
     .header-anchor
     {
         position: relative;
-        top: 3px;
-        left: -15px;
+        top: $x05;
+        left: -$x5;
 
         display: inline-block;
 
-        width: 15px;
-        height: 14px;
-        margin-right: -15px;
+        width: $x4;
+        height: $x4;
+        margin-right: -$x4;
 
         opacity: 0;
         background-image: url('../img/anchor.png');
         background-repeat: no-repeat;
         background-position: 50% 50%;
-        background-size: 9px 8px;
+        background-size: $x3 $x3;
 
         isolation: isolate;
     }
@@ -142,7 +142,7 @@
     text-transform: none;
     word-break: normal;
 
-    color: #939da3;
+    color: color($grey, default);
 }
 
 .route__list__item__description
@@ -153,7 +153,7 @@
     position: relative;
     z-index: z-index(above);
 
-    margin: 0 0 0 200px;
+    margin: 0 0 0 $x50;
 
-    background: #fff;
+    background: $white;
 }
