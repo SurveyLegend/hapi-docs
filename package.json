@@ -11,7 +11,8 @@
         "dev": "yarn development",
         "development": "NODE_ENV=development nodemon server.mjs -x \"node --experimental-modules --no-warnings -r dotenv/config\"",
         "build": "NODE_ENV=production webpack --progress --hide-modules --config config/webpack.prod.js",
-        "start": "NODE_ENV=production node --experimental-modules --no-warnings -r dotenv/config server.mjs"
+        "start": "NODE_ENV=production node --experimental-modules --no-warnings -r dotenv/config server.mjs",
+        "prepublish": "yarn build"
     },
     "main": "lib/index.mjs",
     "browserslist": [
