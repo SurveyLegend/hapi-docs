@@ -1,108 +1,86 @@
 .sidebar
 {
-    font-size: 13px;
-    font-weight: bold;
-
-    position: fixed;
-    z-index: 30;
+    position: absolute;
+    z-index: z-index(fixed);
     top: 0;
     bottom: 0;
     left: 0;
 
-    overflow-x: hidden;
-    overflow-y: auto;
+    width: 220px;
 
-    width: 230px;
-
-    transition: left .3s ease-in-out;
-
-    background-color: color($grey, dark);
+    border-right: 1px solid #f0f4f7;
+    background: #fafcfc;
 }
 
-.sidebar__logo
-{
-    max-width: 100%;
-}
-
-.sidebar__search:before
+.sidebar__navigation
 {
     position: absolute;
-    top: 18px;
-    left: 15px;
+    top: 49px;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
-    width: 12px;
-    height: 12px;
-
-    content: '';
-
-    @include icon('../svg/sidebar--search.svg');
+    overflow: scroll;
 }
 
-.sidebar__search__input
+.sidebar__navigation__heading
 {
-    font-size: 13px;
-    font-weight: bold;
+    padding: 0 20px 4px;
 
-    width: 200px;
-    margin: 10px 15px;
-    padding: 6px 0 6px 20px;
-
-    color: $white;
-    border-bottom: 1px solid color($grey, default);
-    background: color($grey, dark);
-}
-
-.sidebar__item
-{
-    &.is-active
+    &:first-child
     {
-        background-color: color($grey, darkest);
+        padding-top: 20px;
     }
 }
 
-.sidebar__item__link
+.sidebar__navigation__items
 {
-    line-height: 28px;
+    line-height: 20px;
+
+    padding: 0 0 26px;
+
+    li
+    {
+        line-height: 20px;
+    }
+}
+
+.sidebar__navigation__item
+{
+    font-size: 15px;
 
     display: block;
-    overflow-x: hidden;
+    overflow: hidden;
 
-    padding: 0 15px;
+    padding: 6px 20px;
 
-    transition: background 130ms linear;
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: $white;
+    color: #4c555a;
+
+    &:hover
+    {
+        text-decoration: underline;
+
+        color: #292e31;
+    }
 
     &.is-active
     {
-        background-color: color($blue, default);
+        color: #0099e5;
+
+
+        &:hover
+        {
+            text-decoration: none;
+        }
     }
-}
 
-.sidebar__item__link--sub
-{
-    font-size: 12px;
-    font-weight: 500;
+     + .sidebar__navigation__items &
+    {
+        font-size: 14px;
 
-    padding-left: 25px;
-
-    @extend .sidebar__item__link;
-}
-
-.sidebar__item__link--footer
-{
-    font-size: .77em;
-    line-height: 1.7;
-
-    @extend .sidebar__item__link;
-}
-
-.sidebar__footer
-{
-    margin-top: 1em;
-    padding: 1em 0;
-
-    border-top: 1px dashed color($grey, default);
+        padding-left: 36px;
+    }
 }

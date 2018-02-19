@@ -34,7 +34,7 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {
                     name: '[name].[ext]?[hash]',
-                    outputPath: 'assets/images/'
+                    outputPath: 'assets/img/'
                 }
             },
             {

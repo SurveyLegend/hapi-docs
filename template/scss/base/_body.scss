@@ -1,0 +1,15 @@
+body
+{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
+
+    overflow: hidden;
+
+    letter-spacing: .1px;
+
+    color: #4c555a;
+    background: #fff;
+
+    @include font;
+}

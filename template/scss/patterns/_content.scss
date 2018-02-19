@@ -1,0 +1,159 @@
+.content
+{
+    position: absolute;
+    z-index: z-index(above);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 221px;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.route
+{
+    position: relative;
+    z-index: z-index(default) + 1;
+
+    overflow: hidden;
+}
+
+.route__area
+{
+    overflow: hidden;
+}
+
+.route__copy
+{
+    float: left;
+
+    width: 45%;
+    padding: 0 0 50px;
+
+    .route__area &:first-child
+    {
+        padding-top: 30px;
+    }
+}
+
+.route__copy__padding
+{
+    padding: 20px 40px;
+
+    &:last-child
+    {
+        padding-bottom: 0;
+    }
+}
+
+.route__list
+{
+    padding: 40px 40px 0;
+
+    .route__copy__padding + &
+    {
+        padding-bottom: 40px;
+    }
+}
+
+.route__list__group
+{
+    margin-top: 8px;
+
+    border-top: 1px solid #e1e8ed;
+}
+
+.route__list__item
+{
+    line-height: 24px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #f0f4f7;
+
+    &:after,
+    &:before
+    {
+        display: table;
+
+        content: '';
+    }
+
+    &:after
+    {
+        clear: both;
+    }
+}
+
+.route__list__item__label
+{
+    font-size: 14px;
+    line-height: 21px;
+
+    position: relative;
+    z-index: z-index(default) + 4;
+
+    float: left;
+
+    width: 180px;
+
+    text-align: right;
+    white-space: normal;
+    word-break: break-all;
+
+    &:hover
+    {
+        .header-anchor
+        {
+            opacity: 1;
+        }
+    }
+
+    .header-anchor
+    {
+        position: relative;
+        top: 3px;
+        left: -15px;
+
+        display: inline-block;
+
+        width: 15px;
+        height: 14px;
+        margin-right: -15px;
+
+        opacity: 0;
+        background-image: url('../img/anchor.png');
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 9px 8px;
+
+        isolation: isolate;
+    }
+}
+
+.method__list__item__validation
+{
+    font-size: 13px;
+    font-weight: 500;
+
+    display: block;
+
+    text-transform: none;
+    word-break: normal;
+
+    color: #939da3;
+}
+
+.route__list__item__description
+{
+    font-size: 14px;
+    line-height: 21px;
+
+    position: relative;
+    z-index: z-index(above);
+
+    margin: 0 0 0 200px;
+
+    background: #fff;
+}
