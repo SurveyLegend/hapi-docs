@@ -7,6 +7,7 @@
             </div>
         </div>
         <div class="header__copy"></div>
+        <div class="header__example"></div>
     </div>
 </template>
 
