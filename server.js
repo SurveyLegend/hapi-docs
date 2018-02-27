@@ -26,18 +26,15 @@ const startServer = async () => {
             plugin: Inert
         },
         {
-            plugin,
-            options: {
-                stripPrefix: '/api'
-            }
+            plugin
         }
     ])
 
     server.route({
         method: 'GET',
-        path: '/api/kittens',
+        path: '/kittens',
         handler(request) {
-            return 'world'
+            return 'hello'
         },
         options: {
             description: 'List all kittens',
@@ -47,7 +44,7 @@ const startServer = async () => {
 
     server.route({
         method: 'GET',
-        path: '/api/kittens/{id}',
+        path: '/kittens/{ID}',
         handler(request) {
             return 'goodbye'
         },
@@ -66,7 +63,7 @@ const startServer = async () => {
 
     server.route({
         method: 'DELETE',
-        path: '/api/kittens/{id}',
+        path: '/kittens/{ID}',
         handler(request) {
             return 'goodbye'
         },
