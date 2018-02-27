@@ -77,10 +77,10 @@
         }
     }
 
-     + .sidebar__navigation__items &
+    & + .sidebar__navigation__items
     {
-        font-size: 14px;
+        font-size: 13px;
 
-        padding-left: 36px;
+        padding: 0 0 0 36px;
     }
 }
