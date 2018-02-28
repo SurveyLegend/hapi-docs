@@ -26,36 +26,63 @@ const startServer = async () => {
             plugin: Inert
         },
         {
-            plugin
+            plugin,
+            options: {
+                stripPrefix: '/v1'
+            }
         }
     ])
 
     server.route({
-        method: 'GET',
-        path: '/kittens',
+        method: 'POST',
+        path: '/v1/customers',
         handler(request) {
-            return 'hello'
+            return ''
         },
         options: {
-            description: 'List all kittens',
-            notes: 'Returns a list of all kittens. The kittens are returned sorted by creation date, with the most recently created kitten appearing first.'
+            description: 'Create a customer',
+            notes: 'Creates a new customer object.',
+            validate: {
+                payload: {
+                    email: Joi.string().optional().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
+                }
+            }
         }
     })
 
     server.route({
         method: 'GET',
-        path: '/kittens/{ID}',
+        path: '/v1/customers/{id}',
         handler(request) {
-            return 'goodbye'
+            return ''
         },
         options: {
-            description: 'Retrieve a kitten',
-            notes: 'Retrieves the details of an existing kitten. Supply the unique kitten ID from either a kitten creation request or the kitten list, and it will return the corresponding kitten information.',
+            description: 'Retrieve a customer',
+            notes: 'Retrieves the details of an existing customer. You need only supply the unique customer identifier that was returned upon customer creation.',
             validate: {
                 params: {
-                    id: Joi.string()
-                        .required()
-                        .description('The identifier of the kitten to be retrieved.')
+                    id: Joi.string().required().description('The identifier of the customer to be retrieved.')
+                }
+            }
+        }
+    })
+
+    server.route({
+        method: 'POST',
+        path: '/v1/customers/{id}',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'Update a customer',
+            notes: [
+                'Updates the specified customer by setting the values of the parameters passed. Any parameters not provided will be left unchanged. For example, if you pass the **source** parameter, that becomes the customer’s active source (e.g., a card) to be used for all charges in the future. When you update a customer to a new valid source: for each of the customer’s current subscriptions, if the subscription bills automatically and is in the `past_due` state, then the latest unpaid, unclosed invoice for the subscription will be retried (note that this retry will not count as an automatic retry, and will not affect the next regularly scheduled payment for the invoice). (Note also that no invoices pertaining to subscriptions in the `unpaid` state, or invoices pertaining to canceled subscriptions, will be retried as a result of updating the customer’s source.)',
+                'This request accepts mostly the same arguments as the customer creation call.'
+            ],
+            validate: {
+                params: {
+                    id: Joi.string().required(),
+                    email: Joi.string().optional().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
                 }
             }
         }
@@ -63,19 +90,30 @@ const startServer = async () => {
 
     server.route({
         method: 'DELETE',
-        path: '/kittens/{ID}',
+        path: '/v1/customers/{id}',
         handler(request) {
-            return 'goodbye'
+            return ''
         },
         options: {
-            description: 'Delete a kitten',
+            description: 'Delete a customer',
+            notes: 'Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.',
             validate: {
                 params: {
-                    id: Joi.string()
-                        .required()
-                        .description('The identifier of the kitten to be deleted.')
+                    id: Joi.string().required().description('The identifier of the customer to be deleted.')
                 }
             }
+        }
+    })
+
+    server.route({
+        method: 'GET',
+        path: '/v1/customers',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'List all customers',
+            notes: 'Returns a list of your customers. The customers are returned sorted by creation date, with the most recent customers appearing first.'
         }
     })
 
