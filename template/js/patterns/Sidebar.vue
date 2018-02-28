@@ -2,9 +2,9 @@
     <div class="sidebar">
         <nav role="navigation" class="sidebar__navigation">
             <h5 class="sidebar__navigation__heading">API</h5>
-            <ul class="sidebar__navigation__items" v-for="(group, key) in routes">
+            <ul class="sidebar__navigation__items" v-for="(group, groupName) in routes">
                 <li>
-                    <a class="sidebar__navigation__item" href="#">{{ key }}</a>
+                    <a class="sidebar__navigation__item" href="#">{{ groupName }}</a>
                     <ul class="sidebar__navigation__items">
                         <li v-for="route in group">
                             <a class="sidebar__navigation__item" href="#">{{ route.description }}</a>
