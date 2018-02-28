@@ -157,3 +157,98 @@
 
     background: $white;
 }
+
+.route__example
+{
+    position: relative;
+    z-index: z-index(default) + 1;
+
+    margin-left: 45%;
+    padding: 42px 0 50px;
+
+    color: #dde4e8;
+
+    .route__area &:first-child
+    {
+        padding-top: 72px;
+    }
+
+    code,
+    pre
+    {
+        text-align: left;
+        white-space: pre-wrap;
+        word-spacing: normal;
+        word-break: break-word;
+        tab-size: 4;
+        hyphens: none;
+
+        color: #d0d0d0;
+
+        direction: ltr;
+    }
+
+    pre
+    {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5em;
+
+        padding: 20px 40px;
+
+        border-radius: 5px;
+        background: #272b2d;
+
+        @include font-code;
+    }
+}
+
+.route__example__part
+{
+    padding: 30px 40px;
+}
+
+.route__example__declaration,
+.route__example__response
+{
+    padding: 20px 0;
+
+    &:first-child
+    {
+        padding-top: 0;
+    }
+
+    &:before
+    {
+        font-size: 15px;
+        font-weight: 500;
+
+        display: inline-block;
+
+        margin-right: 5px;
+        padding-bottom: 8px;
+
+        letter-spacing: .1px;
+
+        color: #d0d4d7;
+
+        @include font;
+    }
+}
+
+.route__example__declaration
+{
+    &:before
+    {
+        content: 'Definition';
+    }
+}
+
+
+.route__example__response
+{
+    &:before
+    {
+        content: 'Example Response';
+    }
+}
