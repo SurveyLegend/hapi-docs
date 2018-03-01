@@ -5,7 +5,7 @@
                 <div class="route__area">
                     <div class="route__copy">
                         <div class="route__copy__padding">
-                            <h1>{{ groupName }}</h1>
+                            <h1>{{ groupName | capitalize }}</h1>
                         </div>
                     </div>
                 </div>
@@ -74,6 +74,16 @@ export default {
         ...mapGetters({
             routes: 'routes/data'
         })
+    },
+
+    filters: {
+        capitalize: value => {
+            if (!value) return ''
+
+            value = value.toString()
+
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        }
     }
 }
 </script>
