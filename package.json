@@ -1,6 +1,6 @@
 {
   "name": "@surveylegend/hapi-vue-docs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Beatiful API documentation generator for Hapi using Vue",
   "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
   "scripts": {
@@ -26,6 +26,7 @@
     "joi": "^13.1.2",
     "prismjs": "^1.11.0",
     "vue": "^2.5.13",
+    "vue-markdown": "^2.2.4",
     "vue-prism-component": "^1.0.1",
     "vue-waypoint": "^3.0.3",
     "vuex": "^3.0.1"

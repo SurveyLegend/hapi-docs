@@ -48,6 +48,7 @@
 .sidebar__navigation__item
 {
     font-size: 15px;
+    font-weight: 400;
 
     display: block;
     overflow: hidden;
@@ -78,10 +79,10 @@
         }
     }
 
-    & + .sidebar__navigation__items
+     + .sidebar__navigation__items .sidebar__navigation__item
     {
-        font-size: 13px;
+        font-size: 14px;
 
-        padding: 0 0 0 36px;
+        padding-left: 36px;
     }
 }

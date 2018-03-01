@@ -1,10 +1,7 @@
 <template>
-    <div id="header">
+    <div class="header">
         <div class="header__sidebar">
-            <div class="header__logo">
-                <a class="header__site" href="/"></a>
-                <a class="header__docs" href="/docs">api</a>
-            </div>
+            <a class="header__logo" href="/"></a>
         </div>
         <div class="header__copy"></div>
         <div class="header__example"></div>
