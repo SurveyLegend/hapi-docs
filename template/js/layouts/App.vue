@@ -18,6 +18,8 @@ export default {
 
     async beforeCreate() {
         await this.$store.dispatch('routes/fetchRoutesData')
+
+        this.$scrollTo(window.location.hash)
     },
 
     components: {
