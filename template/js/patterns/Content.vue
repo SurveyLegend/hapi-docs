@@ -26,14 +26,16 @@
                                 <h5>Arguments</h5>
                                 <ul class="route__list__group">
                                     <template v-if="route.pathParams !== null">
-                                        <li class="route__list__item" v-for="param in route.pathParams.children">
-                                            <h3 class="route__list__item__label">
-                                                <a href="#" class="header-anchor"/>{{ param.name }}
-                                                <span class="route__list__item__label__badge" v-if="param.flags && param.flags.required">Required</span>
-                                                <span class="route__list__item__label__details" v-else>optional</span>
-                                            </h3>
-                                            <vue-markdown :source="param.description" class="route__list__item__description"></vue-markdown>
-                                        </li>
+                                        <template v-for="param in route.pathParams.children">
+                                            <li class="route__list__item" :id="`${route.slug}-${param.name}`">
+                                                <h3 class="route__list__item__label">
+                                                    <a class="header-anchor" :href="`#${route.slug}-${param.name}`" @click="scrollTo(`#${route.slug}-${param.name}`)"/>{{ param.name }}
+                                                    <span class="route__list__item__label__badge" v-if="param.flags && param.flags.required">Required</span>
+                                                    <span class="route__list__item__label__details" v-else>optional</span>
+                                                </h3>
+                                                <vue-markdown :source="param.description" class="route__list__item__description"></vue-markdown>
+                                            </li>
+                                        </template>
                                     </template>
                                     <li class="route__list__item" v-else>
                                         <h3 class="route__list__item__label">No arguments…</h3>
@@ -76,6 +78,12 @@ export default {
         ...mapGetters({
             routes: 'routes/data'
         })
+    },
+
+    methods: {
+        scrollTo(element) {
+            this.$scrollTo(element)
+        }
     }
 }
 </script>
