@@ -28,7 +28,7 @@
                                     <li class="route__list__item" v-for="param in route.pathParams.children">
                                         <h3 class="route__list__item__label">
                                             <a href="#" class="header-anchor"/>{{ param.name }}
-                                            <span class="route__list__item__label__badge" v-if="param.flags.required">Required</span>
+                                            <span class="route__list__item__label__badge" v-if="param.flags && param.flags.required">Required</span>
                                             <span class="route__list__item__label__details" v-else>optional</span>
                                         </h3>
                                         <vue-markdown :source="param.description" class="route__list__item__description"></vue-markdown>

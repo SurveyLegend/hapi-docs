@@ -44,7 +44,7 @@ const startServer = async () => {
             notes: 'Creates a new customer object.',
             validate: {
                 payload: {
-                    email: Joi.string().optional().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
+                    email: Joi.string().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
                 }
             }
         }
@@ -82,7 +82,7 @@ const startServer = async () => {
             validate: {
                 params: {
                     id: Joi.string().required(),
-                    email: Joi.string().optional().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
+                    email: Joi.string().description('Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.')
                 }
             }
         }
