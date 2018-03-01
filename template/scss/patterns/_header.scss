@@ -33,11 +33,11 @@
 
     display: block;
 
-    width: 142px;
+    width: 20px;
     height: 28px;
 
     background-repeat: no-repeat;
-    background-size: 142px 28px;
+    background-size: 20px 28px;
 
-    @include icon('../img/logo@2x.png');
+    @include icon('../svg/logo.svg');
 }
