@@ -7,8 +7,7 @@
     "dev": "yarn development",
     "development": "NODE_ENV=development nodemon server -x \"node -r @std/esm -r dotenv/config\"",
     "build": "NODE_ENV=production webpack --progress --hide-modules --config config/webpack.prod.js",
-    "start": "NODE_ENV=production node -r @std/esm -r dotenv/config server",
-    "prepublish": "yarn build"
+    "start": "NODE_ENV=production node -r @std/esm -r dotenv/config server"
   },
   "main": "lib/index.js",
   "browserslist": [
@@ -28,6 +27,7 @@
     "vue": "^2.5.13",
     "vue-markdown": "^2.2.4",
     "vue-prism-component": "^1.0.1",
+    "vue-scrollto": "^2.9.0",
     "vue-waypoint": "^3.0.3",
     "vuex": "^3.0.1"
   },
