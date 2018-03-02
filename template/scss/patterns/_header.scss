@@ -4,6 +4,11 @@
     z-index: z-index(fixed) + 1;
     top: 0;
     left: 0;
+
+    width: $sidebar-width;
+    padding: 0 $x5;
+
+    border-bottom: 1px solid color($grey, lighter);
 }
 
 %header__section
@@ -13,30 +18,28 @@
 
 .header__sidebar
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: $sidebar-width;
-
-    border-bottom: 1px solid color($grey, lighter);
+    width: 100%;
 
     @extend %header__section;
 }
 
 .header__logo
 {
-    position: relative;
     top: $x3;
-    left: $x5;
 
     display: block;
+    float: left;
 
     width: $x5;
-    height: $x7;
+    height: 100%;
 
-    background-repeat: no-repeat;
-    background-size: $x5 $x7;
+    background:
+    {
+        position: center;
+
+        repeat: no-repeat;
+        size: $x5;
+    };
 
     @include icon('../svg/logo.svg');
 }
