@@ -28,7 +28,7 @@
 {
     float: left;
 
-    width: 45%;
+    width: $route__copy-width;
     padding: 0 0 50px;
 
     .route__area &:first-child
@@ -223,7 +223,7 @@
     position: relative;
     z-index: z-index(default) + 1;
 
-    margin-left: 45%;
+    margin-left: $route__copy-width;
     padding: 42px 0 50px;
 
     color: #dde4e8;
