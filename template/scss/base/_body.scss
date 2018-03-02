@@ -11,5 +11,6 @@ body
     color: color($grey, dark);
     background: $white;
 
+    unicode-bidi: bidi-override;
     @include font;
 }
