@@ -11,7 +11,7 @@
     overflow-y: scroll;
 }
 
-.route
+.method
 {
     position: relative;
     z-index: z-index(default) + 1;
@@ -19,19 +19,24 @@
     overflow: hidden;
 }
 
-.route__area
+.method__area
 {
     overflow: hidden;
 }
 
-.route__copy
+.method__copy
 {
     float: left;
 
     width: 45%;
     padding: 0 0 50px;
 
-    .route__area &:first-child
+    .method.first-of-group:not(:first-child) &
+    {
+        border-top: 1px solid #f0f4f7;
+    }
+
+    .method__area &:first-child
     {
         padding-top: 30px;
     }
@@ -54,7 +59,7 @@
     }
 }
 
-.route__copy__padding
+.method__copy__padding
 {
     padding: 20px 40px;
 
@@ -64,24 +69,24 @@
     }
 }
 
-.route__list
+.method__list
 {
     padding: 40px 40px 0;
 
-    .route__copy__padding + &
+    .method__copy__padding + &
     {
         padding-bottom: 40px;
     }
 }
 
-.route__list__group
+.method__list__group
 {
     margin-top: 8px;
 
     border-top: 1px solid #e1e8ed;
 }
 
-.route__list__item
+.method__list__item
 {
     line-height: 24px;
 
@@ -108,7 +113,7 @@
     }
 }
 
-.route__list__item__label
+.method__list__item__label
 {
     font-size: 14px;
     line-height: 21px;
@@ -132,7 +137,7 @@
         }
     }
 
-    .route__list:not(.is-empty) &:after
+    .method__list:not(.is-empty) &:after
     {
         font-weight: 400;
 
@@ -146,7 +151,7 @@
         color: #dde4e8;
     }
 
-    .route__list.is-empty &
+    .method__list.is-empty &
     {
         font-weight: 400;
 
@@ -178,7 +183,7 @@
     }
 }
 
-.route__list__item__label__details
+.method__list__item__label__details
 {
     font-size: 13px;
     font-weight: 400;
@@ -190,7 +195,7 @@
     color: #939da3;
 }
 
-.route__list__item__label__badge
+.method__list__item__label__badge
 {
     font-size: 11px;
     font-weight: 600;
@@ -202,10 +207,10 @@
 
     color: #ffae54;
 
-    @extend .route__list__item__label__details;
+    @extend .method__list__item__label__details;
 }
 
-.route__list__item__description p
+.method__list__item__description p
 {
     font-size: 14px;
     line-height: 21px;
@@ -218,7 +223,7 @@
     background: #fff;
 }
 
-.route__example
+.method__example
 {
     position: relative;
     z-index: z-index(default) + 1;
@@ -228,7 +233,7 @@
 
     color: #dde4e8;
 
-    .route__area &:first-child
+    .method__area &:first-child
     {
         padding-top: 72px;
     }
@@ -263,13 +268,13 @@
     }
 }
 
-.route__example__part
+.method__example__part
 {
     padding: 30px 40px;
 }
 
-.route__example__declaration,
-.route__example__response
+.method__example__declaration,
+.method__example__response
 {
     padding: 20px 0;
 
@@ -296,7 +301,7 @@
     }
 }
 
-.route__example__declaration
+.method__example__declaration
 {
     &:before
     {
@@ -305,7 +310,7 @@
 }
 
 
-.route__example__response
+.method__example__response
 {
     &:before
     {
