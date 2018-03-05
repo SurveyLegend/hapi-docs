@@ -29,7 +29,7 @@
                                         <template v-for="param in route.pathParams.children">
                                             <li class="method__list__item" :id="`${route.slug}-${param.name}`">
                                                 <h3 class="method__list__item__label">
-                                                    <a class="header-anchor" :href="`#${route.slug}-${param.name}`" @click="scrollTo(`#${route.slug}-${param.name}`)"/>{{ param.name }}
+                                                    <a class="header-anchor" :href="`#${route.slug}-${param.name}`" @click="$parent.scrollTo(`#${route.slug}-${param.name}`)"/>{{ param.name }}
                                                     <span class="method__list__item__label__badge" v-if="param.flags && param.flags.required">Required</span>
                                                     <span class="method__list__item__label__details" v-else>optional</span>
                                                 </h3>
@@ -78,12 +78,6 @@ export default {
         ...mapGetters({
             routes: 'routes/data'
         })
-    },
-
-    methods: {
-        scrollTo(element) {
-            this.$scrollTo(element)
-        }
     }
 }
 </script>
