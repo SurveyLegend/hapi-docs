@@ -49,9 +49,9 @@
         padding: 0 $x1;
 
         color: $purple;
-        border: 1px solid color($grey, lighter);
+        border: 1px solid color($grey, lightest);
         border-radius: $x1;
-        background: color($grey, lightest);
+        background: color($grey, lightester);
 
         @include font-code;
     }
@@ -90,7 +90,7 @@
 
     padding: $x4 0;
 
-    border-bottom: 1px solid color($grey, lighter);
+    border-bottom: 1px solid color($grey, lightest);
 
     &:after,
     &:before
@@ -135,18 +135,21 @@
         }
     }
 
-    .route__list:not(.is-empty) &:after
+    .route__list:not(.is-empty)
     {
-        font-weight: 400;
+        &:after
+        {
+            font-weight: 400;
 
-        position: absolute;
-        top: 0;
-        left: 200px;
+            position: absolute;
+            top: 0;
+            left: 200px;
 
-        content: '\2014';
-        text-align: left;
+            content: '\2014';
+            text-align: left;
 
-        color: #dde4e8;
+            color: color($grey, lightest);
+        }
     }
 
     .route__list.is-empty &
@@ -163,23 +166,30 @@
     .header-anchor
     {
         position: relative;
-        top: $x05;
+        top: $x1;
         left: -$x5;
 
         display: inline-block;
 
-        width: $x4;
-        height: $x4;
+        width: $x5;
+        height: $x5;
         margin-right: -$x4;
 
-        transition: opacity .2s ease;
+        transition: opacity .2s ease, border .2s ease;
 
         opacity: 0;
+        border: 1px solid transparent;
+        border-radius: $x1;
         background-position: 50% 50%;
         background-size: $x3 $x3;
 
         @include icon('../img/anchor@2x.png');
         isolation: isolate;
+
+        &:hover
+        {
+            border: 1px solid color($grey, lighter);
+        }
     }
 }
 
@@ -294,7 +304,7 @@
         margin-right: $x1;
         padding-bottom: $x2;
 
-        color: color($grey, lighter);
+        color: color($grey, lightest);
 
         @include font;
     }
