@@ -16,6 +16,13 @@ import AppBackground from '@/js/patterns/Background'
 export default {
     el: '#app',
 
+    components: {
+        AppHeader,
+        AppSidebar,
+        AppContent,
+        AppBackground
+    },
+
     async beforeCreate() {
         await this.$store.dispatch('routes/fetchRoutesData')
 
@@ -26,11 +33,10 @@ export default {
         }
     },
 
-    components: {
-        AppHeader,
-        AppSidebar,
-        AppContent,
-        AppBackground
+    methods: {
+        scrollTo(element) {
+            this.$scrollTo(element)
+        }
     }
 }
 </script>
