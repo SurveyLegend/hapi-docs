@@ -29,26 +29,29 @@
     float: left;
 
     width: $route__copy-width;
-    padding: 0 0 50px;
+    padding: 0 0 $x12;
 
-    .route__area &:first-child
+    .route__area
     {
-        padding-top: 30px;
+        &:first-child
+        {
+            padding-top: $x7;
+        }
     }
 
     code
     {
         font-size: 13px;
-        line-height: 20px;
+        line-height: $x5;
 
         display: inline-block;
 
-        padding: 0 5px;
+        padding: 0 $x1;
 
-        color: #b93d6a;
-        border: 1px solid #f0f4f7;
-        border-radius: 4px;
-        background: #fafcfc;
+        color: $purple;
+        border: 1px solid color($grey, lighter);
+        border-radius: $x1;
+        background: color($grey, lightest);
 
         @include font-code;
     }
@@ -104,14 +107,14 @@
 
     &:last-child
     {
-        border-bottom: 1px solid #e1e8ed;
+        border-bottom: 1px solid color($grey, light);
     }
 }
 
 .route__list__item__label
 {
     font-size: 14px;
-    line-height: 21px;
+    line-height: $x5;
 
     position: relative;
     z-index: z-index(default) + 4;
@@ -154,7 +157,7 @@
 
         text-align: center;
 
-        color: #939da3;
+        color: color($grey, default);
     }
 
     .header-anchor
@@ -168,6 +171,8 @@
         width: $x4;
         height: $x4;
         margin-right: -$x4;
+
+        transition: opacity .2s ease;
 
         opacity: 0;
         background-position: 50% 50%;
@@ -194,28 +199,31 @@
 {
     font-size: 11px;
     font-weight: 600;
-    line-height: 1.2em;
+    line-height: $x4;
 
-    padding: 4px 0 0;
+    padding: $x1 0 0;
 
     text-transform: uppercase;
 
-    color: #ffae54;
+    color: $amber;
 
     @extend .route__list__item__label__details;
 }
 
-.route__list__item__description p
+.route__list__item__description
 {
-    font-size: 14px;
-    line-height: 21px;
+    line-height: $x5;
 
     position: relative;
     z-index: z-index(above);
 
-    margin: 0 0 0 $x50;
+    margin: 0 0 0 $route__list__item__label-space;
 
     background: $white;
+    p
+    {
+        margin-top: $x1;
+    }
 }
 
 .route__example
@@ -224,13 +232,14 @@
     z-index: z-index(default) + 1;
 
     margin-left: $route__copy-width;
-    padding: 42px 0 50px;
+    padding: $x10 0 $x12;
 
-    color: #dde4e8;
-
-    .route__area &:first-child
+    .route__area
     {
-        padding-top: 72px;
+        &:first-child
+        {
+            padding-top: $x18;
+        }
     }
 
     code,
@@ -243,7 +252,7 @@
         tab-size: 4;
         hyphens: none;
 
-        color: #d0d0d0;
+        color: color($grey, light);
 
         direction: ltr;
     }
@@ -252,12 +261,12 @@
     {
         font-size: 13px;
         font-weight: 500;
-        line-height: 1.5em;
+        line-height: $x5;
 
-        padding: 20px 40px;
+        padding: $x5 $x10;
 
-        border-radius: 5px;
-        background: #272b2d;
+        border-radius: $x3 / 2;
+        background: color($grey, darkest);
 
         @include font-code;
     }
@@ -265,13 +274,13 @@
 
 .route__example__part
 {
-    padding: 30px 40px;
+    padding: $x7 $x10;
 }
 
 .route__example__declaration,
 .route__example__response
 {
-    padding: 20px 0;
+    padding: $x5 0;
 
     &:first-child
     {
@@ -280,17 +289,12 @@
 
     &:before
     {
-        font-size: 15px;
-        font-weight: 500;
-
         display: inline-block;
 
-        margin-right: 5px;
-        padding-bottom: 8px;
+        margin-right: $x1;
+        padding-bottom: $x2;
 
-        letter-spacing: .1px;
-
-        color: #d0d4d7;
+        color: color($grey, lighter);
 
         @include font;
     }
