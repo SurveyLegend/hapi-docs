@@ -3,24 +3,44 @@
     position: absolute;
     z-index: z-index(fixed) + 1;
     top: 0;
+    right: 0;
     left: 0;
 
-    width: $sidebar-width;
-    padding: 0 $x5;
-
-    border-bottom: 1px solid color($grey, lightest);
+    height: $header-height;
 }
 
-%header__section
+.header__section
 {
-    height: $x13;
+    display: inline-block;
+    float: left;
+
+    height: 100%;
 }
+
+
+.header__area
+{
+    width: calc(100% - #{$sidebar-width});
+
+    @include respond-to(medium-screens)
+    {
+        width: calc(100% - #{$sidebar-width-small});
+    }
+}
+
 
 .header__sidebar
 {
     width: 100%;
+    width: $sidebar-width;
+    padding: 0 $x2;
 
-    @extend %header__section;
+    border-bottom: 1px solid color($grey, lightest);
+
+    @include respond-to(medium-screens)
+    {
+        width: $sidebar-width-small;
+    }
 }
 
 .header__logo
@@ -30,16 +50,25 @@
     display: block;
     float: left;
 
-    width: $x5;
+    width: 100%;
     height: 100%;
 
     background:
     {
-        position: center;
+        position: left center;
 
+        image: url('../svg/logo.svg');
         repeat: no-repeat;
-        size: $x5;
+        size: $x30;
     };
+}
 
-    @include icon('../svg/logo.svg');
+.header__copy
+{
+    width: $method__copy-width;
+}
+
+.header__example
+{
+    width: $method__copy-width;
 }
