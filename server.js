@@ -117,6 +117,62 @@ const startServer = async () => {
         }
     })
 
+    server.route({
+        method: 'POST',
+        path: '/v1/refunds',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'Create a refund',
+            notes: [
+                'When you create a new refund, you must specify a charge to create it on.',
+                'Creating a new refund will refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.',
+                'You can optionally refund only part of a charge. You can do so as many times as you wish until the entire charge has been refunded.',
+                'Once entirely refunded, a charge can\'t be refunded again. This method will return an error when called on an already-refunded charge, or when trying to refund more money than is left on a charge.'
+            ]
+        }
+    })
+
+    server.route({
+        method: 'GET',
+        path: '/v1/refunds/{id}',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'Retrieve a refund',
+            notes: 'Retrieves the details of an existing refund.'
+        }
+    })
+
+    server.route({
+        method: 'POST',
+        path: '/v1/refunds/{id}',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'Update a refund',
+            notes: [
+                'Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.',
+                'This request only accepts `metadata` as an argument.'
+            ]
+        }
+    })
+
+    server.route({
+        method: 'GET',
+        path: '/v1/refunds',
+        handler(request) {
+            return ''
+        },
+        options: {
+            description: 'List all refunds',
+            notes: 'Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, the 10 most recent refunds are always available by default on the charge object.'
+        }
+    })
+
     await server.start()
 
     console.log(`${Package.name} (v.${Package.version}) server listening on ${server.info.uri} in ${process.env.NODE_ENV} mode`)
