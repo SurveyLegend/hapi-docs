@@ -25,13 +25,13 @@
         right: $sidebar-width;
         left: initial;
     }
-    .route__copy
+    .method__copy
     {
         float: right;
     }
-    .route__example
+    .method__example
     {
-        margin-right: $route__copy-width;
+        margin-right: $method__copy-width;
         margin-left: 0;
     }
     .background
@@ -41,23 +41,23 @@
     }
     .background__actual
     {
-        right: $route__copy-width;
+        right: $method__copy-width;
         left: 0;
     }
 
-    .route__list__item__label
+    .method__list__item__label
     {
         float: right;
 
         text-align: left;
     }
 
-    .route__list__item__description
+    .method__list__item__description
     {
-        margin: 0 $route__list__item__label-space 0 0;
+        margin: 0 $method__list__item__label-space 0 0;
     }
 
-    .route__list__item__label .header-anchor
+    .method__list__item__label .header-anchor
     {
         left: initial;
     }
