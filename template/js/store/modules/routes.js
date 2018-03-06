@@ -10,15 +10,15 @@ export const getters = {
 }
 
 export const mutations = {
-    [types.FETCH_ROUTES_DATA](state, { routes }) {
+    [types.FETCH_ROUTES](state, { routes }) {
         state.data = routes
     }
 }
 
 export const actions = {
-    async fetchRoutesData({ commit }) {
+    async fetchRoutes({ commit }) {
         const { data } = await axios.get('/routes')
 
-        commit(types.FETCH_ROUTES_DATA, { routes: data })
+        commit(types.FETCH_ROUTES, { routes: data })
     }
 }
