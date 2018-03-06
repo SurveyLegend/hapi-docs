@@ -24,19 +24,7 @@ export default {
     },
 
     async beforeCreate() {
-        await this.$store.dispatch('routes/fetchRoutesData')
-
-        const hash = window.location.hash
-
-        if (hash) {
-            this.$scrollTo(hash)
-        }
-    },
-
-    methods: {
-        scrollTo(element) {
-            this.$scrollTo(element)
-        }
+        await this.$store.dispatch('routes/fetchRoutes')
     }
 }
 </script>
