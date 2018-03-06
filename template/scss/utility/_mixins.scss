@@ -11,3 +11,21 @@
     mask-position: center;
     mask-repeat: no-repeat;
 }
+
+@mixin respond-to($media)
+{
+    @if $media == medium-screens
+    {
+        @media only screen and (max-width: $break-large)
+        {
+            @content;
+        }
+    }
+    @else if $media == wide-screens
+    {
+        @media only screen and (min-width: $break-large - 100)
+        {
+            @content;
+        }
+    }
+}

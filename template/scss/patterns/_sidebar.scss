@@ -10,6 +10,11 @@
 
     border-right: 1px solid #f0f4f7;
     background: #fafcfc;
+
+    @include respond-to(medium-screens)
+    {
+        width: 180px;
+    }
 }
 
 .sidebar__navigation

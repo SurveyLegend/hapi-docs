@@ -9,6 +9,11 @@
 
     overflow-x: hidden;
     overflow-y: scroll;
+
+    @include respond-to(medium-screens)
+    {
+        left: 181px;
+    }
 }
 
 .method
@@ -99,17 +104,20 @@
 
     border-bottom: 1px solid #f0f4f7;
 
-    &:after,
-    &:before
+    @include respond-to(wide-screens)
     {
-        display: table;
+        &:after,
+        &:before
+        {
+            display: table;
 
-        content: '';
-    }
+            content: '';
+        }
 
-    &:after
-    {
-        clear: both;
+        &:after
+        {
+            clear: both;
+        }
     }
 
     &:last-child
@@ -123,16 +131,36 @@
     font-size: 14px;
     line-height: 21px;
 
-    position: relative;
-    z-index: z-index(default) + 4;
-
-    float: left;
-
-    width: 180px;
-
-    text-align: right;
     white-space: normal;
     word-break: break-all;
+
+    @include respond-to(wide-screens)
+    {
+        position: relative;
+        z-index: z-index(default) + 4;
+
+        float: left;
+
+        width: 180px;
+
+        text-align: right;
+    }
+    @include respond-to(wide-screens)
+    {
+        .method__list:not(.is-empty) &:after
+        {
+            font-weight: 400;
+
+            position: absolute;
+            top: 0;
+            left: 200px;
+
+            content: '\2014';
+            text-align: left;
+
+            color: #dde4e8;
+        }
+    }
 
     &:hover
     {
@@ -142,29 +170,18 @@
         }
     }
 
-    .method__list:not(.is-empty) &:after
-    {
-        font-weight: 400;
-
-        position: absolute;
-        top: 0;
-        left: 200px;
-
-        content: '\2014';
-        text-align: left;
-
-        color: #dde4e8;
-    }
-
     .method__list.is-empty &
     {
         font-weight: 400;
 
-        width: 100%;
-
         text-align: center;
 
         color: #939da3;
+
+        @include respond-to(wide-screens)
+        {
+            width: 100%;
+        }
     }
 
     .header-anchor
@@ -193,39 +210,73 @@
     font-size: 13px;
     font-weight: 400;
 
-    display: block;
-
     word-break: normal;
 
     color: #939da3;
+
+    @include respond-to(wide-screens)
+    {
+        display: block;
+    }
 }
 
 .method__list__item__label__badge
 {
     font-size: 11px;
     font-weight: 600;
-    line-height: 1.2em;
+    line-height: 20px;
 
-    padding: 4px 0 0;
+    display: inline-block;
 
+    margin-left: 5px;
+    padding: 0 8px;
+
+    vertical-align: top;
     text-transform: uppercase;
 
     color: #ffae54;
+    border: 1px solid rgba(255,174,84,.5);
+    border-radius: 11px;
 
     @extend .method__list__item__label__details;
+    @include respond-to(wide-screens)
+    {
+        line-height: 1.2em;
+
+        display: block;
+
+        margin-left: 0;
+        padding: 4px 0 0;
+
+        border: 0;
+        border-radius: 0;
+    }
 }
 
-.method__list__item__description p
+.method__list__item__description
 {
     font-size: 14px;
     line-height: 21px;
 
-    position: relative;
-    z-index: z-index(above);
+    @include respond-to(wide-screens)
+    {
+        position: relative;
+        z-index: z-index(above);
 
-    margin: 0 0 0 200px;
+        margin: 0 0 0 200px;
 
-    background: #fff;
+        background: #fff;
+
+        p
+        {
+            margin-top: 0;
+        }
+    }
+
+    p
+    {
+        font-size: inherit;
+    }
 }
 
 .method__example
