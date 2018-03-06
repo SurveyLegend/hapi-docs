@@ -38,11 +38,11 @@
 {
     float: left;
 
-    width: $route__copy-width;
+    width: $method__copy-width;
     padding: 0 0 $x12;
 
 <<<<<<< HEAD
-    .route__area
+    .method__area
 =======
     .method.first-of-group:not(:first-child) &
     {
@@ -163,7 +163,7 @@
             font-weight: 400;
 
 <<<<<<< HEAD
-    .route__list:not(.is-empty)
+    .method__list:not(.is-empty)
     {
         &:after
         {
@@ -309,7 +309,7 @@
 }
 
 <<<<<<< HEAD
-.route__list__item__description
+.method__list__item__description
 =======
 .method__list__item__description
 >>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
@@ -324,7 +324,7 @@
         margin: 0 0 0 200px;
 
 <<<<<<< HEAD
-    margin: 0 0 0 $route__list__item__label-space;
+    margin: 0 0 0 $method__list__item__label-space;
 
     background: $white;
     p
@@ -351,11 +351,11 @@
     position: relative;
     z-index: z-index(default) + 1;
 
-    margin-left: $route__copy-width;
+    margin-left: $method__copy-width;
     padding: $x10 0 $x12;
 
 <<<<<<< HEAD
-    .route__area
+    .method__area
 =======
     color: #dde4e8;
 
