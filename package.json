@@ -1,7 +1,7 @@
 {
-  "name": "@surveylegend/hapi-vue-docs",
-  "version": "0.1.1",
-  "description": "Beatiful API documentation generator for Hapi using Vue",
+  "name": "@surveylegend/hapi-docs",
+  "version": "0.0.0",
+  "description": "Beatiful API documentation generator for Hapi",
   "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
   "scripts": {
     "dev": "yarn development",
@@ -73,16 +73,15 @@
     "hapi-plugin",
     "api",
     "api-documentation",
-    "static-site-generator",
-    "vue"
+    "static-site-generator"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/surveylegend/hapi-vue-docs.git"
+    "url": "git+https://github.com/surveylegend/hapi-docs.git"
   },
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/surveylegend/hapi-vue-docs/issues"
+    "url": "https://github.com/surveylegend/hapi-docs/issues"
   },
-  "homepage": "https://github.com/surveylegend/hapi-vue-docs#readme"
+  "homepage": "https://github.com/surveylegend/hapi-docs#readme"
 }
