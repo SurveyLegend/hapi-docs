@@ -146,7 +146,7 @@
 
         float: left;
 
-        width: $x45;
+        width: $method__list__item__label-space - $x4;
 
         text-align: right;
     }
@@ -210,7 +210,7 @@
         background-position: 50% 50%;
         background-size: $x3 $x3;
 
-        @include icon('../img/anchor@2x.png');
+        @include icon('../svg/anchor.svg');
         isolation: isolate;
 
         &:hover
@@ -225,6 +225,11 @@
     font-size: 13px;
     font-weight: 400;
 
+    display: inline-block;
+
+    margin-left: $x1;
+    padding: 0 $x1;
+
     word-break: normal;
 
     color: color($grey, default);
@@ -232,41 +237,21 @@
     @include respond-to(wide-screens)
     {
         display: block;
+
+        padding: 0;
     }
 }
 
 .method__list__item__label__badge
 {
-    font-size: 11px;
     font-weight: 600;
-    line-height: $x4;
+    line-height: $x5;
 
-    display: inline-block;
-
-    margin-left: 5px;
-    padding: $x1 0 0;
-    padding: 0 8px;
-
-    vertical-align: top;
     text-transform: uppercase;
 
     color: $amber;
-    border: 1px solid rgba(255,174,84,.5);
-    border-radius: 11px;
 
     @extend .method__list__item__label__details;
-    @include respond-to(wide-screens)
-    {
-        line-height: 1.2em;
-
-        display: block;
-
-        margin-left: 0;
-        padding: 4px 0 0;
-
-        border: 0;
-        border-radius: 0;
-    }
 }
 
 
@@ -274,7 +259,7 @@
 {
     line-height: $x5;
 
-    margin: 0 0 0 $method__list__item__label-space;
+    margin: $x2 0 0 $x1;
 
     background: $white;
 
@@ -282,7 +267,10 @@
     {
         position: relative;
         z-index: z-index(above);
+
+        margin: 0 0 0 $method__list__item__label-space;
     }
+
     p
     {
         margin-top: $x1;

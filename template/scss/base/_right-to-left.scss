@@ -2,13 +2,7 @@
 {
     direction: rtl;
 
-    .header
-    {
-        right: 0;
-        left: initial;
-    }
-
-    .header__logo
+    .header__section
     {
         float: right;
     }
@@ -47,14 +41,17 @@
 
     .method__list__item__label
     {
-        float: right;
-
-        text-align: left;
+        text-align: right;
     }
 
     .method__list__item__description
     {
-        margin: 0 $method__list__item__label-space 0 0;
+        margin: $x2 $x1 0 0;
+
+        @include respond-to(wide-screens)
+        {
+            margin: 0 $method__list__item__label-space 0 0;
+        }
     }
 
     .method__list__item__label .header-anchor

@@ -10,6 +10,11 @@
 
     border-right: 1px solid color($grey, lightest);
     background: color($grey, lightester);
+
+    @include respond-to(medium-screens)
+    {
+        width: $sidebar-width-small;
+    }
 }
 
 .sidebar__navigation
@@ -48,6 +53,7 @@
 .sidebar__navigation__item
 {
     font-size: 15px;
+    font-weight: 400;
 
     display: block;
     overflow: hidden;
@@ -77,8 +83,7 @@
             color: $light-blue;
         }
     }
-
-     + .sidebar__navigation__items &
+     + .sidebar__navigation__items .sidebar__navigation__item
     {
         font-size: 14px;
 
