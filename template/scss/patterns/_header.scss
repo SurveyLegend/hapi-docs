@@ -5,6 +5,11 @@
     top: 0;
     right: 0;
     left: 221px;
+
+    @include respond-to(medium-screens)
+    {
+        left: 181px;
+    }
 }
 
 %header__section
@@ -23,6 +28,12 @@
     border-bottom: 1px solid #f0f4f7;
 
     @extend %header__section;
+    @include respond-to(medium-screens)
+    {
+        left: -181px;
+
+        width: 180px;
+    }
 }
 
 .header__logo
