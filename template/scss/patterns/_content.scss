@@ -9,29 +9,48 @@
 
     overflow-x: hidden;
     overflow-y: scroll;
+
+    @include respond-to(medium-screens)
+    {
+        left: 181px;
+    }
 }
 
-.route
+.method
 {
     position: relative;
     z-index: z-index(default) + 1;
 
     overflow: hidden;
+
+    &:last-child
+    {
+        min-height: 100vh;
+    }
 }
 
-.route__area
+.method__area
 {
     overflow: hidden;
 }
 
-.route__copy
+.method__copy
 {
     float: left;
 
     width: $route__copy-width;
     padding: 0 0 $x12;
 
+<<<<<<< HEAD
     .route__area
+=======
+    .method.first-of-group:not(:first-child) &
+    {
+        border-top: 1px solid #f0f4f7;
+    }
+
+    .method__area &:first-child
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
     {
         &:first-child
         {
@@ -57,7 +76,7 @@
     }
 }
 
-.route__copy__padding
+.method__copy__padding
 {
     padding: $x5 $x10;
 
@@ -67,24 +86,24 @@
     }
 }
 
-.route__list
+.method__list
 {
     padding: $x10 $x10 0;
 
-    .route__copy__padding + &
+    .method__copy__padding + &
     {
         padding-bottom: $x10;
     }
 }
 
-.route__list__group
+.method__list__group
 {
     margin-top: $x2;
 
     border-top: 1px solid color($grey, light);
 }
 
-.route__list__item
+.method__list__item
 {
     line-height: $x6;
 
@@ -92,17 +111,20 @@
 
     border-bottom: 1px solid color($grey, lightest);
 
-    &:after,
-    &:before
+    @include respond-to(wide-screens)
     {
-        display: table;
+        &:after,
+        &:before
+        {
+            display: table;
 
-        content: '';
-    }
+            content: '';
+        }
 
-    &:after
-    {
-        clear: both;
+        &:after
+        {
+            clear: both;
+        }
     }
 
     &:last-child
@@ -111,30 +133,36 @@
     }
 }
 
-.route__list__item__label
+.method__list__item__label
 {
     font-size: 14px;
     line-height: $x5;
 
-    position: relative;
-    z-index: z-index(default) + 4;
-
-    float: left;
-
-    width: $x45;
-
-    text-align: right;
     white-space: normal;
     word-break: break-all;
 
-    &:hover
+    @include respond-to(wide-screens)
     {
-        .header-anchor
-        {
-            opacity: 1;
-        }
-    }
+        position: relative;
+        z-index: z-index(default) + 4;
 
+<<<<<<< HEAD
+    width: $x45;
+=======
+        float: left;
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
+
+        width: 180px;
+
+        text-align: right;
+    }
+    @include respond-to(wide-screens)
+    {
+        .method__list:not(.is-empty) &:after
+        {
+            font-weight: 400;
+
+<<<<<<< HEAD
     .route__list:not(.is-empty)
     {
         &:after
@@ -149,18 +177,43 @@
             text-align: left;
 
             color: color($grey, lightest);
+=======
+            position: absolute;
+            top: 0;
+            left: 200px;
+
+            content: '\2014';
+            text-align: left;
+
+            color: #dde4e8;
         }
     }
 
-    .route__list.is-empty &
+    &:hover
+    {
+        .header-anchor
+        {
+            opacity: 1;
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
+        }
+    }
+
+    .method__list.is-empty &
     {
         font-weight: 400;
 
-        width: 100%;
-
         text-align: center;
 
+<<<<<<< HEAD
         color: color($grey, default);
+=======
+        color: #939da3;
+
+        @include respond-to(wide-screens)
+        {
+            width: 100%;
+        }
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
     }
 
     .header-anchor
@@ -193,50 +246,107 @@
     }
 }
 
-.route__list__item__label__details
+.method__list__item__label__details
 {
     font-size: 13px;
     font-weight: 400;
 
-    display: block;
-
     word-break: normal;
 
+<<<<<<< HEAD
     color: color($grey, default);
+=======
+    color: #939da3;
+
+    @include respond-to(wide-screens)
+    {
+        display: block;
+    }
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
 }
 
-.route__list__item__label__badge
+.method__list__item__label__badge
 {
     font-size: 11px;
     font-weight: 600;
+<<<<<<< HEAD
     line-height: $x4;
 
     padding: $x1 0 0;
+=======
+    line-height: 20px;
 
+    display: inline-block;
+
+    margin-left: 5px;
+    padding: 0 8px;
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
+
+    vertical-align: top;
     text-transform: uppercase;
 
+<<<<<<< HEAD
     color: $amber;
+=======
+    color: #ffae54;
+    border: 1px solid rgba(255,174,84,.5);
+    border-radius: 11px;
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
 
-    @extend .route__list__item__label__details;
+    @extend .method__list__item__label__details;
+    @include respond-to(wide-screens)
+    {
+        line-height: 1.2em;
+
+        display: block;
+
+        margin-left: 0;
+        padding: 4px 0 0;
+
+        border: 0;
+        border-radius: 0;
+    }
 }
 
+<<<<<<< HEAD
 .route__list__item__description
+=======
+.method__list__item__description
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
 {
     line-height: $x5;
 
-    position: relative;
-    z-index: z-index(above);
+    @include respond-to(wide-screens)
+    {
+        position: relative;
+        z-index: z-index(above);
 
+        margin: 0 0 0 200px;
+
+<<<<<<< HEAD
     margin: 0 0 0 $route__list__item__label-space;
 
     background: $white;
     p
     {
         margin-top: $x1;
+=======
+        background: #fff;
+
+        p
+        {
+            margin-top: 0;
+        }
+    }
+
+    p
+    {
+        font-size: inherit;
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
     }
 }
 
-.route__example
+.method__example
 {
     position: relative;
     z-index: z-index(default) + 1;
@@ -244,7 +354,13 @@
     margin-left: $route__copy-width;
     padding: $x10 0 $x12;
 
+<<<<<<< HEAD
     .route__area
+=======
+    color: #dde4e8;
+
+    .method__area &:first-child
+>>>>>>> 10a4a7135f8ebc11a26cbe19dacc36177239a2a3
     {
         &:first-child
         {
@@ -282,13 +398,13 @@
     }
 }
 
-.route__example__part
+.method__example__part
 {
     padding: $x7 $x10;
 }
 
-.route__example__declaration,
-.route__example__response
+.method__example__declaration,
+.method__example__response
 {
     padding: $x5 0;
 
@@ -310,7 +426,7 @@
     }
 }
 
-.route__example__declaration
+.method__example__declaration
 {
     &:before
     {
@@ -319,7 +435,7 @@
 }
 
 
-.route__example__response
+.method__example__response
 {
     &:before
     {
