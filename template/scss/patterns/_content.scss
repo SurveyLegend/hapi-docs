@@ -17,6 +17,11 @@
     z-index: z-index(default) + 1;
 
     overflow: hidden;
+
+    &:last-child
+    {
+        min-height: 100vh;
+    }
 }
 
 .method__area
