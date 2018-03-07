@@ -5,11 +5,19 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 221px;
+    left: $sidebar-width + 1;
 
     @include respond-to(medium-screens)
     {
-        left: 181px;
+        left: $sidebar-width-small + 1;
+    }
+    @include respond-to(small-screens)
+    {
+        left: 0;
+    }
+    @include respond-to(mobile-screens)
+    {
+        display: none;
     }
 }
 

@@ -12,7 +12,11 @@
 
     @include respond-to(medium-screens)
     {
-        left: 181px;
+        left: $sidebar-width-small + 1;
+    }
+    @include respond-to(small-screens)
+    {
+        left: 0;
     }
 }
 
@@ -26,6 +30,21 @@
     &:last-child
     {
         min-height: 100vh;
+    }
+    &.first-of-group
+    {
+        padding-top: $x5;
+        &:first-child
+        {
+            @include respond-to(small-screens)
+            {
+                padding-top: $x15;
+            }
+        }
+        &:not(:first-child)
+        {
+            border-top: $x05 solid rgba($blue, .1);
+        }
     }
 }
 
@@ -41,20 +60,14 @@
     width: $method__copy-width;
     padding: 0 0 $x12;
 
-
-    .method.first-of-group:not(:first-child) &
+    @include respond-to(mobile-screens)
     {
-        border-top: 1px solid #f0f4f7;
+        float: none;
+
+        width: 100%;
+        padding-top: $x10;
     }
 
-
-    .method__area
-    {
-        &:first-child
-        {
-            padding-top: $x7;
-        }
-    }
 
     code
     {
@@ -285,6 +298,13 @@
     margin-left: $method__copy-width;
     padding: $x10 0 $x12;
 
+    @include respond-to(mobile-screens)
+    {
+        width: 100%;
+        margin: 0;
+
+        background: color($grey, darker);
+    }
 
     .method__area
     {
