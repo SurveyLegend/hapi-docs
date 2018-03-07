@@ -86,6 +86,25 @@
         width: $header-height-mobile;
         height: $header-height-mobile;
     }
+
+    .is-open
+    {
+        .hamburgar-menu__bread-top,
+        .hamburgar-menu__bread-bottom
+        {
+            width: 0;
+
+            opacity: 0;
+        }
+        .hamburgar-menu__hamburgar-slice-one
+        {
+            transform: rotate(-45deg);
+        }
+        .hamburgar-menu__hamburgar-slice-two
+        {
+            transform: rotate(45deg);
+        }
+    }
 }
 %hamburgar-menu__part
 {
@@ -95,7 +114,7 @@
     bottom: 0;
     left: 0;
 
-    width: 60%;
+    width: 50%;
     height: $x05;
     margin: auto;
 
@@ -111,10 +130,9 @@
 
     @extend %hamburgar-menu__part;
 }
-.hamburgar-menu__hamburgar
+.hamburgar-menu__hamburgar-slice-one,
+.hamburgar-menu__hamburgar-slice-two
 {
-    transform: translateY(0);
-
     @extend %hamburgar-menu__part;
 }
 .hamburgar-menu__bread-bottom
