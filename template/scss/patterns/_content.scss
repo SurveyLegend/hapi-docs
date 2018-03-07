@@ -345,6 +345,10 @@
         background: color($grey, darkest);
 
         @include font-code;
+        @include respond-to(mobile-screens)
+        {
+            padding: $x5 $x6;
+        }
     }
 }
 
