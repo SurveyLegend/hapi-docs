@@ -9,11 +9,11 @@
     width: $sidebar-width;
 
     border-right: 1px solid color($grey, lightest);
-    background: color($grey, lightester);
+    background: $sidebar-background-color;
 
     @include respond-to(medium-screens)
     {
-        width: $sidebar-width-small;
+        width: $sidebar-width-medium;
     }
     @include respond-to(small-screens)
     {

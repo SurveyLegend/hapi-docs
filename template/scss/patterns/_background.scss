@@ -9,7 +9,7 @@
 
     @include respond-to(medium-screens)
     {
-        left: $sidebar-width-small + 1;
+        left: $sidebar-width-medium + 1;
     }
     @include respond-to(small-screens)
     {
@@ -29,5 +29,5 @@
     bottom: 0;
     left: $method__copy-width;
 
-    background: color($grey, darker);
+    background: $background__actual-background-color;
 }

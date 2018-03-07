@@ -52,7 +52,7 @@
 
         @include respond-to(medium-screens)
         {
-            right: $sidebar-width-small + 1;
+            right: $sidebar-width-medium + 1;
             left: initial;
         }
         @include respond-to(small-screens)
@@ -93,7 +93,7 @@
 
         @include respond-to(medium-screens)
         {
-            right: $sidebar-width-small + 1;
+            right: $sidebar-width-medium + 1;
             left: 0;
         }
         @include respond-to(small-screens)
