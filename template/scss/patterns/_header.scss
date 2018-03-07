@@ -44,11 +44,10 @@
 
     display: block;
 
-    width: 20px;
-    height: 28px;
+    width: 21px;
+    height: 30px;
 
     background-repeat: no-repeat;
-    background-size: 20px 28px;
 
     @include icon('../svg/logo.svg');
 }
