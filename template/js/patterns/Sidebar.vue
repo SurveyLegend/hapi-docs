@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <nav role="navigation" class="sidebar__navigation">
+        <scroll-spy class="sidebar__navigation" container=".content">
             <h5 class="sidebar__navigation__heading">API</h5>
             <ul class="sidebar__navigation__items" v-for="(group, groupName) in routes">
                 <li>
@@ -12,7 +12,7 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
+        </scroll-spy>
     </div>
 </template>
 
