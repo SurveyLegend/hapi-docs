@@ -8,6 +8,8 @@
 
     width: $sidebar-width;
 
+    transition: transform .15s ease;
+
     border-right: 1px solid color($grey, lightest);
     background: $sidebar-background-color;
 
@@ -17,7 +19,36 @@
     }
     @include respond-to(small-screens)
     {
-        display: none;
+        width: $sidebar-width;
+
+        transform: translateX(-$sidebar-width);
+    }
+}
+
+.sidebar-is-open
+{
+    .sidebar
+    {
+        z-index: z-index(fixed) + 1;
+
+        width: $sidebar-width;
+
+        transform: translateX(0);
+
+        box-shadow: rgba($black,.05) $x1 $x2 $x5 -#{$x1};
+
+        @include respond-to(small-screens)
+        {
+            top: $header-height;
+        }
+        @include respond-to(mobile-screens)
+        {
+            top: $header-height-mobile;
+        }
+        .sidebar__navigation
+        {
+            top: 0;
+        }
     }
 }
 
