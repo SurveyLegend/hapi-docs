@@ -40,6 +40,10 @@
             {
                 padding-top: $x20;
             }
+            @include respond-to(mobile-screens)
+            {
+                padding-top: $x10;
+            }
         }
         &:not(:first-child)
         {

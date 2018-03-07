@@ -11,6 +11,13 @@
     {
         background-position: right center;
     }
+    .header__hamburgar-menu
+    {
+        float: right;
+
+        margin-right: -$x2;
+        margin-left: 0;
+    }
     // Sidebar
     .sidebar
     {

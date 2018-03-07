@@ -17,9 +17,6 @@
     height: 100%;
 }
 
-
-
-
 .header__sidebar
 {
     width: 100%;
@@ -44,6 +41,7 @@
     @include respond-to(mobile-screens)
     {
         width: 100%;
+        height: $header-height-mobile;
     }
 }
 
@@ -51,10 +49,10 @@
 {
     top: $x3;
 
-    display: block;
+    display: inline-block;
     float: left;
 
-    width: 100%;
+    width: calc(100% - #{$header-height});
     height: 100%;
 
     background:
@@ -65,6 +63,65 @@
         repeat: no-repeat;
         size: $x30;
     };
+}
+.header__hamburgar-menu
+{
+    position: relative;
+
+    display: none;
+    float: left;
+
+    width: $header-height;
+    height: $header-height;
+    margin-left: -$x2;
+
+    cursor: pointer;
+
+    @include respond-to(small-screens)
+    {
+        display: inline-block;
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: $header-height-mobile;
+        height: $header-height-mobile;
+    }
+}
+%hamburgar-menu__part
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 60%;
+    height: $x05;
+    margin: auto;
+
+    transition: .2s ease;
+
+    border-radius: $x2;
+    background-color: color($grey, light);
+}
+
+.hamburgar-menu__bread-top
+{
+    transform: translateY(-$x2);
+
+    @extend %hamburgar-menu__part;
+}
+.hamburgar-menu__hamburgar
+{
+    transform: translateY(0);
+
+    @extend %hamburgar-menu__part;
+}
+.hamburgar-menu__bread-bottom
+{
+    transform: translateY($x2);
+
+    @extend %hamburgar-menu__part;
 }
 
 .header__area
@@ -84,6 +141,7 @@
     @include respond-to(mobile-screens)
     {
         width: 100%;
+        height: $header-height-mobile;
     }
 }
 
@@ -107,7 +165,7 @@
     }
     @include respond-to(mobile-screens)
     {
-        border-bottom: 1px solid color($grey, lightest);
+        border-bottom: 1px solid rgba(color($grey, lightest), .1);
         background-color: rgba($background__actual-background-color,.95);
 
         backdrop-filter: blur($x05);
