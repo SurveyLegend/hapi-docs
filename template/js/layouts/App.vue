@@ -25,6 +25,14 @@ export default {
 
     async beforeCreate() {
         await this.$store.dispatch('routes/fetchRoutes')
+
+        const { hash } = window.location
+
+        if (hash) {
+            const target = document.getElementById(hash.substr(1))
+
+            target.scrollIntoView()
+        }
     }
 }
 </script>
