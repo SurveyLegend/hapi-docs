@@ -36,10 +36,6 @@ export default {
 
     mounted() {
         this.initItems()
-        this.removeActiveClass()
-        this.currentItem = this.getItemInsideWindow()
-
-        if (this.currentItem) this.currentItem.classList.add(this.activeClass)
 
         this.scrollContainer.addEventListener('scroll', this.onScroll)
     },
@@ -86,6 +82,11 @@ export default {
             this.items.forEach(item => {
                 item.addEventListener('click', this.handleClick)
             })
+
+            this.removeActiveClass()
+            this.currentItem = this.getItemInsideWindow()
+
+            if (this.currentItem) this.currentItem.classList.add(this.activeClass)
         },
 
         handleClick(event) {
@@ -95,23 +96,19 @@ export default {
             const target = document.getElementById(hash.substr(1))
 
             this.scrollContainer.removeEventListener('scroll', this.onScroll)
+
             this.removeActiveClass()
             event.currentTarget.classList.add(this.activeClass)
-            this.scrollTo(target)
+
+            target.scrollIntoView()
+
             this.scrollContainer.addEventListener('scroll', this.onScroll)
 
-            if (window.history.pushState) {
-                window.history.pushState(null, null, hash)
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, hash)
             } else {
                 window.location.hash = hash
             }
-        },
-
-        scrollTo(target) {
-            const startingY = this.scrollContainer.scrollTop
-            const difference = this.getOffsetTop(target) - startingY
-
-            this.scrollContainer.scrollTop = startingY + difference
         },
 
         getOffsetTop(element) {
