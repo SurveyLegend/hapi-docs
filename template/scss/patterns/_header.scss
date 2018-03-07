@@ -34,6 +34,8 @@
     }
     @include respond-to(small-screens)
     {
+        z-index: z-index(fixed) + 1;
+
         width: $method__copy-width;
 
         background-color: $sidebar-background-color;
@@ -86,25 +88,6 @@
         width: $header-height-mobile;
         height: $header-height-mobile;
     }
-
-    .is-open
-    {
-        .hamburgar-menu__bread-top,
-        .hamburgar-menu__bread-bottom
-        {
-            width: 0;
-
-            opacity: 0;
-        }
-        .hamburgar-menu__hamburgar-slice-one
-        {
-            transform: rotate(-45deg);
-        }
-        .hamburgar-menu__hamburgar-slice-two
-        {
-            transform: rotate(45deg);
-        }
-    }
 }
 %hamburgar-menu__part
 {
@@ -140,6 +123,25 @@
     transform: translateY($x2);
 
     @extend %hamburgar-menu__part;
+}
+
+.sidebar-is-open
+{
+    .hamburgar-menu__bread-top,
+    .hamburgar-menu__bread-bottom
+    {
+        width: 0;
+
+        opacity: 0;
+    }
+    .hamburgar-menu__hamburgar-slice-one
+    {
+        transform: rotate(-45deg);
+    }
+    .hamburgar-menu__hamburgar-slice-two
+    {
+        transform: rotate(45deg);
+    }
 }
 
 .header__area

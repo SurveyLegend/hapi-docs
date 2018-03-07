@@ -26,6 +26,11 @@
 
         border-right: none;
         border-left: 1px solid color($grey, lightest);
+
+        @include respond-to(small-screens)
+        {
+            transform: translateX($sidebar-width);
+        }
     }
     .sidebar__navigation__item
     {
@@ -49,6 +54,13 @@
                     left: initial;
                 }
             }
+        }
+    }
+    &.sidebar-is-open
+    {
+        .sidebar
+        {
+            box-shadow: rgba($black,.05) -#{$x1} $x2 $x5 $x1;
         }
     }
     // Content
