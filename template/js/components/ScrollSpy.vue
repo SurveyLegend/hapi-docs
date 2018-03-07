@@ -56,13 +56,19 @@ export default {
         onScroll(event) {
             this.currentItem = this.getItemInsideWindow()
 
-            if (this.currentItem && this.currentItem !== this.lastActiveItem) {
-                this.removeActiveClass()
-                this.$emit('itemchanged', event, this.currentItem, this.lastActiveItem)
-                this.lastActiveItem = this.currentItem
-            }
+            if (this.currentItem) {
+                const hash = this.currentItem.hash
 
-            if (this.currentItem) this.currentItem.classList.add(this.activeClass)
+                if (this.currentItem !== this.lastActiveItem) {
+                    this.removeActiveClass()
+                    this.$emit('itemchanged', event, this.currentItem, this.lastActiveItem)
+                    this.lastActiveItem = this.currentItem
+                }
+
+                this.currentItem.classList.add(this.activeClass)
+
+                window.location.hash = hash
+            }
         },
 
         getItemInsideWindow() {
