@@ -1,3 +1,5 @@
+// Palette
+
 $red: #f44336;
 $pink: #e91e63;
 $purple: #9c27b0;
@@ -31,3 +33,7 @@ $grey: (
 
 $white: #fff;
 $black: #000;
+
+// UI colors
+$background__actual-background-color: #2d3134; //TODO: why color($grey, darker) doesn't work?
+$sidebar-background-color: #fafcfc; // TODO: why color($grey, lightester) doesn't work?
