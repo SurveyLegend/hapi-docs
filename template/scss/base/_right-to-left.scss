@@ -2,6 +2,7 @@
 {
     direction: rtl;
 
+    // Header
     .header__section
     {
         float: right;
@@ -14,6 +15,16 @@
         border-right: none;
         border-left: 1px solid color($grey, lightest);
     }
+    // Sidebar
+    .sidebar__navigation__item
+    {
+         + .sidebar__navigation__items .sidebar__navigation__item
+        {
+            padding-right: $x8;
+            padding-left: $x5;
+        }
+    }
+    // Content
     .content
     {
         right: $sidebar-width;
@@ -38,7 +49,7 @@
         right: $method__copy-width;
         left: 0;
     }
-
+    //  Content table
     .method__list__item__label
     {
         text-align: right;
