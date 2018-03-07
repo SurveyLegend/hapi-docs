@@ -22,10 +22,26 @@
     }
     .sidebar__navigation__item
     {
+        &.is-active
+        {
+            &:before
+            {
+                right: $x3;
+                left: initial;
+            }
+        }
          + .sidebar__navigation__items .sidebar__navigation__item
         {
             padding-right: $x8;
             padding-left: $x5;
+            &.is-active
+            {
+                &:before
+                {
+                    right: $x5;
+                    left: initial;
+                }
+            }
         }
     }
     // Content
