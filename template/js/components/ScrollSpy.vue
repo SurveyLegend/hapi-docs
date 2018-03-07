@@ -57,8 +57,6 @@ export default {
             this.currentItem = this.getItemInsideWindow()
 
             if (this.currentItem) {
-                const hash = this.currentItem.hash
-
                 if (this.currentItem !== this.lastActiveItem) {
                     this.removeActiveClass()
                     this.$emit('itemchanged', event, this.currentItem, this.lastActiveItem)
@@ -66,8 +64,6 @@ export default {
                 }
 
                 this.currentItem.classList.add(this.activeClass)
-
-                window.location.hash = hash
             }
         },
 
