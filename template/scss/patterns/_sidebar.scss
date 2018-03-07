@@ -55,10 +55,12 @@
     font-size: 15px;
     font-weight: 400;
 
+    position: relative;
+
     display: block;
     overflow: hidden;
 
-    padding: $x3/2 $sidebar__navigation__items-height;
+    padding: $x2 $sidebar__navigation__items-height $x3/2 $sidebar__navigation__items-height;
 
     transition: color .2s ease;
     white-space: nowrap;
@@ -76,6 +78,25 @@
     {
         color: $blue;
 
+        &:before
+        {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: $x3;
+
+            width: $x1;
+            height: $x1;
+            margin: auto;
+
+            content: '';
+            animation: fade .3s ease forwards;
+
+            opacity: 0;
+            border-radius: 100%;
+            background-color: $blue;
+        }
+
         &:hover
         {
             text-decoration: none;
@@ -88,5 +109,13 @@
         font-size: 14px;
 
         padding-left: $x8;
+
+        &.is-active
+        {
+            &:before
+            {
+                left: $x5;
+            }
+        }
     }
 }
