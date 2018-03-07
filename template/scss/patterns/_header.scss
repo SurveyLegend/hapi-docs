@@ -39,15 +39,16 @@
 .header__logo
 {
     position: relative;
-    top: 9px;
-    left: 20px;
+    top: 6px;
+    left: 10px;
 
     display: block;
 
-    width: 21px;
-    height: 30px;
+    width: 100%;
+    height: 38px;
 
     background-repeat: no-repeat;
+    background-position: left center !important;
 
     @include icon('../svg/logo.svg');
 }
