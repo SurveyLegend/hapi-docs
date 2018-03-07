@@ -49,20 +49,58 @@
     {
         right: $sidebar-width;
         left: initial;
+
+        @include respond-to(medium-screens)
+        {
+            right: $sidebar-width-small + 1;
+            left: initial;
+        }
+        @include respond-to(small-screens)
+        {
+            right: 0;
+            left: initial;
+        }
     }
     .method__copy
     {
         float: right;
+
+        @include respond-to(mobile-screens)
+        {
+            float: none;
+
+            width: 100%;
+            padding-top: $x10;
+        }
     }
     .method__example
     {
         margin-right: $method__copy-width;
         margin-left: 0;
+
+        @include respond-to(mobile-screens)
+        {
+            width: 100%;
+            margin: 0;
+
+            background: color($grey, darker);
+        }
     }
     .background
     {
         right: $sidebar-width;
         left: 0;
+
+        @include respond-to(medium-screens)
+        {
+            right: $sidebar-width-small + 1;
+            left: 0;
+        }
+        @include respond-to(small-screens)
+        {
+            right: 0;
+            left: 0;
+        }
     }
     .background__actual
     {

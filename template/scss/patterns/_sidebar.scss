@@ -15,6 +15,10 @@
     {
         width: $sidebar-width-small;
     }
+    @include respond-to(small-screens)
+    {
+        display: none;
+    }
 }
 
 .sidebar__navigation
