@@ -7,6 +7,11 @@
     {
         float: right;
     }
+    .header__logo
+    {
+        background-position: right center;
+    }
+    // Sidebar
     .sidebar
     {
         right: 0;
@@ -15,7 +20,6 @@
         border-right: none;
         border-left: 1px solid color($grey, lightest);
     }
-    // Sidebar
     .sidebar__navigation__item
     {
          + .sidebar__navigation__items .sidebar__navigation__item
