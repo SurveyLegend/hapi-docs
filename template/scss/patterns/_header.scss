@@ -18,28 +18,32 @@
 }
 
 
-.header__area
-{
-    width: calc(100% - #{$sidebar-width});
-
-    @include respond-to(medium-screens)
-    {
-        width: calc(100% - #{$sidebar-width-small});
-    }
-}
 
 
 .header__sidebar
 {
     width: 100%;
-    width: $sidebar-width;
     padding: 0 $x2;
 
     border-bottom: 1px solid color($grey, lightest);
 
+    @include respond-to(large-screens)
+    {
+        width: $sidebar-width;
+    }
     @include respond-to(medium-screens)
     {
-        width: $sidebar-width-small;
+        width: $sidebar-width-medium;
+    }
+    @include respond-to(small-screens)
+    {
+        width: $method__copy-width;
+
+        background-color: $sidebar-background-color;
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: 100%;
     }
 }
 
@@ -63,12 +67,49 @@
     };
 }
 
+.header__area
+{
+    @include respond-to(large-screens)
+    {
+        width: calc(100% - #{$sidebar-width});
+    }
+    @include respond-to(medium-screens)
+    {
+        width: calc(100% - #{$sidebar-width-medium});
+    }
+    @include respond-to(small-screens)
+    {
+        width: $method__copy-width;
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: 100%;
+    }
+}
+
 .header__copy
 {
     width: $method__copy-width;
+
+    @include respond-to(small-screens)
+    {
+        display: none;
+    }
 }
 
 .header__example
 {
     width: $method__copy-width;
+
+    @include respond-to(small-screens)
+    {
+        width: 100%;
+    }
+    @include respond-to(mobile-screens)
+    {
+        border-bottom: 1px solid color($grey, lightest);
+        background-color: rgba($background__actual-background-color,.95);
+
+        backdrop-filter: blur($x05);
+    }
 }
