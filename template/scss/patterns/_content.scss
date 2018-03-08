@@ -172,7 +172,7 @@
 
         text-align: right;
     }
-    @include respond-to(small-screens)
+    @include respond-to(medium-screens)
     {
         margin-left: -$x1;
     }
