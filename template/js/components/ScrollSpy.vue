@@ -11,7 +11,7 @@ export default {
     props: {
         container: {
             type: String,
-            default: 'body'
+            default: '.content'
         },
 
         activeClass: {

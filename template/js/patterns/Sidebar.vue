@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <scroll-spy class="sidebar__navigation" container=".content">
+        <scroll-spy class="sidebar__navigation">
             <h5 class="sidebar__navigation__heading">API</h5>
             <ul class="sidebar__navigation__items" v-for="(group, groupName) in routes">
                 <li>
