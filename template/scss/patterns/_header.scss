@@ -178,6 +178,9 @@
 {
     width: $method__copy-width;
 
+    background-color: rgba($background__actual-background-color, .95);
+
+    backdrop-filter: blur($x05);
     @include respond-to(small-screens)
     {
         width: 100%;
@@ -185,8 +188,5 @@
     @include respond-to(mobile-screens)
     {
         border-bottom: 1px solid rgba(color($grey, lightest), .1);
-        background-color: rgba($background__actual-background-color, .95);
-
-        backdrop-filter: blur($x05);
     }
 }

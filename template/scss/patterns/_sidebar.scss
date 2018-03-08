@@ -10,8 +10,8 @@
 
     transition: transform .15s ease;
 
-    border-right: 1px solid color($grey, lightest);
     background: $sidebar-background-color;
+    box-shadow: rgba($black, .05) 1px 0 0;
 
     @include respond-to(medium-screens)
     {
