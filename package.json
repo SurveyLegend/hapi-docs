@@ -7,7 +7,8 @@
     "dev": "yarn development",
     "development": "NODE_ENV=development nodemon server -x \"node -r @std/esm -r dotenv/config\"",
     "build": "NODE_ENV=production webpack --progress --hide-modules --config config/webpack.prod.js",
-    "start": "NODE_ENV=production node -r @std/esm -r dotenv/config server"
+    "start": "NODE_ENV=production node -r @std/esm -r dotenv/config server",
+    "prepublishOnly": "yarn build"
   },
   "main": "lib/index.js",
   "browserslist": [
