@@ -26,8 +26,7 @@
         right: 0;
         left: initial;
 
-        border-right: none;
-        border-left: 1px solid color($grey, lightest);
+        box-shadow: rgba($black, .05) -1px 0 0;
 
         @include respond-to(small-screens)
         {
