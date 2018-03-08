@@ -19,12 +19,11 @@
 
 .header__sidebar
 {
-    width: 100%;
     padding: 0 $x2;
 
     border-bottom: 1px solid color($grey, lightest);
 
-    @include respond-to(large-screens)
+    @include respond-to(wide-screens)
     {
         width: $sidebar-width;
     }
@@ -146,7 +145,7 @@
 
 .header__area
 {
-    @include respond-to(large-screens)
+    @include respond-to(wide-screens)
     {
         width: calc(100% - #{$sidebar-width});
     }
