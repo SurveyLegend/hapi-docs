@@ -4,7 +4,7 @@
             <h5 class="sidebar__navigation__heading">API</h5>
             <ul class="sidebar__navigation__items" v-for="(group, groupName) in routes">
                 <li>
-                    <a class="scrollactive-item sidebar__navigation__item" :href="`#${groupName}`">{{ groupName | capitalize }}</a>
+                    <a class="sidebar__navigation__item" :href="`#${groupName}`">{{ groupName | capitalize }}</a>
                     <ul class="sidebar__navigation__items">
                         <li v-for="route in group">
                             <a class="sidebar__navigation__item" :href="`#${route.slug}`">{{ route.description }}</a>
