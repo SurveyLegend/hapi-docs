@@ -20,6 +20,27 @@
     }
 }
 
+
+.sidebar-is-open
+{
+    .content
+    {
+        &:after
+        {
+            position: fixed;
+            z-index: z-index(fixed) + 1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            content: '';
+            animation: fade-bg-from-transparet-to-semi-transparent-dark .2s ease forwards;
+        }
+    }
+}
+
+
 .method
 {
     position: relative;
