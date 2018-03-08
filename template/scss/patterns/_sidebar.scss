@@ -19,9 +19,15 @@
     }
     @include respond-to(small-screens)
     {
+        top: $header-height;
+
         width: $sidebar-width;
 
         transform: translateX(-$sidebar-width);
+    }
+    @include respond-to(mobile-screens)
+    {
+        top: $header-height-mobile;
     }
 }
 
@@ -36,19 +42,6 @@
         transform: translateX(0);
 
         box-shadow: rgba($black,.05) $x1 $x2 $x5 -#{$x1};
-
-        @include respond-to(small-screens)
-        {
-            top: $header-height;
-        }
-        @include respond-to(mobile-screens)
-        {
-            top: $header-height-mobile;
-        }
-        .sidebar__navigation
-        {
-            top: 0;
-        }
     }
 }
 
@@ -61,6 +54,11 @@
     left: 0;
 
     overflow: scroll;
+
+    @include respond-to(small-screens)
+    {
+        top: 0;
+    }
 }
 
 .sidebar__navigation__heading

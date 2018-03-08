@@ -131,7 +131,18 @@
     //  Content table
     .method__list__item__label
     {
-        text-align: right;
+        @include respond-to(wide-screens)
+        {
+            float: right;
+
+            text-align: left;
+        }
+    }
+    .method__list__item__label__details,
+    .method__list__item__label__badge
+    {
+        margin-right: $x1;
+        margin-left: 0;
     }
 
     .method__list__item__description
