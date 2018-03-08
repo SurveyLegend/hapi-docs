@@ -1,4 +1,4 @@
 {
-    "esm": "js",
+    "mode": "js",
     "cjs": true
 }

@@ -1,6 +1,6 @@
 {
   "name": "@surveylegend/hapi-docs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Beatiful API documentation generator for Hapi",
   "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
   "scripts": {
@@ -16,7 +16,7 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "@std/esm": "^0.22.0",
+    "@std/esm": "^0.25.2",
     "axios": "^0.17.1",
     "babel-runtime": "^6.26.0",
     "dotenv": "^4.0.0",
