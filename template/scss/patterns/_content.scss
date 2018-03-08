@@ -151,6 +151,7 @@
         }
     }
 
+
     &:last-child
     {
         border-bottom: 1px solid color($grey, light);
@@ -175,6 +176,10 @@
         width: $method__list__item__label-space - $x4;
 
         text-align: right;
+    }
+    @include respond-to(small-screens)
+    {
+        margin-left: -$x1;
     }
 
     .method__list:not(.is-empty)
