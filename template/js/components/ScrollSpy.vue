@@ -60,7 +60,6 @@ export default {
             if (this.currentItem) {
                 if (this.currentItem !== this.lastActiveItem) {
                     this.removeActiveClass()
-                    this.$emit('itemchanged', event, this.currentItem, this.lastActiveItem)
                     this.lastActiveItem = this.currentItem
                 }
 
