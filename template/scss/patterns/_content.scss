@@ -55,7 +55,8 @@
         }
         &:not(:first-child)
         {
-            border-top: $x05 solid rgba($blue, .1);
+            border-top: 1px dashed rgba($black, .1);
+            background: linear-gradient(to bottom, rgba($black, .02), transparent 90%);
         }
     }
 }
@@ -353,7 +354,7 @@
         background: color($grey, darkest);
 
         @include font-code;
-        @include respond-to(mobile-screens)
+        @include respond-to(medium-screens)
         {
             padding: $x5 $x6;
         }
