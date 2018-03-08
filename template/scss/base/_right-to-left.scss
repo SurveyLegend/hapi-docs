@@ -136,7 +136,7 @@
 
             text-align: left;
         }
-        @include respond-to(small-screens)
+        @include respond-to(medium-screens)
         {
             margin-right: -$x1;
             margin-left: 0;
