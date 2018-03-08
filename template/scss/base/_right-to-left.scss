@@ -136,6 +136,11 @@
 
             text-align: left;
         }
+        @include respond-to(small-screens)
+        {
+            margin-right: -$x1;
+            margin-left: 0;
+        }
     }
     .method__list__item__label__details,
     .method__list__item__label__badge
