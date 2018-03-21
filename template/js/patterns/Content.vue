@@ -47,7 +47,7 @@
                         <div class="method__example">
                             <div class="method__example__part">
                                 <div class="method__example__declaration">
-                                    <prism language="bash">{{ route.method }} {{ route.uri + route.path }}</prism>
+                                    <prism language="bash">{{ route.method }} {{ route.prefix + route.uri + route.path }}</prism>
                                 </div>
                                 <!-- <div class="method__example__response">
                                     <prism language="json"></prism>
