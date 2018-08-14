@@ -1,6 +1,6 @@
 {
   "name": "@surveylegend/hapi-docs",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "description": "Beatiful API documentation generator for Hapi",
   "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
   "scripts": {
