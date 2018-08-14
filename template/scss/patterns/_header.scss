@@ -57,7 +57,7 @@
     height: 100%;
 
     background:
-    {
+{
         position: left center;
 
         image: url('../svg/logo.svg');
@@ -156,10 +156,10 @@
     @include respond-to(small-screens)
     {
         width: $method__copy-width;
-    }
+}
     @include respond-to(mobile-screens)
-    {
-        width: 100%;
+{
+    width: 100%;
         height: $header-height-mobile;
     }
 }
