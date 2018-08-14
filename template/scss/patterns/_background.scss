@@ -5,11 +5,19 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 221px;
+    left: $sidebar-width;
 
     @include respond-to(medium-screens)
     {
-        left: 181px;
+        left: $sidebar-width-medium + 1;
+    }
+    @include respond-to(small-screens)
+    {
+        left: 0;
+    }
+    @include respond-to(mobile-screens)
+    {
+        display: none;
     }
 }
 
@@ -19,7 +27,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 45%;
+    left: $method__copy-width;
 
-    background: #2d3134;
+    background: $background__actual-background-color;
 }

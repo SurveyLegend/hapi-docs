@@ -14,7 +14,21 @@
 
 @mixin respond-to($media)
 {
-    @if $media == medium-screens
+    @if $media == mobile-screens
+    {
+        @media only screen and (max-width: $break-mobile)
+        {
+            @content;
+        }
+    }
+    @else if $media == small-screens
+    {
+        @media only screen and (max-width: $break-small)
+        {
+            @content;
+        }
+    }
+    @else if $media == medium-screens
     {
         @media only screen and (max-width: $break-large)
         {
@@ -28,4 +42,15 @@
             @content;
         }
     }
+}
+
+@mixin is-absolutely-positioned-center
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
 }

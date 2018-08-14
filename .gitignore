@@ -3,3 +3,5 @@
 *.log
 *.lock
 .env
+.DS_Store
+/.idea
