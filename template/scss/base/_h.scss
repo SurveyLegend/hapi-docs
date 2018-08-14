@@ -4,7 +4,7 @@ h3,
 h4,
 h5
 {
-    color: #292e31;
+    color: color($grey, darkest);
 }
 
 h4,
@@ -33,5 +33,5 @@ h3
 
 h5
 {
-    color: #939da3;
+    color: color($grey, default);
 }

@@ -6,45 +6,80 @@
     bottom: 0;
     left: 0;
 
-    width: 220px;
+    width: $sidebar-width;
 
-    border-right: 1px solid #f0f4f7;
-    background: #fafcfc;
+    transition: transform .15s ease;
+
+    background: $sidebar-background-color;
+    box-shadow: rgba($black, .05) 1px 0 0;
 
     @include respond-to(medium-screens)
     {
-        width: 180px;
+        width: $sidebar-width-medium;
+    }
+    @include respond-to(small-screens)
+    {
+        top: $header-height;
+
+        width: $sidebar-width;
+
+        transform: translateX(-$sidebar-width);
+    }
+    @include respond-to(mobile-screens)
+    {
+        top: $header-height-mobile;
+    }
+}
+
+.sidebar-is-open
+{
+    .sidebar
+    {
+        z-index: z-index(fixed) + 10;
+
+        width: $sidebar-width;
+
+        transform: translateX(0);
+
+        box-shadow: rgba($black,.05) $x1 $x2 $x5 -#{$x1};
     }
 }
 
 .sidebar__navigation
 {
     position: absolute;
-    top: 49px;
+    top: $x12;
     right: 0;
     bottom: 0;
     left: 0;
 
     overflow: scroll;
+
+    @include respond-to(small-screens)
+    {
+        top: 0;
+    }
 }
 
 .sidebar__navigation__heading
 {
-    padding: 0 20px 4px;
+    padding: 0 $x5 $x1;
 
     &:first-child
     {
-        padding-top: 20px;
+        padding-top: $sidebar__navigation__items-height;
     }
 }
 
 .sidebar__navigation__items
 {
-    line-height: 20px;
+    line-height: $sidebar__navigation__items-height;
+
+    padding: 0 0 $x2;
 
     li
     {
-        line-height: 20px;
+        line-height: $sidebar__navigation__items-height;
     }
 }
 
@@ -53,36 +88,67 @@
     font-size: 15px;
     font-weight: 400;
 
+    position: relative;
+
     display: block;
     overflow: hidden;
 
-    padding: 6px 20px;
+    padding: $x2 $sidebar__navigation__items-height $x3/2 $sidebar__navigation__items-height;
 
+    transition: color .2s ease;
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: #4c555a;
+    color: color($grey, dark);
+
 
     &:hover
     {
-        text-decoration: underline;
-
-        color: #292e31;
+        color: $blue;
     }
 
     &.is-active
     {
-        color: #0099e5;
+        color: $blue;
+
+        &:before
+        {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: $x3;
+
+            width: $x1;
+            height: $x1;
+            margin: auto;
+
+            content: '';
+            animation: fade .3s ease forwards;
+
+            opacity: 0;
+            border-radius: 100%;
+            background-color: $blue;
+        }
 
         &:hover
         {
             text-decoration: none;
+
+            color: $light-blue;
         }
     }
      + .sidebar__navigation__items .sidebar__navigation__item
     {
         font-size: 14px;
 
-        padding-left: 36px;
+        padding-left: $x8;
+
+        &.is-active
+        {
+            &:before
+            {
+                left: $x5;
+            }
+        }
     }
 }
