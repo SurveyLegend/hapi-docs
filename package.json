@@ -15,10 +15,10 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "esm": "^3.0.76",
     "axios": "^0.18.0",
     "babel-runtime": "^6.26.0",
     "dotenv": "^6.0.0",
+    "esm": "^3.0.76",
     "hapi": "^17.5.3",
     "hoek": "^5.0.4",
     "inert": "^5.1.0",
@@ -27,6 +27,7 @@
     "vue": "^2.5.17",
     "vue-markdown": "^2.2.4",
     "vue-prism-component": "^1.0.1",
+    "vue-progressbar": "^0.7.5",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -42,7 +43,7 @@
     "css-loader": "^0.28.9",
     "eslint": "^4.16.0",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-vue-libs": "^2.1.0",
+    "eslint-plugin-vue": "^4.7.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "friendly-errors-webpack-plugin": "^1.7.0",
