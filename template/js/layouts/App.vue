@@ -4,6 +4,7 @@
         <app-sidebar></app-sidebar>
         <app-content></app-content>
         <app-background></app-background>
+        <vue-progress-bar></vue-progress-bar>
     </div>
 </template>
 
@@ -33,6 +34,14 @@ export default {
 
             target.scrollIntoView()
         }
+    },
+
+    mounted() {
+        this.$Progress.finish()
+    },
+
+    created() {
+        this.$Progress.start()
     }
 }
 </script>
