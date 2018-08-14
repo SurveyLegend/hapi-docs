@@ -1,10 +1,10 @@
 <template>
     <div id="app">
-        <app-header></app-header>
-        <app-sidebar></app-sidebar>
-        <app-content></app-content>
-        <app-background></app-background>
-        <vue-progress-bar></vue-progress-bar>
+        <app-header/>
+        <app-sidebar/>
+        <app-content/>
+        <app-background/>
+        <vue-progress-bar/>
     </div>
 </template>
 

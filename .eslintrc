@@ -1,7 +1,7 @@
 {
     "extends": [
         "eslint:recommended",
-        "plugin:vue-libs/recommended"
+        "plugin:vue/recommended"
     ],
     "parserOptions": {
         "ecmaVersion": 8,
@@ -36,6 +36,7 @@
         "space-in-parens": ["error", "never"],
         "space-infix-ops": "error",
         "strict": ["error", "never"],
-        "no-console": "off"
+        "no-console": "off",
+        "vue/html-indent": ["error", 4]
     }
 }

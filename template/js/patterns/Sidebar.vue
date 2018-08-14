@@ -2,12 +2,21 @@
     <div class="sidebar">
         <scroll-spy class="sidebar__navigation">
             <h5 class="sidebar__navigation__heading">API</h5>
-            <ul class="sidebar__navigation__items" v-for="(group, groupName) in routes">
+            <ul
+                v-for="(group, groupName) in routes"
+                :key="groupName"
+                class="sidebar__navigation__items">
                 <li>
-                    <a class="sidebar__navigation__item" :href="`#${groupName}`">{{ groupName | capitalize }}</a>
+                    <a
+                        :href="`#${groupName}`"
+                        class="sidebar__navigation__item">{{ groupName | capitalize }}</a>
                     <ul class="sidebar__navigation__items">
-                        <li v-for="route in group">
-                            <a class="sidebar__navigation__item" :href="`#${route.slug}`">{{ route.description }}</a>
+                        <li
+                            v-for="route in group"
+                            :key="route.id">
+                            <a
+                                :href="`#${route.slug}`"
+                                class="sidebar__navigation__item">{{ route.description }}</a>
                         </li>
                     </ul>
                 </li>

@@ -1,7 +1,10 @@
 <template>
     <div class="content">
         <template v-for="(group, groupName) in routes">
-            <section class="method first-of-group" :id="groupName">
+            <section
+                :key="groupName"
+                :id="groupName"
+                class="method first-of-group">
                 <div class="method__area">
                     <div class="method__copy">
                         <div class="method__copy__padding">
@@ -11,34 +14,54 @@
                 </div>
             </section>
             <template v-for="route in group">
-                <section class="method" :id="route.slug">
+                <section
+                    :key="route.id"
+                    :id="route.slug"
+                    class="method">
                     <div class="method__area">
                         <div class="method__copy">
                             <div class="method__copy__padding">
                                 <h1>{{ route.description }}</h1>
                                 <template v-if="route.notes">
-                                    <p v-for="note in route.notes">
+                                    <p
+                                        v-for="note in route.notes"
+                                        :key="note.id">
                                         <vue-markdown>{{ note }}</vue-markdown>
                                     </p>
                                 </template>
                             </div>
-                            <div class="method__list" :class="{ 'is-empty': route.pathParams === null }">
+                            <div
+                                :class="{ 'is-empty': route.pathParams === null }"
+                                class="method__list">
                                 <h5>Arguments</h5>
                                 <ul class="method__list__group">
                                     <template v-if="route.pathParams !== null">
                                         <template v-for="param in route.pathParams.children">
-                                            <li class="method__list__item" :id="`${route.slug}-${param.name}`">
+                                            <li
+                                                :key="param.id"
+                                                :id="`${route.slug}-${param.name}`"
+                                                class="method__list__item">
                                                 <h3 class="method__list__item__label">
-                                                    <a class="header-anchor" :href="`#${route.slug}-${param.name}`"/>
+                                                    <a
+                                                        :href="`#${route.slug}-${param.name}`"
+                                                        class="header-anchor"/>
                                                     {{ param.name }}
-                                                    <span class="method__list__item__label__badge" v-if="param.flags && param.flags.required">Required</span>
-                                                    <span class="method__list__item__label__details" v-else>optional</span>
+                                                    <span
+                                                        v-if="param.flags && param.flags.required"
+                                                        class="method__list__item__label__badge">Required</span>
+                                                    <span
+                                                        v-else
+                                                        class="method__list__item__label__details">optional</span>
                                                 </h3>
-                                                <vue-markdown :source="param.description" class="method__list__item__description"></vue-markdown>
+                                                <vue-markdown
+                                                    :source="param.description"
+                                                    class="method__list__item__description"/>
                                             </li>
                                         </template>
                                     </template>
-                                    <li class="method__list__item" v-else>
+                                    <li
+                                        v-else
+                                        class="method__list__item">
                                         <h3 class="method__list__item__label">No arguments…</h3>
                                     </li>
                                 </ul>
