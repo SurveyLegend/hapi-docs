@@ -6,7 +6,7 @@ const Path = require('path')
 module.exports = {
     output: {
         path: Path.resolve(__dirname, '../public/'),
-        publicPath: '/',
+        publicPath: '',
         filename: 'assets/js/[name].js'
     },
     resolve: {
@@ -34,7 +34,8 @@ module.exports = {
                 exclude: /node_modules/,
                 options: {
                     name: '[name].[ext]?[hash]',
-                    outputPath: 'assets/img/'
+                    outputPath: 'assets/img/',
+                    useRelativePath: true
                 }
             },
             {

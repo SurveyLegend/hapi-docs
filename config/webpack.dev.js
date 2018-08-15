@@ -8,7 +8,7 @@ module.exports = Merge(common, {
         app: ['webpack-hot-middleware/client', './template/js/app.js', './template/scss/app.scss']
     },
     resolve: {
-        modules: [Path.join(__dirname, '../node_modules'), 'node_modules']
+        modules: [Path.resolve(__dirname, '../node_modules'), 'node_modules']
     },
     module: {
         rules: [

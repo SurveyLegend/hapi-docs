@@ -28,7 +28,8 @@ const startServer = async () => {
         {
             plugin,
             options: {
-                stripPrefix: '/v1'
+                stripPrefix: '/v1',
+                endpoint: '/v1/docs'
             }
         }
     ])

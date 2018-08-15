@@ -17,7 +17,7 @@ export const mutations = {
 
 export const actions = {
     async fetchRoutes({ commit }) {
-        const { data } = await axios.get('/routes')
+        const { data } = await axios.get('routes')
 
         commit(types.FETCH_ROUTES, { routes: data })
     }
