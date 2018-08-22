@@ -4,50 +4,189 @@
     z-index: z-index(fixed) + 1;
     top: 0;
     right: 0;
-    left: 221px;
+    left: 0;
 
-    @include respond-to(medium-screens)
-    {
-        left: 181px;
-    }
+    height: $header-height;
 }
 
-%header__section
+.header__section
 {
-    height: 49px;
+    display: inline-block;
+    float: left;
+
+    height: 100%;
 }
 
 .header__sidebar
 {
-    position: absolute;
-    top: 0;
-    left: -221px;
+    padding: 0 $x2;
 
-    width: 220px;
+    border-bottom: 1px solid color($grey, lightest);
 
-    border-bottom: 1px solid #f0f4f7;
-
-    @extend %header__section;
+    @include respond-to(wide-screens)
+    {
+        width: $sidebar-width;
+    }
     @include respond-to(medium-screens)
     {
-        left: -181px;
+        width: $sidebar-width-medium;
+    }
+    @include respond-to(small-screens)
+    {
+        z-index: z-index(fixed) + 1;
 
-        width: 180px;
+        width: $method__copy-width;
+
+        background-color: color($grey, lightester);
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: 100%;
+        height: $header-height-mobile;
     }
 }
 
 .header__logo
 {
+    top: $x3;
+
+    display: inline-block;
+    float: left;
+
+    width: calc(100% - #{$header-height});
+    height: 100%;
+
+    background:
+    {
+        position: left center;
+
+        image: url('../svg/logo.svg');
+        repeat: no-repeat;
+        size: $x30;
+    };
+}
+.header__hamburgar-menu
+{
     position: relative;
-    top: 6px;
-    left: 10px;
 
-    display: block;
+    display: none;
+    float: left;
 
-    width: 134px;
-    height: 38px;
+    width: $header-height;
+    height: $header-height;
+    margin-left: -$x2;
 
-    background-repeat: no-repeat;
+    cursor: pointer;
 
-    @include icon('../svg/logo.svg');
+    @include respond-to(small-screens)
+    {
+        display: inline-block;
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: $header-height-mobile;
+        height: $header-height-mobile;
+    }
+}
+%hamburgar-menu__part
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 40%;
+    height: $x05;
+    margin: auto;
+
+    transition: .2s ease;
+
+    border-radius: $x2;
+    background-color: color($grey, default);
+}
+
+.hamburgar-menu__bread-top
+{
+    transform: translateY(-$x2);
+
+    @extend %hamburgar-menu__part;
+}
+.hamburgar-menu__hamburgar-slice-one,
+.hamburgar-menu__hamburgar-slice-two
+{
+    @extend %hamburgar-menu__part;
+}
+.hamburgar-menu__bread-bottom
+{
+    transform: translateY($x2);
+
+    @extend %hamburgar-menu__part;
+}
+
+.sidebar-is-open
+{
+    .hamburgar-menu__bread-top,
+    .hamburgar-menu__bread-bottom
+    {
+        width: 0;
+
+        opacity: 0;
+    }
+    .hamburgar-menu__hamburgar-slice-one
+    {
+        transform: rotate(-45deg);
+    }
+    .hamburgar-menu__hamburgar-slice-two
+    {
+        transform: rotate(45deg);
+    }
+}
+
+.header__area
+{
+    @include respond-to(wide-screens)
+    {
+        width: calc(100% - #{$sidebar-width});
+    }
+    @include respond-to(medium-screens)
+    {
+        width: calc(100% - #{$sidebar-width-medium});
+    }
+    @include respond-to(small-screens)
+    {
+        width: $method__copy-width;
+    }
+    @include respond-to(mobile-screens)
+    {
+        width: 100%;
+        height: $header-height-mobile;
+    }
+}
+
+.header__copy
+{
+    width: $method__copy-width;
+
+    @include respond-to(small-screens)
+    {
+        display: none;
+    }
+}
+
+.header__example
+{
+    width: $method__copy-width;
+
+    background-color: rgba(color($grey, darker), .95);
+
+    backdrop-filter: blur($x05);
+    @include respond-to(small-screens)
+    {
+        width: 100%;
+    }
+    @include respond-to(mobile-screens)
+    {
+        border-bottom: 1px solid rgba(color($grey, lightest), .1);
+    }
 }
