@@ -5,18 +5,14 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: $sidebar-width;
+    left: 221px;
 
     overflow-x: hidden;
     overflow-y: scroll;
 
     @include respond-to(medium-screens)
     {
-        left: $sidebar-width-medium + 1;
-    }
-    @include respond-to(small-screens)
-    {
-        left: 0;
+        left: 181px;
     }
 }
 
@@ -27,29 +23,14 @@
 
     overflow: hidden;
 
+    &:first-child
+    {
+        margin-top: 1px;
+    }
+
     &:last-child
     {
         min-height: 100vh;
-    }
-    &.first-of-group
-    {
-        padding-top: $x5;
-        &:first-child
-        {
-            @include respond-to(small-screens)
-            {
-                padding-top: $x20;
-            }
-            @include respond-to(mobile-screens)
-            {
-                padding-top: $x10;
-            }
-        }
-        &:not(:first-child)
-        {
-            border-top: 1px dashed rgba($black, .1);
-            background: linear-gradient(to bottom, rgba($black, .02), transparent 90%);
-        }
     }
 }
 
@@ -62,31 +43,32 @@
 {
     float: left;
 
-    width: $method__copy-width;
-    padding: 0 0 $x12;
+    width: 45%;
+    padding: 0 0 50px;
 
-    @include respond-to(mobile-screens)
+    .method.first-of-group:not(:first-child) &
     {
-        float: none;
-
-        width: 100%;
-        padding-top: $x10;
+        border-top: 1px solid #f0f4f7;
     }
 
+    .method__area &:first-child
+    {
+        padding-top: 30px;
+    }
 
     code
     {
         font-size: 13px;
-        line-height: $x5;
+        line-height: 20px;
 
         display: inline-block;
 
-        padding: 0 $x1;
+        padding: 0 5px;
 
-        color: $purple;
-        border: 1px solid color($grey, lightest);
-        border-radius: $x1;
-        background: color($grey, lightester);
+        color: #b93d6a;
+        border: 1px solid #f0f4f7;
+        border-radius: 4px;
+        background: #fafcfc;
 
         @include font-code;
     }
@@ -94,7 +76,7 @@
 
 .method__copy__padding
 {
-    padding: $x5 $x10;
+    padding: 20px 40px;
 
     &:last-child
     {
@@ -104,28 +86,28 @@
 
 .method__list
 {
-    padding: $x10 $x10 0;
+    padding: 40px 40px 0;
 
     .method__copy__padding + &
     {
-        padding-bottom: $x10;
+        padding-bottom: 40px;
     }
 }
 
 .method__list__group
 {
-    margin-top: $x2;
+    margin-top: 8px;
 
-    border-top: 1px solid color($grey, light);
+    border-top: 1px solid #e1e8ed;
 }
 
 .method__list__item
 {
-    line-height: $x6;
+    line-height: 24px;
 
-    padding: $x4 0;
+    padding: 17px 0;
 
-    border-bottom: 1px solid color($grey, lightest);
+    border-bottom: 1px solid #f0f4f7;
 
     @include respond-to(wide-screens)
     {
@@ -143,17 +125,16 @@
         }
     }
 
-
     &:last-child
     {
-        border-bottom: 1px solid color($grey, light);
+        border-bottom: 1px solid #e1e8ed;
     }
 }
 
 .method__list__item__label
 {
     font-size: 14px;
-    line-height: $x5;
+    line-height: 21px;
 
     white-space: normal;
     word-break: break-all;
@@ -165,18 +146,13 @@
 
         float: left;
 
-        width: $method__list__item__label-space - $x4;
+        width: 180px;
 
         text-align: right;
     }
-    @include respond-to(medium-screens)
+    @include respond-to(wide-screens)
     {
-        margin-left: -$x1;
-    }
-
-    .method__list:not(.is-empty)
-    {
-        &:after
+        .method__list:not(.is-empty) &:after
         {
             font-weight: 400;
 
@@ -187,7 +163,7 @@
             content: '\2014';
             text-align: left;
 
-            color: color($grey, lightest);
+            color: #dde4e8;
         }
     }
 
@@ -205,7 +181,7 @@
 
         text-align: center;
 
-        color: color($grey, default);
+        color: #939da3;
 
         @include respond-to(wide-screens)
         {
@@ -216,30 +192,21 @@
     .header-anchor
     {
         position: relative;
-        top: $x1;
-        left: -$x5;
+        top: 3px;
+        left: -15px;
 
         display: inline-block;
 
-        width: $x5;
-        height: $x5;
-        margin-right: -$x4;
-
-        transition: opacity .2s ease, border .2s ease;
+        width: 15px;
+        height: 14px;
+        margin-right: -15px;
 
         opacity: 0;
-        border: 1px solid transparent;
-        border-radius: $x1;
         background-position: 50% 50%;
-        background-size: $x3 $x3;
+        background-size: 9px 8px;
 
-        @include icon('../svg/anchor.svg');
+        @include icon('../img/anchor@2x.png');
         isolation: isolate;
-
-        &:hover
-        {
-            border: 1px solid color($grey, lighter);
-        }
     }
 }
 
@@ -248,55 +215,72 @@
     font-size: 13px;
     font-weight: 400;
 
-    display: inline-block;
-
-    margin-left: $x1;
-    padding: 0 $x1;
-
     word-break: normal;
 
-    color: color($grey, default);
+    color: #939da3;
 
     @include respond-to(wide-screens)
     {
         display: block;
-
-        padding: 0;
     }
 }
 
 .method__list__item__label__badge
 {
+    font-size: 11px;
     font-weight: 600;
-    line-height: $x5;
+    line-height: 20px;
 
+    display: inline-block;
+
+    margin-left: 5px;
+    padding: 0 8px;
+
+    vertical-align: top;
     text-transform: uppercase;
 
-    color: $amber;
+    color: #ffae54;
+    border: 1px solid rgba(255,174,84,.5);
+    border-radius: 11px;
 
     @extend .method__list__item__label__details;
-}
+    @include respond-to(wide-screens)
+    {
+        line-height: 1.2em;
 
+        display: block;
+
+        margin-left: 0;
+        padding: 4px 0 0;
+
+        border: 0;
+        border-radius: 0;
+    }
+}
 
 .method__list__item__description
 {
-    line-height: $x5;
-
-    margin: $x2 0 0 $x1;
-
-    background: $white;
+    font-size: 14px;
+    line-height: 21px;
 
     @include respond-to(wide-screens)
     {
         position: relative;
         z-index: z-index(above);
 
-        margin: 0 0 0 $method__list__item__label-space;
+        margin: 0 0 0 200px;
+
+        background: #fff;
+
+        p
+        {
+            margin-top: 0;
+        }
     }
 
     p
     {
-        margin-top: $x1;
+        font-size: inherit;
     }
 }
 
@@ -305,23 +289,14 @@
     position: relative;
     z-index: z-index(default) + 1;
 
-    margin-left: $method__copy-width;
-    padding: $x10 0 $x12;
+    margin-left: 45%;
+    padding: 42px 0 50px;
 
-    @include respond-to(mobile-screens)
+    color: #dde4e8;
+
+    .method__area &:first-child
     {
-        width: 100%;
-        margin: 0;
-
-        background: color($grey, darker);
-    }
-
-    .method__area
-    {
-        &:first-child
-        {
-            padding-top: $x18;
-        }
+        padding-top: 72px;
     }
 
     code,
@@ -334,7 +309,7 @@
         tab-size: 4;
         hyphens: none;
 
-        color: color($grey, light);
+        color: #d0d0d0;
 
         direction: ltr;
     }
@@ -343,30 +318,26 @@
     {
         font-size: 13px;
         font-weight: 500;
-        line-height: $x5;
+        line-height: 1.5em;
 
-        padding: $x5 $x10;
+        padding: 20px 40px;
 
-        border-radius: $x3 / 2;
-        background: color($grey, darkest);
+        border-radius: 5px;
+        background: #272b2d;
 
         @include font-code;
-        @include respond-to(medium-screens)
-        {
-            padding: $x5 $x6;
-        }
     }
 }
 
 .method__example__part
 {
-    padding: $x7 $x10;
+    padding: 30px 40px;
 }
 
 .method__example__declaration,
 .method__example__response
 {
-    padding: $x5 0;
+    padding: 20px 0;
 
     &:first-child
     {
@@ -375,12 +346,17 @@
 
     &:before
     {
+        font-size: 15px;
+        font-weight: 500;
+
         display: inline-block;
 
-        margin-right: $x1;
-        padding-bottom: $x2;
+        margin-right: 5px;
+        padding-bottom: 8px;
 
-        color: color($grey, lightest);
+        letter-spacing: .1px;
+
+        color: #d0d4d7;
 
         @include font;
     }

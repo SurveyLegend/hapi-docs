@@ -8,9 +8,8 @@ body
 
     letter-spacing: .1px;
 
-    color: color($grey, dark);
-    background: $white;
+    color: #4c555a;
+    background: #fff;
 
-    unicode-bidi: bidi-override;
     @include font;
 }

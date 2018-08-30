@@ -1,12 +1,9 @@
 a
 {
-    cursor: pointer;
-    transition: color .2s ease;
-
-    color: $blue;
+    color: #0099e5;
 
     &:hover
     {
-        color: $light-blue;
+        color: #292e31;
     }
 }

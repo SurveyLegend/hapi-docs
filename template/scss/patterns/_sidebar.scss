@@ -6,80 +6,45 @@
     bottom: 0;
     left: 0;
 
-    width: $sidebar-width;
+    width: 220px;
 
-    transition: transform .15s ease;
-
-    background-color: color($grey, lightester);
-    box-shadow: rgba($black, .05) 1px 0 0;
+    border-right: 1px solid #f0f4f7;
+    background: #fafcfc;
 
     @include respond-to(medium-screens)
     {
-        width: $sidebar-width-medium;
-    }
-    @include respond-to(small-screens)
-    {
-        top: $header-height;
-
-        width: $sidebar-width;
-
-        transform: translateX(-$sidebar-width);
-    }
-    @include respond-to(mobile-screens)
-    {
-        top: $header-height-mobile;
-    }
-}
-
-.sidebar-is-open
-{
-    .sidebar
-    {
-        z-index: z-index(fixed) + 10;
-
-        width: $sidebar-width;
-
-        transform: translateX(0);
-
-        box-shadow: rgba($black,.05) $x1 $x2 $x5 -#{$x1};
+        width: 180px;
     }
 }
 
 .sidebar__navigation
 {
     position: absolute;
-    top: $x12;
+    top: 49px;
     right: 0;
     bottom: 0;
     left: 0;
 
     overflow: scroll;
-
-    @include respond-to(small-screens)
-    {
-        top: 0;
-    }
 }
 
 .sidebar__navigation__heading
 {
-    padding: 0 $x5 $x1;
+    padding: 0 20px 4px;
 
     &:first-child
     {
-        padding-top: $sidebar__navigation__items-height;
+        padding-top: 20px;
     }
 }
 
 .sidebar__navigation__items
 {
-    line-height: $sidebar__navigation__items-height;
-
-    padding: 0 0 $x2;
+    line-height: 20px;
 
     li
     {
-        line-height: $sidebar__navigation__items-height;
+        line-height: 20px;
     }
 }
 
@@ -88,67 +53,37 @@
     font-size: 15px;
     font-weight: 400;
 
-    position: relative;
-
     display: block;
     overflow: hidden;
 
-    padding: $x2 $sidebar__navigation__items-height $x3/2 $sidebar__navigation__items-height;
+    padding: 6px 20px;
 
-    transition: color .2s ease;
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: color($grey, dark);
-
+    color: #4c555a;
 
     &:hover
     {
-        color: $blue;
+        text-decoration: underline;
+
+        color: #292e31;
     }
 
     &.is-active
     {
-        color: $blue;
-
-        &:before
-        {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: $x3;
-
-            width: $x1;
-            height: $x1;
-            margin: auto;
-
-            content: '';
-            animation: fade .3s ease forwards;
-
-            opacity: 0;
-            border-radius: 100%;
-            background-color: $blue;
-        }
+        color: #0099e5;
 
         &:hover
         {
             text-decoration: none;
-
-            color: $light-blue;
         }
     }
+
      + .sidebar__navigation__items .sidebar__navigation__item
     {
         font-size: 14px;
 
-        padding-left: $x8;
-
-        &.is-active
-        {
-            &:before
-            {
-                left: $x5;
-            }
-        }
+        padding-left: 36px;
     }
 }
