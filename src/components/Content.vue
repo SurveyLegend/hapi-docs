@@ -25,7 +25,9 @@
                                 <template v-if="path.notes">
                                     <p
                                         v-for="note in path.notes"
-                                        :key="note.id">{{ note }}</p>
+                                        :key="note.id">
+                                        <marked>{{ note }}</marked>
+                                    </p>
                                 </template>
                             </div>
                             <!-- <div

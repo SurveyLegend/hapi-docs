@@ -94,5 +94,29 @@ export default {
 
         margin-top: 20px;
     }
+
+    strong {
+        font-weight: 600;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    code {
+        font-size: 13px;
+        line-height: 20px;
+
+        display: inline-block;
+
+        padding: 0 5px;
+
+        color: #b93d6a;
+        border: 1px solid #f0f4f7;
+        border-radius: 4px;
+        background: #fafcfc;
+
+        @include font-source-code-pro;
+    }
 }
 </style>
