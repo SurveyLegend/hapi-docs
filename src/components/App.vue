@@ -87,5 +87,12 @@ export default {
     h5 {
         color: #939da3;
     }
+
+    p {
+        font-size: 15px;
+        font-weight: 400;
+
+        margin-top: 20px;
+    }
 }
 </style>

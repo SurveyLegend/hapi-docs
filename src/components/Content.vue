@@ -22,11 +22,11 @@
                         <div class="method__copy">
                             <div class="method__copy__padding">
                                 <h1>{{ path.description }}</h1>
-                                <!-- <template v-if="route.notes">
+                                <template v-if="path.notes">
                                     <p
-                                        v-for="note in route.notes"
+                                        v-for="note in path.notes"
                                         :key="note.id">{{ note }}</p>
-                                </template> -->
+                                </template>
                             </div>
                             <!-- <div
                                 :class="{ 'is-empty': route.pathParams === null }"
