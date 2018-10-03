@@ -13,11 +13,11 @@
                         class="sidebar__navigation__item">{{ group.name | capitalize }}</a>
                     <ul class="sidebar__navigation__items">
                         <li
-                            v-for="route in group.routes"
-                            :key="route.name">
+                            v-for="path in group.paths"
+                            :key="path.name">
                             <a
-                                :href="`#${route.slug}`"
-                                class="sidebar__navigation__item">{{ route.description }}</a>
+                                :href="`#${path.slug}`"
+                                class="sidebar__navigation__item">{{ path.description }}</a>
                         </li>
                     </ul>
                 </li>
@@ -32,7 +32,7 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
-            groups: 'hapi-docs/groupedRoutes'
+            groups: 'hapi-docs/groupedPaths'
         })
     }
 }

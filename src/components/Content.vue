@@ -13,15 +13,15 @@
                     </div>
                 </div>
             </section>
-            <template v-for="route in group.routes">
+            <template v-for="path in group.paths">
                 <section
-                    :key="route.id"
-                    :id="route.slug"
+                    :key="path.id"
+                    :id="path.slug"
                     class="method">
                     <div class="method__area">
                         <div class="method__copy">
                             <div class="method__copy__padding">
-                                <h1>{{ route.description }}</h1>
+                                <h1>{{ path.description }}</h1>
                                 <!-- <template v-if="route.notes">
                                     <p
                                         v-for="note in route.notes"
@@ -96,7 +96,7 @@ export default {
 
     computed: {
         ...mapGetters({
-            groups: 'hapi-docs/groupedRoutes'
+            groups: 'hapi-docs/groupedPaths'
         })
     }
 }

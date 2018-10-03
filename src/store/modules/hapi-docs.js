@@ -5,16 +5,16 @@ export const state = {
 }
 
 export const getters = {
-    routes: state => state.data.routes,
+    paths: state => state.data.paths,
     groups: state => state.data.groups,
-    groupedRoutes: (state, getters) => {
+    groupedPaths: (state, getters) => {
         const groups = []
 
         if (getters.groups) {
             getters.groups.forEach(group => {
                 groups.push({
                     name: group,
-                    routes: getters.routes.filter(route => route.group === group)
+                    paths: getters.paths.filter(path => path.group === group)
                 })
             })
         }
