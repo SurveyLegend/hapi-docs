@@ -88,6 +88,14 @@ export default {
         color: #939da3;
     }
 
+    a {
+        color: #0099e5;
+
+        &:hover {
+            color: #292e31;
+        }
+    }
+
     p {
         font-size: 15px;
         font-weight: 400;
