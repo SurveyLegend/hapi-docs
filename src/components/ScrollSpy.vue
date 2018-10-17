@@ -64,6 +64,10 @@ export default {
 
             if (this.currentItem) {
                 if (this.currentItem !== this.lastActiveItem) {
+                    const { hash } = this.currentItem
+
+                    history.replaceState({}, hash.substr(1), hash)
+
                     this.removeActiveClass()
                     this.lastActiveItem = this.currentItem
                 }
@@ -77,7 +81,8 @@ export default {
 
             this.items.forEach(item => {
                 const target = document.getElementById(item.hash.substr(1))
-                const isScreenPastSection = this.scrollContainer.scrollTop >= this.getOffsetTop(target) - this.offset
+                const isScreenPastSection =
+                    this.scrollContainer.scrollTop >= this.getOffsetTop(target) - this.offset
 
                 if (isScreenPastSection) currentItem = item
             })
@@ -125,7 +130,7 @@ export default {
             let nextElement = element
 
             while (nextElement) {
-                yPosition += (nextElement.offsetTop)
+                yPosition += nextElement.offsetTop
                 nextElement = nextElement.offsetParent
             }
 
