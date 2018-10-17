@@ -66,7 +66,7 @@ export default {
                 if (this.currentItem !== this.lastActiveItem) {
                     const { hash } = this.currentItem
 
-                    history.replaceState({}, hash.substr(1), hash)
+                    history.replaceState(null, null, hash)
 
                     this.removeActiveClass()
                     this.lastActiveItem = this.currentItem
