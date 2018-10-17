@@ -66,10 +66,10 @@ export default {
                 if (this.currentItem !== this.lastActiveItem) {
                     const { hash } = this.currentItem
 
-                    history.replaceState(null, null, hash)
-
                     this.removeActiveClass()
                     this.lastActiveItem = this.currentItem
+
+                    this.updateHash(hash)
                 }
 
                 this.currentItem.classList.add(this.activeClass)
@@ -118,11 +118,7 @@ export default {
 
             this.scrollContainer.addEventListener('scroll', this.onScroll)
 
-            if (window.history.replaceState) {
-                window.history.replaceState(null, null, hash)
-            } else {
-                window.location.hash = hash
-            }
+            this.updateHash(hash)
         },
 
         getOffsetTop(element) {
@@ -135,6 +131,14 @@ export default {
             }
 
             return yPosition
+        },
+
+        updateHash(hash) {
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, hash)
+            } else {
+                window.location.hash = hash
+            }
         },
 
         removeActiveClass() {
