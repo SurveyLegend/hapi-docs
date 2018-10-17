@@ -24,6 +24,11 @@ export default {
             default: 'is-active'
         },
 
+        activeParentClass: {
+            type: String,
+            default: 'is-active-parent'
+        },
+
         offset: {
             type: Number,
             default: 1
@@ -70,6 +75,14 @@ export default {
                     this.lastActiveItem = this.currentItem
 
                     this.currentItem.classList.add(this.activeClass)
+
+                    const currentParent = this.currentItem.closest(this.itemClass + 's')
+                        .previousElementSibling.classList
+
+                    if (currentParent.contains(this.itemClass.substr(1))) {
+                        currentParent.add(this.activeParentClass)
+                    }
+
                     this.currentItem.scrollIntoView({ block: 'end', inline: 'nearest' })
 
                     this.updateHash(hash)
@@ -115,6 +128,13 @@ export default {
             this.removeActiveClass()
             event.currentTarget.classList.add(this.activeClass)
 
+            const currentParent = event.currentTarget.closest(this.itemClass + 's')
+                .previousElementSibling.classList
+
+            if (currentParent.contains(this.itemClass.substr(1))) {
+                currentParent.add(this.activeParentClass)
+            }
+
             event.currentTarget.scrollIntoView({ block: 'end', inline: 'nearest' })
             target.scrollIntoView()
 
@@ -145,7 +165,7 @@ export default {
 
         removeActiveClass() {
             this.items.forEach(item => {
-                item.classList.remove(this.activeClass)
+                item.classList.remove(this.activeClass, this.activeParentClass)
             })
         }
     }
