@@ -69,10 +69,11 @@ export default {
                     this.removeActiveClass()
                     this.lastActiveItem = this.currentItem
 
+                    this.currentItem.classList.add(this.activeClass)
+                    this.currentItem.scrollIntoView({ block: 'end', inline: 'nearest' })
+
                     this.updateHash(hash)
                 }
-
-                this.currentItem.classList.add(this.activeClass)
             }
         },
 
@@ -114,6 +115,7 @@ export default {
             this.removeActiveClass()
             event.currentTarget.classList.add(this.activeClass)
 
+            event.currentTarget.scrollIntoView({ block: 'end', inline: 'nearest' })
             target.scrollIntoView()
 
             this.scrollContainer.addEventListener('scroll', this.onScroll)
