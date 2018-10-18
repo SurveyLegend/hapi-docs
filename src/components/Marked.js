@@ -6,11 +6,6 @@ export default {
     template: '<div><slot></slot></div>',
 
     props: {
-        source: {
-            type: String,
-            default: ``
-        },
-
         breaks: {
             type: Boolean,
             default: false
@@ -38,7 +33,7 @@ export default {
 
     data() {
         return {
-            sourceData: this.source
+            sourceData: ''
         }
     },
 
@@ -50,11 +45,6 @@ export default {
                 this.sourceData += slot.text
             }
         }
-
-        this.$watch('source', () => {
-            this.sourceData = this.prerender(this.source)
-            this.$forceUpdate()
-        })
     },
 
     render(createElement) {

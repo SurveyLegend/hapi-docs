@@ -8,7 +8,7 @@
                 <div class="method__copy">
                     <div class="method__copy__padding">
                         <h1>{{ info.title }}</h1>
-                        <p>
+                        <p v-if="info.description">
                             <marked>{{ info.description }}</marked>
                         </p>
                     </div>
