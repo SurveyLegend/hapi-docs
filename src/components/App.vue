@@ -4,7 +4,6 @@
         <app-sidebar/>
         <app-content/>
         <app-background/>
-        <vue-progress-bar/>
     </div>
 </template>
 

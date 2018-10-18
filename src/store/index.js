@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import axiosPlugin from '@/store/plugins/axios'
-
 Vue.use(Vuex)
 
 const requireContext = require.context('./modules', false, /.*\.js$/)
@@ -19,6 +17,5 @@ const modules = requireContext
     }, {})
 
 export default new Vuex.Store({
-    modules,
-    plugins: [axiosPlugin()]
+    modules
 })
