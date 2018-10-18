@@ -63,6 +63,10 @@ export default {
     @include respond-to(medium-screens) {
         width: 180px;
     }
+
+    @include respond-to(wide-screens) {
+        width: 280px;
+    }
 }
 
 .sidebar__navigation {

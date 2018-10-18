@@ -12,12 +12,11 @@
 
 @mixin respond-to($media) {
     @if $media == medium-screens {
-        @media only screen and (max-width: $break-large) {
+        @media only screen and (max-width: $break-medium) {
             @content;
         }
-    }
-    @else if $media == wide-screens {
-        @media only screen and (min-width: $break-large - 100) {
+    } @else if $media == wide-screens {
+        @media only screen and (min-width: $break-large) {
             @content;
         }
     }

@@ -21,6 +21,10 @@
     @include respond-to(medium-screens) {
         left: 181px;
     }
+
+    @include respond-to(wide-screens) {
+        left: 281px;
+    }
 }
 
 %header__section {
@@ -41,6 +45,12 @@
         left: -181px;
 
         width: 180px;
+    }
+
+    @include respond-to(wide-screens) {
+        left: -281px;
+
+        width: 280px;
     }
 }
 
