@@ -28,9 +28,9 @@ const options = {
 
 const startServer = async () => {
     const server = Hapi.server({
-        host: 'localhost',
-        address: '0.0.0.0',
-        port: 3000,
+        host: process.env.HOSTNAME || 'localhost',
+        address: process.env.IP || '0.0.0.0',
+        port: Number(process.env.PORT || 3000),
         debug: {
             request: ['error']
         }
