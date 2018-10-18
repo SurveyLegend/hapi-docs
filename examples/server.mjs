@@ -5,8 +5,6 @@ import Package from '../package'
 import plugin from '../lib'
 
 const options = {
-    basePath: '/v1',
-    pathPrefixSize: 2,
     sortEndpoints: 'ordered',
     info: {
         description:
@@ -49,7 +47,7 @@ const startServer = async () => {
     server.route([
         {
             method: 'POST',
-            path: '/v1/customers',
+            path: '/customers',
             handler(request) {
                 return ''
             },
@@ -73,7 +71,7 @@ const startServer = async () => {
         },
         {
             method: 'GET',
-            path: '/v1/customers/{id}',
+            path: '/customers/{id}',
             handler(request) {
                 return ''
             },
@@ -98,7 +96,7 @@ const startServer = async () => {
         },
         {
             method: 'POST',
-            path: '/v1/customers/{id}',
+            path: '/customers/{id}',
             handler(request) {
                 return ''
             },
@@ -126,7 +124,7 @@ const startServer = async () => {
         },
         {
             method: 'DELETE',
-            path: '/v1/customers/{id}',
+            path: '/customers/{id}',
             handler(request) {
                 return ''
             },
@@ -151,7 +149,7 @@ const startServer = async () => {
         },
         {
             method: 'GET',
-            path: '/v1/customers',
+            path: '/customers',
             handler(request) {
                 return ''
             },
@@ -169,7 +167,7 @@ const startServer = async () => {
         },
         {
             method: 'POST',
-            path: '/v1/refunds',
+            path: '/refunds',
             handler(request) {
                 return ''
             },
@@ -191,7 +189,7 @@ const startServer = async () => {
         },
         {
             method: 'GET',
-            path: '/v1/refunds/{id}',
+            path: '/refunds/{id}',
             handler(request) {
                 return ''
             },
@@ -208,7 +206,7 @@ const startServer = async () => {
         },
         {
             method: 'POST',
-            path: '/v1/refunds/{id}',
+            path: '/refunds/{id}',
             handler(request) {
                 return ''
             },
@@ -228,7 +226,7 @@ const startServer = async () => {
         },
         {
             method: 'GET',
-            path: '/v1/refunds',
+            path: '/refunds',
             handler(request) {
                 return ''
             },
