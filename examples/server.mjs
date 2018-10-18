@@ -6,14 +6,34 @@ import plugin from '../lib'
 
 const options = {
     basePath: '/v1',
-    pathPrefixSize: 2
+    pathPrefixSize: 2,
+    sortEndpoints: 'ordered',
+    info: {
+        description:
+            'The hapi-docs API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support [cross-origin resource sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing), allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website’s client-side code). [JSON](http://www.json.org) is returned by all API responses, including errors.'
+    },
+    tags: [
+        {
+            name: 'customers',
+            description:
+                '`Customer` objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.'
+        },
+        {
+            name: 'refunds',
+            description:
+                '`Refund` objects allow you to refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.'
+        }
+    ]
 }
 
 const startServer = async () => {
     const server = Hapi.server({
         host: 'localhost',
         address: '0.0.0.0',
-        port: 3000
+        port: 3000,
+        debug: {
+            request: ['error']
+        }
     })
 
     await server.register([
@@ -43,6 +63,11 @@ const startServer = async () => {
                             'Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.'
                         )
                     }
+                },
+                plugins: {
+                    'hapi-docs': {
+                        order: 1
+                    }
                 }
             }
         },
@@ -62,6 +87,11 @@ const startServer = async () => {
                         id: Joi.string()
                             .required()
                             .description('The identifier of the customer to be retrieved.')
+                    }
+                },
+                plugins: {
+                    'hapi-docs': {
+                        order: 2
                     }
                 }
             }
@@ -86,6 +116,11 @@ const startServer = async () => {
                             'Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.'
                         )
                     }
+                },
+                plugins: {
+                    'hapi-docs': {
+                        order: 3
+                    }
                 }
             }
         },
@@ -106,6 +141,11 @@ const startServer = async () => {
                             .required()
                             .description('The identifier of the customer to be deleted.')
                     }
+                },
+                plugins: {
+                    'hapi-docs': {
+                        order: 4
+                    }
                 }
             }
         },
@@ -119,7 +159,12 @@ const startServer = async () => {
                 description: 'List all customers',
                 notes:
                     'Returns a list of your customers. The customers are returned sorted by creation date, with the most recent customers appearing first.',
-                tags: ['api']
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 5
+                    }
+                }
             }
         },
         {
@@ -136,7 +181,12 @@ const startServer = async () => {
                     'You can optionally refund only part of a charge. You can do so as many times as you wish until the entire charge has been refunded.',
                     'Once entirely refunded, a charge can’t be refunded again. This method will return an error when called on an already-refunded charge, or when trying to refund more money than is left on a charge.'
                 ],
-                tags: ['api']
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 1
+                    }
+                }
             }
         },
         {
@@ -148,7 +198,12 @@ const startServer = async () => {
             options: {
                 description: 'Retrieve a refund',
                 notes: 'Retrieves the details of an existing refund.',
-                tags: ['api']
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 2
+                    }
+                }
             }
         },
         {
@@ -163,7 +218,12 @@ const startServer = async () => {
                     'Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.',
                     'This request only accepts `metadata` as an argument.'
                 ],
-                tags: ['api']
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 3
+                    }
+                }
             }
         },
         {
@@ -176,7 +236,12 @@ const startServer = async () => {
                 description: 'List all refunds',
                 notes:
                     'Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, the 10 most recent refunds are always available by default on the charge object.',
-                tags: ['api']
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 4
+                    }
+                }
             }
         }
     ])
