@@ -20,6 +20,12 @@ const options = {
             name: 'refunds',
             description:
                 '`Refund` objects allow you to refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.'
+        },
+        {
+            name: 'recipients',
+            description:
+                'With `Recipient, objects, you can transfer money from your Stripe account to a third-party bank account or debit card. The API allows you to create, delete, and update your recipients. You can retrieve individual recipients as well as a list of all your recipients.',
+            deprecated: true
         }
     ]
 }
@@ -246,6 +252,105 @@ const startServer = async () => {
                 plugins: {
                     'hapi-docs': {
                         order: 4
+                    }
+                }
+            }
+        },
+        {
+            method: 'POST',
+            path: '/recipients',
+            handler(request) {
+                return ''
+            },
+            options: {
+                description: 'Create a recipient',
+                notes: [
+                    'Creates a new `Recipient. object and verifies the recipient’s identity. Also verifies the recipient’s bank account information or debit card, if either is provided.'
+                ],
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 1
+                    }
+                }
+            }
+        },
+        {
+            method: 'GET',
+            path: '/recipients/{id}',
+            handler(request) {
+                return ''
+            },
+            options: {
+                description: 'Retrieve a recipient',
+                notes: 'Retrieves the details of an existing refund.',
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 2
+                    }
+                }
+            }
+        },
+        {
+            method: 'POST',
+            path: '/recipients/{id}',
+            handler(request) {
+                return ''
+            },
+            options: {
+                description: 'Update a recipient',
+                notes: [
+                    'Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.',
+                    'This request only accepts `metadata` as an argument.'
+                ],
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 3
+                    }
+                }
+            }
+        },
+        {
+            method: 'DELETE',
+            path: '/recipients/{id}',
+            handler(request) {
+                return ''
+            },
+            options: {
+                description: 'Delete a recipient',
+                notes:
+                    'Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.',
+                tags: ['api'],
+                validate: {
+                    params: {
+                        id: Joi.string()
+                            .required()
+                            .description('The identifier of the customer to be deleted.')
+                    }
+                },
+                plugins: {
+                    'hapi-docs': {
+                        order: 4
+                    }
+                }
+            }
+        },
+        {
+            method: 'GET',
+            path: '/recipients',
+            handler(request) {
+                return ''
+            },
+            options: {
+                description: 'List all recipients',
+                notes:
+                    'Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, the 10 most recent refunds are always available by default on the charge object.',
+                tags: ['api'],
+                plugins: {
+                    'hapi-docs': {
+                        order: 5
                     }
                 }
             }

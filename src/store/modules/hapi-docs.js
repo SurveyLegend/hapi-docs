@@ -17,6 +17,7 @@ export const getters = {
                 groups.push({
                     name: tag.name,
                     description: tag.description,
+                    deprecated: tag.deprecated,
                     paths: getters.paths.filter(path => path.group === tag.name)
                 })
             })

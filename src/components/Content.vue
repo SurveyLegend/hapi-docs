@@ -23,7 +23,12 @@
                 <div class="method__area">
                     <div class="method__copy">
                         <div class="method__copy__padding">
-                            <h1>{{ group.name | capitalize }}</h1>
+                            <h1>
+                                <span>{{ group.name | capitalize }}</span>
+                                <span
+                                    v-if="group.deprecated"
+                                    class="method__badge method__badge--deprecated">Deprecated</span>
+                            </h1>
                             <p>
                                 <marked>{{ group.description }}</marked>
                             </p>
@@ -40,11 +45,10 @@
                         <div class="method__copy">
                             <div class="method__copy__padding">
                                 <h1>
-                                    <template v-if="path.deprecated">
-                                        <span>{{ path.description }}</span>
-                                        <span class="method__badge method__badge--deprecated">Deprecated</span>
-                                    </template>
-                                    <template v-else>{{ path.description }}</template>
+                                    <span>{{ path.description }}</span>
+                                    <span
+                                        v-if="path.deprecated"
+                                        class="method__badge method__badge--deprecated">Deprecated</span>
                                 </h1>
                                 <template v-if="path.notes">
                                     <p
