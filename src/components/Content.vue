@@ -29,7 +29,7 @@
                                     v-if="group.deprecated"
                                     class="method__badge method__badge--deprecated">Deprecated</span>
                             </h1>
-                            <p>
+                            <p v-if="group.description">
                                 <marked>{{ group.description }}</marked>
                             </p>
                         </div>
