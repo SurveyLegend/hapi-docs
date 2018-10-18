@@ -12,7 +12,8 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "start": "node --experimental-modules --no-warnings examples/server.mjs"
+        "start": "node --experimental-modules --no-warnings examples/server.mjs",
+        "postinstall": "yarn build"
     },
     "main": "lib/index.mjs",
     "dependencies": {
