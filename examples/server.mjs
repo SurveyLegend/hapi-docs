@@ -44,6 +44,14 @@ const startServer = async () => {
         }
     ])
 
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler(request, h) {
+            return h.redirect('/docs')
+        }
+    })
+
     server.route([
         {
             method: 'POST',
