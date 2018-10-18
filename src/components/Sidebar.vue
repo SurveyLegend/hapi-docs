@@ -1,13 +1,21 @@
 <template>
     <div class="sidebar">
         <scroll-spy class="sidebar__navigation">
-            <!-- <h5 class="sidebar__navigation__heading">Topics</h5> -->
+            <template v-if="info">
+                <h5 class="sidebar__navigation__heading">Topics</h5>
+                <ul class="sidebar__navigation__items">
+                    <li>
+                        <a
+                            href="#intro"
+                            class="sidebar__navigation__item">Introduction</a>
+                    </li>
+                </ul>
+            </template>
             <h5 class="sidebar__navigation__heading">API</h5>
-            <ul
-                v-for="group in groups"
-                :key="group.name"
-                class="sidebar__navigation__items">
-                <li>
+            <ul class="sidebar__navigation__items">
+                <li
+                    v-for="group in groups"
+                    :key="group.name">
                     <a
                         :href="`#${group.name}`"
                         class="sidebar__navigation__item">{{ group.name | capitalize }}</a>
@@ -32,6 +40,7 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
+            info: 'hapi-docs/info',
             groups: 'hapi-docs/groupedPaths'
         })
     }
@@ -76,10 +85,33 @@ export default {
 }
 
 .sidebar__navigation__items {
+    padding-bottom: 26px;
+
     line-height: 20px;
 
     li {
         line-height: 20px;
+    }
+
+    & li .sidebar__navigation__item + .sidebar__navigation__items {
+        opacity: 0;
+        overflow: hidden;
+
+        height: 0;
+        padding: 0;
+
+        transform: translateY(-10px);
+        will-change: transform, height, opacity;
+    }
+
+    & li .sidebar__navigation__item.is-active + .sidebar__navigation__items,
+    & li .sidebar__navigation__item.is-active-parent + .sidebar__navigation__items {
+        opacity: 1;
+
+        height: 100%;
+
+        transform: translateY(0);
+        transition: all 0.25s cubic-bezier(0.6, 0, 0.4, 1);
     }
 }
 
@@ -95,18 +127,18 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    color: #4c555a;
+    color: #4c555a !important;
 
     user-select: none;
 
     &:hover {
         text-decoration: underline;
 
-        color: #292e31;
+        color: #292e31 !important;
     }
 
     &.is-active {
-        color: #0099e5;
+        color: #0099e5 !important;
 
         &:hover {
             text-decoration: none;

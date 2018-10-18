@@ -1,5 +1,20 @@
 <template>
     <div class="content">
+        <section
+            v-if="info"
+            id="intro"
+            class="method first-of-group">
+            <div class="method__area">
+                <div class="method__copy">
+                    <div class="method__copy__padding">
+                        <h1>{{ info.title }}</h1>
+                        <p>
+                            <marked>{{ info.description }}</marked>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <template v-for="group in groups">
             <section
                 :key="group.name"
@@ -9,6 +24,9 @@
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>{{ group.name | capitalize }}</h1>
+                            <p>
+                                <marked>{{ group.description }}</marked>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -21,7 +39,13 @@
                     <div class="method__area">
                         <div class="method__copy">
                             <div class="method__copy__padding">
-                                <h1>{{ path.description }}</h1>
+                                <h1>
+                                    <template v-if="path.deprecated">
+                                        <span>{{ path.description }}</span>
+                                        <span class="method__badge method__badge--deprecated">Deprecated</span>
+                                    </template>
+                                    <template v-else>{{ path.description }}</template>
+                                </h1>
                                 <template v-if="path.notes">
                                     <p
                                         v-for="note in path.notes"
@@ -98,6 +122,7 @@ export default {
 
     computed: {
         ...mapGetters({
+            info: 'hapi-docs/info',
             groups: 'hapi-docs/groupedPaths'
         })
     }
@@ -176,6 +201,25 @@ export default {
 
     &:last-child {
         padding-bottom: 0;
+    }
+}
+
+.method__badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 0 11px;
+    border: 1px solid rgba(0, 153, 229, 0.5);
+    border-radius: 24px;
+    color: #0099e5;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    &.method__badge--deprecated {
+        border: 1px solid rgba(224, 76, 76, 0.5);
+        color: #e04c4c;
     }
 }
 
