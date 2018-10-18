@@ -283,7 +283,8 @@ const startServer = async () => {
             },
             options: {
                 description: 'Retrieve a recipient',
-                notes: 'Retrieves the details of an existing refund.',
+                notes:
+                    'Retrieves the details of an existing recipient. You need only supply the unique recipient identifier that was returned upon recipient creation.',
                 tags: ['api'],
                 plugins: {
                     'hapi-docs': {
@@ -301,8 +302,8 @@ const startServer = async () => {
             options: {
                 description: 'Update a recipient',
                 notes: [
-                    'Updates the specified refund by setting the values of the parameters passed. Any parameters not provided will be left unchanged.',
-                    'This request only accepts `metadata` as an argument.'
+                    'Updates the specified recipient by setting the values of the parameters passed. Any parameters not provided will be left unchanged.',
+                    'If you update the name or tax ID, the identity verification will automatically be rerun. If you update the bank account, the bank account validation will automatically be rerun.'
                 ],
                 tags: ['api'],
                 plugins: {
@@ -320,8 +321,7 @@ const startServer = async () => {
             },
             options: {
                 description: 'Delete a recipient',
-                notes:
-                    'Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.',
+                notes: 'Permanently deletes a recipient. It cannot be undone.',
                 tags: ['api'],
                 validate: {
                     params: {
@@ -346,7 +346,7 @@ const startServer = async () => {
             options: {
                 description: 'List all recipients',
                 notes:
-                    'Returns a list of all refunds you’ve previously created. The refunds are returned in sorted order, with the most recent refunds appearing first. For convenience, the 10 most recent refunds are always available by default on the charge object.',
+                    'Returns a list of your recipients. The recipients are returned sorted by creation date, with the most recently created recipients appearing first.',
                 tags: ['api'],
                 plugins: {
                     'hapi-docs': {
