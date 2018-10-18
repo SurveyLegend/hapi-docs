@@ -7203,10 +7203,6 @@ vue-prism-component@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/vue-prism-component/-/vue-prism-component-1.0.1.tgz#9e4ecb9b2577b598daef453e8b4637a780d118ae"
 
-vue-progressbar@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/vue-progressbar/-/vue-progressbar-0.7.5.tgz#414730892252b1e45582d4979dec93038e007f79"
-
 vue-router@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.1.tgz#d9b05ad9c7420ba0f626d6500d693e60092cc1e9"
