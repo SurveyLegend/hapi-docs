@@ -34,6 +34,7 @@
                             </p>
                         </div>
                     </div>
+                    <div class="method__example"/>
                 </div>
             </section>
             <template v-for="path in group.paths">
@@ -92,16 +93,16 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- <div class="method__example">
-                            <div class="method__example__part">
+                        <div class="method__example">
+                            <!-- <div class="method__example__part">
                                 <div class="method__example__declaration">
                                     <prism language="bash">{{ route.method }} {{ route.prefix + route.path }}</prism>
                                 </div>
                                 <div class="method__example__response">
                                     <prism language="json"/>
                                 </div>
-                            </div>
-                        </div> -->
+                            </div> -->
+                        </div>
                     </div>
                 </section>
             </template>
@@ -408,46 +409,54 @@ export default {
 //     }
 // }
 //
-// .method__example {
-//     position: relative;
-//     z-index: z-index(default) + 1;
-//
-//     margin-left: 45%;
-//     padding: 42px 0 50px;
-//
-//     color: #dde4e8;
-//
-//     .method__area &:first-child {
-//         padding-top: 72px;
-//     }
-//
-//     code,
-//     pre {
-//         text-align: left;
-//         white-space: pre-wrap;
-//         word-spacing: normal;
-//         word-break: break-word;
-//         tab-size: 4;
-//         hyphens: none;
-//
-//         color: #d0d0d0;
-//
-//         direction: ltr;
-//     }
-//
-//     pre {
-//         font-size: 13px;
-//         font-weight: 500;
-//         line-height: 1.5em;
-//
-//         padding: 20px 40px;
-//
-//         border-radius: 5px;
-//         background: #272b2d;
-//
-//         @include font-source-code-pro;
-//     }
-// }
+.method__example {
+    position: relative;
+    z-index: z-index(default) + 1;
+
+    margin-left: calc((100vw - 220px) * 0.45);
+    padding: 42px 0 50px;
+
+    color: #dde4e8;
+
+    @include respond-to(wide-screens) {
+        margin-left: 780px;
+    }
+
+    .method.first-of-group:not(:first-child) & {
+        border-top: 1px solid #33383b;
+    }
+
+    // .method__area &:first-child {
+    //     padding-top: 72px;
+    // }
+    //
+    // code,
+    // pre {
+    //     text-align: left;
+    //     white-space: pre-wrap;
+    //     word-spacing: normal;
+    //     word-break: break-word;
+    //     tab-size: 4;
+    //     hyphens: none;
+    //
+    //     color: #d0d0d0;
+    //
+    //     direction: ltr;
+    // }
+    //
+    // pre {
+    //     font-size: 13px;
+    //     font-weight: 500;
+    //     line-height: 1.5em;
+    //
+    //     padding: 20px 40px;
+    //
+    //     border-radius: 5px;
+    //     background: #272b2d;
+    //
+    //     @include font-source-code-pro;
+    // }
+}
 //
 // .method__example__part {
 //     padding: 30px 40px;
