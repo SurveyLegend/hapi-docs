@@ -14,6 +14,13 @@
                             </p>
                         </div>
                     </div>
+                    <div class="method__example">
+                        <div class="method__example__part">
+                            <div class="method__example__base-url">
+                                <prism language="bash">{{ scheme }}://{{ host }}</prism>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <template v-for="group in groups">
@@ -163,6 +170,8 @@ export default {
 
     computed: {
         ...mapGetters({
+            host: 'hapi-docs/host',
+            scheme: 'hapi-docs/scheme',
             info: 'hapi-docs/info',
             groups: 'hapi-docs/groupedPaths',
             checkInfo: 'hapi-docs/checkInfo',
@@ -471,78 +480,97 @@ export default {
         border-top: 1px solid #33383b;
     }
 
-    // .method__area &:first-child {
-    //     padding-top: 72px;
-    // }
-    //
-    // code,
-    // pre {
-    //     text-align: left;
-    //     white-space: pre-wrap;
-    //     word-spacing: normal;
-    //     word-break: break-word;
-    //     tab-size: 4;
-    //     hyphens: none;
-    //
-    //     color: #d0d0d0;
-    //
-    //     direction: ltr;
-    // }
-    //
-    // pre {
-    //     font-size: 13px;
-    //     font-weight: 500;
-    //     line-height: 1.5em;
-    //
-    //     padding: 20px 40px;
-    //
-    //     border-radius: 5px;
-    //     background: #272b2d;
-    //
-    //     @include font-source-code-pro;
-    // }
+    .method__area:first-child & {
+        padding-top: 72px;
+    }
+
+    pre,
+    code {
+        text-align: left;
+        white-space: pre-wrap;
+        word-spacing: normal;
+        word-break: break-word;
+        tab-size: 4;
+        hyphens: none;
+
+        color: #d0d0d0 !important;
+
+        direction: ltr;
+    }
+
+    pre {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5em;
+
+        padding: 20px 40px;
+
+        border-radius: 5px;
+        background: #272b2d;
+
+        @include font-source-code-pro;
+    }
+
+    code {
+        padding: 0 !important;
+
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+    }
 }
-//
-// .method__example__part {
-//     padding: 30px 40px;
-// }
-//
-// .method__example__declaration,
-// .method__example__response {
-//     padding: 20px 0;
-//
-//     &:first-child {
-//         padding-top: 0;
-//     }
-//
-//     &:before {
-//         font-size: 15px;
-//         font-weight: 500;
-//
-//         display: inline-block;
-//
-//         margin-right: 5px;
-//         padding-bottom: 8px;
-//
-//         letter-spacing: 0.1px;
-//
-//         color: #d0d4d7;
-//
-//         @include font-hind;
-//     }
-// }
-//
-// .method__example__declaration {
-//     &:before {
-//         content: 'Definition';
-//     }
-// }
-//
-// .method__example__response {
-//     &:before {
-//         content: 'Example Response';
-//     }
-// }
+
+.method__example__part {
+    padding: 30px 40px;
+}
+
+%method__example__type {
+    padding: 20px 0;
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:before {
+        font-size: 15px;
+        font-weight: 500;
+
+        display: inline-block;
+
+        margin-right: 5px;
+        padding-bottom: 8px;
+
+        letter-spacing: 0.1px;
+
+        color: #d0d4d7;
+
+        @include font-hind;
+    }
+}
+
+.method__example__base-url {
+    @extend %method__example__type;
+
+    &:before {
+        content: 'Base URL';
+    }
+}
+
+.method__example__declaration {
+    @extend %method__example__type;
+
+    &:before {
+        content: 'Definition';
+    }
+}
+
+.method__example__response {
+    @extend %method__example__type;
+
+    &:before {
+        content: 'Example Response';
+    }
+}
 
 .loading__shimmer {
     background-color: #f6f7f9;

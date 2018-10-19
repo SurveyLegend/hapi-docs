@@ -2,6 +2,8 @@ import axios from 'axios'
 import * as types from '../mutation-types'
 
 export const state = {
+    host: '',
+    scheme: [],
     info: {},
     paths: [],
     groups: [],
@@ -9,6 +11,8 @@ export const state = {
 }
 
 export const getters = {
+    host: state => state.host,
+    scheme: state => state.scheme,
     info: state => state.info,
     paths: state => state.paths,
     groups: state => state.groups,
@@ -35,6 +39,8 @@ export const getters = {
 
 export const mutations = {
     [types.FETCH_DATA](state, { data }) {
+        state.host = data.host
+        state.scheme = data.scheme
         state.info = data.info
         state.paths = data.paths
         state.groups = data.groups
