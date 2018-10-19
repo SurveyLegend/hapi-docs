@@ -13,7 +13,7 @@ export const getters = {
     paths: state => state.paths,
     groups: state => state.groups,
     tags: state => state.tags,
-    groupedPaths: (state, getters) => {
+    groupedPaths: getters => {
         const grouped = []
 
         getters.groups.forEach(group => {
@@ -28,7 +28,9 @@ export const getters = {
         })
 
         return grouped
-    }
+    },
+    checkInfo: state => Object.keys(state.info).length !== 0,
+    checkGroups: state => state.groups.length !== 0
 }
 
 export const mutations = {

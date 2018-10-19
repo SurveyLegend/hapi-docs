@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <scroll-spy class="sidebar__navigation">
-            <template v-if="info">
+            <template v-if="checkInfo">
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li>
@@ -11,25 +11,27 @@
                     </li>
                 </ul>
             </template>
-            <h5 class="sidebar__navigation__heading">API</h5>
-            <ul class="sidebar__navigation__items">
-                <li
-                    v-for="group in groups"
-                    :key="group.name">
-                    <a
-                        :href="`#${group.name}`"
-                        class="sidebar__navigation__item">{{ group.name | capitalize }}</a>
-                    <ul class="sidebar__navigation__items">
-                        <li
-                            v-for="path in group.paths"
-                            :key="path.name">
-                            <a
-                                :href="`#${path.slug}`"
-                                class="sidebar__navigation__item">{{ path.description }}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <template v-if="checkGroups">
+                <h5 class="sidebar__navigation__heading">API</h5>
+                <ul class="sidebar__navigation__items">
+                    <li
+                        v-for="group in groups"
+                        :key="group.name">
+                        <a
+                            :href="`#${group.name}`"
+                            class="sidebar__navigation__item">{{ group.name | capitalize }}</a>
+                        <ul class="sidebar__navigation__items">
+                            <li
+                                v-for="path in group.paths"
+                                :key="path.name">
+                                <a
+                                    :href="`#${path.slug}`"
+                                    class="sidebar__navigation__item">{{ path.description }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </template>
         </scroll-spy>
     </div>
 </template>
@@ -41,7 +43,9 @@ export default {
     computed: {
         ...mapGetters({
             info: 'hapi-docs/info',
-            groups: 'hapi-docs/groupedPaths'
+            groups: 'hapi-docs/groupedPaths',
+            checkInfo: 'hapi-docs/checkInfo',
+            checkGroups: 'hapi-docs/checkGroups'
         })
     }
 }
