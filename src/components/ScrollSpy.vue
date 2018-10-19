@@ -1,4 +1,3 @@
-
 <template>
     <nav role="navigation">
         <slot/>
