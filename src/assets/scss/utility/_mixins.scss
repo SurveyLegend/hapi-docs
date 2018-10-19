@@ -15,8 +15,12 @@
         @media only screen and (max-width: $break-medium) {
             @content;
         }
-    } @else if $media == wide-screens {
+    } @else if $media == large-screens {
         @media only screen and (min-width: $break-large) {
+            @content;
+        }
+    } @else if $media == wide-screens {
+        @media only screen and (min-width: $break-wide) {
             @content;
         }
     }
