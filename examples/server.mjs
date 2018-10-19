@@ -201,6 +201,13 @@ const startServer = async () => {
                 description: 'Retrieve a refund',
                 notes: 'Retrieves the details of an existing refund.',
                 tags: ['api'],
+                validate: {
+                    params: {
+                        refund: Joi.string()
+                            .required()
+                            .description('The identifier of the refund to be retrieved.')
+                    }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 2
@@ -221,6 +228,11 @@ const startServer = async () => {
                     'This request only accepts `metadata` as an argument.'
                 ],
                 tags: ['api'],
+                validate: {
+                    params: {
+                        refund: Joi.string().required()
+                    }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 3
@@ -276,6 +288,13 @@ const startServer = async () => {
                 notes:
                     'Retrieves the details of an existing recipient. You need only supply the unique recipient identifier that was returned upon recipient creation.',
                 tags: ['api'],
+                validate: {
+                    params: {
+                        recipient: Joi.string()
+                            .required()
+                            .description('The identifier of the recipient to be retrieved.')
+                    }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 2
@@ -296,6 +315,11 @@ const startServer = async () => {
                     'If you update the name or tax ID, the identity verification will automatically be rerun. If you update the bank account, the bank account validation will automatically be rerun.'
                 ],
                 tags: ['api'],
+                validate: {
+                    params: {
+                        recipient: Joi.string().required()
+                    }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 3
@@ -315,9 +339,9 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        id: Joi.string()
+                        recipient: Joi.string()
                             .required()
-                            .description('The identifier of the customer to be deleted.')
+                            .description('The identifier of the recipient to be deleted.')
                     }
                 },
                 plugins: {
