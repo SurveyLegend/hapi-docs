@@ -147,8 +147,12 @@ export default {
                 currentParent.add(this.activeParentClass)
             }
 
-            event.currentTarget.scrollIntoView({ block: 'end', inline: 'nearest' })
-            target.scrollIntoView()
+            event.currentTarget.scrollIntoView({
+                behavior: 'instant',
+                block: 'end',
+                inline: 'nearest'
+            })
+            target.scrollIntoView({ behavior: 'instant' })
 
             this.scrollContainer.addEventListener('scroll', this.onScroll)
 
@@ -163,9 +167,12 @@ export default {
 
             this.scrollContainer.removeEventListener('scroll', this.onScroll)
 
-            target.scrollIntoView()
+            target.scrollIntoView({ behavior: 'instant' })
 
-            this.scrollContainer.addEventListener('scroll', this.onScroll)
+            // Scrolling lacks callback & is async
+            setTimeout(() => {
+                this.scrollContainer.addEventListener('scroll', this.onScroll)
+            }, 100)
 
             this.updateHash(hash)
         },
