@@ -450,12 +450,15 @@ export default {
         margin: 0 0 0 200px;
 
         background: white;
+
+        /deep/ p {
+            margin-top: 0 !important;
+        }
     }
 
     /deep/ p {
         font-size: 14px !important;
         line-height: 21px !important;
-        margin-top: 0 !important;
     }
 }
 
