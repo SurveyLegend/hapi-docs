@@ -1,0 +1,27 @@
+@mixin icon($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin mask-icon($url) {
+    mask-image: url($url);
+    mask-position: center;
+    mask-repeat: no-repeat;
+}
+
+@mixin respond-to($media) {
+    @if $media == medium-screens {
+        @media only screen and (max-width: $break-medium) {
+            @content;
+        }
+    } @else if $media == large-screens {
+        @media only screen and (min-width: $break-large) {
+            @content;
+        }
+    } @else if $media == wide-screens {
+        @media only screen and (min-width: $break-wide) {
+            @content;
+        }
+    }
+}

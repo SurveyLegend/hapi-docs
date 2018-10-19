@@ -1,63 +1,68 @@
 {
-    "name": "hapi-slate",
-    "version": "0.0.0",
-    "description": "Beatiful API documentation generator for Hapi",
-    "author": {
-        "name": "SurveyLegend",
-        "email": "git@surveylegend.com",
-        "url": "https://github.com/SurveyLegend"
-    },
+    "name": "@surveylegend/hapi-docs",
+    "version": "0.2.0",
+    "description": "Beatiful API documentation generator for Hapi using Vue",
+    "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
+    "contributors": [
+        "Henrik Ruscon",
+        "Robert Michalski"
+    ],
     "scripts": {
-        "dev": "NODE_ENV=development nodemon server.mjs -x \"node --experimental-modules --no-warnings -r dotenv/config\""
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "start": "node --experimental-modules --no-warnings examples/server.mjs",
+        "postinstall": "yarn build"
     },
+    "main": "lib/index.mjs",
     "dependencies": {
-        "axios": "^0.17.1",
-        "babel-runtime": "^6.26.0",
-        "dotenv": "^4.0.0",
-        "hapi": "^17.2.0",
-        "inert": "^5.1.0",
-        "vue": "^2.5.13",
-        "vue-axios": "^2.0.2"
+        "axios": "^0.18.0",
+        "hoek": "^5.0.4",
+        "joi": "^13.6.0",
+        "marked": "^0.5.1",
+        "prismjs": "^1.15.0",
+        "vue": "^2.5.17",
+        "vue-prism-component": "^1.0.1",
+        "vue-router": "^3.0.1",
+        "vuex": "^3.0.1"
+    },
+    "peerDependencies": {
+        "hapi": "^17.0.0"
     },
     "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-plugin-transform-runtime": "^6.23.0",
-        "babel-polyfill": "^6.26.0",
-        "babel-preset-env": "^1.6.1",
-        "css-loader": "^0.28.9",
-        "eslint": "^4.16.0",
-        "eslint-loader": "^1.9.0",
-        "eslint-plugin-vue-libs": "^2.1.0",
-        "file-loader": "^1.1.6",
-        "friendly-errors-webpack-plugin": "^1.6.1",
-        "hapi-webpack-plugin": "^3.0.0",
-        "html-webpack-plugin": "^2.30.1",
-        "node-sass": "^4.7.2",
-        "nodemon": "^1.14.11",
-        "sass-loader": "^6.0.6",
-        "style-loader": "^0.20.1",
-        "svg-url-loader": "^2.3.1",
-        "vue-loader": "^13.7.0",
-        "vue-style-loader": "^3.1.1",
-        "vue-template-compiler": "^2.5.13",
-        "webpack": "^3.10.0",
-        "webpack-dev-middleware": "^2.0.4",
-        "webpack-hot-middleware": "^2.21.0"
+        "@vue/cli-plugin-babel": "^3.0.3",
+        "@vue/cli-plugin-eslint": "^3.0.3",
+        "@vue/cli-service": "^3.0.3",
+        "@vue/eslint-config-standard": "^3.0.3",
+        "hapi": "^17.5.4",
+        "inert": "^5.1.0",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.0.1",
+        "svg-url-loader": "^2.3.2",
+        "vue-template-compiler": "^2.5.17"
     },
     "engines": {
         "node": ">=8.9.0"
     },
     "keywords": [
         "hapi",
-        "hapijs",
-        "slate",
-        "docs",
-        "documentation",
-        "generator",
-        "api"
+        "hapi-plugin",
+        "api",
+        "api-documentation",
+        "static-site-generator"
     ],
-    "repository": "github:surveylegend/hapi-slate",
-    "license": "BSD-3-Clause"
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/surveylegend/hapi-docs.git"
+    },
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/surveylegend/hapi-docs/issues"
+    },
+    "homepage": "https://github.com/surveylegend/hapi-docs#readme",
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }
