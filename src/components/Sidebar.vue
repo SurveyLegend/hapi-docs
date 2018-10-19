@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <scroll-spy class="sidebar__navigation">
-            <template v-if="checkInfo">
+            <template v-if="Object.keys(info).length !== 0">
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li>
@@ -11,7 +11,7 @@
                     </li>
                 </ul>
             </template>
-            <template v-if="checkGroups">
+            <template v-if="groups.length !== 0">
                 <h5 class="sidebar__navigation__heading">API</h5>
                 <ul class="sidebar__navigation__items">
                     <li
@@ -43,9 +43,7 @@ export default {
     computed: {
         ...mapGetters({
             info: 'hapi-docs/info',
-            groups: 'hapi-docs/groupedPaths',
-            checkInfo: 'hapi-docs/checkInfo',
-            checkGroups: 'hapi-docs/checkGroups'
+            groups: 'hapi-docs/groupedPaths'
         })
     }
 }

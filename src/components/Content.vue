@@ -1,8 +1,8 @@
 <template>
     <div class="content">
-        <template v-if="checkGroups">
+        <template v-if="groups.length !== 0">
             <section
-                v-if="checkInfo"
+                v-if="Object.keys(info).length !== 0"
                 id="intro"
                 class="method first-of-group">
                 <div class="method__area">
@@ -173,9 +173,7 @@ export default {
             host: 'hapi-docs/host',
             scheme: 'hapi-docs/scheme',
             info: 'hapi-docs/info',
-            groups: 'hapi-docs/groupedPaths',
-            checkInfo: 'hapi-docs/checkInfo',
-            checkGroups: 'hapi-docs/checkGroups'
+            groups: 'hapi-docs/groupedPaths'
         })
     }
 }
