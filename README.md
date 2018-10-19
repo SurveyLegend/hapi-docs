@@ -70,9 +70,9 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
 ### Plugin Options
 
 -   `endpoint`: (string) The path of the documentation - default: `/docs`
--   `basePath`: (string) The base path before the API, i.e. `/v2` - default: default: `/`
+-   `basePath`: (string) The base path before the API, i.e. `/v2` - default: `/`
 -   `host`: (string) The hostname or IP serving the API, i.e. `localhost:3000`
--   `scheme`: (string) The transfer protocol of the API, i.e. `['http']`, `['https']`
+-   `scheme`: (string) The transfer protocol of the API, i.e. `http`, `https`
 -   `pathPrefixSize`: (number) The segment of the URL path that is used to group endpoints - default: `1`
 -   `sortEndpoints`: (string) The sort method for endpoints, i.e. `path`, `method`, `ordered`
 -   `info`
