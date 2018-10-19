@@ -1,3 +1,4 @@
+
 <template>
     <nav role="navigation">
         <slot/>
@@ -38,6 +39,7 @@ export default {
     data() {
         return {
             items: [],
+            anchors: [],
             currentItem: null,
             lastActiveItem: null
         }
@@ -51,12 +53,14 @@ export default {
 
     mounted() {
         this.initItems()
+        this.initAnchors()
 
         this.scrollContainer.addEventListener('scroll', this.onScroll)
     },
 
     updated() {
         this.initItems()
+        this.initAnchors()
     },
 
     beforeDestroy() {
@@ -117,6 +121,14 @@ export default {
             if (this.currentItem) this.currentItem.classList.add(this.activeClass)
         },
 
+        initAnchors() {
+            this.anchors = this.scrollContainer.querySelectorAll('a[href*="#"]')
+
+            this.anchors.forEach(anchor => {
+                anchor.addEventListener('click', this.handleAnchorClick)
+            })
+        },
+
         handleClick(event) {
             event.preventDefault()
 
@@ -136,6 +148,21 @@ export default {
             }
 
             event.currentTarget.scrollIntoView({ block: 'end', inline: 'nearest' })
+            target.scrollIntoView()
+
+            this.scrollContainer.addEventListener('scroll', this.onScroll)
+
+            this.updateHash(hash)
+        },
+
+        handleAnchorClick(event) {
+            event.preventDefault()
+
+            const { hash } = event.currentTarget
+            const target = document.getElementById(hash.substr(1))
+
+            this.scrollContainer.removeEventListener('scroll', this.onScroll)
+
             target.scrollIntoView()
 
             this.scrollContainer.addEventListener('scroll', this.onScroll)
