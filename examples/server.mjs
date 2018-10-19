@@ -69,13 +69,6 @@ const startServer = async () => {
                 description: 'Create a customer',
                 notes: 'Creates a new customer object.',
                 tags: ['api'],
-                validate: {
-                    payload: {
-                        email: Joi.string().description(
-                            'Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.'
-                        )
-                    }
-                },
                 plugins: {
                     'hapi-docs': {
                         order: 1
@@ -96,7 +89,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        id: Joi.string()
+                        customer: Joi.string()
                             .required()
                             .description('The identifier of the customer to be retrieved.')
                     }
@@ -123,10 +116,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        id: Joi.string().required(),
-                        email: Joi.string().description(
-                            'Customer’s email address. It’s displayed alongside the customer in your dashboard and can be useful for searching and tracking. This may be up to *512 characters*. This will be unset if you POST an empty value.'
-                        )
+                        customer: Joi.string().required()
                     }
                 },
                 plugins: {
@@ -149,7 +139,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        id: Joi.string()
+                        customer: Joi.string()
                             .required()
                             .description('The identifier of the customer to be deleted.')
                     }

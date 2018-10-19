@@ -67,34 +67,35 @@
                                         </p>
                                     </template>
                                 </div>
-                                <div class="method__list is-empty">
+                                <div
+                                    :class="{ 'is-empty': path.pathParams === null }"
+                                    class="method__list">
                                     <h5>Arguments</h5>
                                     <ul class="method__list__group">
-                                        <!-- <template v-if="path.pathParams !== null">
+                                        <template v-if="path.pathParams !== null">
                                             <template v-for="param in path.pathParams.children">
                                                 <li
                                                     :key="param.id"
                                                     :id="`${path.slug}-${param.name}`"
                                                     class="method__list__item">
                                                     <h3 class="method__list__item__label">
-                                                        <a
+                                                        <!-- <a
                                                             :href="`#${path.slug}-${param.name}`"
-                                                            class="header-anchor"/>
-                                                        {{ param.name }}
+                                                            class="header-anchor"/> -->
+                                                        <span>{{ param.name }}</span>
                                                         <span
                                                             v-if="param.flags && param.flags.required"
-                                                            class="method__list__item__label__badge">Required</span>
+                                                            class="method__list__item__label__badge">required</span>
                                                         <span
                                                             v-else
                                                             class="method__list__item__label__details">optional</span>
                                                     </h3>
-                                                    <vue-markdown
-                                                        :source="param.description"
-                                                        class="method__list__item__description"/>
+                                                    <marked class="method__list__item__description">{{ param.description }}</marked>
                                                 </li>
                                             </template>
-                                        </template> -->
+                                        </template>
                                         <li
+                                            v-else
                                             class="method__list__item">
                                             <h3 class="method__list__item__label">No arguments…</h3>
                                         </li>
@@ -306,18 +307,20 @@ export default {
 
     border-bottom: 1px solid #f0f4f7;
 
-    // @include respond-to(wide-screens) {
-    //     &:after,
-    //     &:before {
-    //         display: table;
-    //
-    //         content: '';
-    //     }
-    //
-    //     &:after {
-    //         clear: both;
-    //     }
-    // }
+    @include respond-to(large-screens) {
+        zoom: 1;
+
+        &:after,
+        &:before {
+            display: table;
+
+            content: '';
+        }
+
+        &:after {
+            clear: both;
+        }
+    }
 
     &:last-child {
         border-bottom: 1px solid #e1e8ed;
@@ -331,31 +334,31 @@ export default {
     white-space: normal;
     word-break: break-all;
 
-    // @include respond-to(wide-screens) {
-    //     position: relative;
-    //     z-index: z-index(default) + 4;
-    //
-    //     float: left;
-    //
-    //     width: 180px;
-    //
-    //     text-align: right;
-    // }
-    //
-    // @include respond-to(wide-screens) {
-    //     .method__list:not(.is-empty) &:after {
-    //         font-weight: 400;
-    //
-    //         position: absolute;
-    //         top: 0;
-    //         left: 200px;
-    //
-    //         content: '\2014';
-    //         text-align: left;
-    //
-    //         color: #dde4e8;
-    //     }
-    // }
+    @include respond-to(large-screens) {
+        position: relative;
+        z-index: z-index(default) + 4;
+
+        float: left;
+
+        width: 180px;
+
+        text-align: right;
+    }
+
+    @include respond-to(large-screens) {
+        .method__list:not(.is-empty) &:after {
+            font-weight: 400;
+
+            position: absolute;
+            top: 0;
+            left: 200px;
+
+            content: '\2014';
+            text-align: left;
+
+            color: #dde4e8;
+        }
+    }
 
     // &:hover {
     //     .header-anchor {
@@ -370,7 +373,7 @@ export default {
 
         color: #939da3 !important;
 
-        @include respond-to(wide-screens) {
+        @include respond-to(large-screens) {
             width: 100%;
         }
     }
@@ -395,72 +398,67 @@ export default {
     // }
 }
 
-// .method__list__item__label__details {
-//     font-size: 13px;
-//     font-weight: 400;
-//
-//     word-break: normal;
-//
-//     color: #939da3;
-//
-//     @include respond-to(wide-screens) {
-//         display: block;
-//     }
-// }
-//
-// .method__list__item__label__badge {
-//     font-size: 11px;
-//     font-weight: 600;
-//     line-height: 20px;
-//
-//     display: inline-block;
-//
-//     margin-left: 5px;
-//     padding: 0 8px;
-//
-//     vertical-align: top;
-//     text-transform: uppercase;
-//
-//     color: #ffae54;
-//     border: 1px solid rgba(255, 174, 84, 0.5);
-//     border-radius: 11px;
-//
-//     @extend .method__list__item__label__details;
-//     @include respond-to(wide-screens) {
-//         line-height: 1.2em;
-//
-//         display: block;
-//
-//         margin-left: 0;
-//         padding: 4px 0 0;
-//
-//         border: 0;
-//         border-radius: 0;
-//     }
-// }
-//
-// .method__list__item__description {
-//     font-size: 14px;
-//     line-height: 21px;
-//
-//     @include respond-to(wide-screens) {
-//         position: relative;
-//         z-index: z-index(above);
-//
-//         margin: 0 0 0 200px;
-//
-//         background: white;
-//
-//         p {
-//             margin-top: 0;
-//         }
-//     }
-//
-//     p {
-//         font-size: inherit;
-//     }
-// }
-//
+.method__list__item__label__details {
+    font-size: 13px;
+    font-weight: 400;
+
+    word-break: normal;
+
+    color: #939da3;
+
+    @include respond-to(large-screens) {
+        display: block;
+    }
+}
+
+.method__list__item__label__badge {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 20px;
+
+    display: inline-block;
+
+    margin-left: 5px;
+    padding: 0 8px;
+
+    vertical-align: top;
+    text-transform: uppercase;
+
+    color: #ffae54;
+    border: 1px solid rgba(255, 174, 84, 0.5);
+    border-radius: 11px;
+
+    @extend .method__list__item__label__details;
+    @include respond-to(large-screens) {
+        line-height: 1.2em;
+
+        display: block;
+
+        margin-left: 0;
+        padding: 4px 0 0;
+
+        border: 0;
+        border-radius: 0;
+    }
+}
+
+.method__list__item__description {
+    @include respond-to(large-screens) {
+        position: relative;
+        z-index: z-index(above);
+
+        margin: 0 0 0 200px;
+
+        background: white;
+    }
+
+    /deep/ p {
+        font-size: 14px !important;
+        line-height: 21px !important;
+        margin-top: 0 !important;
+    }
+}
+
 .method__example {
     position: relative;
     z-index: z-index(default) + 1;
