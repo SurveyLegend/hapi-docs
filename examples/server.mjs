@@ -89,7 +89,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        customer: Joi.string()
+                        id: Joi.string()
                             .required()
                             .description('The identifier of the customer to be retrieved.')
                     }
@@ -116,7 +116,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        customer: Joi.string().required()
+                        id: Joi.string().required()
                     }
                 },
                 plugins: {
@@ -139,7 +139,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        customer: Joi.string()
+                        id: Joi.string()
                             .required()
                             .description('The identifier of the customer to be deleted.')
                     }
@@ -203,7 +203,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        refund: Joi.string()
+                        id: Joi.string()
                             .required()
                             .description('The identifier of the refund to be retrieved.')
                     }
@@ -230,7 +230,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        refund: Joi.string().required()
+                        id: Joi.string().required()
                     }
                 },
                 plugins: {
@@ -290,7 +290,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        recipient: Joi.string()
+                        id: Joi.string()
                             .required()
                             .description('The identifier of the recipient to be retrieved.')
                     }
@@ -317,7 +317,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        recipient: Joi.string().required()
+                        id: Joi.string().required()
                     }
                 },
                 plugins: {
@@ -339,7 +339,7 @@ const startServer = async () => {
                 tags: ['api'],
                 validate: {
                     params: {
-                        recipient: Joi.string()
+                        id: Joi.string()
                             .required()
                             .description('The identifier of the recipient to be deleted.')
                     }

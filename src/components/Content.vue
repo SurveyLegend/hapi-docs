@@ -79,9 +79,9 @@
                                                     :id="`${path.slug}-${param.name}`"
                                                     class="method__list__item">
                                                     <h3 class="method__list__item__label">
-                                                        <!-- <a
+                                                        <a
                                                             :href="`#${path.slug}-${param.name}`"
-                                                            class="header-anchor"/> -->
+                                                            class="header-anchor"/>
                                                         <span>{{ param.name }}</span>
                                                         <span
                                                             v-if="param.flags && param.flags.required"
@@ -237,22 +237,6 @@ export default {
     .method__area:first-child & {
         padding-top: 30px;
     }
-
-    // code {
-    //     font-size: 13px;
-    //     line-height: 20px;
-    //
-    //     display: inline-block;
-    //
-    //     padding: 0 5px;
-    //
-    //     color: #b93d6a;
-    //     border: 1px solid #f0f4f7;
-    //     border-radius: 4px;
-    //     background: #fafcfc;
-    //
-    //     @include font-source-code-pro;
-    // }
 }
 
 .method__copy__padding {
@@ -360,11 +344,11 @@ export default {
         }
     }
 
-    // &:hover {
-    //     .header-anchor {
-    //         opacity: 1;
-    //     }
-    // }
+    &:hover {
+        .header-anchor {
+            opacity: 1;
+        }
+    }
 
     .method__list.is-empty & {
         font-weight: 400 !important;
@@ -378,24 +362,22 @@ export default {
         }
     }
 
-    // .header-anchor {
-    //     position: relative;
-    //     top: 3px;
-    //     left: -15px;
-    //
-    //     display: inline-block;
-    //
-    //     width: 15px;
-    //     height: 14px;
-    //     margin-right: -15px;
-    //
-    //     opacity: 0;
-    //     background-position: 50% 50%;
-    //     background-size: 9px 8px;
-    //     @include icon('../img/anchor@2x.png');
-    //
-    //     isolation: isolate;
-    // }
+    .header-anchor {
+        position: relative;
+        top: 3px;
+        left: -3px;
+
+        display: inline-block;
+
+        width: 15px;
+        height: 14px;
+
+        opacity: 0;
+        background-size: 10px 8px;
+        @include icon('../assets/svg/anchor.svg');
+
+        isolation: isolate;
+    }
 }
 
 .method__list__item__label__details {

@@ -64,8 +64,6 @@
     width: 134px;
     height: 38px;
 
-    background-repeat: no-repeat;
-
     @include icon('../assets/svg/logo.svg');
 }
 </style>
