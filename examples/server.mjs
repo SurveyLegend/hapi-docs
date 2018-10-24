@@ -34,10 +34,7 @@ const startServer = async () => {
     const server = Hapi.server({
         host: process.env.HOSTNAME || 'localhost',
         address: process.env.IP || '0.0.0.0',
-        port: Number(process.env.PORT || 3000),
-        debug: {
-            request: ['error']
-        }
+        port: Number(process.env.PORT || 3000)
     })
 
     await server.register([
