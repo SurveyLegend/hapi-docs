@@ -12,9 +12,12 @@
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "start": "node --experimental-modules --no-warnings examples/server.mjs",
-        "prepublishOnly": "yarn build"
+        "prepublish": "yarn build"
     },
     "main": "lib/index.mjs",
+    "files": [
+        "dist"
+    ],
     "dependencies": {
         "axios": "^0.18.0",
         "hoek": "^5.0.4",
