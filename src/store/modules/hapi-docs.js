@@ -20,13 +20,13 @@ export const getters = {
     groupedPaths: getters => {
         const grouped = []
 
-        getters.groups.forEach(group => {
-            const tag = getters.tags.find(tag => tag.name === group)
+        getters.tags.forEach(tag => {
+            const group = getters.groups.find(group => group === tag.name)
 
             grouped.push({
-                name: group,
-                description: tag && tag.description ? tag.description : null,
-                deprecated: tag && tag.deprecated ? tag.deprecated : false,
+                name: tag.name,
+                description: tag.description || null,
+                deprecated: tag.deprecated || false,
                 paths: getters.paths.filter(path => path.group === group)
             })
         })
