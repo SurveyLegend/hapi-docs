@@ -46,8 +46,8 @@
                     </div>
                 </section>
                 <template v-for="path in group.paths">
+                    <!-- eslint-disable-next-line -->
                     <section
-                        :key="path.id"
                         :id="path.slug"
                         class="method">
                         <div class="method__area">
@@ -60,9 +60,7 @@
                                             class="method__badge method__badge--deprecated">Deprecated</span>
                                     </h1>
                                     <template v-if="path.notes">
-                                        <p
-                                            v-for="note in path.notes"
-                                            :key="note.id">
+                                        <p v-for="note in path.notes"> <!-- eslint-disable-line -->
                                             <marked>{{ note }}</marked>
                                         </p>
                                     </template>
@@ -74,8 +72,8 @@
                                     <ul class="method__list__group">
                                         <template v-if="path.pathParams !== null">
                                             <template v-for="param in path.pathParams.children">
+                                                <!-- eslint-disable-next-line -->
                                                 <li
-                                                    :key="param.id"
                                                     :id="`${path.slug}-${param.name}`"
                                                     class="method__list__item">
                                                     <h3 class="method__list__item__label">
