@@ -52,14 +52,16 @@ export default {
 
     mounted() {
         this.initItems()
-        this.initAnchors()
+        this.removeActiveClass()
+        this.currentItem = this.getItemInsideWindow()
+
+        if (this.currentItem) this.currentItem.classList.add(this.activeClass)
 
         this.scrollContainer.addEventListener('scroll', this.onScroll)
     },
 
     updated() {
         this.initItems()
-        this.initAnchors()
     },
 
     beforeDestroy() {
@@ -70,26 +72,24 @@ export default {
         onScroll(event) {
             this.currentItem = this.getItemInsideWindow()
 
-            if (this.currentItem) {
-                if (this.currentItem !== this.lastActiveItem) {
-                    const { hash } = this.currentItem
+            if (this.currentItem && this.currentItem !== this.lastActiveItem) {
+                const { hash } = this.currentItem
 
-                    this.removeActiveClass()
-                    this.lastActiveItem = this.currentItem
+                this.removeActiveClass()
+                this.lastActiveItem = this.currentItem
 
-                    this.currentItem.classList.add(this.activeClass)
+                this.currentItem.classList.add(this.activeClass)
 
-                    const currentParent = this.currentItem.closest(this.itemClass + 's')
-                        .previousElementSibling.classList
+                const currentParent = this.currentItem.closest(this.itemClass + 's')
+                    .previousElementSibling.classList
 
-                    if (currentParent.contains(this.itemClass.substr(1))) {
-                        currentParent.add(this.activeParentClass)
-                    }
-
-                    this.currentItem.scrollIntoView({ block: 'end', inline: 'nearest' })
-
-                    this.updateHash(hash)
+                if (currentParent.contains(this.itemClass.substr(1))) {
+                    currentParent.add(this.activeParentClass)
                 }
+
+                this.currentItem.scrollIntoView({ block: 'end', inline: 'nearest' })
+
+                this.updateHash(hash)
             }
         },
 
@@ -109,64 +109,51 @@ export default {
 
         initItems() {
             this.items = this.$el.querySelectorAll(this.itemClass)
+            this.anchors = this.scrollContainer.querySelectorAll('a[href*="#"]')
 
             this.items.forEach(item => {
                 item.addEventListener('click', this.handleClick)
             })
 
-            this.removeActiveClass()
-            this.currentItem = this.getItemInsideWindow()
-
-            if (this.currentItem) this.currentItem.classList.add(this.activeClass)
-        },
-
-        initAnchors() {
-            this.anchors = this.scrollContainer.querySelectorAll('a[href*="#"]')
-
             this.anchors.forEach(anchor => {
-                anchor.addEventListener('click', this.handleAnchorClick)
+                anchor.addEventListener('click', this.handleClick)
             })
         },
 
         handleClick(event) {
             event.preventDefault()
 
-            const { hash } = event.currentTarget
-            const target = document.getElementById(hash.substr(1))
+            const isAnchor = !event.currentTarget.classList.contains(this.itemClass.substr(1))
+            const target = event.currentTarget
+            const hash = target.hash
+            const item = isAnchor
+                ? document.querySelector(`a[href='${hash.substr(0, hash.indexOf('-'))}']`)
+                : target
+            const section = document.getElementById(hash.substr(1))
 
             this.scrollContainer.removeEventListener('scroll', this.onScroll)
 
             this.removeActiveClass()
-            event.currentTarget.classList.add(this.activeClass)
 
-            const currentParent = event.currentTarget.closest(this.itemClass + 's')
-                .previousElementSibling.classList
+            item.classList.add(this.activeClass)
 
-            if (currentParent.contains(this.itemClass.substr(1))) {
-                currentParent.add(this.activeParentClass)
+            const parent = item.closest(this.itemClass + 's').previousElementSibling.classList
+
+            if (parent.contains(this.itemClass.substr(1))) {
+                parent.add(this.activeParentClass)
             }
 
-            event.currentTarget.scrollIntoView({
+            item.scrollIntoView({
                 behavior: 'instant',
                 block: 'end',
                 inline: 'nearest'
             })
-            target.scrollIntoView({ behavior: 'instant' })
 
-            this.scrollContainer.addEventListener('scroll', this.onScroll)
-
-            this.updateHash(hash)
-        },
-
-        handleAnchorClick(event) {
-            event.preventDefault()
-
-            const { hash } = event.currentTarget
-            const target = document.getElementById(hash.substr(1))
-
-            this.scrollContainer.removeEventListener('scroll', this.onScroll)
-
-            target.scrollIntoView({ behavior: 'instant' })
+            section.scrollIntoView({
+                behavior: 'instant',
+                block: 'start',
+                inline: 'nearest'
+            })
 
             // Scrolling lacks callback & is async
             setTimeout(() => {
