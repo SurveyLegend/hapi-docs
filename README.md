@@ -74,7 +74,8 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
 -   `host`: (string) The hostname or IP serving the API, i.e. `localhost:3000`
 -   `scheme`: (string) The transfer protocol of the API, i.e. `http`, `https`
 -   `pathPrefixSize`: (number) The segment of the URL path that is used to group endpoints - default: `1`
--   `sortEndpoints`: (string) The sort method for endpoints, i.e. `path`, `method`, `ordered`
+-   `sortTags`: (string) The sort method for groups, i.e. `name`, `ordered` - default: `name`
+-   `sortEndpoints`: (string) The sort method for endpoints, i.e. `path`, `method`, `ordered` - default: `path`
 -   `info`
     -   `title`: (string) The title of the documentation - default: `API Reference`
     -   `version`: (string) The version number of the API - default: `0.0.1`
