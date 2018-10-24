@@ -16,7 +16,8 @@
     },
     "main": "lib/index.mjs",
     "files": [
-        "dist"
+        "dist",
+        "lib"
     ],
     "dependencies": {
         "axios": "^0.18.0",
