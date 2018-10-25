@@ -89,7 +89,6 @@ export default {
 
     methods: {
         onScroll(event) {
-            console.log('scroll')
             this.currentItem = this.getItemInsideWindow()
 
             if (this.currentItem && this.currentItem !== this.lastActiveItem) {
