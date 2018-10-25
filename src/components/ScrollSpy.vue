@@ -70,6 +70,9 @@ export default {
                     block: 'start',
                     inline: 'nearest'
                 })
+            } else {
+                this.currentItem = this.getItemInsideWindow()
+                if (this.currentItem) this.currentItem.classList.add(this.activeClass)
             }
 
             // Scrolling lacks callback & is async
