@@ -1,8 +1,8 @@
 <template>
     <div class="content">
-        <template v-if="groups.length !== 0">
+        <template v-if="groups">
             <section
-                v-if="Object.keys(info).length !== 0"
+                v-if="info"
                 id="intro"
                 class="method first-of-group">
                 <div class="method__area">

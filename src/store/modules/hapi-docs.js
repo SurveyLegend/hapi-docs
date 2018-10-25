@@ -3,10 +3,10 @@ import * as types from '../mutation-types'
 
 export const state = {
     host: '',
-    scheme: [],
-    info: {},
+    scheme: '',
+    info: null,
     paths: [],
-    groups: [],
+    groups: null,
     tags: []
 }
 
