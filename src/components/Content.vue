@@ -205,10 +205,6 @@ export default {
 
     overflow: hidden;
 
-    &:first-child {
-        margin-top: 1px;
-    }
-
     &:last-child {
         min-height: 100vh;
     }
