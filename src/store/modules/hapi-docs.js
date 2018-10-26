@@ -5,9 +5,9 @@ export const state = {
     host: '',
     scheme: '',
     info: null,
-    paths: [],
+    paths: null,
     groups: null,
-    tags: []
+    tags: null
 }
 
 export const getters = {
@@ -20,16 +20,18 @@ export const getters = {
     groupedPaths: getters => {
         const grouped = []
 
-        getters.tags.forEach(tag => {
-            const group = getters.groups.find(group => group === tag.name)
+        if (getters.groups) {
+            getters.groups.forEach(group => {
+                const tag = getters.tags.find(tag => tag.name === group)
 
-            grouped.push({
-                name: tag.name,
-                description: tag.description || null,
-                deprecated: tag.deprecated || false,
-                paths: getters.paths.filter(path => path.group === group)
+                grouped.push({
+                    name: group,
+                    description: tag ? tag.description : null,
+                    deprecated: tag ? tag.deprecated : false,
+                    paths: getters.paths.filter(path => path.group === group)
+                })
             })
-        })
+        }
 
         return grouped
     }
