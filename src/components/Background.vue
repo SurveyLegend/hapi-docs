@@ -32,7 +32,7 @@
     background: #2d3134;
 
     @include dark-mode {
-        background: darken(#242729, 6);
+        background: darken(#242729, 8);
     }
 
     @include respond-to(wide-screens) {

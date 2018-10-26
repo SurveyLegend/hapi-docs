@@ -43,7 +43,7 @@
     border-bottom: 1px solid #f0f4f7;
 
     @include dark-mode {
-        border-bottom: 1px solid #33383b;
+        border-bottom: 1px solid lighten(#242729, 1);
     }
 
     @include respond-to(medium-screens) {

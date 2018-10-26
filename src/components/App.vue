@@ -37,7 +37,7 @@ body {
     overflow: hidden;
 
     @include dark-mode {
-        background: darken(#242729, 1);
+        background: darken(#242729, 4);
     }
 }
 
@@ -93,7 +93,7 @@ body {
         color: #939da3;
 
         @include dark-mode {
-            color: darken(#939da3, 20) !important;
+            color: darken(#939da3, 30) !important;
         }
     }
 
@@ -155,7 +155,7 @@ body {
 
         @include dark-mode {
             border: 1px solid darken(#33383b, 5);
-            background: darken(#242729, 5);
+            background: darken(#242729, 6.5);
         }
     }
 }

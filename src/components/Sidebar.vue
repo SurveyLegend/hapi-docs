@@ -74,8 +74,8 @@ export default {
     background: #fafcfc;
 
     @include dark-mode {
-        border-right: 1px solid #33383b;
-        background: #2d3134;
+        border-right: 1px solid lighten(#242729, 1);
+        background: darken(#242729, 1);
     }
 
     @include respond-to(medium-screens) {

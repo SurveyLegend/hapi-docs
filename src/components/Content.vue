@@ -265,7 +265,7 @@ export default {
         border-top: 1px solid #f0f4f7;
 
         @include dark-mode {
-            border-top: 1px solid darken(#33383b, 5);
+            border-top: 1px solid darken(#33383b, 8);
         }
     }
 
@@ -319,7 +319,7 @@ export default {
     border-top: 1px solid #e1e8ed;
 
     @include dark-mode {
-        border-top: 1px solid darken(#33383b, 1);
+        border-top: 1px solid darken(#33383b, 4);
     }
 }
 
@@ -350,10 +350,10 @@ export default {
     }
 
     @include dark-mode {
-        border-bottom: 1px solid darken(#33383b, 5);
+        border-bottom: 1px solid darken(#33383b, 8);
 
         &:last-child {
-            border-bottom: 1px solid darken(#33383b, 1);
+            border-bottom: 1px solid darken(#33383b, 4);
         }
     }
 }
@@ -390,7 +390,7 @@ export default {
             color: #dde4e8;
 
             @include dark-mode {
-                color: lighten(#33383b, 6);
+                color: lighten(#33383b, 3);
             }
         }
     }
@@ -409,7 +409,7 @@ export default {
         color: #939da3 !important;
 
         @include dark-mode {
-            color: darken(#939da3, 20) !important;
+            color: darken(#939da3, 30) !important;
         }
 
         @include respond-to(large-screens) {
@@ -493,7 +493,7 @@ export default {
         background: white;
 
         @include dark-mode {
-            background: darken(#242729, 1);
+            background: darken(#242729, 4);
         }
 
         /deep/ p {
@@ -524,7 +524,7 @@ export default {
         border-top: 1px solid #33383b;
 
         @include dark-mode {
-            border-top: 1px solid darken(#242729, 4);
+            border-top: 1px solid darken(#242729, 6);
         }
     }
 
@@ -564,7 +564,7 @@ export default {
         @include font-source-code-pro;
 
         @include dark-mode {
-            background: darken(#242729, 7.5);
+            background: darken(#242729, 9.5);
         }
     }
 
@@ -639,8 +639,8 @@ export default {
     color: #d0d4d7;
 
     @include dark-mode {
-        background: darken(#242729, 4);
-        border: 1px solid darken(#242729, 2);
+        background: darken(#242729, 6);
+        border: 1px solid darken(#242729, 4);
     }
 }
 
@@ -653,7 +653,7 @@ export default {
         background: rgba(0, 0, 0, 0.1);
 
         @include dark-mode {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.15);
         }
     }
 
