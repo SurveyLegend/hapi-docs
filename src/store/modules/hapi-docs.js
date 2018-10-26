@@ -26,7 +26,7 @@ export const getters = {
             getters.tags.forEach(tag => {
                 grouped.push({
                     name: tag.name,
-                    description: tag.description || null,
+                    descriptions: tag.descriptions || null,
                     deprecated: tag.deprecated || false,
                     paths: getters.paths.filter(path => path.group === tag.name)
                 })
@@ -40,7 +40,7 @@ export const getters = {
                 if (!tag) {
                     grouped.push({
                         name: group,
-                        description: null,
+                        descriptions: null,
                         deprecated: false,
                         paths: getters.paths.filter(path => path.group === group)
                     })

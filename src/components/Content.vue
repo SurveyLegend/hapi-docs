@@ -9,9 +9,11 @@
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>{{ info.title }}</h1>
-                            <p v-if="info.description">
-                                <marked>{{ info.description }}</marked>
-                            </p>
+                            <template v-if="info.descriptions">
+                                <p v-for="description in info.descriptions">
+                                    <marked>{{ description }}</marked>
+                                </p>
+                            </template>
                         </div>
                     </div>
                     <div class="method__example">
@@ -31,9 +33,11 @@
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>Errors</h1>
-                            <p v-if="errors.description">
-                                <marked>{{ errors.description }}</marked>
-                            </p>
+                            <template v-if="errors.descriptions">
+                                <p v-for="description in errors.descriptions">
+                                    <marked>{{ description }}</marked>
+                                </p>
+                            </template>
                         </div>
                     </div>
                     <div
@@ -69,9 +73,11 @@
                                         v-if="group.deprecated"
                                         class="method__badge method__badge--deprecated">Deprecated</span>
                                 </h1>
-                                <p v-if="group.description">
-                                    <marked>{{ group.description }}</marked>
-                                </p>
+                                <template v-if="group.descriptions">
+                                    <p v-for="description in group.descriptions">
+                                        <marked>{{ description }}</marked>
+                                    </p>
+                                </template>
                             </div>
                         </div>
                         <div class="method__example"/>
