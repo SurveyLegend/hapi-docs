@@ -1,1 +1,1 @@
-web: node --experimental-modules --no-warnings examples/server.mjs
+web: node -r esm examples/server.js
