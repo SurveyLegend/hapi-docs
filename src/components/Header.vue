@@ -61,12 +61,16 @@
 
 .header__logo {
     position: relative;
-    top: 6px;
-    left: 10px;
+    top: 5px;
+    left: 20px;
 
     display: block;
 
     width: 134px;
     height: 38px;
+
+    @include icon('../assets/images/logo.png');
+    background-size: 20px 29px;
+    background-position: left center;
 }
 </style>
