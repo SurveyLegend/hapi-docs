@@ -694,6 +694,17 @@ export default {
     animation-name: loadingShimmer;
     animation-timing-function: linear;
     border-radius: 4px;
+
+    @include dark-mode {
+        background-color: darken(#242729, 1);
+        background-image: linear-gradient(
+            90deg,
+            darken(#242729, 1) 0,
+            darken(#242729, 2) 20%,
+            darken(#242729, 1) 40%,
+            darken(#242729, 1)
+        );
+    }
 }
 
 @keyframes loadingShimmer {
