@@ -222,17 +222,17 @@ export default {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 221px;
+    left: 220px;
 
     overflow-x: hidden;
     overflow-y: scroll;
 
     @include respond-to(medium-screens) {
-        left: 181px;
+        left: 180px;
     }
 
     @include respond-to(wide-screens) {
-        left: 281px;
+        left: 280px;
     }
 }
 

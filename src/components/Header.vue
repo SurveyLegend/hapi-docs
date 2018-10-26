@@ -16,14 +16,14 @@
     z-index: z-index(fixed) + 1;
     top: 0;
     right: 0;
-    left: 221px;
+    left: 220px;
 
     @include respond-to(medium-screens) {
-        left: 181px;
+        left: 180px;
     }
 
     @include respond-to(wide-screens) {
-        left: 281px;
+        left: 280px;
     }
 }
 
@@ -32,6 +32,8 @@
 }
 
 .header__sidebar {
+    @extend %header__section;
+
     position: absolute;
     top: 0;
     left: -221px;
@@ -40,7 +42,6 @@
 
     border-bottom: 1px solid #f0f4f7;
 
-    @extend %header__section;
     @include respond-to(medium-screens) {
         left: -181px;
 
