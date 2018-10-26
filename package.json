@@ -12,7 +12,8 @@
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "start": "nodemon examples/server.js -x \"node -r esm\"",
-        "prepublishOnly": "yarn build"
+        "prepublishOnly": "yarn build",
+        "postinstall": "yarn build"
     },
     "main": "index.js",
     "files": [
