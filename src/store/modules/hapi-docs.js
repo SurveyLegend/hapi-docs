@@ -5,20 +5,20 @@ export const state = {
     host: '',
     scheme: '',
     info: null,
+    errors: [],
     paths: null,
     groups: null,
-    tags: null,
-    errors: []
+    tags: null
 }
 
 export const getters = {
     host: state => state.host,
     scheme: state => state.scheme,
     info: state => state.info,
+    errors: state => state.errors,
     paths: state => state.paths,
     groups: state => state.groups,
     tags: state => state.tags,
-    errors: state => state.errors,
     groupedPaths: getters => {
         const grouped = []
 
@@ -57,10 +57,10 @@ export const mutations = {
         state.host = data.host
         state.scheme = data.scheme
         state.info = data.info
+        state.errors = data.errors
         state.paths = data.paths
         state.groups = data.groups
         state.tags = data.tags
-        state.errors = data.errors
     }
 }
 
