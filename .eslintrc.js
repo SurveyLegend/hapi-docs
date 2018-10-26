@@ -17,7 +17,8 @@ module.exports = {
         'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
         'no-global-assign': 'off',
         'no-console': 'off',
-        'vue/html-indent': ['error', 4]
+        'vue/html-indent': ['error', 4],
+        'vue/require-v-for-key': 'off'
     },
     parserOptions: {
         parser: 'babel-eslint'

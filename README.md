@@ -80,11 +80,16 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
     -   `title`: (string) The title of the documentation - default: `API Reference`
     -   `version`: (string) The version number of the API - default: `0.0.1`
     -   `description`: (string) The description of the API.
--   `tags`
+-   `tags`: (array) Contains tag objects
     -   `name`: (string) The name of the group.
     -   `description`: (string) The description of the group.
     -   `order`: (int) The order which groups are sorted by.
     -   `deprecated`: (boolean) Whether a group is deprecated - default: `false`
+-   `errors`:
+    -   `description`: (string) The description of the errors.
+    -   `codes`: (array) Contains error code objects
+        -   `status`: (string) The status of the error code, i.e. `418 - I'm A Teapot`
+        -   `description`: (string) The description of the error code.
 -   `auth`: (boolean, string or object) The security strategy used for plugin resources - default: `false`
 
 ### Route Options

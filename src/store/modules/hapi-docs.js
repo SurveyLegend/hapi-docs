@@ -7,7 +7,8 @@ export const state = {
     info: null,
     paths: null,
     groups: null,
-    tags: null
+    tags: null,
+    errors: null
 }
 
 export const getters = {
@@ -17,6 +18,7 @@ export const getters = {
     paths: state => state.paths,
     groups: state => state.groups,
     tags: state => state.tags,
+    errors: state => state.errors,
     groupedPaths: getters => {
         const grouped = []
 
@@ -58,6 +60,7 @@ export const mutations = {
         state.paths = data.paths
         state.groups = data.groups
         state.tags = data.tags
+        state.errors = data.errors
     }
 }
 

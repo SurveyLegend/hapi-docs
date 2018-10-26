@@ -3,13 +3,18 @@
         <scroll-spy
             v-if="dataReady"
             class="sidebar__navigation">
-            <template v-if="info">
+            <template v-if="info || errors">
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
-                    <li>
+                    <li v-if="info">
                         <a
                             href="#intro"
                             class="sidebar__navigation__item">Introduction</a>
+                    </li>
+                    <li v-if="errors">
+                        <a
+                            href="#errors"
+                            class="sidebar__navigation__item">Errors</a>
                     </li>
                 </ul>
             </template>
@@ -45,10 +50,11 @@ export default {
     computed: {
         ...mapGetters({
             info: 'hapi-docs/info',
+            errors: 'hapi-docs/errors',
             groups: 'hapi-docs/groupedPaths'
         }),
         dataReady() {
-            return this.groups && this.info
+            return this.info && this.errors && this.groups
         }
     }
 }

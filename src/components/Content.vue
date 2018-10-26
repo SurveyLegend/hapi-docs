@@ -23,6 +23,38 @@
                     </div>
                 </div>
             </section>
+            <section
+                v-if="errors"
+                id="errors"
+                class="method first-of-group">
+                <div class="method__area">
+                    <div class="method__copy">
+                        <div class="method__copy__padding">
+                            <h1>Errors</h1>
+                            <p v-if="errors.description">
+                                <marked>{{ errors.description }}</marked>
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        v-if="errors.codes"
+                        class="method__example">
+                        <div class="method__example__part">
+                            <h3>HTTP status code summary</h3>
+                            <section class="table">
+                                <table class="table__container">
+                                    <tbody>
+                                        <tr v-for="code in errors.codes">
+                                            <th class="table__row--property">{{ code.status }}</th>
+                                            <td class="table__row">{{ code.description }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <template v-for="group in groups">
                 <section
                     :key="group.name"
@@ -46,7 +78,6 @@
                     </div>
                 </section>
                 <template v-for="path in group.paths">
-                    <!-- eslint-disable-next-line -->
                     <section
                         :id="path.slug"
                         class="method">
@@ -60,7 +91,7 @@
                                             class="method__badge method__badge--deprecated">Deprecated</span>
                                     </h1>
                                     <template v-if="path.notes">
-                                        <p v-for="note in path.notes"> <!-- eslint-disable-line -->
+                                        <p v-for="note in path.notes">
                                             <marked>{{ note }}</marked>
                                         </p>
                                     </template>
@@ -72,7 +103,6 @@
                                     <ul class="method__list__group">
                                         <template v-if="path.pathParams !== null">
                                             <template v-for="param in path.pathParams.children">
-                                                <!-- eslint-disable-next-line -->
                                                 <li
                                                     :id="`${path.slug}-${param.name}`"
                                                     class="method__list__item">
@@ -101,14 +131,14 @@
                                 </div>
                             </div>
                             <div class="method__example">
-                                <!-- <div class="method__example__part">
-                                    <div class="method__example__declaration">
-                                        <prism language="bash">{{ route.method }} {{ route.prefix + route.path }}</prism>
-                                    </div>
-                                    <div class="method__example__response">
-                                        <prism language="json"/>
-                                    </div>
-                                </div> -->
+                                <div class="method__example__part">
+                                    <!-- <div class="method__example__declaration">
+                                        <prism language="bash">test</prism>
+                                    </div> -->
+                                    <!-- <div class="method__example__response">
+                                        <prism language="json">test</prism>
+                                    </div> -->
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -172,6 +202,7 @@ export default {
             host: 'hapi-docs/host',
             scheme: 'hapi-docs/scheme',
             info: 'hapi-docs/info',
+            errors: 'hapi-docs/errors',
             groups: 'hapi-docs/groupedPaths'
         })
     }
@@ -459,6 +490,11 @@ export default {
         padding-top: 72px;
     }
 
+    h3 {
+        max-width: 768px;
+        color: #d0d4d7 !important;
+    }
+
     pre,
     code {
         text-align: left;
@@ -545,6 +581,51 @@ export default {
     &:before {
         content: 'Example Response';
     }
+}
+
+.table {
+    margin: 30px 0 45px;
+    max-width: 768px;
+    overflow: hidden;
+    background: #33373a;
+    border: 1px solid #373b3e;
+    border-radius: 5px;
+    color: #d0d4d7;
+}
+
+.table__container {
+    table-layout: fixed;
+    width: 100%;
+    background-clip: padding-box;
+
+    tr:nth-child(odd) {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    tr:first-child .table__row {
+        padding-top: 16px;
+    }
+
+    tr:last-child .table__row {
+        padding-bottom: 16px;
+    }
+}
+
+.table__row {
+    display: table-cell;
+    padding: 9px 20px;
+    font-size: 14px;
+    text-align: left;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.table__row--property {
+    @extend .table__row;
+
+    width: 180px;
+    font-weight: 600;
+    text-align: right;
 }
 
 .loading__shimmer {

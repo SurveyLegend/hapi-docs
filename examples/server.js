@@ -11,6 +11,47 @@ const options = {
         description:
             'The hapi-docs API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support [cross-origin resource sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing), allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website’s client-side code). [JSON](http://www.json.org) is returned by all API responses, including errors.'
     },
+    errors: {
+        description:
+            'The hapi-docs API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the `2xx` range indicate success. Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the `5xx` range indicate an error with hapi-docs servers (these are rare).',
+        codes: [
+            {
+                status: '200 - OK',
+                description: 'Everything worked as expected.'
+            },
+            {
+                status: '400 - Bad Request',
+                description:
+                    'The request was unacceptable, often due to missing a required parameter.'
+            },
+            {
+                status: '401 - Unauthorized',
+                description: 'No valid API key provided.'
+            },
+            {
+                status: '402 - Request Failed',
+                description: 'The parameters were valid but the request failed.'
+            },
+            {
+                status: '404 - Not Found',
+                description: 'The requested resource doesn’t exist.'
+            },
+            {
+                status: '409 - Conflict',
+                description:
+                    'The request conflicts with another request (perhaps due to using the same idempotent key).'
+            },
+            {
+                status: '429 - Too Many Requests',
+                description:
+                    'Too many requests hit the API too quickly. We recommend an exponential backoff of your requests.'
+            },
+            {
+                status: '500, 502, 503, 504 - Server Errors',
+                description: 'Something went wrong on hapi-docs end. (These are rare.)'
+            }
+        ]
+    },
     tags: [
         {
             name: 'customers',
