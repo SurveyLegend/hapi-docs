@@ -28,12 +28,12 @@ import Hapi from 'hapi'
 import Inert from 'inert'
 import Joi from 'joi'
 import HapiDocs from '@surveylegend/hapi-docs'
-import Package from './package'
+import { version } from './package'
 
 const options = {
     info: {
         title: 'Test API Reference',
-        version: Package.version
+        version
     }
 }
 

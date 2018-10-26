@@ -1,10 +1,11 @@
 import Hapi from 'hapi'
 import Inert from 'inert'
 import Joi from 'joi'
-import Package from '../package'
+import { name, version } from '../package'
 import plugin from '../lib'
 
 const options = {
+    sortTags: 'ordered',
     sortEndpoints: 'ordered',
     info: {
         description:
@@ -14,17 +15,20 @@ const options = {
         {
             name: 'customers',
             description:
-                '`Customer` objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.'
+                '`Customer` objects allow you to perform recurring charges, and to track multiple charges, that are associated with the same customer. The API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.',
+            order: 1
         },
         {
             name: 'refunds',
             description:
-                '`Refund` objects allow you to refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.'
+                '`Refund` objects allow you to refund a charge that has previously been created but not yet refunded. Funds will be refunded to the credit or debit card that was originally charged.',
+            order: 2
         },
         {
             name: 'recipients',
             description:
                 'With `Recipient` objects, you can transfer money from your Stripe account to a third-party bank account or debit card. The API allows you to create, delete, and update your recipients. You can retrieve individual recipients as well as a list of all your recipients.',
+            order: 3,
             deprecated: true
         }
     ]
@@ -370,7 +374,7 @@ const startServer = async () => {
 
     await server.start()
 
-    console.log(`${Package.name} (v.${Package.version}) server listening on ${server.info.uri}`)
+    console.log(`${name} (v.${version}) server listening on ${server.info.uri}`)
 }
 
 startServer().catch(console.error)

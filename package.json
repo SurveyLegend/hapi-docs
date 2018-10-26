@@ -11,16 +11,17 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "start": "node --experimental-modules --no-warnings examples/server.mjs",
+        "start": "node -r esm examples/server.js",
         "prepublish": "yarn build"
     },
-    "main": "lib/index.mjs",
+    "main": "index.js",
     "files": [
         "dist",
         "lib"
     ],
     "dependencies": {
         "axios": "^0.18.0",
+        "esm": "^3.0.84",
         "hoek": "^5.0.4",
         "joi": "^13.6.0",
         "marked": "^0.5.1",

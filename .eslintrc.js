@@ -14,10 +14,8 @@ module.exports = {
                 SwitchCase: 1
             }
         ],
-        'space-before-function-paren': [
-            'error',
-            { anonymous: 'always', named: 'never' }
-        ],
+        'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
+        'no-global-assign': 'off',
         'no-console': 'off',
         'vue/html-indent': ['error', 4]
     },
