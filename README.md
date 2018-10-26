@@ -3,6 +3,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@surveylegend/hapi-docs.svg?style=flat-square)](https://www.npmjs.com/package/@surveylegend/hapi-docs)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.github.com/glennjones/microformat-shic/master/license.txt)
 
+-   [Features](#features)
 -   [Installation](#installation)
 -   [Usage](#usage)
 -   [Demo](#demo)
@@ -10,6 +11,24 @@
     -   [Plugin Options](#plugin-options)
     -   [Route Options](#route-options)
     -   [Tagging API Routes](#tagging-api-routes)
+
+## Features
+
+-   **Intuitive design** — Inspired by [Stripe’s](https://stripe.com/docs/api) API docs. The description of your API resides on the left part of the documentation, while all of the code examples reside on the right. It’s fully responsive and works great on tablets and phones.
+
+-   **Single page** — Everything resides on a single page, the whole documentation. Without sacrificing linkability. As you scroll through the documentation, your browser’s hash will update to the nearest section, which means linking to a particular point in the documentation remains natural and easy.
+
+-   **Scroll spy** — While scrolling through the documentation, the far left navigation will display your current position in the documentation. It's swift and remains excellent even for larger documents.
+
+-   **Dark theme** — Includes dark theme. Seamless switching between light and dark theme. Supports `prefers-color-scheme` media query for automatic switching.
+
+-   **Markdown support** — Use Markdown to describe your API. Markdown makes it easy to articulate your documentation.
+
+-   **Code examples in multiple languages** — Configurable support for multiple languages. Easily choose which language to currently display in your documentation by switching between tabs.
+
+-   **Syntax highlighting** — Supports [over 100 languages](https://prismjs.com/#languages-list) out of the box.
+
+-   **RTL Support** — Full Right-to-Left support for languages such as Arabic, Persian (Farsi), Hebrew, etc.
 
 ## Installation
 
