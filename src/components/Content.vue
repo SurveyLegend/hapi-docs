@@ -8,7 +8,7 @@
                 <div class="method__area">
                     <div class="method__copy">
                         <div class="method__copy__padding">
-                            <h1>{{ info.title }}</h1>
+                            <h1>Introduction</h1>
                             <template v-if="info.descriptions">
                                 <p v-for="description in info.descriptions">
                                     <marked>{{ description }}</marked>

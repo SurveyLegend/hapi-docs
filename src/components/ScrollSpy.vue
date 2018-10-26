@@ -64,6 +64,7 @@ export default {
                 const currentSection = document.getElementById(hash.substr(1))
 
                 this.updateActiveItem(activeItem)
+                this.updateTitle(activeItem.textContent)
 
                 currentSection.scrollIntoView({
                     behavior: 'instant',
@@ -72,7 +73,11 @@ export default {
                 })
             } else {
                 this.currentItem = this.getItemInsideWindow()
-                if (this.currentItem) this.currentItem.classList.add(this.activeClass)
+
+                if (this.currentItem) {
+                    this.currentItem.classList.add(this.activeClass)
+                    this.updateTitle(this.currentItem.textContent)
+                }
             }
 
             // Scrolling lacks callback & is async
@@ -100,7 +105,7 @@ export default {
                 this.lastActiveItem = this.currentItem
 
                 this.updateActiveItem(this.currentItem)
-
+                this.updateTitle(this.currentItem.textContent)
                 this.updateHash(hash)
             }
         },
@@ -146,6 +151,7 @@ export default {
             this.scrollContainer.removeEventListener('scroll', this.onScroll)
 
             this.updateActiveItem(item)
+            this.updateTitle(item.textContent)
 
             section.scrollIntoView({
                 behavior: 'instant',
@@ -179,6 +185,10 @@ export default {
             } else {
                 window.location.hash = hash
             }
+        },
+
+        updateTitle(title) {
+            document.title = `${title} – API Refrence`
         },
 
         updateActiveItem(item) {
