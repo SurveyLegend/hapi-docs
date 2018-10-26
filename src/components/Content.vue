@@ -263,6 +263,10 @@ export default {
 
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #f0f4f7;
+
+        @include dark-mode {
+            border-top: 1px solid darken(#33383b, 5);
+        }
     }
 
     .method__area:first-child & {
@@ -313,6 +317,10 @@ export default {
     margin-top: 8px;
 
     border-top: 1px solid #e1e8ed;
+
+    @include dark-mode {
+        border-top: 1px solid darken(#33383b, 1);
+    }
 }
 
 .method__list__item {
@@ -339,6 +347,14 @@ export default {
 
     &:last-child {
         border-bottom: 1px solid #e1e8ed;
+    }
+
+    @include dark-mode {
+        border-bottom: 1px solid darken(#33383b, 5);
+
+        &:last-child {
+            border-bottom: 1px solid darken(#33383b, 1);
+        }
     }
 }
 
@@ -372,6 +388,10 @@ export default {
             text-align: left;
 
             color: #dde4e8;
+
+            @include dark-mode {
+                color: lighten(#33383b, 6);
+            }
         }
     }
 
@@ -387,6 +407,10 @@ export default {
         text-align: center;
 
         color: #939da3 !important;
+
+        @include dark-mode {
+            color: darken(#939da3, 20) !important;
+        }
 
         @include respond-to(large-screens) {
             width: 100%;
@@ -408,6 +432,10 @@ export default {
         @include icon('../assets/svg/anchor.svg');
 
         isolation: isolate;
+
+        @include dark-mode {
+            @include icon('../assets/svg/anchor--dark.svg');
+        }
     }
 }
 
@@ -464,6 +492,10 @@ export default {
 
         background: white;
 
+        @include dark-mode {
+            background: darken(#242729, 1);
+        }
+
         /deep/ p {
             margin-top: 0 !important;
         }
@@ -490,6 +522,10 @@ export default {
 
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #33383b;
+
+        @include dark-mode {
+            border-top: 1px solid darken(#242729, 4);
+        }
     }
 
     .method__area:first-child & {
@@ -526,6 +562,10 @@ export default {
         background: #272b2d;
 
         @include font-source-code-pro;
+
+        @include dark-mode {
+            background: darken(#242729, 7.5);
+        }
     }
 
     code {
@@ -597,6 +637,11 @@ export default {
     border: 1px solid #373b3e;
     border-radius: 5px;
     color: #d0d4d7;
+
+    @include dark-mode {
+        background: darken(#242729, 4);
+        border: 1px solid darken(#242729, 2);
+    }
 }
 
 .table__container {
@@ -606,6 +651,10 @@ export default {
 
     tr:nth-child(odd) {
         background: rgba(0, 0, 0, 0.1);
+
+        @include dark-mode {
+            background: rgba(0, 0, 0, 0.2);
+        }
     }
 
     tr:first-child .table__row {

@@ -31,6 +31,10 @@
 
     background: #2d3134;
 
+    @include dark-mode {
+        background: darken(#242729, 6);
+    }
+
     @include respond-to(wide-screens) {
         left: 780px;
     }

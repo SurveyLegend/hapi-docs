@@ -35,6 +35,10 @@ export default {
 body {
     background: white;
     overflow: hidden;
+
+    @include dark-mode {
+        background: darken(#242729, 1);
+    }
 }
 
 #app {
@@ -48,12 +52,20 @@ body {
 
     letter-spacing: 0.1px;
 
+    @include dark-mode {
+        color: #d0d4d7;
+    }
+
     h1,
     h2,
     h3,
     h4,
     h5 {
         color: #292e31;
+
+        @include dark-mode {
+            color: lighten(#d0d4d7, 2);
+        }
     }
 
     h4,
@@ -79,6 +91,10 @@ body {
 
     h5 {
         color: #939da3;
+
+        @include dark-mode {
+            color: darken(#939da3, 20) !important;
+        }
     }
 
     a {
@@ -86,6 +102,10 @@ body {
 
         &:hover {
             color: #292e31;
+
+            @include dark-mode {
+                color: lighten(#d0d4d7, 12);
+            }
         }
     }
 
@@ -94,6 +114,20 @@ body {
         font-weight: 400;
 
         margin-top: 20px;
+    }
+
+    @include dark-mode {
+        color: #d0d4d7;
+
+        h1 {
+            color: lighten(#d0d4d7, 2);
+        }
+
+        a {
+            &:hover {
+                color: lighten(#d0d4d7, 12);
+            }
+        }
     }
 
     strong {
@@ -118,6 +152,11 @@ body {
         background: #fafcfc;
 
         @include font-source-code-pro;
+
+        @include dark-mode {
+            border: 1px solid darken(#33383b, 5);
+            background: darken(#242729, 5);
+        }
     }
 }
 </style>

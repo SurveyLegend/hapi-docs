@@ -42,6 +42,10 @@
 
     border-bottom: 1px solid #f0f4f7;
 
+    @include dark-mode {
+        border-bottom: 1px solid #33383b;
+    }
+
     @include respond-to(medium-screens) {
         left: -181px;
 
@@ -64,7 +68,5 @@
 
     width: 134px;
     height: 38px;
-
-    @include icon('../assets/svg/logo.svg');
 }
 </style>

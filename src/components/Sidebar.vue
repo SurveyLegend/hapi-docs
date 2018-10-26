@@ -73,6 +73,11 @@ export default {
     border-right: 1px solid #f0f4f7;
     background: #fafcfc;
 
+    @include dark-mode {
+        border-right: 1px solid #33383b;
+        background: #2d3134;
+    }
+
     @include respond-to(medium-screens) {
         width: 180px;
     }
@@ -158,7 +163,7 @@ export default {
         color: #0099e5 !important;
 
         &:hover {
-            text-decoration: none;
+            color: #292e31 !important;
         }
     }
 
@@ -166,6 +171,22 @@ export default {
         font-size: 14px;
 
         padding-left: 36px;
+    }
+
+    @include dark-mode {
+        color: #d0d4d7 !important;
+
+        &:hover {
+            color: white !important;
+        }
+
+        &.is-active {
+            color: #0099e5 !important;
+
+            &:hover {
+                color: white !important;
+            }
+        }
     }
 }
 </style>
