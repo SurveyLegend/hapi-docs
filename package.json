@@ -12,7 +12,7 @@
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "start": "nodemon examples/server.js -x \"node -r esm\"",
-        "prepublish": "yarn build"
+        "prepublishOnly": "yarn build"
     },
     "main": "index.js",
     "files": [
@@ -36,9 +36,9 @@
         "hapi": "^17.0.0"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.0.3",
-        "@vue/cli-plugin-eslint": "^3.0.3",
-        "@vue/cli-service": "^3.0.3",
+        "@vue/cli-plugin-babel": "3.0.5",
+        "@vue/cli-plugin-eslint": "3.0.5",
+        "@vue/cli-service": "3.0.5",
         "@vue/eslint-config-standard": "^3.0.3",
         "hapi": "^17.5.4",
         "inert": "^5.1.0",

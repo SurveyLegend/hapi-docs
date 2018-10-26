@@ -8,6 +8,11 @@ module.exports = {
 
         svgRule.uses.clear()
         svgRule.use('svg-url-loader').loader('svg-url-loader')
+
+        // Fix for Safari caching bug https://github.com/vuejs/vue-cli/issues/1132
+        if (process.env.NODE_ENV === 'development') {
+            config.output.filename('[name].[hash].js').end()
+        }
     },
     css: {
         loaderOptions: {
