@@ -2,7 +2,7 @@ import Hapi from 'hapi'
 import Inert from 'inert'
 import Joi from 'joi'
 import { name, version } from '../package'
-import plugin from '../lib'
+import plugin from '../'
 
 const options = {
     sortTags: 'ordered',
