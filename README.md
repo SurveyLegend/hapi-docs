@@ -32,7 +32,7 @@
 
 ## Installation
 
-This package can be used in hapi v17 or higher.
+> This package can be used in hapi v17 or higher.
 
 You can install the package via yarn:
 
