@@ -9,12 +9,12 @@ const options = {
     sortEndpoints: 'ordered',
     info: {
         descriptions: [
-            'The hapi-docs API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support [cross-origin resource sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing), allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website’s client-side code). [JSON](http://www.json.org) is returned by all API responses, including errors.'
+            'The API is organized around [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. We support [cross-origin resource sharing](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing), allowing you to interact securely with our API from a client-side web application (though you should never expose your secret API key in any public website’s client-side code). [JSON](http://www.json.org) is returned by all API responses, including errors.'
         ]
     },
     errors: {
         descriptions: [
-            'The hapi-docs API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the `2xx` range indicate success. Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the `5xx` range indicate an error with hapi-docs servers (these are rare).'
+            'The API uses conventional HTTP response codes to indicate the success or failure of an API request. In general: Codes in the `2xx` range indicate success. Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, a charge failed, etc.). Codes in the `5xx` range indicate an error with servers (these are rare).'
         ],
         codes: [
             {
@@ -50,7 +50,7 @@ const options = {
             },
             {
                 status: '500, 502, 503, 504 - Server Errors',
-                description: 'Something went wrong on hapi-docs end. (These are rare.)'
+                description: 'Something went wrong on our end. (These are rare.)'
             }
         ]
     },
@@ -72,7 +72,7 @@ const options = {
         {
             name: 'recipients',
             descriptions: [
-                'With `Recipient` objects, you can transfer money from your Stripe account to a third-party bank account or debit card. The API allows you to create, delete, and update your recipients. You can retrieve individual recipients as well as a list of all your recipients.'
+                'With `Recipient` objects, you can transfer money from your account to a third-party bank account or debit card. The API allows you to create, delete, and update your recipients. You can retrieve individual recipients as well as a list of all your recipients.'
             ],
             order: 3,
             deprecated: true
