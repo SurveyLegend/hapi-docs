@@ -11,7 +11,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "start": "node -r esm examples/server.js",
+        "start": "nodemon examples/server.js -x \"node -r esm\"",
         "prepublish": "yarn build"
     },
     "main": "index.js",
@@ -25,6 +25,7 @@
         "hoek": "^5.0.4",
         "joi": "^13.6.0",
         "marked": "^0.5.1",
+        "nodemon": "^1.18.5",
         "prismjs": "^1.15.0",
         "vue": "^2.5.17",
         "vue-prism-component": "^1.0.1",
