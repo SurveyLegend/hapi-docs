@@ -3,7 +3,7 @@
         <scroll-spy
             v-if="dataReady"
             class="sidebar__navigation">
-            <template v-if="info || errors">
+            <template>
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li v-if="info">
@@ -54,7 +54,7 @@ export default {
             groups: 'hapi-docs/groupedPaths'
         }),
         dataReady() {
-            return this.info && this.errors && this.groups
+            return this.info && this.errors.length !== 0 && this.groups
         }
     }
 }

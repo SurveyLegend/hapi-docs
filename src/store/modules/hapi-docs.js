@@ -8,7 +8,7 @@ export const state = {
     paths: null,
     groups: null,
     tags: null,
-    errors: null
+    errors: []
 }
 
 export const getters = {
