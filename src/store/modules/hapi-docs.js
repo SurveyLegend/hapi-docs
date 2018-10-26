@@ -20,16 +20,29 @@ export const getters = {
     groupedPaths: getters => {
         const grouped = []
 
+        if (getters.tags) {
+            getters.tags.forEach(tag => {
+                grouped.push({
+                    name: tag.name,
+                    description: tag.description || null,
+                    deprecated: tag.deprecated || false,
+                    paths: getters.paths.filter(path => path.group === tag.name)
+                })
+            })
+        }
+
         if (getters.groups) {
             getters.groups.forEach(group => {
                 const tag = getters.tags.find(tag => tag.name === group)
 
-                grouped.push({
-                    name: group,
-                    description: tag && tag.description ? tag.description : null,
-                    deprecated: tag && tag.deprecated ? tag.deprecated : false,
-                    paths: getters.paths.filter(path => path.group === group)
-                })
+                if (!tag) {
+                    grouped.push({
+                        name: group,
+                        description: null,
+                        deprecated: false,
+                        paths: getters.paths.filter(path => path.group === group)
+                    })
+                }
             })
         }
 
