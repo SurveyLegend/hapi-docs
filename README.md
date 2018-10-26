@@ -20,7 +20,7 @@
 
 -   **Scroll spy** — While scrolling through the documentation, the far left navigation will display your current position in the documentation. It's swift and remains excellent even for larger documents.
 
--   **Dark theme** — Includes dark theme. Seamless switching between light and dark theme. Supports `prefers-color-scheme` media query for automatic switching.
+-   **Dark theme** — Seamless switching between light and dark theme. Supports `prefers-color-scheme` media query for automatic switching.
 
 -   **Markdown support** — Use Markdown to describe your API. Markdown makes it easy to articulate your documentation.
 
