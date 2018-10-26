@@ -32,6 +32,11 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/base/_normalize.scss';
 
+body {
+    background: white;
+    overflow: hidden;
+}
+
 #app {
     @include font-hind;
 
@@ -39,10 +44,7 @@ export default {
     font-weight: 500;
     line-height: 26px;
 
-    overflow: hidden;
-
     color: #4c555a;
-    background: white;
 
     letter-spacing: 0.1px;
 
