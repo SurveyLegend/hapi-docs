@@ -11,7 +11,7 @@
                             href="#intro"
                             class="sidebar__navigation__item">Introduction</a>
                     </li>
-                    <li v-if="errors">
+                    <li v-if="errors.length !== 0">
                         <a
                             href="#errors"
                             class="sidebar__navigation__item">Errors</a>

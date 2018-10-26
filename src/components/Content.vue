@@ -24,7 +24,7 @@
                 </div>
             </section>
             <section
-                v-if="errors"
+                v-if="errors.length !== 0"
                 id="errors"
                 class="method first-of-group">
                 <div class="method__area">
