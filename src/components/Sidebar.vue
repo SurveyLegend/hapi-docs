@@ -2,6 +2,7 @@
     <div class="sidebar">
         <scroll-spy
             v-if="dataReady"
+            :title="info.title"
             class="sidebar__navigation">
             <template>
                 <h5 class="sidebar__navigation__heading">Topics</h5>

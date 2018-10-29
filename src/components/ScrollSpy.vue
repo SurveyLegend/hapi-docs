@@ -14,6 +14,11 @@ export default {
             default: '.content'
         },
 
+        title: {
+            type: String,
+            default: null
+        },
+
         itemClass: {
             type: String,
             default: '.sidebar__navigation__item'
@@ -187,8 +192,8 @@ export default {
             }
         },
 
-        updateTitle(title) {
-            document.title = `${title} – API Refrence`
+        updateTitle(item) {
+            document.title = this.title ? `${item} – ${this.title}` : item
         },
 
         updateActiveItem(item) {
