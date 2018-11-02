@@ -85,7 +85,6 @@ export default {
                 }
             }
 
-            // Scrolling lacks callback & is async
             setTimeout(() => {
                 this.scrollContainer.addEventListener('scroll', this.onScroll)
             }, 100)
@@ -164,7 +163,7 @@ export default {
                 inline: 'nearest'
             })
 
-            // Scrolling lacks callback & is async
+            // Scrolling lacks callback & is not instant.
             setTimeout(() => {
                 this.scrollContainer.addEventListener('scroll', this.onScroll)
             }, 100)
@@ -186,7 +185,19 @@ export default {
 
         updateHash(hash) {
             if (window.history.replaceState) {
-                window.history.replaceState(null, null, hash)
+                try {
+                    window.history.replaceState(null, null, hash)
+                } catch (error) {
+                    // Ignore history.replaceState() rate limit error.
+                    if (
+                        error.name === 'SecurityError' &&
+                        error.message.includes('Attempt to use history.replaceState()')
+                    ) {
+                        return
+                    }
+
+                    throw error
+                }
             } else {
                 window.location.hash = hash
             }
