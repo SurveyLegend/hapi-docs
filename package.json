@@ -30,7 +30,6 @@
         "prismjs": "^1.15.0",
         "vue": "^2.5.17",
         "vue-prism-component": "^1.0.1",
-        "vue-router": "^3.0.1",
         "vuex": "^3.0.1"
     },
     "peerDependencies": {
