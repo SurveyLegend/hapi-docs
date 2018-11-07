@@ -27,7 +27,7 @@
 }
 
 @mixin dark-mode() {
-    @media (prefers-color-scheme: dark) {
+    .dark-mode & {
         @content;
     }
 }

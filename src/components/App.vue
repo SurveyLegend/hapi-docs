@@ -32,28 +32,24 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/base/_normalize.scss';
 
-body {
-    background: white;
-    overflow: hidden;
-
-    @include dark-mode {
-        background: darken(#242729, 4);
-    }
-}
-
 #app {
     @include font-hind;
+
+    width: 100%;
+    height: 100%;
 
     font-size: 14px;
     font-weight: 500;
     line-height: 26px;
 
     color: #4c555a;
+    background: white;
 
     letter-spacing: 0.1px;
 
     @include dark-mode {
         color: #d0d4d7;
+        background: darken(#242729, 4);
     }
 
     h1,

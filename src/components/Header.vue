@@ -7,6 +7,7 @@
         </div>
         <div class="header__copy"/>
         <div class="header__example"/>
+        <dark-mode/>
     </div>
 </template>
 
