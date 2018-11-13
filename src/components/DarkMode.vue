@@ -1,8 +1,18 @@
 <template>
-    <div @click="handleClick"/>
+    <label class="dark-toggle">
+        <input
+            v-model="checked"
+            type="checkbox"
+            class="dark-toggle__source">
+        <div
+            :class="{ 'is-checked': checked }"
+            class="dark-toggle__controls"/>
+    </label>
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
     name: 'DarkMode',
 
@@ -15,7 +25,7 @@ export default {
 
     data() {
         return {
-            darkMode: false
+            checked: Boolean(Cookies.get('dark-toggle'))
         }
     },
 
@@ -25,29 +35,77 @@ export default {
         }
     },
 
+    watch: {
+        checked: {
+            immediate: true,
+            handler() {
+                this.checked ? this.setDark() : this.removeDark()
+            }
+        }
+    },
+
     mounted() {
         this.$nextTick(() => {
-            this.setDark(this.isDark)
-
-            this.isDark.addListener(this.setDark)
+            this.isDark.addListener(this.handleDark)
         })
     },
 
     beforeDestroy() {
-        this.isDark.removeListener(this.setDark)
+        this.isDark.removeListener(this.handleDark)
     },
 
     methods: {
-        setDark(event) {
-            document.body.className = event.matches ? this.darkClass : ''
+        handleDark(event) {
+            if (event.matches) {
+                this.checked = true
+
+                this.setDark()
+            } else {
+                this.checked = false
+
+                this.removeDark()
+            }
         },
 
-        handleClick(event) {
-            event.preventDefault()
+        setDark() {
+            Cookies.set('dark-toggle', true, { expires: 365 })
+
+            document.body.classList.add(this.darkClass)
+        },
+
+        removeDark() {
+            Cookies.remove('dark-toggle')
+
+            document.body.classList.remove(this.darkClass)
         }
     }
 }
 </script>
 
 <style scoped lang="scss">
+.dark-toggle {
+    cursor: pointer;
+    user-select: none;
+}
+
+.dark-toggle__source {
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-toggle__controls {
+    width: 20px;
+    height: 20px;
+
+    @include icon('../assets/svg/toggle--day.svg');
+
+    &.is-checked {
+        @include icon('../assets/svg/toggle--night.svg');
+    }
+}
 </style>

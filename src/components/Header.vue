@@ -6,8 +6,11 @@
                 href="/"/>
         </div>
         <div class="header__copy"/>
-        <div class="header__example"/>
-        <dark-mode/>
+        <div class="header__example">
+            <div class="header__dark">
+                <dark-mode/>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -29,15 +32,16 @@
 }
 
 %header__section {
+    position: absolute;
+    top: 0;
+
     height: 49px;
 }
 
 .header__sidebar {
     @extend %header__section;
 
-    position: absolute;
-    top: 0;
-    left: -221px;
+    left: -220px;
 
     width: 220px;
 
@@ -48,30 +52,60 @@
     }
 
     @include respond-to(medium-screens) {
-        left: -181px;
+        left: -180px;
 
         width: 180px;
     }
 
     @include respond-to(wide-screens) {
-        left: -281px;
+        left: -280px;
 
         width: 280px;
     }
 }
 
+.header__example {
+    @extend %header__section;
+
+    left: calc((100vw - 220px) * 0.45);
+    right: 0;
+    z-index: z-index(above);
+
+    height: 50px;
+    min-width: 464px;
+
+    padding: 0 40px;
+
+    background-color: #242729;
+
+    @include dark-mode {
+        background-color: darken(#242729, 14);
+    }
+
+    @include respond-to(wide-screens) {
+        left: 780px;
+    }
+}
+
 .header__logo {
     position: relative;
-    top: 5px;
-    left: 20px;
 
-    display: block;
+    display: none;
 
-    width: 134px;
-    height: 38px;
+    width: 100%;
+    height: 100%;
 
     @include icon('../assets/images/logo.png');
     background-size: 20px 29px;
-    background-position: left center;
+    background-position: 20px center;
+}
+
+.header__dark {
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+
+    height: 100%;
 }
 </style>
