@@ -79,7 +79,7 @@
     background-color: #242729;
 
     @include dark-mode {
-        background-color: darken(#242729, 14);
+        background-color: darken(#242729, 12);
     }
 
     @include respond-to(wide-screens) {
