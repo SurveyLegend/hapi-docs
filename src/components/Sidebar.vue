@@ -55,7 +55,7 @@ export default {
             groups: 'hapi-docs/groupedPaths'
         }),
         dataReady() {
-            return this.info && this.errors.length !== 0 && this.groups
+            return this.info && this.groups
         }
     }
 }
