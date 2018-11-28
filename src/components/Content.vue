@@ -169,7 +169,7 @@
                             <div class="method__example">
                                 <div class="method__example__part">
                                     <div class="method__example__declaration">
-                                        <prism language="bash">{{ path.method }} {{ path.path }}</prism>
+                                        <prism language="bash">{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</prism>
                                     </div>
                                     <!-- <div class="method__example__response">
                                         <prism language="json">test</prism>
