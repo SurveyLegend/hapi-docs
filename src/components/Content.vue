@@ -61,8 +61,8 @@
             </section>
             <template v-for="group in groups">
                 <section
-                    :key="group.name"
                     :id="group.name"
+                    :key="group.name"
                     class="method first-of-group">
                     <div class="method__area">
                         <div class="method__copy">
@@ -102,34 +102,64 @@
                                         </p>
                                     </template>
                                 </div>
+                                <template v-if="path.pathParams !== null || path.payloadParams !== null">
+                                    <div
+                                        v-if="path.pathParams !== null"
+                                        class="method__list">
+                                        <h5>Path Arguments</h5>
+                                        <ul class="method__list__group">
+                                            <li
+                                                v-for="param in path.pathParams.children"
+                                                :id="`${path.slug}-${param.name}`"
+                                                class="method__list__item">
+                                                <h3 class="method__list__item__label">
+                                                    <a
+                                                        :href="`#${path.slug}-${param.name}`"
+                                                        class="header-anchor"/>
+                                                    <span>{{ param.name }}</span>
+                                                    <span
+                                                        v-if="param.flags && param.flags.required"
+                                                        class="method__list__item__label__badge">required</span>
+                                                    <span
+                                                        v-else
+                                                        class="method__list__item__label__details">optional</span>
+                                                </h3>
+                                                <marked class="method__list__item__description">{{ param.description }}</marked>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div
+                                        v-if="path.payloadParams !== null"
+                                        class="method__list">
+                                        <h5>Payload Arguments</h5>
+                                        <ul class="method__list__group">
+                                            <li
+                                                v-for="param in path.payloadParams.children"
+                                                :id="`${path.slug}-${param.name}`"
+                                                class="method__list__item">
+                                                <h3 class="method__list__item__label">
+                                                    <a
+                                                        :href="`#${path.slug}-${param.name}`"
+                                                        class="header-anchor"/>
+                                                    <span>{{ param.name }}</span>
+                                                    <span
+                                                        v-if="param.flags && param.flags.required"
+                                                        class="method__list__item__label__badge">required</span>
+                                                    <span
+                                                        v-else
+                                                        class="method__list__item__label__details">optional</span>
+                                                </h3>
+                                                <marked class="method__list__item__description">{{ param.description }}</marked>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </template>
                                 <div
-                                    :class="{ 'is-empty': path.pathParams === null }"
-                                    class="method__list">
+                                    v-else
+                                    class="method__list is-empty">
                                     <h5>Arguments</h5>
                                     <ul class="method__list__group">
-                                        <template v-if="path.pathParams !== null">
-                                            <template v-for="param in path.pathParams.children">
-                                                <li
-                                                    :id="`${path.slug}-${param.name}`"
-                                                    class="method__list__item">
-                                                    <h3 class="method__list__item__label">
-                                                        <a
-                                                            :href="`#${path.slug}-${param.name}`"
-                                                            class="header-anchor"/>
-                                                        <span>{{ param.name }}</span>
-                                                        <span
-                                                            v-if="param.flags && param.flags.required"
-                                                            class="method__list__item__label__badge">required</span>
-                                                        <span
-                                                            v-else
-                                                            class="method__list__item__label__details">optional</span>
-                                                    </h3>
-                                                    <marked class="method__list__item__description">{{ param.description }}</marked>
-                                                </li>
-                                            </template>
-                                        </template>
                                         <li
-                                            v-else
                                             class="method__list__item">
                                             <h3 class="method__list__item__label">No arguments…</h3>
                                         </li>
@@ -138,9 +168,9 @@
                             </div>
                             <div class="method__example">
                                 <div class="method__example__part">
-                                    <!-- <div class="method__example__declaration">
-                                        <prism language="bash">test</prism>
-                                    </div> -->
+                                    <div class="method__example__declaration">
+                                        <prism language="bash">{{ path.method }} {{ path.path }}</prism>
+                                    </div>
                                     <!-- <div class="method__example__response">
                                         <prism language="json">test</prism>
                                     </div> -->
