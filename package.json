@@ -51,9 +51,6 @@
         "svg-url-loader": "^2.3.2",
         "vue-template-compiler": "^2.5.17"
     },
-    "engines": {
-        "node": "10.x"
-    },
     "keywords": [
         "hapi",
         "hapi-plugin",
