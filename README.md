@@ -90,6 +90,7 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
 
 -   `endpoint`: (string) The path of the documentation - default: `/docs`
 -   `basePath`: (string) The base path before the API, i.e. `/v2` - default: `/`
+-   `templatePath`: (string) The absolute path to the template folder, i.e. `/template`
 -   `host`: (string) The hostname or IP serving the API, i.e. `localhost:3000`
 -   `scheme`: (string) The transfer protocol of the API, i.e. `http`, `https`
 -   `pathPrefixSize`: (number) The segment of the URL path that is used to group endpoints - default: `1`
