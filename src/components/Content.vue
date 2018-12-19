@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <template v-if="groups">
+        <template v-if="groups.length !== 0">
             <section
                 v-if="info"
                 id="intro"
