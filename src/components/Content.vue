@@ -269,7 +269,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .content {
     position: absolute;
     z-index: z-index(above);
@@ -550,12 +550,12 @@ export default {
             background: darken(#242729, 4);
         }
 
-        /deep/ p {
+        p {
             margin-top: 0 !important;
         }
     }
 
-    /deep/ p {
+    p {
         font-size: 14px !important;
         line-height: 21px !important;
     }
