@@ -420,7 +420,9 @@ const startServer = async () => {
 
     await server.start()
 
+    // eslint-disable-next-line
     console.log(`${name} (v.${version}) server listening on ${server.info.uri}`)
 }
 
+// eslint-disable-next-line
 startServer().catch(console.error)
