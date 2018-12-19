@@ -3,12 +3,13 @@
         <div class="header__sidebar">
             <a
                 class="header__logo"
-                href="/"/>
+                href="/"
+            />
         </div>
-        <div class="header__copy"/>
+        <div class="header__copy" />
         <div class="header__example">
             <div class="header__dark">
-                <dark-mode/>
+                <DarkMode />
             </div>
         </div>
     </div>

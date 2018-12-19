@@ -16,9 +16,10 @@ module.exports = {
         ],
         'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
         'no-global-assign': 'off',
-        'no-console': 'off',
         'vue/html-indent': ['error', 4],
-        'vue/require-v-for-key': 'off'
+        'vue/require-v-for-key': 'off',
+        'vue/singleline-html-element-content-newline': 'off',
+        'vue/multiline-html-element-content-newline': 'off'
     },
     parserOptions: {
         parser: 'babel-eslint'

@@ -3,10 +3,12 @@
         <input
             v-model="checked"
             type="checkbox"
-            class="dark-toggle__source">
+            class="dark-toggle__source"
+        >
         <div
             :class="{ 'is-checked': checked }"
-            class="dark-toggle__controls"/>
+            class="dark-toggle__controls"
+        />
     </label>
 </template>
 

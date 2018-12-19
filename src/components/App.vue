@@ -1,9 +1,9 @@
 <template>
     <div id="app">
-        <app-header/>
-        <app-sidebar/>
-        <app-content/>
-        <app-background/>
+        <AppHeader />
+        <AppSidebar />
+        <AppContent />
+        <AppBackground />
     </div>
 </template>
 

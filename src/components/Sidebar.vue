@@ -1,21 +1,24 @@
 <template>
     <div class="sidebar">
-        <scroll-spy
+        <ScrollSpy
             v-if="dataReady"
             :title="info.title"
-            class="sidebar__navigation">
+            class="sidebar__navigation"
+        >
             <template>
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li v-if="info">
                         <a
                             href="#intro"
-                            class="sidebar__navigation__item">Introduction</a>
+                            class="sidebar__navigation__item"
+                        >Introduction</a>
                     </li>
                     <li v-if="errors.length !== 0">
                         <a
                             href="#errors"
-                            class="sidebar__navigation__item">Errors</a>
+                            class="sidebar__navigation__item"
+                        >Errors</a>
                     </li>
                 </ul>
             </template>
@@ -24,23 +27,27 @@
                 <ul class="sidebar__navigation__items">
                     <li
                         v-for="group in groups"
-                        :key="group.name">
+                        :key="group.name"
+                    >
                         <a
                             :href="`#${group.name}`"
-                            class="sidebar__navigation__item">{{ group.name | capitalize }}</a>
+                            class="sidebar__navigation__item"
+                        >{{ group.name | capitalize }}</a>
                         <ul class="sidebar__navigation__items">
                             <li
                                 v-for="path in group.paths"
-                                :key="path.name">
+                                :key="path.name"
+                            >
                                 <a
                                     :href="`#${path.slug}`"
-                                    class="sidebar__navigation__item">{{ path.description }}</a>
+                                    class="sidebar__navigation__item"
+                                >{{ path.description }}</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </template>
-        </scroll-spy>
+        </ScrollSpy>
     </div>
 </template>
 

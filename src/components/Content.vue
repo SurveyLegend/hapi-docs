@@ -4,14 +4,15 @@
             <section
                 v-if="info"
                 id="intro"
-                class="method first-of-group">
+                class="method first-of-group"
+            >
                 <div class="method__area">
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>Introduction</h1>
                             <template v-if="info.descriptions">
                                 <p v-for="description in info.descriptions">
-                                    <marked>{{ description }}</marked>
+                                    <Marked>{{ description }}</Marked>
                                 </p>
                             </template>
                         </div>
@@ -19,7 +20,7 @@
                     <div class="method__example">
                         <div class="method__example__part">
                             <div class="method__example__base-url">
-                                <prism language="bash">{{ scheme }}://{{ host }}</prism>
+                                <Prism language="bash">{{ scheme }}://{{ host }}</Prism>
                             </div>
                         </div>
                     </div>
@@ -28,21 +29,23 @@
             <section
                 v-if="errors.length !== 0"
                 id="errors"
-                class="method first-of-group">
+                class="method first-of-group"
+            >
                 <div class="method__area">
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>Errors</h1>
                             <template v-if="errors.descriptions">
                                 <p v-for="description in errors.descriptions">
-                                    <marked>{{ description }}</marked>
+                                    <Marked>{{ description }}</Marked>
                                 </p>
                             </template>
                         </div>
                     </div>
                     <div
                         v-if="errors.codes"
-                        class="method__example">
+                        class="method__example"
+                    >
                         <div class="method__example__part">
                             <h3>HTTP status code summary</h3>
                             <section class="table">
@@ -63,7 +66,8 @@
                 <section
                     :id="group.name"
                     :key="group.name"
-                    class="method first-of-group">
+                    class="method first-of-group"
+                >
                     <div class="method__area">
                         <div class="method__copy">
                             <div class="method__copy__padding">
@@ -71,22 +75,24 @@
                                     <span>{{ group.name | capitalize }}</span>
                                     <span
                                         v-if="group.deprecated"
-                                        class="method__badge method__badge--deprecated">Deprecated</span>
+                                        class="method__badge method__badge--deprecated"
+                                    >Deprecated</span>
                                 </h1>
                                 <template v-if="group.descriptions">
                                     <p v-for="description in group.descriptions">
-                                        <marked>{{ description }}</marked>
+                                        <Marked>{{ description }}</Marked>
                                     </p>
                                 </template>
                             </div>
                         </div>
-                        <div class="method__example"/>
+                        <div class="method__example" />
                     </div>
                 </section>
                 <template v-for="path in group.paths">
                     <section
                         :id="path.slug"
-                        class="method">
+                        class="method"
+                    >
                         <div class="method__area">
                             <div class="method__copy">
                                 <div class="method__copy__padding">
@@ -94,73 +100,84 @@
                                         <span>{{ path.description }}</span>
                                         <span
                                             v-if="path.deprecated"
-                                            class="method__badge method__badge--deprecated">Deprecated</span>
+                                            class="method__badge method__badge--deprecated"
+                                        >Deprecated</span>
                                     </h1>
                                     <template v-if="path.notes">
                                         <p v-for="note in path.notes">
-                                            <marked>{{ note }}</marked>
+                                            <Marked>{{ note }}</Marked>
                                         </p>
                                     </template>
                                 </div>
                                 <template v-if="path.pathParams !== null || path.payloadParams !== null">
                                     <div
                                         v-if="path.pathParams !== null"
-                                        class="method__list">
+                                        class="method__list"
+                                    >
                                         <h5>Path Arguments</h5>
                                         <ul class="method__list__group">
                                             <li
                                                 v-for="param in path.pathParams.children"
                                                 :id="`${path.slug}-${param.name}`"
-                                                class="method__list__item">
+                                                class="method__list__item"
+                                            >
                                                 <h3 class="method__list__item__label">
                                                     <a
                                                         :href="`#${path.slug}-${param.name}`"
-                                                        class="header-anchor"/>
+                                                        class="header-anchor"
+                                                    />
                                                     <span>{{ param.name }}</span>
                                                     <span
                                                         v-if="param.flags && param.flags.required"
-                                                        class="method__list__item__label__badge">required</span>
+                                                        class="method__list__item__label__badge"
+                                                    >required</span>
                                                     <span
                                                         v-else
-                                                        class="method__list__item__label__details">optional</span>
+                                                        class="method__list__item__label__details"
+                                                    >optional</span>
                                                 </h3>
-                                                <marked class="method__list__item__description">{{ param.description }}</marked>
+                                                <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                             </li>
                                         </ul>
                                     </div>
                                     <div
                                         v-if="path.payloadParams !== null"
-                                        class="method__list">
+                                        class="method__list"
+                                    >
                                         <h5>Payload Arguments</h5>
                                         <ul class="method__list__group">
                                             <li
                                                 v-for="param in path.payloadParams.children"
                                                 :id="`${path.slug}-${param.name}`"
-                                                class="method__list__item">
+                                                class="method__list__item"
+                                            >
                                                 <h3 class="method__list__item__label">
                                                     <a
                                                         :href="`#${path.slug}-${param.name}`"
-                                                        class="header-anchor"/>
+                                                        class="header-anchor"
+                                                    />
                                                     <span>{{ param.name }}</span>
                                                     <span
                                                         v-if="param.flags && param.flags.required"
-                                                        class="method__list__item__label__badge">required</span>
+                                                        class="method__list__item__label__badge"
+                                                    >required</span>
                                                     <span
                                                         v-else
-                                                        class="method__list__item__label__details">optional</span>
+                                                        class="method__list__item__label__details"
+                                                    >optional</span>
                                                 </h3>
-                                                <marked class="method__list__item__description">{{ param.description }}</marked>
+                                                <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                             </li>
                                         </ul>
                                     </div>
                                 </template>
                                 <div
                                     v-else
-                                    class="method__list is-empty">
+                                    class="method__list is-empty"
+                                >
                                     <h5>Arguments</h5>
                                     <ul class="method__list__group">
-                                        <li
-                                            class="method__list__item">
+                                        <li class="method__list__item">
                                             <h3 class="method__list__item__label">No arguments…</h3>
                                         </li>
                                     </ul>
@@ -169,11 +186,8 @@
                             <div class="method__example">
                                 <div class="method__example__part">
                                     <div class="method__example__declaration">
-                                        <prism language="bash">{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</prism>
+                                        <Prism language="bash">{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</Prism>
                                     </div>
-                                    <!-- <div class="method__example__response">
-                                        <prism language="json">test</prism>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -183,37 +197,47 @@
         </template>
         <section
             v-else
-            class="method">
+            class="method"
+        >
             <div class="method__area">
                 <div class="method__copy">
                     <div class="method__copy__padding">
                         <div
                             class="loading__shimmer"
-                            style="height: 32px; width: 15rem; margin-bottom: 30px;"/>
+                            style="height: 32px; width: 15rem; margin-bottom: 30px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 16px; width: 95%; margin-bottom: 12px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 16px; width: 95%; margin-bottom: 12px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 16px; width: 95%; margin-bottom: 12px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 45%; margin-bottom: 45px;"/>
+                            style="height: 16px; width: 45%; margin-bottom: 45px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 16px; width: 95%; margin-bottom: 12px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 16px; width: 95%; margin-bottom: 12px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 16px; width: 45%; margin-bottom: 64px;"/>
+                            style="height: 16px; width: 45%; margin-bottom: 64px;"
+                        />
                         <div
                             class="loading__shimmer"
-                            style="height: 200px; width: 95%; margin-bottom: 12px;"/>
+                            style="height: 200px; width: 95%; margin-bottom: 12px;"
+                        />
                     </div>
                 </div>
             </div>
