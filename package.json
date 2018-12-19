@@ -27,7 +27,6 @@
         "joi": "^14.0.4",
         "js-cookie": "^2.2.0",
         "marked": "^0.5.1",
-        "nodemon": "^1.18.5",
         "prismjs": "^1.15.0",
         "vue": "^2.5.17",
         "vue-prism-component": "^1.0.1",
@@ -47,6 +46,7 @@
         "hapi": "^17.5.4",
         "inert": "^5.1.0",
         "node-sass": "^4.9.0",
+        "nodemon": "^1.18.9",
         "sass-loader": "^7.0.1",
         "svg-url-loader": "^2.3.2",
         "vue-template-compiler": "^2.5.17"
