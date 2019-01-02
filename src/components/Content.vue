@@ -26,6 +26,24 @@
             </div>
         </section>
         <section
+            v-if="security.length !== 0"
+            id="authentication"
+            class="method first-of-group"
+        >
+            <div class="method__area">
+                <div class="method__copy">
+                    <div class="method__copy__padding">
+                        <h1>Authentication</h1>
+                        <template v-if="security.descriptions">
+                            <p v-for="description in security.descriptions">
+                                <Marked>{{ description }}</Marked>
+                            </p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
             v-if="errors.length !== 0"
             id="errors"
             class="method first-of-group"
@@ -213,6 +231,7 @@ export default {
             host: 'hapi-docs/host',
             scheme: 'hapi-docs/scheme',
             info: 'hapi-docs/info',
+            security: 'hapi-docs/security',
             errors: 'hapi-docs/errors',
             groups: 'hapi-docs/groupedPaths'
         })

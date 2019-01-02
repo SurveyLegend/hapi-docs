@@ -5,6 +5,7 @@ export const state = {
     host: '',
     scheme: '',
     info: null,
+    security: null,
     errors: [],
     paths: null,
     groups: null,
@@ -15,6 +16,7 @@ export const getters = {
     host: state => state.host,
     scheme: state => state.scheme,
     info: state => state.info,
+    security: state => state.security,
     errors: state => state.errors,
     paths: state => state.paths,
     groups: state => state.groups,
@@ -57,6 +59,7 @@ export const mutations = {
         state.host = data.host
         state.scheme = data.scheme
         state.info = data.info
+        state.security = data.security
         state.errors = data.errors
         state.paths = data.paths
         state.groups = data.groups

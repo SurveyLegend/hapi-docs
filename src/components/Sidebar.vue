@@ -14,6 +14,12 @@
                             class="sidebar__navigation__item"
                         >Introduction</a>
                     </li>
+                    <li v-if="security.length !== 0">
+                        <a
+                            href="#authentication"
+                            class="sidebar__navigation__item"
+                        >Authentication</a>
+                    </li>
                     <li v-if="errors.length !== 0">
                         <a
                             href="#errors"
@@ -58,6 +64,7 @@ export default {
     computed: {
         ...mapGetters({
             info: 'hapi-docs/info',
+            security: 'hapi-docs/security',
             errors: 'hapi-docs/errors',
             groups: 'hapi-docs/groupedPaths'
         }),
