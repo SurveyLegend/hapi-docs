@@ -20,6 +20,10 @@
     @include respond-to(wide-screens) {
         left: 280px;
     }
+
+    @include respond-to(small-screens) {
+        left: 0;
+    }
 }
 
 .background__actual {
@@ -37,6 +41,10 @@
 
     @include respond-to(wide-screens) {
         left: 780px;
+    }
+
+    @include respond-to(small-screens) {
+        left: 45vw;
     }
 }
 </style>

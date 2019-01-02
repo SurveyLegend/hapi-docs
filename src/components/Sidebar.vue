@@ -100,6 +100,10 @@ export default {
     @include respond-to(wide-screens) {
         width: 280px;
     }
+
+    @include respond-to(small-screens) {
+        display: none;
+    }
 }
 
 .sidebar__navigation {

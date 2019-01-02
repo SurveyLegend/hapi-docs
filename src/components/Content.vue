@@ -259,6 +259,11 @@ export default {
     @include respond-to(wide-screens) {
         left: 280px;
     }
+
+    @include respond-to(small-screens) {
+        left: 0;
+        top: 50px;
+    }
 }
 
 .method {
@@ -286,6 +291,10 @@ export default {
         width: 780px;
     }
 
+    @include respond-to(small-screens) {
+        width: 45vw;
+    }
+
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #f0f4f7;
 
@@ -296,6 +305,10 @@ export default {
 
     .method__area:first-child & {
         padding-top: 30px;
+
+        @include respond-to(small-screens) {
+            padding-top: 0;
+        }
     }
 }
 
@@ -445,12 +458,14 @@ export default {
     .header-anchor {
         position: relative;
         top: 3px;
-        left: -3px;
+        left: -18px;
 
         display: inline-block;
 
         width: 15px;
         height: 14px;
+
+        margin-right: -15px;
 
         opacity: 0;
         background-size: 10px 8px;
@@ -468,6 +483,8 @@ export default {
     font-size: 13px;
     font-weight: 400;
 
+    margin-left: 3px;
+
     word-break: normal;
 
     color: #939da3;
@@ -484,7 +501,7 @@ export default {
 
     display: inline-block;
 
-    margin-left: 5px;
+    margin-left: 8px;
     padding: 0 8px;
 
     vertical-align: top;
@@ -545,6 +562,11 @@ export default {
         margin-left: 780px;
     }
 
+    @include respond-to(small-screens) {
+        margin-left: 45vw;
+        padding-top: 0;
+    }
+
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #33383b;
 
@@ -555,6 +577,10 @@ export default {
 
     .method__area:first-child & {
         padding-top: 72px;
+
+        @include respond-to(small-screens) {
+            padding-top: 0;
+        }
     }
 
     h3 {

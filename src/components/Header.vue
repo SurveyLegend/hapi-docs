@@ -30,6 +30,16 @@
     @include respond-to(wide-screens) {
         left: 280px;
     }
+
+    @include respond-to(small-screens) {
+        left: 0;
+        height: 50px;
+        border-bottom: 1px solid #f0f4f7;
+
+        @include dark-mode {
+            border-bottom: 1px solid darken(#33383b, 8);
+        }
+    }
 }
 
 %header__section {
@@ -63,6 +73,11 @@
 
         width: 280px;
     }
+
+    @include respond-to(small-screens) {
+        left: 0;
+        border-bottom: 0 !important;
+    }
 }
 
 .header__example {
@@ -85,6 +100,10 @@
 
     @include respond-to(wide-screens) {
         left: 780px;
+    }
+
+    @include respond-to(small-screens) {
+        left: 45vw;
     }
 }
 
