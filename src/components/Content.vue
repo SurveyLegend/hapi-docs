@@ -41,6 +41,7 @@
                         </template>
                     </div>
                 </div>
+                <div class="method__example" />
             </div>
         </section>
         <section
