@@ -24,6 +24,10 @@
     @include respond-to(small-screens) {
         left: 0;
     }
+
+    @include respond-to(narrow-screens) {
+        display: none;
+    }
 }
 
 .background__actual {

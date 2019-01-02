@@ -264,6 +264,10 @@ export default {
         left: 0;
         top: 50px;
     }
+
+    @include respond-to(narrow-screens) {
+        top: 90px;
+    }
 }
 
 .method {
@@ -274,6 +278,10 @@ export default {
 
     &:last-child {
         min-height: 100vh;
+
+        @include respond-to(narrow-screens) {
+            min-height: 0;
+        }
     }
 }
 
@@ -295,11 +303,20 @@ export default {
         width: 45vw;
     }
 
+    @include respond-to(narrow-screens) {
+        float: none;
+        width: 100%;
+    }
+
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #f0f4f7;
 
         @include dark-mode {
             border-top: 1px solid darken(#33383b, 8);
+
+            @include respond-to(narrow-screens) {
+                border-top: 0;
+            }
         }
     }
 
@@ -321,6 +338,11 @@ export default {
 
     @include respond-to(medium-screens) {
         padding: 20px 40px;
+    }
+
+    @include respond-to(narrow-screens) {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -345,6 +367,11 @@ export default {
 
 .method__list {
     padding: 40px 40px 0;
+
+    @include respond-to(narrow-screens) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
     .method__copy__padding + & {
         padding-bottom: 40px;
@@ -567,11 +594,24 @@ export default {
         padding-top: 0;
     }
 
+    @include respond-to(narrow-screens) {
+        margin-left: 0;
+        background: #2d3134;
+
+        @include dark-mode {
+            background: darken(#242729, 8);
+        }
+    }
+
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #33383b;
 
         @include dark-mode {
             border-top: 1px solid darken(#242729, 6);
+
+            @include respond-to(narrow-screens) {
+                border-top: 0;
+            }
         }
     }
 
@@ -630,6 +670,11 @@ export default {
 
 .method__example__part {
     padding: 30px 40px;
+
+    @include respond-to(narrow-screens) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 %method__example__type {

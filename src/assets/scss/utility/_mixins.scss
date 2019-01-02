@@ -11,7 +11,11 @@
 }
 
 @mixin respond-to($media) {
-    @if $media == small-screens {
+    @if $media == narrow-screens {
+        @media only screen and (max-width: $break-narrow) {
+            @content;
+        }
+    } @else if $media == small-screens {
         @media only screen and (max-width: $break-small) {
             @content;
         }

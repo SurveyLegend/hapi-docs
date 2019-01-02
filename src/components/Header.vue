@@ -105,6 +105,18 @@
     @include respond-to(small-screens) {
         left: 45vw;
     }
+
+    @include respond-to(narrow-screens) {
+        position: relative;
+
+        left: 0;
+        top: 49px;
+
+        height: 41px;
+        min-width: 0;
+
+        padding-left: 0;
+    }
 }
 
 .header__logo {
