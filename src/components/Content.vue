@@ -127,7 +127,7 @@
                                     </p>
                                 </template>
                             </div>
-                            <template v-if="path.pathParams !== null || path.payloadParams !== null">
+                            <template v-if="path.pathParams !== null || path.queryParams !== null || path.payloadParams !== null">
                                 <div
                                     v-if="path.pathParams !== null"
                                     class="method__list"
@@ -136,6 +136,36 @@
                                     <ul class="method__list__group">
                                         <li
                                             v-for="param in path.pathParams.children"
+                                            :id="`${path.slug}-${param.name}`"
+                                            class="method__list__item"
+                                        >
+                                            <h3 class="method__list__item__label">
+                                                <a
+                                                    :href="`#${path.slug}-${param.name}`"
+                                                    class="header-anchor"
+                                                />
+                                                <span>{{ param.name }}</span>
+                                                <span
+                                                    v-if="param.flags && param.flags.required"
+                                                    class="method__list__item__label__badge"
+                                                >required</span>
+                                                <span
+                                                    v-else
+                                                    class="method__list__item__label__details"
+                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                            </h3>
+                                            <Marked class="method__list__item__description">{{ param.description }}</Marked>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div
+                                    v-if="path.queryParams !== null"
+                                    class="method__list"
+                                >
+                                    <h5>Query Arguments</h5>
+                                    <ul class="method__list__group">
+                                        <li
+                                            v-for="param in path.queryParams.children"
                                             :id="`${path.slug}-${param.name}`"
                                             class="method__list__item"
                                         >
