@@ -152,7 +152,7 @@
                                                 <span
                                                     v-else
                                                     class="method__list__item__label__details"
-                                                >optional</span>
+                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
                                             </h3>
                                             <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                         </li>
@@ -182,7 +182,7 @@
                                                 <span
                                                     v-else
                                                     class="method__list__item__label__details"
-                                                >optional</span>
+                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
                                             </h3>
                                             <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                         </li>
@@ -519,6 +519,10 @@ export default {
     @include respond-to(large-screens) {
         display: block;
     }
+}
+
+.method__list__item__label__promote {
+    font-weight: 600;
 }
 
 .method__list__item__label__badge {

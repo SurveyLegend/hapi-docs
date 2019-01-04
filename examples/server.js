@@ -238,6 +238,22 @@ const startServer = async () => {
                     'Once entirely refunded, a charge can’t be refunded again. This method will return an error when called on an already-refunded charge, or when trying to refund more money than is left on a charge.'
                 ],
                 tags: ['api'],
+                validate: {
+                    payload: {
+                        id: Joi.string()
+                            .required()
+                            .description('The identifier of the charge to refund.'),
+                        amount: Joi.number()
+                            .integer()
+                            .positive()
+                            .default(() => {
+                                return 100
+                            }, 'entire charge')
+                            .description(
+                                'A positive integer representing how much of this charge to refund. Can refund only up to the remaining, unrefunded amount of the charge.'
+                            )
+                    }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 1
