@@ -283,6 +283,7 @@ export default {
         min-width: 0;
 
         padding-left: 0;
+        padding-right: 20px;
     }
 }
 
