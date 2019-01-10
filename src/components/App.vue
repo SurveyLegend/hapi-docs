@@ -50,6 +50,16 @@ export default {
     @include dark-mode {
         color: #d0d4d7;
         background: darken(#242729, 4);
+
+        h1 {
+            color: lighten(#d0d4d7, 2);
+        }
+
+        a {
+            &:hover {
+                color: lighten(#d0d4d7, 12);
+            }
+        }
     }
 
     h1,
@@ -110,20 +120,6 @@ export default {
         font-weight: 400;
 
         margin-top: 20px;
-    }
-
-    @include dark-mode {
-        color: #d0d4d7;
-
-        h1 {
-            color: lighten(#d0d4d7, 2);
-        }
-
-        a {
-            &:hover {
-                color: lighten(#d0d4d7, 12);
-            }
-        }
     }
 
     strong {
