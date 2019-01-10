@@ -6,7 +6,24 @@
                 href="/"
             />
         </div>
-        <div class="header__copy" />
+        <div class="header__copy">
+            <div class="header__navigation">
+                <select>
+                    <optgroup label="Topics">
+                        <option>Introduction</option>
+                        <option>Authentication</option>
+                        <option>Errors</option>
+                        <option>Errors Errors Errors Errors Errors Errors</option>
+                    </optgroup>
+                    <optgroup label="API">
+                        <option
+                            v-for="group in groups"
+                            :key="group.name"
+                        >{{ group.name | capitalize }}</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
         <div class="header__example">
             <div class="header__dark">
                 <DarkMode />
@@ -14,6 +31,24 @@
         </div>
     </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+    computed: {
+        ...mapGetters({
+            info: 'hapi-docs/info',
+            security: 'hapi-docs/security',
+            errors: 'hapi-docs/errors',
+            groups: 'hapi-docs/groupedPaths'
+        }),
+        dataReady() {
+            return this.info && this.groups.length !== 0
+        }
+    }
+}
+</script>
 
 <style scoped lang="scss">
 .header {
@@ -77,6 +112,102 @@
     @include respond-to(small-screens) {
         left: 0;
         border-bottom: 0 !important;
+    }
+}
+
+.header__copy {
+    @extend %header__section;
+
+    z-index: z-index(above);
+
+    @include respond-to(small-screens) {
+        right: 55vw;
+    }
+
+    @include respond-to(narrow-screens) {
+        left: 140px;
+        position: fixed;
+        right: 0;
+        padding: 0 20px;
+        background: #fff;
+        border-bottom: 1px solid #f0f4f7;
+
+        @include dark-mode {
+            background: darken(#242729, 4);
+            border-bottom: 0;
+        }
+    }
+}
+
+.header__navigation {
+    display: none;
+    float: right;
+    position: relative;
+
+    margin-top: 10px;
+
+    @include respond-to(small-screens) {
+        display: block;
+
+        margin-right: 30px;
+    }
+
+    @include respond-to(narrow-screens) {
+        width: 100%;
+        max-width: 320px;
+
+        margin-right: 0;
+    }
+
+    select {
+        @include font-hind;
+
+        display: block;
+        position: relative;
+
+        z-index: z-index(fixed);
+
+        max-width: 200px;
+        height: 29px;
+        padding-left: 10px;
+        padding-right: 38px;
+
+        background: #fff;
+        border: 1px solid #d6dee5;
+        border-radius: 5px;
+        color: #4c555a;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 28px;
+        outline: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-indent: 0.01px;
+        vertical-align: middle;
+
+        appearance: none;
+        cursor: pointer;
+
+        &:hover {
+            color: #292e31;
+        }
+
+        @include dark-mode {
+            color: #d0d4d7;
+            background: darken(#242729, 4);
+            border-color: lighten(#242729, 2);
+
+            &:hover {
+                color: lighten(#d0d4d7, 12);
+            }
+        }
+
+        @include respond-to(narrow-screens) {
+            max-width: 320px;
+            width: 100%;
+        }
     }
 }
 
