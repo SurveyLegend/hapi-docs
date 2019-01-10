@@ -341,6 +341,10 @@ export default {
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #f0f4f7;
 
+        @include respond-to(narrow-screens) {
+            border-top: 0;
+        }
+
         @include dark-mode {
             border-top: 1px solid darken(#33383b, 8);
 
@@ -639,6 +643,10 @@ export default {
 
     .method.first-of-group:not(:first-child) & {
         border-top: 1px solid #33383b;
+
+        @include respond-to(narrow-screens) {
+            border-top: 0;
+        }
 
         @include dark-mode {
             border-top: 1px solid darken(#242729, 6);
