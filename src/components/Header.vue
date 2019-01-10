@@ -193,8 +193,12 @@ export default {
         width: 6px;
         height: 4px;
 
-        @include icon('../assets/svg/arrow.svg');
-        background-size: 6px 4px;
+        @include mask-icon('../assets/svg/arrow.svg');
+        background-color: #717f8b;
+
+        @include dark-mode {
+            background-color: lighten(#717f8b, 10);
+        }
     }
 
     select {
