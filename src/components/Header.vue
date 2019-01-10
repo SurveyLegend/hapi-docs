@@ -13,7 +13,6 @@
                         <option>Introduction</option>
                         <option>Authentication</option>
                         <option>Errors</option>
-                        <option>Errors Errors Errors Errors Errors Errors</option>
                     </optgroup>
                     <optgroup label="API">
                         <option
@@ -159,13 +158,50 @@ export default {
         margin-right: 0;
     }
 
+    &:before {
+        content: '';
+
+        display: block;
+        position: absolute;
+
+        z-index: z-index(above);
+
+        top: 7px;
+        right: 28px;
+
+        width: 1px;
+        height: 15px;
+
+        background: #d6dee5;
+
+        @include dark-mode {
+            background: lighten(#242729, 4);
+        }
+    }
+
+    &:after {
+        content: '';
+
+        display: block;
+        position: absolute;
+
+        z-index: z-index(above);
+
+        top: 13px;
+        right: 13px;
+
+        width: 6px;
+        height: 4px;
+
+        @include icon('../assets/svg/arrow.svg');
+        background-size: 6px 4px;
+    }
+
     select {
         @include font-hind;
 
         display: block;
         position: relative;
-
-        z-index: z-index(fixed);
 
         max-width: 200px;
         height: 29px;
@@ -197,7 +233,7 @@ export default {
         @include dark-mode {
             color: #d0d4d7;
             background: darken(#242729, 4);
-            border-color: lighten(#242729, 2);
+            border-color: lighten(#242729, 4);
 
             &:hover {
                 color: lighten(#d0d4d7, 12);
