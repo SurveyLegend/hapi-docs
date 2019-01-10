@@ -107,7 +107,7 @@ const startServer = async () => {
     server.route({
         method: 'GET',
         path: '/',
-        handler(request, h) {
+        handler(h) {
             return h.redirect('/docs')
         }
     })
@@ -116,7 +116,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/customers',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -133,7 +133,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/customers/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -158,7 +158,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/customers/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -183,7 +183,7 @@ const startServer = async () => {
         {
             method: 'DELETE',
             path: '/customers/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -208,7 +208,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/customers',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -226,7 +226,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/refunds',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -264,7 +264,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/refunds/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -288,7 +288,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/refunds/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -313,7 +313,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/refunds',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -331,7 +331,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/recipients',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -350,7 +350,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/recipients/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -375,7 +375,7 @@ const startServer = async () => {
         {
             method: 'POST',
             path: '/recipients/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -400,7 +400,7 @@ const startServer = async () => {
         {
             method: 'DELETE',
             path: '/recipients/{id}',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
@@ -424,7 +424,7 @@ const startServer = async () => {
         {
             method: 'GET',
             path: '/recipients',
-            handler(request) {
+            handler() {
                 return ''
             },
             options: {
