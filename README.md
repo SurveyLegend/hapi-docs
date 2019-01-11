@@ -147,6 +147,7 @@ If you discover any security-related issues, please email [henrik@surveylegend.c
 
 -   [Henrik Ruscon](https://github.com/henrikdahl)
 -   [Robert Michalski](https://github.com/robman87)
+-   [Kiarokh Moattar](https://github.com/Kiarokh)
 
 This package is inspired by [hapi-swagger](https://github.com/glennjones/hapi-swagger) and [lout](https://github.com/hapijs/lout).
 

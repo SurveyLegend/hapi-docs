@@ -5,7 +5,8 @@
     "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
     "contributors": [
         "Henrik Ruscon",
-        "Robert Michalski"
+        "Robert Michalski",
+        "Kiarokh Moattar"
     ],
     "scripts": {
         "serve": "vue-cli-service serve",
