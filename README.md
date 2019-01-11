@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/1430576/51030914-27998f00-159b-11e9-910a-25bd6509b685.png)
+![](https://user-images.githubusercontent.com/35954987/51031261-48aeaf80-159c-11e9-9475-ed7339656864.png)
 
 [![npm downloads](https://img.shields.io/npm/dm/@surveylegend/hapi-docs.svg?style=flat-square)](https://www.npmjs.com/package/@surveylegend/hapi-docs)
 [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.github.com/glennjones/microformat-shic/master/license.txt)
