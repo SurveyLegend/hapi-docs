@@ -107,7 +107,7 @@ const startServer = async () => {
     server.route({
         method: 'GET',
         path: '/',
-        handler(h) {
+        handler(request, h) {
             return h.redirect('/docs')
         }
     })
