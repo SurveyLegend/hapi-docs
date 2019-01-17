@@ -32,6 +32,100 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/base/_normalize.scss';
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+ @include dark-mode {
+  color: lighten($grey-05, 2);
+ }
+
+ color: $grey-12;
+}
+
+h4,
+h5 {
+ font-size: 13px;
+ font-weight: 500;
+ line-height: 18px;
+
+ text-transform: uppercase;
+}
+
+h1 {
+ font-size: 25px;
+ font-weight: 400;
+ line-height: 32px;
+ @include dark-mode {
+     color: lighten($grey-05, 2);
+
+ }
+}
+
+h3 {
+ font-size: 17px;
+ font-weight: 500;
+ line-height: 22px;
+}
+
+h5 {
+ @include dark-mode {
+  color: darken($grey-07, 30);
+ }
+
+ color: $grey-07;
+}
+
+a {
+ color: $blue;
+
+ transition: color .2s ease;
+
+ &:hover {
+  color: darken($blue, 10);
+
+  @include dark-mode {
+      color: lighten($blue, 10);
+  }
+ }
+}
+
+p {
+ font-size: 15px;
+ font-weight: 400;
+
+ margin-top: 20px;
+}
+
+strong {
+ font-weight: 600;
+}
+
+em {
+ font-style: italic;
+}
+
+code {
+ @include font-source-code-pro;
+ @include dark-mode {
+  background-color: darken($grey-14, 6.5);
+  border: 1px solid darken($grey-09, 5);
+ }
+
+ font-size: 13px;
+ line-height: 20px;
+
+ display: inline-block;
+ padding: 0 5px;
+
+ color: $purple;
+ background-color: $grey-01;
+ border: 1px solid $grey-02;
+ border-radius: 4px;
+ transition: background-color 0.8s ease, border-color 1s ease;
+}
+
 #app {
     @include font-hind;
 
@@ -42,113 +136,20 @@ export default {
     font-weight: 500;
     line-height: 26px;
 
-    color: #4c555a;
-    background: white;
+    color: $grey-08;
+    background-color: $white;
 
     letter-spacing: 0.1px;
+    transition: background-color 0.8s ease;
 
     @include dark-mode {
-        color: #d0d4d7;
-        background: darken(#242729, 4);
-
-        h1 {
-            color: lighten(#d0d4d7, 2);
-        }
-
-        a {
-            &:hover {
-                color: lighten(#d0d4d7, 12);
-            }
-        }
+        color: $grey-05;
+        background-color: darken($grey-14, 4);
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        color: #292e31;
-
-        @include dark-mode {
-            color: lighten(#d0d4d7, 2);
-        }
-    }
-
-    h4,
-    h5 {
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 18px;
-
-        text-transform: uppercase;
-    }
-
-    h1 {
-        font-size: 25px;
-        font-weight: 400;
-        line-height: 32px;
-    }
-
-    h3 {
-        font-size: 17px;
-        font-weight: 500;
-        line-height: 22px;
-    }
-
-    h5 {
-        color: #939da3;
-
-        @include dark-mode {
-            color: darken(#939da3, 30) !important;
-        }
-    }
-
-    a {
-        color: #0099e5;
-
-        &:hover {
-            color: #292e31;
-
-            @include dark-mode {
-                color: lighten(#d0d4d7, 12);
-            }
-        }
-    }
-
-    p {
-        font-size: 15px;
-        font-weight: 400;
-
-        margin-top: 20px;
-    }
-
-    strong {
-        font-weight: 600;
-    }
-
-    em {
-        font-style: italic;
-    }
-
-    code {
-        font-size: 13px;
-        line-height: 20px;
-
-        display: inline-block;
-
-        padding: 0 5px;
-
-        color: #b93d6a;
-        border: 1px solid #f0f4f7;
-        border-radius: 4px;
-        background: #fafcfc;
-
-        @include font-source-code-pro;
-
-        @include dark-mode {
-            border: 1px solid darken(#33383b, 5);
-            background: darken(#242729, 6.5);
-        }
+    @include rtl {
+        direction: rtl;
+        unicode-bidi: bidi-override;
     }
 }
 </style>

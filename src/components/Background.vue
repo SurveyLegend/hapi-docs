@@ -28,6 +28,24 @@
     @include respond-to(narrow-screens) {
         display: none;
     }
+
+    @include rtl {
+        right: 220px;
+        left: 0;
+
+        @include respond-to(medium-screens) {
+            right: 180px;
+            left: 0;
+        }
+
+        @include respond-to(wide-screens) {
+            right: 280px;
+            left: 0;
+        }
+        @include respond-to(small-screens) {
+            right: 0;
+        }
+    }
 }
 
 .background__actual {
@@ -37,10 +55,11 @@
     bottom: 0;
     left: calc((100vw - 220px) * 0.45);
 
-    background: #2d3134;
+    background-color: $grey-11;
+    transition: background-color 0.8s ease;
 
     @include dark-mode {
-        background: darken(#242729, 8);
+        background-color: darken($grey-14, 8);
     }
 
     @include respond-to(wide-screens) {
@@ -49,6 +68,21 @@
 
     @include respond-to(small-screens) {
         left: 45vw;
+    }
+
+    @include rtl {
+        right: calc((100vw - 220px) * 0.45);
+        left: 0;
+
+        @include respond-to(wide-screens) {
+            right: 780px;
+            left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            right: 45vw;
+            left: 0;
+        }
     }
 }
 </style>

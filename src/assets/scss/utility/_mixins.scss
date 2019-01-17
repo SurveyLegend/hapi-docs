@@ -39,3 +39,9 @@
         @content;
     }
 }
+
+@mixin rtl() {
+    .rtl & {
+        @content;
+    }
+}

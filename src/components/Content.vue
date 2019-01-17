@@ -1,6 +1,30 @@
 <template>
     <div class="content">
         <section
+            id="welcome"
+            class="method first-of-group"
+        >
+            <div class="method__area">
+                <div class="method__copy">
+                    <div class="method__copy__padding">
+                        <h1>Welcome</h1>
+                        <p>
+                            <Marked>This is a demo of [hapi-docs](https://github.com/SurveyLegend/hapi-docs) which is perhaps the best, and most modern *API Documentation Generator* out there. From your code blocks to description texts, you simply type everything in Markdown. Then all you need to do is to enjoy a blazing fast single-page responsive documentation, which smartly supports linkability, Syntax highlighting, RTL languages, and perfectionist eyes.</Marked>
+                            <div class="method__copy__full-with-picture demo-picture"><img src="../assets/images/hero.png"></div>
+                            <Marked>hapi-docs is an open-source library brought to you by [SurveyLegend®](https://www.surveylegend.com/). Learn more about [hapi-docs on GitHub](https://github.com/SurveyLegend/hapi-docs), and let us know what you think.</Marked>
+                        </p>
+                    </div>
+                </div>
+                <div class="method__example">
+                    <div class="method__example__part">
+                        <div class="method__example__github-url">
+                            <Prism language="bash">https://github.com/SurveyLegend/hapi-docs</Prism>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
             v-if="info"
             id="intro"
             class="method first-of-group"
@@ -127,7 +151,7 @@
                                     </p>
                                 </template>
                             </div>
-                            <template v-if="path.pathParams !== null || path.queryParams !== null || path.payloadParams !== null">
+                            <template v-if="path.pathParams !== null || path.payloadParams !== null">
                                 <div
                                     v-if="path.pathParams !== null"
                                     class="method__list"
@@ -152,37 +176,7 @@
                                                 <span
                                                     v-else
                                                     class="method__list__item__label__details"
-                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
-                                            </h3>
-                                            <Marked class="method__list__item__description">{{ param.description }}</Marked>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div
-                                    v-if="path.queryParams !== null"
-                                    class="method__list"
-                                >
-                                    <h5>Query Arguments</h5>
-                                    <ul class="method__list__group">
-                                        <li
-                                            v-for="param in path.queryParams.children"
-                                            :id="`${path.slug}-${param.name}`"
-                                            class="method__list__item"
-                                        >
-                                            <h3 class="method__list__item__label">
-                                                <a
-                                                    :href="`#${path.slug}-${param.name}`"
-                                                    class="header-anchor"
-                                                />
-                                                <span>{{ param.name }}</span>
-                                                <span
-                                                    v-if="param.flags && param.flags.required"
-                                                    class="method__list__item__label__badge"
-                                                >required</span>
-                                                <span
-                                                    v-else
-                                                    class="method__list__item__label__details"
-                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                                >optional</span>
                                             </h3>
                                             <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                         </li>
@@ -212,7 +206,7 @@
                                                 <span
                                                     v-else
                                                     class="method__list__item__label__details"
-                                                >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                                >optional</span>
                                             </h3>
                                             <Marked class="method__list__item__description">{{ param.description }}</Marked>
                                         </li>
@@ -235,6 +229,20 @@
                             <div class="method__example__part">
                                 <div class="method__example__declaration">
                                     <Prism language="bash">{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</Prism>
+                                </div>
+                                <div class="method__example__response">
+                                    <Prism language="json">{
+  "id": "cus_CXBlt7aRZWiC0k",
+  "object": "customer",
+  "account_balance": 0,
+  "created": 1521640419,
+  "currency": "sek",
+  "default_source": null,
+  "delinquent": false,
+  "description": "example",
+  "discount": null,
+  "email": "example@surveylegend.com"
+}</Prism>
                                 </div>
                             </div>
                         </div>
@@ -298,6 +306,26 @@ export default {
     @include respond-to(narrow-screens) {
         top: 90px;
     }
+
+    @include rtl {
+        left: 0;
+        right: 220px;
+
+        @include respond-to(medium-screens) {
+            right: 180px;
+            left: 0;
+        }
+
+        @include respond-to(wide-screens) {
+            right: 280px;
+            left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            right: 0;
+            left: 0;
+        }
+    }
 }
 
 .method {
@@ -323,7 +351,7 @@ export default {
     float: left;
 
     width: calc((100vw - 220px) * 0.45);
-    padding: 0 0 50px;
+    padding: 0 0 52px;
 
     @include respond-to(wide-screens) {
         width: 780px;
@@ -338,15 +366,16 @@ export default {
         width: 100%;
     }
 
-    .method.first-of-group:not(:first-child) & {
-        border-top: 1px solid #f0f4f7;
+    @include rtl {
+        float: right;
+    }
 
-        @include respond-to(narrow-screens) {
-            border-top: 0;
-        }
+    .method.first-of-group:not(:first-child) & {
+        border-top: 1px solid $grey-02;
+        transition: border-color 1s ease;
 
         @include dark-mode {
-            border-top: 1px solid darken(#33383b, 8);
+            border-top: 1px solid darken($grey-09, 8);
 
             @include respond-to(narrow-screens) {
                 border-top: 0;
@@ -355,7 +384,7 @@ export default {
     }
 
     .method__area:first-child & {
-        padding-top: 30px;
+        padding-top: 28px;
 
         @include respond-to(small-screens) {
             padding-top: 0;
@@ -371,22 +400,68 @@ export default {
     }
 
     @include respond-to(medium-screens) {
-        padding: 20px 40px;
+        padding-right: 20px;
+        padding-left: 20px;
     }
 
     @include respond-to(narrow-screens) {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+.method__copy__full-with-picture {
+    margin: 20px auto 0 auto;
+    position: relative;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        vertical-align: top;
+    }
+
+    &.demo-picture {
+        // This is to inspire you how you can take advantage of dark mode
+        border-radius: 6px;
+        background: linear-gradient(to bottom, #8fdeff 0%, #0167ff 100%);
+        transition: background 0.8s ease 0.06s;
+
+        &:before {
+            content: '';
+            @include icon('../assets/images/hero-stars.png');
+            background-size: contain;
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        @include dark-mode {
+            background: linear-gradient(to bottom, #3891f1 0%, #6410bf 100%);
+
+            &:before {
+                opacity: 1;
+            }
+        }
+
+        img {
+            margin-bottom: -2px;
+        }
     }
 }
 
 .method__badge {
     display: inline-block;
-    margin-left: 8px;
-    padding: 0 11px;
-    border: 1px solid rgba(0, 153, 229, 0.5);
+    margin: 0 8px;
+    padding: 0 12px;
+    border: 1px solid rgba($blue, 0.5);
     border-radius: 24px;
-    color: #0099e5;
+    color: $blue;
     font-size: 11px;
     font-weight: 600;
     line-height: 24px;
@@ -394,8 +469,8 @@ export default {
     vertical-align: middle;
 
     &.method__badge--deprecated {
-        border: 1px solid rgba(224, 76, 76, 0.5);
-        color: #e04c4c;
+        border: 1px solid rgba($red, 0.5);
+        color: $red;
     }
 }
 
@@ -407,6 +482,16 @@ export default {
         padding-right: 20px;
     }
 
+    @include respond-to(medium-screens) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    @include respond-to(narrow-screens) {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
     .method__copy__padding + & {
         padding-bottom: 40px;
     }
@@ -415,19 +500,21 @@ export default {
 .method__list__group {
     margin-top: 8px;
 
-    border-top: 1px solid #e1e8ed;
+    border-top: 1px solid $grey-03;
+    transition: border-color 1s ease;
 
     @include dark-mode {
-        border-top: 1px solid darken(#33383b, 4);
+        border-top: 1px solid darken($grey-09, 4);
     }
 }
 
 .method__list__item {
     line-height: 24px;
 
-    padding: 17px 0;
+    padding: 16px 0;
 
-    border-bottom: 1px solid #f0f4f7;
+    border-bottom: 1px solid $grey-02;
+    transition: border-color 1s ease;
 
     @include respond-to(large-screens) {
         zoom: 1;
@@ -445,24 +532,26 @@ export default {
     }
 
     &:last-child {
-        border-bottom: 1px solid #e1e8ed;
+        border-bottom: 1px solid $grey-03;
     }
 
     @include dark-mode {
-        border-bottom: 1px solid darken(#33383b, 8);
+        border-bottom: 1px solid darken($grey-09, 8);
 
         &:last-child {
-            border-bottom: 1px solid darken(#33383b, 4);
+            border-bottom: 1px solid darken($grey-09, 4);
         }
     }
 }
 
 .method__list__item__label {
-    font-size: 14px !important;
-    line-height: 21px !important;
+    font-size: 14px;
+    line-height: 21px;
 
     white-space: normal;
     word-break: break-all;
+
+    margin-top: -4px;
 
     @include respond-to(large-screens) {
         position: relative;
@@ -473,6 +562,11 @@ export default {
         width: 180px;
 
         text-align: right;
+
+        @include rtl {
+            float: right;
+            text-align: left;
+        }
     }
 
     @include respond-to(large-screens) {
@@ -480,16 +574,20 @@ export default {
             font-weight: 400;
 
             position: absolute;
-            top: 0;
+            top: 4px;
             left: 200px;
 
             content: '\2014';
             text-align: left;
 
-            color: #dde4e8;
+            color: $grey-04;
 
             @include dark-mode {
-                color: lighten(#33383b, 3);
+                color: lighten($grey-09, 3);
+            }
+
+            @include rtl {
+                left: -32px;
             }
         }
     }
@@ -501,14 +599,14 @@ export default {
     }
 
     .method__list.is-empty & {
-        font-weight: 400 !important;
+        font-weight: 400;
 
         text-align: center;
 
-        color: #939da3 !important;
+        color: $grey-07;
 
         @include dark-mode {
-            color: darken(#939da3, 30) !important;
+            color: darken($grey-07, 30);
         }
 
         @include respond-to(large-screens) {
@@ -518,24 +616,51 @@ export default {
 
     .header-anchor {
         position: relative;
-        top: 3px;
-        left: -18px;
+        top: 4px;
+        left: -8px;
 
         display: inline-block;
 
-        width: 15px;
-        height: 14px;
-
-        margin-right: -15px;
+        width: 18px;
+        height: 18px;
 
         opacity: 0;
-        background-size: 10px 8px;
+        transition: opacity 0.2s ease, box-shadow 0.3s ease, background-color 0.2s ease;
+
         @include icon('../assets/svg/anchor.svg');
+        background-size: 12px;
+        background-color: $white;
 
         isolation: isolate;
+        border-radius: 4px;
+
+        &:hover {
+            box-shadow: rgba($black, 0.04) 0 0 6px 2px, rgba($black, 0.05) 0 0 2px 2px;
+        }
+
+        &:active {
+            box-shadow: rgba($black, 0) 0 0 2px 0;
+        }
 
         @include dark-mode {
-            @include icon('../assets/svg/anchor--dark.svg');
+            background-color: $grey-11;
+
+            &:hover {
+                background-color: $grey-09;
+                box-shadow: rgba($black, 0.2) 0 0 6px 2px, rgba($black, 0.1) 0 0 2px 2px;
+            }
+        }
+
+        @include respond-to(medium-screens) {
+            left: -4px;
+        }
+
+        @include rtl {
+            left: 8px;
+
+            @include respond-to(medium-screens) {
+                left: 4px;
+            }
         }
     }
 }
@@ -544,19 +669,24 @@ export default {
     font-size: 13px;
     font-weight: 400;
 
-    margin-left: 3px;
+    margin-left: 4px;
 
     word-break: normal;
 
-    color: #939da3;
+    color: $grey-07;
 
     @include respond-to(large-screens) {
         display: block;
     }
-}
 
-.method__list__item__label__promote {
-    font-weight: 600;
+    @include rtl {
+        margin-right: 8px;
+        margin-left: 0;
+
+        @include respond-to(medium-screens) {
+            display: inline-block;
+        }
+    }
 }
 
 .method__list__item__label__badge {
@@ -572,11 +702,12 @@ export default {
     vertical-align: top;
     text-transform: uppercase;
 
-    color: #ffae54;
-    border: 1px solid rgba(255, 174, 84, 0.5);
-    border-radius: 11px;
+    color: $orange;
+    border: 1px solid rgba($orange, 0.5);
+    border-radius: 20px;
 
     @extend .method__list__item__label__details;
+
     @include respond-to(large-screens) {
         line-height: 1.2em;
 
@@ -597,20 +728,25 @@ export default {
 
         margin: 0 0 0 200px;
 
-        background: white;
+        background-color: $white;
+        transition: background-color 0.8s ease;
 
         @include dark-mode {
-            background: darken(#242729, 4);
+            background-color: darken($grey-14, 4);
+        }
+
+        @include rtl {
+            margin: 0 200px 0 0;
         }
 
         p {
-            margin-top: 0 !important;
+            margin-top: 0;
         }
     }
 
     p {
-        font-size: 14px !important;
-        line-height: 21px !important;
+        font-size: 14px;
+        line-height: 21px;
     }
 }
 
@@ -619,9 +755,9 @@ export default {
     z-index: z-index(default) + 1;
 
     margin-left: calc((100vw - 220px) * 0.45);
-    padding: 42px 0 50px;
+    padding: 42px 0 52px;
 
-    color: #dde4e8;
+    color: $grey-04;
 
     @include respond-to(wide-screens) {
         margin-left: 780px;
@@ -634,22 +770,38 @@ export default {
 
     @include respond-to(narrow-screens) {
         margin-left: 0;
-        background: #2d3134;
+        background-color: $grey-11;
 
         @include dark-mode {
-            background: darken(#242729, 8);
+            background-color: darken($grey-14, 8);
+        }
+    }
+
+    @include rtl {
+        margin-left: 0;
+        margin-right: calc((100vw - 220px) * 0.45);
+
+        @include respond-to(wide-screens) {
+            margin-right: 780px;
+            margin-left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            margin-right: 45vw;
+            margin-left: 0;
+        }
+
+        @include respond-to(narrow-screens) {
+            margin-right: 0;
+            margin-left: 0;
         }
     }
 
     .method.first-of-group:not(:first-child) & {
-        border-top: 1px solid #33383b;
-
-        @include respond-to(narrow-screens) {
-            border-top: 0;
-        }
+        border-top: 1px solid $grey-09;
 
         @include dark-mode {
-            border-top: 1px solid darken(#242729, 6);
+            border-top: 1px solid darken($grey-14, 6);
 
             @include respond-to(narrow-screens) {
                 border-top: 0;
@@ -665,9 +817,62 @@ export default {
         }
     }
 
+    .table {
+        margin: 30px 0 45px;
+        overflow: hidden;
+        background-color: $grey-10;
+        border: 1px solid $grey-08;
+        border-radius: 5px;
+        color: $grey-05;
+
+        @include dark-mode {
+            background-color: darken($grey-14, 6);
+            border: 1px solid $grey-12;
+        }
+    }
+
+    .table__container {
+        table-layout: fixed;
+        width: 100%;
+        background-clip: padding-box;
+
+        tr:nth-child(odd) {
+            background-color: rgba($black, 0.1);
+
+            @include dark-mode {
+                background-color: rgba($black, 0.15);
+            }
+        }
+
+        tr:first-child .table__row {
+            padding-top: 16px;
+        }
+
+        tr:last-child .table__row {
+            padding-bottom: 16px;
+        }
+    }
+
+    .table__row {
+        display: table-cell;
+        padding: 8px 20px;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+        vertical-align: top;
+    }
+
+    .table__row--property {
+        @extend .table__row;
+
+        width: 180px;
+        font-weight: 600;
+        text-align: right;
+    }
+
     h3 {
         max-width: 768px;
-        color: #d0d4d7 !important;
+        color: $grey-05;
     }
 
     pre,
@@ -679,9 +884,28 @@ export default {
         tab-size: 4;
         hyphens: none;
 
-        color: #d0d0d0 !important;
+        color: $grey-06;
 
         direction: ltr;
+
+        .token {
+            &.punctuation {
+                color: $token-punctuation;
+            }
+
+            &.property {
+                color: $token-property;
+            }
+
+            &.number,
+            &.boolean {
+                color: $token-number;
+            }
+
+            &.null {
+                color: $token-null;
+            }
+        }
     }
 
     pre {
@@ -689,33 +913,48 @@ export default {
         font-weight: 500;
         line-height: 1.5em;
 
-        padding: 20px 40px;
+        padding: 20px 32px;
 
         border-radius: 5px;
-        background: #272b2d;
+        background-color: $grey-13;
+        transition: background-color 0.8s ease;
 
         @include font-source-code-pro;
 
         @include dark-mode {
-            background: darken(#242729, 9.5);
+            background-color: darken($grey-14, 9.5);
         }
-    }
+        @include respond-to(medium-screens) {
+            padding: 16px 20px;
+        }
+        @include respond-to(small-screens) {
+            padding: 12px 16px;
+        }
+        @include respond-to(narrow-screens) {
+            padding: 8px 16px;
+        }
 
-    code {
-        padding: 0 !important;
+        code {
+            padding: 0;
 
-        border: none !important;
-        border-radius: 0 !important;
-        background: transparent !important;
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
+        }
     }
 }
 
 .method__example__part {
-    padding: 30px 40px;
+    padding: 28px 40px;
+
+    @include respond-to(medium-screens) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 
     @include respond-to(narrow-screens) {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-right: 16px;
+        padding-left: 16px;
     }
 }
 
@@ -732,12 +971,12 @@ export default {
 
         display: inline-block;
 
-        margin-right: 5px;
+        margin-right: 4px;
         padding-bottom: 8px;
 
         letter-spacing: 0.1px;
 
-        color: #d0d4d7;
+        color: $grey-05;
 
         @include font-hind;
     }
@@ -748,6 +987,14 @@ export default {
 
     &:before {
         content: 'Base URL';
+    }
+}
+
+.method__example__github-url {
+    @extend %method__example__type;
+
+    &:before {
+        content: 'GitHub URL';
     }
 }
 
@@ -765,59 +1012,5 @@ export default {
     &:before {
         content: 'Example Response';
     }
-}
-
-.table {
-    margin: 30px 0 45px;
-    max-width: 768px;
-    overflow: hidden;
-    background: #33373a;
-    border: 1px solid #373b3e;
-    border-radius: 5px;
-    color: #d0d4d7;
-
-    @include dark-mode {
-        background: darken(#242729, 6);
-        border: 1px solid darken(#242729, 4);
-    }
-}
-
-.table__container {
-    table-layout: fixed;
-    width: 100%;
-    background-clip: padding-box;
-
-    tr:nth-child(odd) {
-        background: rgba(0, 0, 0, 0.1);
-
-        @include dark-mode {
-            background: rgba(0, 0, 0, 0.15);
-        }
-    }
-
-    tr:first-child .table__row {
-        padding-top: 16px;
-    }
-
-    tr:last-child .table__row {
-        padding-bottom: 16px;
-    }
-}
-
-.table__row {
-    display: table-cell;
-    padding: 9px 20px;
-    font-size: 14px;
-    text-align: left;
-    font-weight: 400;
-    vertical-align: top;
-}
-
-.table__row--property {
-    @extend .table__row;
-
-    width: 180px;
-    font-weight: 600;
-    text-align: right;
 }
 </style>

@@ -8,7 +8,9 @@
         <div
             :class="{ 'is-checked': checked }"
             class="dark-toggle__controls"
-        />
+        >
+            <div class="dark-toggle__controls__fill" />
+        </div>
     </label>
 </template>
 
@@ -88,6 +90,36 @@ export default {
 .dark-toggle {
     cursor: pointer;
     user-select: none;
+    position: relative;
+    transform: translate(-3px, -1px);
+
+    @include rtl {
+        transform: translate(3px, -1px);
+    }
+
+    &:after {
+        content: '';
+        border-radius: 50%;
+        @include icon('../assets/svg/toggle--night.svg');
+        transform: scale(0.9) rotate(0deg);
+
+
+        opacity: 1;
+
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        display: block;
+        top: -8px;
+        left: -8px;
+
+        transition: transform 0.9s ease, opacity 0.3s ease;
+
+        @include dark-mode {
+            transform: scale(0.7) rotate(60deg);
+            opacity: 0;
+        }
+    }
 }
 
 .dark-toggle__source {
@@ -101,13 +133,38 @@ export default {
 }
 
 .dark-toggle__controls {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    box-shadow: rgba($orange, 0.9) 0 0 22px 3px, $orange 0 0 0 1px;
+    background-color: rgba($white, 0.3);
+    overflow: hidden;
+    position: relative;
+    will-change: background-color, transform;
+    transition: background-color 0.8 ease, box-shadow 0.8s ease;
 
-    @include icon('../assets/svg/toggle--day.svg');
+    @include dark-mode {
+        box-shadow: rgba($black, 0.4) 0 0 4px 3px, rgba($white, 0.6) 0 0 16px 2px,
+            rgba($white, 0.6) 0 0 2px;
+        background-color: $white;
+    }
+}
 
-    &.is-checked {
-        @include icon('../assets/svg/toggle--night.svg');
+.dark-toggle__controls__fill {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    background-color: rgba($orange, 0.4);
+    transform: translate(0, 0) scale(1);
+    transition: transform 0.6s ease 0.1s, background-color 0.6s ease;
+
+
+    @include dark-mode {
+        background-color: rgba($black, 0.6);
+        transform: translate(3px, -3px) scale(0.7);
     }
 }
 </style>

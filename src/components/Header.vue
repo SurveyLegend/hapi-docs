@@ -10,6 +10,7 @@
             <div class="header__navigation">
                 <select>
                     <optgroup label="Topics">
+                        <option>Welcome</option>
                         <option>Introduction</option>
                         <option>Authentication</option>
                         <option>Errors</option>
@@ -24,9 +25,8 @@
             </div>
         </div>
         <div class="header__example">
-            <div class="header__dark">
-                <DarkMode />
-            </div>
+            <DarkMode />
+            <Language />
         </div>
     </div>
 </template>
@@ -56,6 +56,7 @@ export default {
     top: 0;
     right: 0;
     left: 220px;
+    transition: border-color 1s ease 0.08s;
 
     @include respond-to(medium-screens) {
         left: 180px;
@@ -68,10 +69,29 @@ export default {
     @include respond-to(small-screens) {
         left: 0;
         height: 50px;
-        border-bottom: 1px solid #f0f4f7;
+        border-bottom: 1px solid $grey-02;
 
         @include dark-mode {
-            border-bottom: 1px solid darken(#33383b, 8);
+            border-bottom: 1px solid darken($grey-09, 8);
+        }
+    }
+
+    @include rtl {
+        right: 220px;
+        left: 0;
+
+        @include respond-to(medium-screens) {
+            right: 180px;
+            left: 0;
+        }
+
+        @include respond-to(wide-screens) {
+            right: 280px;
+            left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            right: 0;
         }
     }
 }
@@ -90,11 +110,8 @@ export default {
 
     width: 220px;
 
-    border-bottom: 1px solid #f0f4f7;
+    padding: 8px;
 
-    @include dark-mode {
-        border-bottom: 1px solid lighten(#242729, 1);
-    }
 
     @include respond-to(medium-screens) {
         left: -180px;
@@ -110,7 +127,27 @@ export default {
 
     @include respond-to(small-screens) {
         left: 0;
-        border-bottom: 0 !important;
+        border-width: 0;
+    }
+
+    @include rtl {
+        left: initial;
+        right: -220px;
+
+        @include respond-to(medium-screens) {
+            right: -180px;
+            left: 0;
+        }
+
+        @include respond-to(wide-screens) {
+            right: -280px;
+            left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            right: 0;
+            left: 0;
+        }
     }
 }
 
@@ -118,22 +155,30 @@ export default {
     @extend %header__section;
 
     z-index: z-index(above);
+    padding: 0 12px;
 
     @include respond-to(small-screens) {
         right: 55vw;
+        border-color: transparent;
+
+        @include rtl {
+            left: 55vw;
+            right: 0;
+        }
     }
 
     @include respond-to(narrow-screens) {
         left: 140px;
         position: fixed;
         right: 0;
-        padding: 0 20px;
-        background: #fff;
-        border-bottom: 1px solid #f0f4f7;
 
         @include dark-mode {
-            background: darken(#242729, 4);
-            border-bottom: 0;
+            border-width: 0;
+        }
+
+        @include rtl {
+            right: 140px;
+            left: 0;
         }
     }
 }
@@ -147,36 +192,15 @@ export default {
 
     @include respond-to(small-screens) {
         display: block;
-
-        margin-right: 30px;
     }
 
     @include respond-to(narrow-screens) {
         width: 100%;
         max-width: 320px;
-
-        margin-right: 0;
     }
 
-    &:before {
-        content: '';
-
-        display: block;
-        position: absolute;
-
-        z-index: z-index(above);
-
-        top: 7px;
-        right: 28px;
-
-        width: 1px;
-        height: 15px;
-
-        background: #d6dee5;
-
-        @include dark-mode {
-            background: lighten(#242729, 4);
-        }
+    @include rtl {
+        float: left;
     }
 
     &:after {
@@ -187,17 +211,26 @@ export default {
 
         z-index: z-index(above);
 
-        top: 13px;
-        right: 13px;
+        top: 6px;
+        bottom: 6px;
+        right: 0;
+        width: 32px;
 
-        width: 6px;
-        height: 4px;
+        border-left: 1px solid $grey-03;
+        pointer-events: none;
 
         @include mask-icon('../assets/svg/arrow.svg');
-        background-color: #717f8b;
+        background-color: $grey-07;
 
         @include dark-mode {
-            background-color: lighten(#717f8b, 10);
+            background-color: lighten($grey-07, 10);
+        }
+
+        @include rtl {
+            border-left: none;
+            border-right: 1px solid $grey-03;
+            left: 0;
+            right: initial;
         }
     }
 
@@ -209,13 +242,13 @@ export default {
 
         max-width: 200px;
         height: 29px;
-        padding-left: 10px;
-        padding-right: 38px;
+        padding-left: 8px;
+        padding-right: 36px;
 
-        background: #fff;
-        border: 1px solid #d6dee5;
+        background-color: $white;
+        border: 1px solid $grey-04;
         border-radius: 5px;
-        color: #4c555a;
+        color: $grey-08;
 
         font-size: 12px;
         font-weight: 400;
@@ -231,16 +264,16 @@ export default {
         cursor: pointer;
 
         &:hover {
-            color: #292e31;
+            color: $grey-12;
         }
 
         @include dark-mode {
-            color: #d0d4d7;
-            background: darken(#242729, 4);
-            border-color: lighten(#242729, 4);
+            color: $grey-05;
+            background-color: darken($grey-14, 4);
+            border-color: lighten($grey-14, 2);
 
             &:hover {
-                color: lighten(#d0d4d7, 12);
+                color: lighten($grey-05, 12);
             }
         }
 
@@ -248,11 +281,22 @@ export default {
             max-width: 320px;
             width: 100%;
         }
+
+        @include rtl {
+            padding-left: 36px;
+            padding-right: 8px;
+        }
     }
 }
 
 .header__example {
     @extend %header__section;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    align-items: center;
+    justify-content: space-between;
 
     left: calc((100vw - 220px) * 0.45);
     right: 0;
@@ -261,12 +305,12 @@ export default {
     height: 50px;
     min-width: 464px;
 
-    padding: 0 40px;
+    padding: 0 12px;
 
-    background-color: #242729;
+    background-color: $grey-14;
 
     @include dark-mode {
-        background-color: darken(#242729, 12);
+        background-color: darken($grey-14, 12);
     }
 
     @include respond-to(wide-screens) {
@@ -275,6 +319,12 @@ export default {
 
     @include respond-to(small-screens) {
         left: 45vw;
+        padding-left: 4px;
+
+        @include rtl {
+            padding-right: 4px;
+            padding-left: 20px;
+        }
     }
 
     @include respond-to(narrow-screens) {
@@ -285,31 +335,55 @@ export default {
 
         height: 41px;
         min-width: 0;
+    }
 
-        padding-left: 0;
-        padding-right: 20px;
+    @include rtl {
+        right: calc((100vw - 220px) * 0.45);
+        left: 0;
+
+        @include respond-to(wide-screens) {
+            right: 780px;
+            left: 0;
+        }
+
+        @include respond-to(small-screens) {
+            right: 45vw;
+            left: 0;
+        }
+
+        @include respond-to(narrow-screens) {
+            right: 0;
+        }
     }
 }
 
 .header__logo {
     position: relative;
 
-    display: none;
+    display: block;
 
     width: 100%;
     height: 100%;
 
-    @include icon('../assets/images/logo.png');
-    background-size: 20px 29px;
-    background-position: 20px center;
+    @include icon('../assets/svg/logo.svg');
+    background-size: contain;
+    background-position: left center;
+
+    @include dark-mode {
+        @include icon('../assets/svg/logo--dark.svg');
+        background-position: left center;
+    }
+
+    @include rtl {
+        @include icon('../assets/svg/logo--rtl.svg');
+        background-position: right center;
+    }
 }
 
-.header__dark {
-    display: flex;
-    flex-direction: row-reverse;
-
-    align-items: center;
-
-    height: 100%;
+.rtl.dark-mode {
+    .header__logo {
+        @include icon('../assets/svg/logo--dark--rtl.svg');
+        background-position: right center;
+    }
 }
 </style>

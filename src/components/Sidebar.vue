@@ -8,6 +8,12 @@
             <template>
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
+                    <li>
+                        <a
+                            href="#welcome"
+                            class="sidebar__navigation__item"
+                        >Welcome</a>
+                    </li>
                     <li v-if="info">
                         <a
                             href="#intro"
@@ -53,6 +59,12 @@
                     </li>
                 </ul>
             </template>
+            <footer class="sidebar__footer">
+                <img src="https://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
+                <p>
+                    Made with <span style="color: #e04c4c">♥</span> by <a href="https://surveylegend.com">SurveyLegend®</a>
+                </p>
+            </footer>
         </ScrollSpy>
     </div>
 </template>
@@ -84,13 +96,19 @@ export default {
     left: 0;
 
     width: 220px;
+    border: {
+        style: solid;
+        width: 0 1px 0 0;
+        color: $grey-02;
+    }
 
-    border-right: 1px solid #f0f4f7;
-    background: #fafcfc;
+    background-color: $grey-01;
+
+    transition: background-color 0.8s ease 0.06s, border-color 1s ease 0.08s;
 
     @include dark-mode {
-        border-right: 1px solid lighten(#242729, 1);
-        background: darken(#242729, 1);
+        border-color: lighten($grey-14, 1);
+        background-color: darken($grey-14, 1);
     }
 
     @include respond-to(medium-screens) {
@@ -104,6 +122,12 @@ export default {
     @include respond-to(small-screens) {
         display: none;
     }
+
+    @include rtl {
+        left: initial;
+        right: 0;
+        border-width: 0 0 0 1px;
+    }
 }
 
 .sidebar__navigation {
@@ -115,6 +139,17 @@ export default {
 
     overflow-y: scroll;
     overflow-x: auto;
+
+    border: {
+        color: $grey-02;
+        style: solid;
+        width: 1px 0 0 0;
+    };
+    transition: border-color 1s ease 0.08s;
+
+    @include dark-mode {
+        border-color: lighten($grey-14, 1);
+    }
 }
 
 .sidebar__navigation__heading {
@@ -126,7 +161,7 @@ export default {
 }
 
 .sidebar__navigation__items {
-    padding-bottom: 26px;
+    padding-bottom: 24px;
 
     line-height: 20px;
 
@@ -135,24 +170,57 @@ export default {
     }
 
     & li .sidebar__navigation__item + .sidebar__navigation__items {
-        opacity: 0;
         overflow: hidden;
 
         height: 0;
         padding: 0;
 
-        transform: translateY(-10px);
-        will-change: transform, height, opacity;
+        will-change: height;
+        transition: height 0.1s ease;
+
+        li {
+            opacity: 0;
+            transform: translateY(-10px);
+            will-change: transform, opacity;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            transition-delay: 0.2s;
+
+            &:nth-child(1) {
+                transition-delay: 0s;
+            }
+
+            &:nth-child(1) {
+                transition-delay: 0.02s;
+            }
+
+            &:nth-child(2) {
+                transition-delay: 0.08s;
+            }
+
+            &:nth-child(3) {
+                transition-delay: 0.14s;
+            }
+
+            &:nth-child(4) {
+                transition-delay: 0.18s;
+            }
+
+            &:nth-child(5) {
+                transition-delay: 0.2s;
+            }
+        }
     }
 
     & li .sidebar__navigation__item.is-active + .sidebar__navigation__items,
     & li .sidebar__navigation__item.is-active-parent + .sidebar__navigation__items {
-        opacity: 1;
 
         height: 100%;
+        transition: height 0.2s ease;
 
-        transform: translateY(0);
-        transition: all 0.25s cubic-bezier(0.6, 0, 0.4, 1);
+        li {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }
 
@@ -165,47 +233,84 @@ export default {
 
     padding: 6px 20px;
 
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
 
-    color: #4c555a !important;
+    color: $grey-08;
 
     user-select: none;
 
     &:hover {
         text-decoration: underline;
 
-        color: #292e31 !important;
+        color: $grey-12;
     }
 
     &.is-active {
-        color: #0099e5 !important;
+        color: $blue;
 
         &:hover {
-            color: #292e31 !important;
+            color: $grey-12;
         }
     }
 
     + .sidebar__navigation__items .sidebar__navigation__item {
         font-size: 14px;
 
-        padding-left: 36px;
+        padding-left: 32px;
+
+        @include rtl {
+            padding-left: 20px;
+            padding-right: 32px;
+        }
     }
 
     @include dark-mode {
-        color: #d0d4d7 !important;
+        color: $grey-05;
 
         &:hover {
-            color: white !important;
+            color: $white;
         }
 
         &.is-active {
-            color: #0099e5 !important;
+            color: $blue;
 
             &:hover {
-                color: white !important;
+                color: $white;
             }
         }
+    }
+}
+
+.sidebar__footer {
+    position: absolute;
+    bottom: 0;
+    background-color: $grey-02;
+    width: 100%;
+    padding: 8px;
+    transition: background-color 0.8s ease 0.06s, border-color 1s ease 0.08s;
+
+    p {
+        font-size: 11px;
+        margin: 0;
+        line-height: 160%;
+        display: inline-block;
+    }
+
+    @include dark-mode {
+        background-color: darken($grey-14, 3);
+    }
+}
+
+.sidebar__footer__sponsor-logo {
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 4px;
+
+    @include rtl {
+        margin-right: 0;
+        margin-left: 4px;
     }
 }
 </style>
