@@ -20,6 +20,7 @@ module.exports = {
             sass: {
                 data: `
                     @import "@/assets/scss/settings/_breakpoints.scss";
+                    @import "@/assets/scss/settings/_colors.scss";
                     @import "@/assets/scss/settings/_layout.scss";
                     @import "@/assets/scss/settings/_typography.scss";
                     @import "@/assets/scss/utility/_functions.scss";
