@@ -11,7 +11,7 @@
                         <p>
                             <Marked>This is a demo of [hapi-docs](https://github.com/SurveyLegend/hapi-docs) which is perhaps the best, and most modern *API Documentation Generator* out there. From your code blocks to description texts, you simply type everything in Markdown. Then all you need to do is to enjoy a blazing fast single-page responsive documentation, which smartly supports linkability, Syntax highlighting, RTL languages, and perfectionist eyes.</Marked>
                             <div class="method__copy__full-with-picture demo-picture"><img src="../assets/images/hero.png"></div>
-                            <Marked>hapi-docs is an open-source library brought to you by [SurveyLegend®](https://www.surveylegend.com/). Learn more about [hapi-docs on GitHub](https://github.com/SurveyLegend/hapi-docs), and let us know what you think.</Marked>
+                            <Marked>hapi-docs is an open-source library brought to you by [SurveyLegend®](http://www.surveylegend.com/). Learn more about [hapi-docs on GitHub](https://github.com/SurveyLegend/hapi-docs), and let us know what you think.</Marked>
                         </p>
                     </div>
                 </div>
