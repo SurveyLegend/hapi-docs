@@ -62,7 +62,7 @@
             <footer class="sidebar__footer">
                 <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
                 <p>
-                    Made with <span style="color: #e04c4c">♥</span> by <a href="https://surveylegend.com">SurveyLegend®</a>
+                    Made with <span style="color: #e04c4c">♥</span> by <a href="http://surveylegend.com">SurveyLegend®</a>
                 </p>
             </footer>
         </ScrollSpy>
