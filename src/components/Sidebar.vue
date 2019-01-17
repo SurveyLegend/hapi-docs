@@ -60,7 +60,7 @@
                 </ul>
             </template>
             <footer class="sidebar__footer">
-                <img src="https://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
+                <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
                 <p>
                     Made with <span style="color: #e04c4c">♥</span> by <a href="https://surveylegend.com">SurveyLegend®</a>
                 </p>
@@ -144,7 +144,7 @@ export default {
         color: $grey-02;
         style: solid;
         width: 1px 0 0 0;
-    };
+    }
     transition: border-color 1s ease 0.08s;
 
     @include dark-mode {
@@ -213,7 +213,6 @@ export default {
 
     & li .sidebar__navigation__item.is-active + .sidebar__navigation__items,
     & li .sidebar__navigation__item.is-active-parent + .sidebar__navigation__items {
-
         height: 100%;
         transition: height 0.2s ease;
 
