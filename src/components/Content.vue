@@ -290,6 +290,8 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
 
+    -webkit-overflow-scrolling: touch;
+
     @include respond-to(medium-screens) {
         left: 180px;
     }
