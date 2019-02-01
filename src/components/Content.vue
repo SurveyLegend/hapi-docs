@@ -811,6 +811,24 @@ export default {
             border: 1px solid $grey-12;
         }
 
+        @include respond-to(narrow-screens) {
+            th, td {
+                width: 100%;
+                display: block;
+
+                text-align: left;
+
+                @include rtl {
+                    text-align: right;
+                }
+            }
+            th {
+                padding: 12px 12px 0 12px !important;
+            }
+            td {
+                padding: 0 12px 12px 12px !important;
+            }
+        }
     }
 
     .table__container {
