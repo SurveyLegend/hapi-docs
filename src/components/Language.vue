@@ -18,16 +18,15 @@ export default {
 <style scoped lang="scss">
 .languages {
     display: flex;
-    align-items: center;
     flex-direction: row;
-
+    align-items: center;
+    width: calc(100% - 36px);
     height: 100%;
-
-    white-space: nowrap;
+    padding: 0 8px;
     overflow-x: auto;
     overflow-y: hidden;
 
-    width: calc(100% - 36px);
+    white-space: nowrap;
 }
 
 .language {

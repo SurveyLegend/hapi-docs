@@ -68,12 +68,16 @@ export default {
 
     @include respond-to(small-screens) {
         left: 0;
-        height: 50px;
+        height: $header-height;
         border-bottom: 1px solid $grey-02;
 
         @include dark-mode {
             border-bottom: 1px solid darken($grey-09, 8);
         }
+    }
+
+    @include respond-to(narrow-screens) {
+        height: $header-height-in-narrow-screens;
     }
 
     @include rtl {
@@ -100,7 +104,11 @@ export default {
     position: absolute;
     top: 0;
 
-    height: 49px;
+    height: $header-height;
+
+    @include respond-to(narrow-screens) {
+        height: $header-height-in-narrow-screens;
+    }
 }
 
 .header__sidebar {
@@ -158,11 +166,11 @@ export default {
     padding: 0 12px;
 
     @include respond-to(small-screens) {
-        right: 55vw;
+        right: 50%;
         border-color: transparent;
 
         @include rtl {
-            left: 55vw;
+            left: 50%;
             right: 0;
         }
     }
@@ -188,7 +196,7 @@ export default {
     float: right;
     position: relative;
 
-    margin-top: 10px;
+    margin-top: 12px;
 
     @include respond-to(small-screens) {
         display: block;
@@ -196,6 +204,7 @@ export default {
 
     @include respond-to(narrow-screens) {
         width: 100%;
+        margin-top: 8px;
         max-width: 320px;
     }
 
@@ -303,10 +312,9 @@ export default {
     right: 0;
     z-index: z-index(above);
 
-    height: 50px;
     min-width: 464px;
 
-    padding: 0 12px;
+    padding: 0 12px 0 0;
 
     background-color: $grey-14;
 
@@ -314,26 +322,19 @@ export default {
         background-color: darken($grey-14, 12);
     }
 
-    @include respond-to(small-screens) {
-        padding-left: 4px;
-
-        @include rtl {
-            padding-right: 4px;
-            padding-left: 20px;
-        }
-    }
-
     @include respond-to(narrow-screens) {
         position: relative;
+        padding-left: 0;
 
         left: 0;
-        top: 49px;
+        top: $header-height-in-narrow-screens;
 
-        height: 41px;
+        height: $header-height-in-narrow-screens;
         min-width: 0;
     }
 
     @include rtl {
+        padding: 0 0 0 12px;
         right: 50%;
         left: 0;
 

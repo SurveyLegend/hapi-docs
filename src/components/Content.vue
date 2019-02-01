@@ -306,7 +306,7 @@ export default {
     }
 
     @include respond-to(narrow-screens) {
-        top: 90px;
+        top: $header-height-in-narrow-screens * 2;
     }
 
     @include rtl {
@@ -799,7 +799,7 @@ export default {
     }
 
     .table {
-        margin: 30px 0 45px;
+        margin: 32px 0 44px;
         overflow: hidden;
         background-color: $grey-10;
         border: 1px solid $grey-08;
@@ -810,6 +810,7 @@ export default {
             background-color: darken($grey-14, 6);
             border: 1px solid $grey-12;
         }
+
     }
 
     .table__container {
