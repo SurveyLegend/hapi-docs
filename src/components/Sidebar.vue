@@ -95,7 +95,7 @@ export default {
     bottom: 0;
     left: 0;
 
-    width: 220px;
+    width: $sidebar-width-in-large-screens;
     border: {
         style: solid;
         width: 0 1px 0 0;
@@ -112,11 +112,11 @@ export default {
     }
 
     @include respond-to(medium-screens) {
-        width: 180px;
+        width: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        width: 280px;
+        width: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {

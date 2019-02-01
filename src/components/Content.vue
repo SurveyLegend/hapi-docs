@@ -285,7 +285,7 @@ export default {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 220px;
+    left: $sidebar-width-in-large-screens;
 
     overflow-x: hidden;
     overflow-y: scroll;
@@ -293,11 +293,11 @@ export default {
     -webkit-overflow-scrolling: touch;
 
     @include respond-to(medium-screens) {
-        left: 180px;
+        left: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: 280px;
+        left: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
@@ -311,15 +311,15 @@ export default {
 
     @include rtl {
         left: 0;
-        right: 220px;
+        right: $sidebar-width-in-large-screens;
 
         @include respond-to(medium-screens) {
-            right: 180px;
+            right: $sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: 280px;
+            right: $sidebar-width-in-wide-screens;
             left: 0;
         }
 
@@ -352,16 +352,9 @@ export default {
 .method__copy {
     float: left;
 
-    width: calc((100vw - 220px) * 0.45);
+    width: 50%;
     padding: 0 0 52px;
 
-    @include respond-to(wide-screens) {
-        width: 780px;
-    }
-
-    @include respond-to(small-screens) {
-        width: 45vw;
-    }
 
     @include respond-to(narrow-screens) {
         float: none;
@@ -756,17 +749,13 @@ export default {
     position: relative;
     z-index: z-index(default) + 1;
 
-    margin-left: calc((100vw - 220px) * 0.45);
+    margin-left: 50%;
     padding: 42px 0 52px;
 
     color: $grey-04;
 
-    @include respond-to(wide-screens) {
-        margin-left: 780px;
-    }
 
     @include respond-to(small-screens) {
-        margin-left: 45vw;
         padding-top: 0;
     }
 
@@ -781,17 +770,7 @@ export default {
 
     @include rtl {
         margin-left: 0;
-        margin-right: calc((100vw - 220px) * 0.45);
-
-        @include respond-to(wide-screens) {
-            margin-right: 780px;
-            margin-left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            margin-right: 45vw;
-            margin-left: 0;
-        }
+        margin-right: 50%;
 
         @include respond-to(narrow-screens) {
             margin-right: 0;

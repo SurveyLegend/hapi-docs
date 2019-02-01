@@ -55,15 +55,15 @@ export default {
     z-index: z-index(fixed) + 1;
     top: 0;
     right: 0;
-    left: 220px;
+    left: $sidebar-width-in-large-screens;
     transition: border-color 1s ease 0.08s;
 
     @include respond-to(medium-screens) {
-        left: 180px;
+        left: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: 280px;
+        left: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
@@ -77,16 +77,16 @@ export default {
     }
 
     @include rtl {
-        right: 220px;
+        right: $sidebar-width-in-large-screens;
         left: 0;
 
         @include respond-to(medium-screens) {
-            right: 180px;
+            right: $sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: 280px;
+            right: $sidebar-width-in-wide-screens;
             left: 0;
         }
 
@@ -106,23 +106,23 @@ export default {
 .header__sidebar {
     @extend %header__section;
 
-    left: -220px;
+    left: -$sidebar-width-in-large-screens;
 
-    width: 220px;
+    width: $sidebar-width-in-large-screens;
 
     padding: 8px;
 
 
     @include respond-to(medium-screens) {
-        left: -180px;
+        left: -$sidebar-width-in-medium-screens;
 
-        width: 180px;
+        width: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: -280px;
+        left: -$sidebar-width-in-wide-screens;
 
-        width: 280px;
+        width: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
@@ -132,15 +132,15 @@ export default {
 
     @include rtl {
         left: initial;
-        right: -220px;
+        right: -$sidebar-width-in-large-screens;
 
         @include respond-to(medium-screens) {
-            right: -180px;
+            right: -$sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: -280px;
+            right: -$sidebar-width-in-wide-screens;
             left: 0;
         }
 
@@ -298,7 +298,7 @@ export default {
     align-items: center;
     justify-content: space-between;
 
-    left: calc((100vw - 220px) * 0.45);
+    left: 50%;
     right: 0;
     z-index: z-index(above);
 
@@ -313,12 +313,7 @@ export default {
         background-color: darken($grey-14, 12);
     }
 
-    @include respond-to(wide-screens) {
-        left: 780px;
-    }
-
     @include respond-to(small-screens) {
-        left: 45vw;
         padding-left: 4px;
 
         @include rtl {
@@ -338,18 +333,8 @@ export default {
     }
 
     @include rtl {
-        right: calc((100vw - 220px) * 0.45);
+        right: 50%;
         left: 0;
-
-        @include respond-to(wide-screens) {
-            right: 780px;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 45vw;
-            left: 0;
-        }
 
         @include respond-to(narrow-screens) {
             right: 0;
