@@ -262,6 +262,7 @@ export default {
 
         appearance: none;
         cursor: pointer;
+        transition: background-color 0.8s ease, border-color 1s ease;
 
         &:hover {
             color: $grey-12;
