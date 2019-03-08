@@ -11,14 +11,14 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 220px;
+    left: $sidebar-width-in-large-screens;
 
     @include respond-to(medium-screens) {
-        left: 180px;
+        left: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: 280px;
+        left: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
@@ -30,16 +30,16 @@
     }
 
     @include rtl {
-        right: 220px;
+        right: $sidebar-width-in-large-screens;
         left: 0;
 
         @include respond-to(medium-screens) {
-            right: 180px;
+            right: $sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: 280px;
+            right: $sidebar-width-in-wide-screens;
             left: 0;
         }
         @include respond-to(small-screens) {
@@ -53,7 +53,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: calc((100vw - 220px) * 0.45);
+    left: 50%;
 
     background-color: $grey-11;
     transition: background-color 0.8s ease;
@@ -62,27 +62,10 @@
         background-color: darken($grey-14, 8);
     }
 
-    @include respond-to(wide-screens) {
-        left: 780px;
-    }
-
-    @include respond-to(small-screens) {
-        left: 45vw;
-    }
 
     @include rtl {
-        right: calc((100vw - 220px) * 0.45);
+        right: 50%;
         left: 0;
-
-        @include respond-to(wide-screens) {
-            right: 780px;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 45vw;
-            left: 0;
-        }
     }
 }
 </style>

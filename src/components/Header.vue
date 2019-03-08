@@ -55,20 +55,20 @@ export default {
     z-index: z-index(fixed) + 1;
     top: 0;
     right: 0;
-    left: 220px;
+    left: $sidebar-width-in-large-screens;
     transition: border-color 1s ease 0.08s;
 
     @include respond-to(medium-screens) {
-        left: 180px;
+        left: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: 280px;
+        left: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
         left: 0;
-        height: 50px;
+        height: $header-height;
         border-bottom: 1px solid $grey-02;
 
         @include dark-mode {
@@ -76,17 +76,21 @@ export default {
         }
     }
 
+    @include respond-to(narrow-screens) {
+        height: $header-height-in-narrow-screens;
+    }
+
     @include rtl {
-        right: 220px;
+        right: $sidebar-width-in-large-screens;
         left: 0;
 
         @include respond-to(medium-screens) {
-            right: 180px;
+            right: $sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: 280px;
+            right: $sidebar-width-in-wide-screens;
             left: 0;
         }
 
@@ -100,28 +104,32 @@ export default {
     position: absolute;
     top: 0;
 
-    height: 49px;
+    height: $header-height;
+
+    @include respond-to(narrow-screens) {
+        height: $header-height-in-narrow-screens;
+    }
 }
 
 .header__sidebar {
     @extend %header__section;
 
-    left: -220px;
+    left: -$sidebar-width-in-large-screens;
 
-    width: 220px;
+    width: $sidebar-width-in-large-screens;
 
     padding: 8px;
 
     @include respond-to(medium-screens) {
-        left: -180px;
+        left: -$sidebar-width-in-medium-screens;
 
-        width: 180px;
+        width: $sidebar-width-in-medium-screens;
     }
 
     @include respond-to(wide-screens) {
-        left: -280px;
+        left: -$sidebar-width-in-wide-screens;
 
-        width: 280px;
+        width: $sidebar-width-in-wide-screens;
     }
 
     @include respond-to(small-screens) {
@@ -131,15 +139,15 @@ export default {
 
     @include rtl {
         left: initial;
-        right: -220px;
+        right: -$sidebar-width-in-large-screens;
 
         @include respond-to(medium-screens) {
-            right: -180px;
+            right: -$sidebar-width-in-medium-screens;
             left: 0;
         }
 
         @include respond-to(wide-screens) {
-            right: -280px;
+            right: -$sidebar-width-in-wide-screens;
             left: 0;
         }
 
@@ -157,11 +165,11 @@ export default {
     padding: 0 12px;
 
     @include respond-to(small-screens) {
-        right: 55vw;
+        right: 50%;
         border-color: transparent;
 
         @include rtl {
-            left: 55vw;
+            left: 50%;
             right: 0;
         }
     }
@@ -187,7 +195,7 @@ export default {
     float: right;
     position: relative;
 
-    margin-top: 10px;
+    margin-top: 12px;
 
     @include respond-to(small-screens) {
         display: block;
@@ -195,6 +203,7 @@ export default {
 
     @include respond-to(narrow-screens) {
         width: 100%;
+        margin-top: 8px;
         max-width: 320px;
     }
 
@@ -261,6 +270,7 @@ export default {
 
         appearance: none;
         cursor: pointer;
+        transition: background-color 0.8s ease, border-color 1s ease;
 
         &:hover {
             color: $grey-12;
@@ -297,14 +307,13 @@ export default {
     align-items: center;
     justify-content: space-between;
 
-    left: calc((100vw - 220px) * 0.45);
+    left: 50%;
     right: 0;
     z-index: z-index(above);
 
-    height: 50px;
     min-width: 464px;
 
-    padding: 0 12px;
+    padding: 0 12px 0 0;
 
     background-color: $grey-14;
 
@@ -312,43 +321,21 @@ export default {
         background-color: darken($grey-14, 12);
     }
 
-    @include respond-to(wide-screens) {
-        left: 780px;
-    }
-
-    @include respond-to(small-screens) {
-        left: 45vw;
-        padding-left: 4px;
-
-        @include rtl {
-            padding-right: 4px;
-            padding-left: 20px;
-        }
-    }
-
     @include respond-to(narrow-screens) {
         position: relative;
+        padding-left: 0;
 
         left: 0;
-        top: 49px;
+        top: $header-height-in-narrow-screens;
 
-        height: 41px;
+        height: $header-height-in-narrow-screens;
         min-width: 0;
     }
 
     @include rtl {
-        right: calc((100vw - 220px) * 0.45);
+        padding: 0 0 0 12px;
+        right: 50%;
         left: 0;
-
-        @include respond-to(wide-screens) {
-            right: 780px;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 45vw;
-            left: 0;
-        }
 
         @include respond-to(narrow-screens) {
             right: 0;
