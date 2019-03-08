@@ -112,7 +112,6 @@ export default {
 
     padding: 8px;
 
-
     @include respond-to(medium-screens) {
         left: -180px;
 
