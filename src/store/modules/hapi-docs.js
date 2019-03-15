@@ -69,7 +69,7 @@ export const mutations = {
 
 export const actions = {
     async fetchData({ commit }) {
-        const { data } = await axios.get('/hapi-docs')
+        const { data } = await axios.get('hapi-docs')
 
         commit(types.FETCH_DATA, { data })
     }
