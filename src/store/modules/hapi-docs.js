@@ -5,7 +5,7 @@ export const state = {
     host: '',
     scheme: '',
     info: null,
-    security: null,
+    security: [],
     errors: [],
     paths: null,
     groups: null,
