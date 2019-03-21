@@ -30,6 +30,7 @@ export const getters = {
                     name: tag.name,
                     descriptions: tag.descriptions || null,
                     deprecated: tag.deprecated || false,
+                    internal: tag.internal || false,
                     paths: getters.paths.filter(path => path.group === tag.name)
                 })
             })
@@ -44,6 +45,7 @@ export const getters = {
                         name: group,
                         descriptions: null,
                         deprecated: false,
+                        internal: false,
                         paths: getters.paths.filter(path => path.group === group)
                     })
                 }

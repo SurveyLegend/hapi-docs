@@ -93,8 +93,12 @@
                                 <span>{{ group.name | capitalize }}</span>
                                 <span
                                     v-if="group.deprecated"
-                                    class="method__badge method__badge--deprecated"
+                                    class="method__badge method__badge--danger"
                                 >Deprecated</span>
+                                <span
+                                    v-if="group.internal"
+                                    class="method__badge method__badge--warning"
+                                >Internal</span>
                             </h1>
                             <template v-if="group.descriptions">
                                 <p v-for="description in group.descriptions">
@@ -118,8 +122,12 @@
                                     <span>{{ path.description }}</span>
                                     <span
                                         v-if="path.deprecated"
-                                        class="method__badge method__badge--deprecated"
+                                        class="method__badge method__badge--danger"
                                     >Deprecated</span>
+                                    <span
+                                        v-if="path.internal"
+                                        class="method__badge method__badge--warning"
+                                    >Internal</span>
                                 </h1>
                                 <template v-if="path.notes">
                                     <p v-for="note in path.notes">
@@ -393,7 +401,12 @@ export default {
     text-transform: uppercase;
     vertical-align: middle;
 
-    &.method__badge--deprecated {
+    &.method__badge--warning {
+        border: 1px solid rgba(255, 174, 84, 0.5);
+        color: #ffae54;
+    }
+
+    &.method__badge--danger {
         border: 1px solid rgba(224, 76, 76, 0.5);
         color: #e04c4c;
     }
