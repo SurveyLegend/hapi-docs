@@ -90,7 +90,10 @@
                     <div class="method__copy">
                         <div class="method__copy__padding">
                             <h1>
-                                <span>{{ group.name | capitalize }}</span>
+                                <span>
+                                    <template v-if="group.uppercase">{{ group.name | uppercase }}</template>
+                                    <template v-else>{{ group.name | capitalize }}</template>
+                                </span>
                                 <span
                                     v-if="group.deprecated"
                                     class="method__badge method__badge--danger"
