@@ -678,6 +678,60 @@ export default {
         }
     }
 
+    .table {
+        margin: 30px 0 45px;
+        max-width: 768px;
+        overflow: hidden;
+        background: #33373a;
+        border: 1px solid #373b3e;
+        border-radius: 5px;
+        color: #d0d4d7;
+
+        @include dark-mode {
+            background: darken(#242729, 6);
+            border: 1px solid darken(#242729, 4);
+        }
+    }
+
+    .table__container {
+        table-layout: fixed;
+        width: 100%;
+        background-clip: padding-box;
+
+        tr:nth-child(odd) {
+            background: rgba(0, 0, 0, 0.1);
+
+            @include dark-mode {
+                background: rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        tr:first-child .table__row {
+            padding-top: 16px;
+        }
+
+        tr:last-child .table__row {
+            padding-bottom: 16px;
+        }
+    }
+
+    .table__row {
+        display: table-cell;
+        padding: 9px 20px;
+        font-size: 14px;
+        text-align: left;
+        font-weight: 400;
+        vertical-align: top;
+    }
+
+    .table__row--property {
+        @extend .table__row;
+
+        width: 180px;
+        font-weight: 600;
+        text-align: right;
+    }
+
     h3 {
         max-width: 768px;
         color: #d0d4d7 !important;
@@ -695,6 +749,25 @@ export default {
         color: #d0d0d0 !important;
 
         direction: ltr;
+
+        .token {
+            &.property {
+                color: #c1ef65;
+            }
+
+            &.number,
+            &.boolean {
+                color: #77bcd7;
+            }
+
+            &.null {
+                color: #ebde68;
+            }
+
+            &.punctuation {
+                color: #f099a6;
+            }
+        }
     }
 
     pre {
@@ -778,59 +851,5 @@ export default {
     &:before {
         content: 'Example Response';
     }
-}
-
-.table {
-    margin: 30px 0 45px;
-    max-width: 768px;
-    overflow: hidden;
-    background: #33373a;
-    border: 1px solid #373b3e;
-    border-radius: 5px;
-    color: #d0d4d7;
-
-    @include dark-mode {
-        background: darken(#242729, 6);
-        border: 1px solid darken(#242729, 4);
-    }
-}
-
-.table__container {
-    table-layout: fixed;
-    width: 100%;
-    background-clip: padding-box;
-
-    tr:nth-child(odd) {
-        background: rgba(0, 0, 0, 0.1);
-
-        @include dark-mode {
-            background: rgba(0, 0, 0, 0.15);
-        }
-    }
-
-    tr:first-child .table__row {
-        padding-top: 16px;
-    }
-
-    tr:last-child .table__row {
-        padding-bottom: 16px;
-    }
-}
-
-.table__row {
-    display: table-cell;
-    padding: 9px 20px;
-    font-size: 14px;
-    text-align: left;
-    font-weight: 400;
-    vertical-align: top;
-}
-
-.table__row--property {
-    @extend .table__row;
-
-    width: 180px;
-    font-weight: 600;
-    text-align: right;
 }
 </style>
