@@ -38,7 +38,10 @@
                         <a
                             :href="`#${group.name}`"
                             class="sidebar__navigation__item"
-                        >{{ group.name | capitalize }}</a>
+                        >
+                            <template v-if="group.uppercase">{{ group.name | uppercase }}</template>
+                            <template v-else>{{ group.name | capitalize }}</template>
+                        </a>
                         <ul class="sidebar__navigation__items">
                             <li
                                 v-for="path in group.paths"
