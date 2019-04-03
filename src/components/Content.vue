@@ -102,6 +102,10 @@
                                     v-if="group.internal"
                                     class="method__badge method__badge--warning"
                                 >Internal</span>
+                                <span
+                                    v-if="group.experimental"
+                                    class="method__badge method__badge--experiment"
+                                >Experimental</span>
                             </h1>
                             <template v-if="group.descriptions">
                                 <p v-for="description in group.descriptions">
@@ -131,6 +135,10 @@
                                         v-if="path.internal"
                                         class="method__badge method__badge--warning"
                                     >Internal</span>
+                                    <span
+                                        v-if="path.experimental"
+                                        class="method__badge method__badge--experiment"
+                                    >Experimental</span>
                                 </h1>
                                 <template v-if="path.notes">
                                     <p v-for="note in path.notes">
@@ -399,6 +407,11 @@ export default {
     &.method__badge--danger {
         border: 1px solid rgba(224, 76, 76, 0.5);
         color: #e04c4c;
+    }
+
+    &.method__badge--experiment {
+        border: 1px solid rgba(168, 82, 255, 0.5);
+        color: #a852ff;
     }
 }
 

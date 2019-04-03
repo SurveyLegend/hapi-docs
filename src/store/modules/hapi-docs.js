@@ -31,6 +31,7 @@ export const getters = {
                     descriptions: tag.descriptions || null,
                     deprecated: tag.deprecated || false,
                     internal: tag.internal || false,
+                    experimental: tag.experimental || false,
                     uppercase: tag.uppercase || false,
                     paths: getters.paths.filter(path => path.group === tag.name)
                 })
@@ -47,6 +48,7 @@ export const getters = {
                         descriptions: null,
                         deprecated: false,
                         internal: false,
+                        experimental: false,
                         uppercase: false,
                         paths: getters.paths.filter(path => path.group === group)
                     })
