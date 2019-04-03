@@ -410,8 +410,8 @@ export default {
     }
 
     &.method__badge--experiment {
-        border: 1px solid rgba(168, 82, 255, 0.5);
-        color: #a852ff;
+        border: 1px solid rgba(212, 82, 255, 0.5);
+        color: #d452ff;
     }
 }
 
