@@ -302,7 +302,7 @@ export default {
 
     @include respond-to(small-screens) {
         left: 0;
-        top: $header-height;
+        top: 50px;
     }
 
     @include respond-to(narrow-screens) {
