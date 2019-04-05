@@ -82,11 +82,15 @@ a {
 
  transition: color .2s ease;
 
+ @include dark-mode {
+     color: $dark-blue;
+ }
+
  &:hover {
   color: darken($blue, 10);
 
   @include dark-mode {
-      color: lighten($blue, 10);
+      color: lighten($dark-blue, 10);
   }
  }
 }

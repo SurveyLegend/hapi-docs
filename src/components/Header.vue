@@ -138,6 +138,12 @@ export default {
         border-width: 0;
     }
 
+    @include respond-to(narrow-screens) {
+        position: fixed;
+        top: unset;
+        bottom: 0
+    }
+
     @include rtl {
         left: initial;
         right: -$sidebar-width-in-large-screens;
@@ -179,6 +185,8 @@ export default {
         left: 140px;
         position: fixed;
         right: 0;
+        bottom: 0;
+        top: unset;
 
         @include dark-mode {
             border-width: 0;
@@ -316,10 +324,10 @@ export default {
 
     padding: 0 12px 0 0;
 
-    background-color: $grey-14;
+    background-color: darken($indigo, 3);
 
     @include dark-mode {
-        background-color: darken($grey-14, 12);
+        background-color: darken($grey-14, 14);
     }
 
     @include respond-to(narrow-screens) {
@@ -327,7 +335,7 @@ export default {
         padding-left: 0;
 
         left: 0;
-        top: $header-height-in-narrow-screens;
+        top: 0;
 
         height: $header-height-in-narrow-screens;
         min-width: 0;

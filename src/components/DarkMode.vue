@@ -136,7 +136,7 @@ export default {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    box-shadow: rgba($orange, 0.9) 0 0 22px 3px, $orange 0 0 0 1px;
+    box-shadow: rgba($yellow, 0.9) 0 0 22px 3px, $orange 0 0 0 1px;
     background-color: rgba($white, 0.3);
     overflow: hidden;
     position: relative;
@@ -144,7 +144,7 @@ export default {
     transition: background-color 0.8 ease, box-shadow 0.8s ease;
 
     @include dark-mode {
-        box-shadow: rgba($black, 0.4) 0 0 4px 3px, rgba($white, 0.6) 0 0 16px 2px,
+        box-shadow: rgba($black, 0.6) 0 0 4px 3px, rgba($white, 0.7) 0 0 16px 2px,
             rgba($white, 0.6) 0 0 2px;
         background-color: $white;
     }

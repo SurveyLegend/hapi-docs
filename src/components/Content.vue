@@ -302,11 +302,13 @@ export default {
 
     @include respond-to(small-screens) {
         left: 0;
-        top: 50px;
+        top: $header-height;
     }
 
     @include respond-to(narrow-screens) {
-        top: $header-height-in-narrow-screens * 2;
+        top: $header-height-in-narrow-screens;
+        bottom: $header-height-in-narrow-screens;
+        box-shadow: rgba($black,0.1) 0 -32px 34px -40px inset;
     }
 
     @include rtl {
@@ -363,6 +365,10 @@ export default {
 
     @include rtl {
         float: right;
+
+        @include respond-to(narrow-screens) {
+            float: none;
+        }
     }
 
     .method.first-of-group:not(:first-child) & {
@@ -385,10 +391,53 @@ export default {
             padding-top: 0;
         }
     }
+
+    ul,
+    ol {
+        padding: 0 0 0 16px;
+
+        @include rtl {
+            padding: 0 16px 0 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    }
+    ul {
+        li {
+            &:before {
+                content: '';
+                width: 4px;
+                height: 4px;
+                background-color: $grey-07;
+                border-radius: 50%;
+                display: block;
+                margin: 10px 0 0 -12px;
+                float: left;
+
+                @include dark-mode {
+                    background-color: $grey-08;
+                }
+
+                @include rtl {
+                    float: right;
+                    margin: 10px -12px 0 0;
+                }
+            }
+        }
+    }
+    ol {
+        li {
+            list-style: decimal;
+        }
+    }
 }
 
 .method__copy__padding {
     padding: 40px 40px 20px;
+    max-width: $max-content-width;
+    margin: 0 auto;
 
     &:last-child {
         padding-bottom: 0;
@@ -471,6 +520,17 @@ export default {
 
 .method__list {
     padding: 40px 40px 0;
+    max-width: $max-content-width;
+    margin: 0 auto;
+
+    ul {
+        padding: 0;
+    }
+    li {
+        &:before {
+            display: none !important;
+        }
+    }
 
     @include respond-to(narrow-screens) {
         padding-left: 20px;
@@ -761,7 +821,7 @@ export default {
 
     @include respond-to(narrow-screens) {
         margin-left: 0;
-        background-color: $grey-11;
+        background-color: lighten($indigo, 1.5);
 
         @include dark-mode {
             background-color: darken($grey-14, 8);
@@ -799,16 +859,14 @@ export default {
     }
 
     .table {
-        margin: 32px 0 44px;
+        margin: 0 0 44px;
         overflow: hidden;
-        background-color: $grey-10;
-        border: 1px solid $grey-08;
-        border-radius: 5px;
+        background-color: $grey-13;
+        border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
         color: $grey-05;
 
         @include dark-mode {
             background-color: darken($grey-14, 6);
-            border: 1px solid $grey-12;
         }
 
         @include respond-to(narrow-screens) {
@@ -836,12 +894,8 @@ export default {
         width: 100%;
         background-clip: padding-box;
 
-        tr:nth-child(odd) {
-            background-color: rgba($black, 0.1);
-
-            @include dark-mode {
-                background-color: rgba($black, 0.15);
-            }
+        tr:nth-child(even) {
+            background-color: rgba($indigo, 0.2);
         }
 
         tr:first-child .table__row {
@@ -871,8 +925,22 @@ export default {
     }
 
     h3 {
-        max-width: 768px;
+        font-size: 15px;
+        font-weight: 500;
+
+        display: inline-block;
+        width: 100%;
+        padding: 8px 12px;
+
         color: $grey-05;
+        background-color: $indigo;
+        border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
+
+        letter-spacing: .1px;
+
+        @include dark-mode {
+            background-color: darken($grey-14, 12);
+        }
     }
 
     pre,
@@ -915,7 +983,7 @@ export default {
 
         padding: 20px 32px;
 
-        border-radius: 5px;
+        border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
         background-color: $grey-13;
         transition: background-color 0.8s ease;
 
@@ -945,7 +1013,9 @@ export default {
 }
 
 .method__example__part {
-    padding: 28px 40px;
+    padding: 28px 52px;
+    max-width: $max-content-width;
+    margin: 0 auto;
 
     @include respond-to(medium-screens) {
         padding-right: 20px;
@@ -970,15 +1040,18 @@ export default {
         font-weight: 500;
 
         display: inline-block;
-
-        margin-right: 4px;
-        padding-bottom: 8px;
-
-        letter-spacing: 0.1px;
+        width: 100%;
+        padding: 8px 12px;
 
         color: $grey-05;
+        background-color: $indigo;
+        border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
 
-        @include font-hind;
+        letter-spacing: .1px;
+
+        @include dark-mode {
+            background-color: darken($grey-14, 12);
+        }
     }
 }
 

@@ -55,7 +55,7 @@
     bottom: 0;
     left: 50%;
 
-    background-color: $grey-11;
+    background-color: lighten($indigo, 1.5);
     transition: background-color 0.8s ease;
 
     @include dark-mode {

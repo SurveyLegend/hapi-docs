@@ -59,13 +59,13 @@
                     </li>
                 </ul>
             </template>
-            <footer class="sidebar__footer">
-                <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
-                <p>
-                    Made with <span style="color: #e04c4c">♥</span> by <a href="http://surveylegend.com">SurveyLegend®</a>
-                </p>
-            </footer>
         </ScrollSpy>
+        <footer class="sidebar__footer">
+            <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
+            <p>
+                Made with <span style="color: #e04c4c">♥</span> by <a href="http://surveylegend.com">SurveyLegend®</a>
+            </p>
+        </footer>
     </div>
 </template>
 
@@ -136,6 +136,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+    padding-bottom: 32px;
 
     overflow-y: scroll;
     overflow-x: auto;
@@ -272,7 +273,7 @@ export default {
         }
 
         &.is-active {
-            color: $blue;
+            color: $dark-blue;
 
             &:hover {
                 color: $white;
