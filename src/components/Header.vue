@@ -51,334 +51,308 @@ export default {
 
 <style scoped lang="scss">
 .header {
-    position: absolute;
-    z-index: z-index(fixed) + 1;
-    top: 0;
-    right: 0;
-    left: $sidebar-width-in-large-screens;
-    transition: border-color 1s ease 0.08s;
+ @include respond-to(wide-screens) {
+  left: $sidebar-width-in-wide-screens;
+ }
+ @include respond-to(medium-screens) {
+  left: $sidebar-width-in-medium-screens;
+ }
+ @include respond-to(small-screens) {
+  @include dark-mode {
+   border-bottom: 1px solid darken($grey-09, 8);
+  }
 
-    @include respond-to(medium-screens) {
-        left: $sidebar-width-in-medium-screens;
-    }
+  left: 0;
+  height: $header-height;
 
-    @include respond-to(wide-screens) {
-        left: $sidebar-width-in-wide-screens;
-    }
+  border-bottom: 1px solid $grey-02;
+ }
+ @include respond-to(narrow-screens) {
+  height: $header-height-in-narrow-screens;
+ }
+ @include rtl {
+  @include respond-to(wide-screens) {
+   right: $sidebar-width-in-wide-screens;
+   left: 0;
+  }
+  @include respond-to(medium-screens) {
+   right: $sidebar-width-in-medium-screens;
+   left: 0;
+  }
+  @include respond-to(small-screens) {
+   right: 0;
+  }
 
-    @include respond-to(small-screens) {
-        left: 0;
-        height: $header-height;
-        border-bottom: 1px solid $grey-02;
+  right: $sidebar-width-in-large-screens;
+  left: 0;
+ }
 
-        @include dark-mode {
-            border-bottom: 1px solid darken($grey-09, 8);
-        }
-    }
+ position: absolute;
+ top: 0;
+ right: 0;
+ left: $sidebar-width-in-large-screens;
+ z-index: z-index(fixed) + 1;
 
-    @include respond-to(narrow-screens) {
-        height: $header-height-in-narrow-screens;
-    }
-
-    @include rtl {
-        right: $sidebar-width-in-large-screens;
-        left: 0;
-
-        @include respond-to(medium-screens) {
-            right: $sidebar-width-in-medium-screens;
-            left: 0;
-        }
-
-        @include respond-to(wide-screens) {
-            right: $sidebar-width-in-wide-screens;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 0;
-        }
-    }
+ transition: border-color 1s ease .08s;
 }
 
 %header__section {
-    position: absolute;
-    top: 0;
+ @include respond-to(narrow-screens) {
+  height: $header-height-in-narrow-screens;
+ }
 
-    height: $header-height;
-
-    @include respond-to(narrow-screens) {
-        height: $header-height-in-narrow-screens;
-    }
+ position: absolute;
+ top: 0;
+ height: $header-height;
 }
 
 .header__sidebar {
-    @extend %header__section;
+ @extend %header__section;
 
-    left: -$sidebar-width-in-large-screens;
+ @include respond-to(wide-screens) {
+  left: -$sidebar-width-in-wide-screens;
+  width: $sidebar-width-in-wide-screens;
+ }
+ @include respond-to(medium-screens) {
+  left: -$sidebar-width-in-medium-screens;
+  width: $sidebar-width-in-medium-screens;
+ }
+ @include respond-to(small-screens) {
+  left: 0;
 
-    width: $sidebar-width-in-large-screens;
+  border-width: 0;
+ }
+ @include respond-to(narrow-screens) {
+  position: fixed;
+  top: unset;
+  bottom: 0;
+ }
+ @include rtl {
+  @include respond-to(medium-screens) {
+   right: -$sidebar-width-in-medium-screens;
+   left: 0;
+  }
+  @include respond-to(wide-screens) {
+   right: -$sidebar-width-in-wide-screens;
+   left: 0;
+  }
+  @include respond-to(small-screens) {
+   right: 0;
+   left: 0;
+  }
 
-    padding: 8px;
+  right: -$sidebar-width-in-large-screens;
+  left: initial;
+ }
 
-
-    @include respond-to(medium-screens) {
-        left: -$sidebar-width-in-medium-screens;
-
-        width: $sidebar-width-in-medium-screens;
-    }
-
-    @include respond-to(wide-screens) {
-        left: -$sidebar-width-in-wide-screens;
-
-        width: $sidebar-width-in-wide-screens;
-    }
-
-    @include respond-to(small-screens) {
-        left: 0;
-        border-width: 0;
-    }
-
-    @include respond-to(narrow-screens) {
-        position: fixed;
-        top: unset;
-        bottom: 0
-    }
-
-    @include rtl {
-        left: initial;
-        right: -$sidebar-width-in-large-screens;
-
-        @include respond-to(medium-screens) {
-            right: -$sidebar-width-in-medium-screens;
-            left: 0;
-        }
-
-        @include respond-to(wide-screens) {
-            right: -$sidebar-width-in-wide-screens;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 0;
-            left: 0;
-        }
-    }
+ left: -$sidebar-width-in-large-screens;
+ width: $sidebar-width-in-large-screens;
+ padding: 8px;
 }
 
 .header__copy {
-    @extend %header__section;
+ @extend %header__section;
 
-    z-index: z-index(above);
-    padding: 0 12px;
+ @include respond-to(small-screens) {
+  @include rtl {
+   right: 0;
+   left: 50%;
+  }
 
-    @include respond-to(small-screens) {
-        right: 50%;
-        border-color: transparent;
+  right: 50%;
 
-        @include rtl {
-            left: 50%;
-            right: 0;
-        }
-    }
+  border-color: transparent;
+ }
+ @include respond-to(narrow-screens) {
+  @include dark-mode {
+   border-width: 0;
+  }
+  @include rtl {
+   right: 140px;
+   left: 0;
+  }
 
-    @include respond-to(narrow-screens) {
-        left: 140px;
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        top: unset;
+  position: fixed;
+  top: unset;
+  right: 0;
+  bottom: 0;
+  left: 140px;
+ }
 
-        @include dark-mode {
-            border-width: 0;
-        }
-
-        @include rtl {
-            right: 140px;
-            left: 0;
-        }
-    }
+ padding: 0 12px;
+ z-index: z-index(above);
 }
 
 .header__navigation {
-    display: none;
-    float: right;
-    position: relative;
+ @include respond-to(small-screens) {
+  display: block;
+ }
+ @include respond-to(narrow-screens) {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 8px;
+ }
+ @include rtl {
+  float: left;
+ }
 
-    margin-top: 12px;
+ display: none;
+ position: relative;
+ float: right;
+ margin-top: 12px;
 
-    @include respond-to(small-screens) {
-        display: block;
-    }
+ &:after {
+  @include mask-icon('../assets/svg/arrow.svg');
+  @include dark-mode {
+   background-color: lighten($grey-07, 10);
+  }
+  @include rtl {
+   right: initial;
+   left: 0;
 
-    @include respond-to(narrow-screens) {
-        width: 100%;
-        margin-top: 8px;
-        max-width: 320px;
-    }
+   border-right: 1px solid $grey-03;
+   border-left: none;
+  }
 
-    @include rtl {
-        float: left;
-    }
+  content: '';
 
-    &:after {
-        content: '';
+  display: block;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  bottom: 6px;
+  width: 32px;
+  z-index: z-index(above);
 
-        display: block;
-        position: absolute;
+  background-color: $grey-07;
+  border-left: 1px solid $grey-03;
 
-        z-index: z-index(above);
+  pointer-events: none;
+ }
 
-        top: 6px;
-        bottom: 6px;
-        right: 0;
-        width: 32px;
+ select {
+  @include font-hind;
+  @include dark-mode {
+   color: $grey-05;
+   background-color: darken($grey-14, 4);
+   border-color: lighten($grey-14, 2);
 
-        border-left: 1px solid $grey-03;
-        pointer-events: none;
+   &:hover {
+    color: lighten($grey-05, 12);
+   }
+  }
+  @include respond-to(narrow-screens) {
+   width: 100%;
+   max-width: 320px;
+  }
+  @include rtl {
+   padding-right: 8px;
+   padding-left: 36px;
+  }
 
-        @include mask-icon('../assets/svg/arrow.svg');
-        background-color: $grey-07;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 28px;
 
-        @include dark-mode {
-            background-color: lighten($grey-07, 10);
-        }
+  display: block;
+  position: relative;
+  max-width: 200px;
+  height: 29px;
+  padding-right: 36px;
+  padding-left: 8px;
+  overflow: hidden;
+  vertical-align: middle;
 
-        @include rtl {
-            border-left: none;
-            border-right: 1px solid $grey-03;
-            left: 0;
-            right: initial;
-        }
-    }
+  color: $grey-08;
+  background-color: $white;
+  border: 1px solid $grey-04;
+  border-radius: 5px;
+  outline: none;
 
-    select {
-        @include font-hind;
+  text-indent: .01px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
-        display: block;
-        position: relative;
+  transition: background-color .8s ease, border-color 1s ease;
 
-        max-width: 200px;
-        height: 29px;
-        padding-left: 8px;
-        padding-right: 36px;
+  cursor: pointer;
 
-        background-color: $white;
-        border: 1px solid $grey-04;
-        border-radius: 5px;
-        color: $grey-08;
+  appearance: none;
 
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 28px;
-        outline: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        text-indent: 0.01px;
-        vertical-align: middle;
-
-        appearance: none;
-        cursor: pointer;
-        transition: background-color 0.8s ease, border-color 1s ease;
-
-        &:hover {
-            color: $grey-12;
-        }
-
-        @include dark-mode {
-            color: $grey-05;
-            background-color: darken($grey-14, 4);
-            border-color: lighten($grey-14, 2);
-
-            &:hover {
-                color: lighten($grey-05, 12);
-            }
-        }
-
-        @include respond-to(narrow-screens) {
-            max-width: 320px;
-            width: 100%;
-        }
-
-        @include rtl {
-            padding-left: 36px;
-            padding-right: 8px;
-        }
-    }
+  &:hover {
+   color: $grey-12;
+  }
+ }
 }
 
 .header__example {
-    @extend %header__section;
+ @extend %header__section;
 
-    display: flex;
-    flex-direction: row-reverse;
+ @include dark-mode {
+  background-color: $header__example__background--dark;
+ }
+ @include respond-to(narrow-screens) {
+  position: relative;
+  top: 0;
+  left: 4px;
+  width: calc(100% - 8px);
+  min-width: 0;
+  height: $header-height-in-narrow-screens;
+  padding-left: 0;
 
-    align-items: center;
-    justify-content: space-between;
+  background-color: transparent;
+ }
+ @include rtl {
+  @include respond-to(narrow-screens) {
+   right: 0;
+  }
 
-    left: 50%;
-    right: 0;
-    z-index: z-index(above);
+  right: 50%;
+  left: 0;
+  padding: 0 0 0 12px;
+ }
 
-    min-width: 464px;
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ right: 0;
+ left: 50%;
+ min-width: 464px;
+ padding: 0 12px 0 0;
+ z-index: z-index(above);
 
-    padding: 0 12px 0 0;
+ background-color: $header__example__background--light;
 
-    background-color: darken($indigo, 3);
-
-    @include dark-mode {
-        background-color: darken($grey-14, 14);
-    }
-
-    @include respond-to(narrow-screens) {
-        position: relative;
-        padding-left: 0;
-
-        left: 0;
-        top: 0;
-
-        height: $header-height-in-narrow-screens;
-        min-width: 0;
-    }
-
-    @include rtl {
-        padding: 0 0 0 12px;
-        right: 50%;
-        left: 0;
-
-        @include respond-to(narrow-screens) {
-            right: 0;
-        }
-    }
+ justify-content: space-between;
 }
 
 .header__logo {
-    position: relative;
+ @include icon('../assets/svg/logo.svg');
+ @include dark-mode {
+  @include icon('../assets/svg/logo--dark.svg');
 
-    display: block;
+  background-position: left center;
+ }
+ @include rtl {
+  @include icon('../assets/svg/logo--rtl.svg');
 
-    width: 100%;
-    height: 100%;
+  background-position: right center;
+ }
 
-    @include icon('../assets/svg/logo.svg');
-    background-size: contain;
-    background-position: left center;
+ display: block;
+ position: relative;
+ width: 100%;
+ height: 100%;
 
-    @include dark-mode {
-        @include icon('../assets/svg/logo--dark.svg');
-        background-position: left center;
-    }
-
-    @include rtl {
-        @include icon('../assets/svg/logo--rtl.svg');
-        background-position: right center;
-    }
+ background-position: left center;
+ background-size: contain;
 }
 
 .rtl.dark-mode {
-    .header__logo {
-        @include icon('../assets/svg/logo--dark--rtl.svg');
-        background-position: right center;
-    }
+ .header__logo {
+  @include icon('../assets/svg/logo--dark--rtl.svg');
+
+  background-position: right center;
+ }
 }
 </style>

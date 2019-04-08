@@ -1,71 +1,63 @@
 <template>
     <div class="background">
-        <div class="background__actual" />
+        <div class="background__copy" />
+        <div class="background__example" />
     </div>
 </template>
 
 <style scoped lang="scss">
 .background {
-    position: fixed;
-    z-index: z-index(default);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: $sidebar-width-in-large-screens;
+ @include respond-to(wide-screens) {
+  left: $sidebar-width-in-wide-screens;
+ }
+ @include respond-to(medium-screens) {
+  left: $sidebar-width-in-medium-screens;
+ }
+ @include respond-to(small-screens) {
+  left: 0;
+ }
+ @include respond-to(narrow-screens) {
+  display: none;
+ }
+ @include rtl {
+  @include respond-to(wide-screens) {
+   right: $sidebar-width-in-wide-screens;
+   left: 0;
+  }
+  @include respond-to(medium-screens) {
+   right: $sidebar-width-in-medium-screens;
+   left: 0;
+  }
+  @include respond-to(small-screens) {
+   right: 0;
+  }
 
-    @include respond-to(medium-screens) {
-        left: $sidebar-width-in-medium-screens;
-    }
+  right: $sidebar-width-in-large-screens;
+  left: 0;
+ }
 
-    @include respond-to(wide-screens) {
-        left: $sidebar-width-in-wide-screens;
-    }
-
-    @include respond-to(small-screens) {
-        left: 0;
-    }
-
-    @include respond-to(narrow-screens) {
-        display: none;
-    }
-
-    @include rtl {
-        right: $sidebar-width-in-large-screens;
-        left: 0;
-
-        @include respond-to(medium-screens) {
-            right: $sidebar-width-in-medium-screens;
-            left: 0;
-        }
-
-        @include respond-to(wide-screens) {
-            right: $sidebar-width-in-wide-screens;
-            left: 0;
-        }
-        @include respond-to(small-screens) {
-            right: 0;
-        }
-    }
+ display: flex;
+ position: fixed;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: $sidebar-width-in-large-screens;
+ z-index: z-index(default);
 }
 
-.background__actual {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 50%;
-
-    background-color: lighten($indigo, 1.5);
-    transition: background-color 0.8s ease;
-
-    @include dark-mode {
-        background-color: darken($grey-14, 8);
-    }
-
-
-    @include rtl {
-        right: 50%;
-        left: 0;
-    }
+.background__copy,
+.background__example {
+ width: 50%;
 }
+
+.background__example {
+ @include dark-mode {
+  background-color: $background__example__background--dark;
+ }
+
+ background-color: $background__example__background--light;
+
+ transition: background-color .8s ease;
+}
+
 </style>

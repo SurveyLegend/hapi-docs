@@ -280,810 +280,793 @@ export default {
 
 <style lang="scss">
 .content {
-    position: absolute;
-    z-index: z-index(above);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: $sidebar-width-in-large-screens;
+ @include respond-to(wide-screens) {
+  left: $sidebar-width-in-wide-screens;
+ }
+ @include respond-to(medium-screens) {
+  left: $sidebar-width-in-medium-screens;
+ }
+ @include respond-to(small-screens) {
+  top: $header-height;
+  left: 0;
+ }
+ @include respond-to(narrow-screens) {
+  @include dark-mode {
+   box-shadow: rgba($white,.2) 0 -32px 34px -40px inset;
+  }
 
-    overflow-x: hidden;
-    overflow-y: scroll;
+  top: $header-height-in-narrow-screens;
+  bottom: $header-height-in-narrow-screens;
 
-    -webkit-overflow-scrolling: touch;
+  box-shadow: rgba($black,.1) 0 -32px 34px -40px inset;
+ }
+ @include rtl {
+  @include respond-to(wide-screens) {
+   right: $sidebar-width-in-wide-screens;
+   left: 0;
+  }
+  @include respond-to(medium-screens) {
+   right: $sidebar-width-in-medium-screens;
+   left: 0;
+  }
+  @include respond-to(small-screens) {
+   right: 0;
+   left: 0;
+  }
 
-    @include respond-to(medium-screens) {
-        left: $sidebar-width-in-medium-screens;
-    }
+  right: $sidebar-width-in-large-screens;
+  left: 0;
+ }
 
-    @include respond-to(wide-screens) {
-        left: $sidebar-width-in-wide-screens;
-    }
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: $sidebar-width-in-large-screens;
+ overflow-x: hidden;
+ overflow-y: auto;
+ z-index: z-index(above);
 
-    @include respond-to(small-screens) {
-        left: 0;
-        top: $header-height;
-    }
-
-    @include respond-to(narrow-screens) {
-        top: $header-height-in-narrow-screens;
-        bottom: $header-height-in-narrow-screens;
-        box-shadow: rgba($black,0.1) 0 -32px 34px -40px inset;
-    }
-
-    @include rtl {
-        left: 0;
-        right: $sidebar-width-in-large-screens;
-
-        @include respond-to(medium-screens) {
-            right: $sidebar-width-in-medium-screens;
-            left: 0;
-        }
-
-        @include respond-to(wide-screens) {
-            right: $sidebar-width-in-wide-screens;
-            left: 0;
-        }
-
-        @include respond-to(small-screens) {
-            right: 0;
-            left: 0;
-        }
-    }
+ -webkit-overflow-scrolling: touch;
 }
 
 .method {
-    position: relative;
-    z-index: z-index(default) + 1;
+ position: relative;
+ z-index: z-index(default) + 1;
 
-    overflow: hidden;
+ &:last-child {
+  @include respond-to(narrow-screens) {
+   min-height: 0;
+  }
 
-    &:last-child {
-        min-height: 100vh;
-
-        @include respond-to(narrow-screens) {
-            min-height: 0;
-        }
-    }
+  min-height: 100vh;
+ }
 }
 
 .method__area {
-    overflow: hidden;
+ @include respond-to(narrow-screens) {
+  flex-direction: column;
+ }
+
+ display: flex;
+ flex-direction: row;
 }
 
 .method__copy {
-    float: left;
+ @include respond-to(narrow-screens) {
+  width: 100%;
+ }
+ @include rtl {
+  @include respond-to(narrow-screens) {
+   float: none;
+  }
 
-    width: 50%;
-    padding: 0 0 52px;
+  float: right;
+ }
 
+ width: 50%;
+ float: left;
+ padding: 0 0 52px;
 
-    @include respond-to(narrow-screens) {
-        float: none;
-        width: 100%;
+ .method.first-of-group:not(:first-child) & {
+  @include dark-mode {
+   @include respond-to(narrow-screens) {
+    border-top: 0;
+   }
+
+   border-top: 1px solid darken($grey-09, 8);
+  }
+
+  border-top: 1px solid $grey-02;
+
+  transition: border-color 1s ease;
+ }
+
+ .method__area:first-child & {
+  @include respond-to(small-screens) {
+   padding-top: 0;
+  }
+
+  padding-top: 28px;
+ }
+
+ ul,
+ ol {
+  @include rtl {
+   padding: 0 16px 0 0;
+  }
+
+  padding: 0 0 0 16px;
+
+  li {
+   margin-bottom: 8px;
+  }
+ }
+ ul {
+  li {
+   &:before {
+    @include dark-mode {
+     background-color: $grey-08;
     }
-
     @include rtl {
-        float: right;
-
-        @include respond-to(narrow-screens) {
-            float: none;
-        }
+     float: right;
+     margin: 10px -12px 0 0;
     }
 
-    .method.first-of-group:not(:first-child) & {
-        border-top: 1px solid $grey-02;
-        transition: border-color 1s ease;
+    content: '';
 
-        @include dark-mode {
-            border-top: 1px solid darken($grey-09, 8);
+    display: block;
+    width: 4px;
+    height: 4px;
+    float: left;
+    margin: 10px 0 0 -12px;
 
-            @include respond-to(narrow-screens) {
-                border-top: 0;
-            }
-        }
-    }
-
-    .method__area:first-child & {
-        padding-top: 28px;
-
-        @include respond-to(small-screens) {
-            padding-top: 0;
-        }
-    }
-
-    ul,
-    ol {
-        padding: 0 0 0 16px;
-
-        @include rtl {
-            padding: 0 16px 0 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-    }
-    ul {
-        li {
-            &:before {
-                content: '';
-                width: 4px;
-                height: 4px;
-                background-color: $grey-07;
-                border-radius: 50%;
-                display: block;
-                margin: 10px 0 0 -12px;
-                float: left;
-
-                @include dark-mode {
-                    background-color: $grey-08;
-                }
-
-                @include rtl {
-                    float: right;
-                    margin: 10px -12px 0 0;
-                }
-            }
-        }
-    }
-    ol {
-        li {
-            list-style: decimal;
-        }
-    }
+    background-color: $grey-07;
+    border-radius: 50%;
+   }
+  }
+ }
+ ol {
+  li {
+   list-style: decimal;
+  }
+ }
 }
 
 .method__copy__padding {
-    padding: 40px 40px 20px;
-    max-width: $max-content-width;
-    margin: 0 auto;
+ @include respond-to(medium-screens) {
+  padding-right: 20px;
+  padding-left: 20px;
+ }
+ @include respond-to(narrow-screens) {
+  padding-right: 16px;
+  padding-left: 16px;
+ }
 
-    &:last-child {
-        padding-bottom: 0;
-    }
+ max-width: $max-content-width;
+ margin: 0 auto;
+ padding: 40px 40px 20px;
 
-    @include respond-to(medium-screens) {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    @include respond-to(narrow-screens) {
-        padding-right: 16px;
-        padding-left: 16px;
-    }
+ &:last-child {
+  padding-bottom: 0;
+ }
 }
 
 .method__copy__full-with-picture {
-    margin: 20px auto 0 auto;
-    position: relative;
+ position: relative;
+ margin: 20px auto 0 auto;
 
-    img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-        vertical-align: top;
-    }
+ img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
 
-    &.demo-picture {
-        // This is to inspire you how you can take advantage of dark mode
-        border-radius: 6px;
-        background: linear-gradient(to bottom, #8fdeff 0%, #0167ff 100%);
-        transition: background 0.8s ease 0.06s;
+  border-radius: 5px;
+ }
 
-        &:before {
-            content: '';
-            @include icon('../assets/images/hero-stars.png');
-            background-size: contain;
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1.5s ease;
-        }
+ &.demo-picture {
+  @include dark-mode {
+   background: linear-gradient(to bottom, #3891f1 0%, #6410bf 100%);
 
-        @include dark-mode {
-            background: linear-gradient(to bottom, #3891f1 0%, #6410bf 100%);
+   &:before {
+    opacity: 1;
+   }
+  }
 
-            &:before {
-                opacity: 1;
-            }
-        }
+  background: linear-gradient(to bottom, #8fdeff 0%, #0167ff 100%);
+  // This is to inspire you how you can take advantage of dark mode
+  border-radius: 6px;
 
-        img {
-            margin-bottom: -2px;
-        }
-    }
+  transition: background .8s ease .06s;
+
+  &:before {
+   @include icon('../assets/images/hero-stars.png');
+
+   content: '';
+
+   display: block;
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+
+   background-size: contain;
+   opacity: 0;
+
+   transition: opacity 1.5s ease;
+  }
+
+  img {
+   margin-bottom: -2px;
+  }
+ }
 }
 
 .method__badge {
-    display: inline-block;
-    margin: 0 8px;
-    padding: 0 12px;
-    border: 1px solid rgba($blue, 0.5);
-    border-radius: 24px;
-    color: $blue;
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 24px;
-    text-transform: uppercase;
-    vertical-align: middle;
+ font-size: 11px;
+ font-weight: 600;
+ line-height: 24px;
 
-    &.method__badge--deprecated {
-        border: 1px solid rgba($red, 0.5);
-        color: $red;
-    }
+ display: inline-block;
+ margin: 0 8px;
+ padding: 0 12px;
+ vertical-align: middle;
+
+ color: $blue;
+ border: 1px solid rgba($blue, .5);
+ border-radius: 24px;
+
+ text-transform: uppercase;
+
+ &.method__badge--deprecated {
+  color: $red;
+  border: 1px solid rgba($red, .5);
+ }
 }
 
 .method__list {
-    padding: 40px 40px 0;
-    max-width: $max-content-width;
-    margin: 0 auto;
+ @include respond-to(medium-screens) {
+  padding-right: 20px;
+  padding-left: 20px;
+ }
+ @include respond-to(narrow-screens) {
+  padding-right: 16px;
+  padding-left: 16px;
+ }
 
-    ul {
-        padding: 0;
-    }
-    li {
-        &:before {
-            display: none !important;
-        }
-    }
+ max-width: $max-content-width;
+ margin: 0 auto;
+ padding: 40px 40px 0;
 
-    @include respond-to(narrow-screens) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+ ul {
+  padding: 0;
+ }
+ li {
+  &:before {
+   display: none !important;
+  }
+ }
 
-    @include respond-to(medium-screens) {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    @include respond-to(narrow-screens) {
-        padding-right: 16px;
-        padding-left: 16px;
-    }
-
-    .method__copy__padding + & {
-        padding-bottom: 40px;
-    }
+ .method__copy__padding + & {
+  padding-bottom: 40px;
+ }
 }
 
 .method__list__group {
-    margin-top: 8px;
+ @include dark-mode {
+  border-top: 1px solid darken($grey-09, 4);
+ }
 
-    border-top: 1px solid $grey-03;
-    transition: border-color 1s ease;
+ margin-top: 8px;
 
-    @include dark-mode {
-        border-top: 1px solid darken($grey-09, 4);
-    }
+ border-top: 1px solid $grey-03;
+
+ transition: border-color 1s ease;
 }
 
 .method__list__item {
-    line-height: 24px;
+ @include respond-to(large-screens) {
+  zoom: 1;
 
-    padding: 16px 0;
+  &:after,
+  &:before {
+   content: '';
 
-    border-bottom: 1px solid $grey-02;
-    transition: border-color 1s ease;
+   display: table;
+  }
 
-    @include respond-to(large-screens) {
-        zoom: 1;
+  &:after {
+   clear: both;
+  }
+ }
+ @include dark-mode {
+  border-bottom: 1px solid darken($grey-09, 8);
 
-        &:after,
-        &:before {
-            display: table;
+  &:last-child {
+   border-bottom: 1px solid darken($grey-09, 4);
+  }
+ }
 
-            content: '';
-        }
+ line-height: 24px;
 
-        &:after {
-            clear: both;
-        }
-    }
+ padding: 16px 0;
 
-    &:last-child {
-        border-bottom: 1px solid $grey-03;
-    }
+ border-bottom: 1px solid $grey-02;
 
-    @include dark-mode {
-        border-bottom: 1px solid darken($grey-09, 8);
+ transition: border-color 1s ease;
 
-        &:last-child {
-            border-bottom: 1px solid darken($grey-09, 4);
-        }
-    }
+ &:last-child {
+  border-bottom: 1px solid $grey-03;
+ }
 }
 
 .method__list__item__label {
-    font-size: 14px;
-    line-height: 21px;
+ @include respond-to(large-screens) {
+  @include rtl {
+   float: right;
 
-    white-space: normal;
-    word-break: break-all;
+   text-align: left;
+  }
 
-    margin-top: -4px;
+  position: relative;
+  width: 180px;
+  float: left;
+  z-index: z-index(default) + 4;
 
-    @include respond-to(large-screens) {
-        position: relative;
-        z-index: z-index(default) + 4;
+  text-align: right;
+ }
+ @include respond-to(large-screens) {
+  .method__list:not(.is-empty) &:after {
+   @include dark-mode {
+    color: lighten($grey-09, 3);
+   }
+   @include rtl {
+    left: -32px;
+   }
 
-        float: left;
+   content: '\2014';
 
-        width: 180px;
+   font-weight: 400;
 
-        text-align: right;
+   position: absolute;
+   top: 4px;
+   left: 200px;
 
-        @include rtl {
-            float: right;
-            text-align: left;
-        }
-    }
+   color: $grey-04;
 
-    @include respond-to(large-screens) {
-        .method__list:not(.is-empty) &:after {
-            font-weight: 400;
+   text-align: left;
+  }
+ }
 
-            position: absolute;
-            top: 4px;
-            left: 200px;
+ font-size: 14px;
+ line-height: 21px;
 
-            content: '\2014';
-            text-align: left;
+ margin-top: -4px;
 
-            color: $grey-04;
+ white-space: normal;
+ word-break: break-all;
 
-            @include dark-mode {
-                color: lighten($grey-09, 3);
-            }
+ &:hover {
+  .header-anchor {
+   opacity: 1;
+  }
+ }
 
-            @include rtl {
-                left: -32px;
-            }
-        }
-    }
+ .method__list.is-empty & {
+  @include dark-mode {
+   color: darken($grey-07, 30);
+  }
+  @include respond-to(large-screens) {
+   width: 100%;
+  }
 
-    &:hover {
-        .header-anchor {
-            opacity: 1;
-        }
-    }
+  font-weight: 400;
 
-    .method__list.is-empty & {
-        font-weight: 400;
+  color: $grey-07;
 
-        text-align: center;
+  text-align: center;
+ }
 
-        color: $grey-07;
+ .header-anchor {
+  @include icon('../assets/svg/anchor.svg');
+  @include dark-mode {
+   background-color: $grey-11;
 
-        @include dark-mode {
-            color: darken($grey-07, 30);
-        }
+   &:hover {
+    background-color: $grey-09;
+    box-shadow: rgba($black, .2) 0 0 6px 2px, rgba($black, .1) 0 0 2px 2px;
+   }
+  }
+  @include respond-to(medium-screens) {
+   left: -4px;
+  }
+  @include respond-to(narrow-screens) {
+   opacity: .4;
+  }
+  @include rtl {
+   @include respond-to(medium-screens) {
+    left: 4px;
+   }
 
-        @include respond-to(large-screens) {
-            width: 100%;
-        }
-    }
+   left: 8px;
+  }
 
-    .header-anchor {
-        position: relative;
-        top: 4px;
-        left: -8px;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  left: -8px;
+  width: 18px;
+  height: 18px;
 
-        display: inline-block;
+  background-color: $white;
+  background-size: 12px;
+  border-radius: 4px;
+  opacity: 0;
 
-        width: 18px;
-        height: 18px;
+  transition: opacity .2s ease, box-shadow .3s ease, background-color .2s ease;
 
-        opacity: 0;
-        transition: opacity 0.2s ease, box-shadow 0.3s ease, background-color 0.2s ease;
+  isolation: isolate;
 
-        @include icon('../assets/svg/anchor.svg');
-        background-size: 12px;
-        background-color: $white;
+  &:hover {
+   box-shadow: rgba($black, .04) 0 0 6px 2px, rgba($black, .05) 0 0 2px 2px;
+  }
 
-        isolation: isolate;
-        border-radius: 4px;
-
-        &:hover {
-            box-shadow: rgba($black, 0.04) 0 0 6px 2px, rgba($black, 0.05) 0 0 2px 2px;
-        }
-
-        &:active {
-            box-shadow: rgba($black, 0) 0 0 2px 0;
-        }
-
-        @include dark-mode {
-            background-color: $grey-11;
-
-            &:hover {
-                background-color: $grey-09;
-                box-shadow: rgba($black, 0.2) 0 0 6px 2px, rgba($black, 0.1) 0 0 2px 2px;
-            }
-        }
-
-        @include respond-to(medium-screens) {
-            left: -4px;
-        }
-
-        @include rtl {
-            left: 8px;
-
-            @include respond-to(medium-screens) {
-                left: 4px;
-            }
-        }
-    }
+  &:active {
+   box-shadow: rgba($black, 0) 0 0 2px 0;
+  }
+ }
 }
 
 .method__list__item__label__details {
-    font-size: 13px;
-    font-weight: 400;
+ @include respond-to(large-screens) {
+  display: block;
+ }
+ @include rtl {
+  @include respond-to(medium-screens) {
+   display: inline-block;
+  }
 
-    margin-left: 4px;
+  margin-right: 8px;
+  margin-left: 0;
+ }
 
-    word-break: normal;
+ font-size: 13px;
+ font-weight: 400;
 
-    color: $grey-07;
+ margin-left: 4px;
 
-    @include respond-to(large-screens) {
-        display: block;
-    }
+ color: $grey-07;
 
-    @include rtl {
-        margin-right: 8px;
-        margin-left: 0;
-
-        @include respond-to(medium-screens) {
-            display: inline-block;
-        }
-    }
+ word-break: normal;
 }
 
 .method__list__item__label__badge {
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 20px;
+ @extend .method__list__item__label__details;
 
-    display: inline-block;
+ @include respond-to(large-screens) {
+  line-height: 1.2em;
 
-    margin-left: 8px;
-    padding: 0 8px;
+  display: block;
+  margin-left: 0;
+  padding: 4px 0 0;
 
-    vertical-align: top;
-    text-transform: uppercase;
+  border: 0;
+  border-radius: 0;
+ }
 
-    color: $orange;
-    border: 1px solid rgba($orange, 0.5);
-    border-radius: 20px;
+ font-size: 11px;
+ font-weight: 600;
+ line-height: 20px;
 
-    @extend .method__list__item__label__details;
+ display: inline-block;
+ margin-left: 8px;
+ padding: 0 8px;
+ vertical-align: top;
 
-    @include respond-to(large-screens) {
-        line-height: 1.2em;
+ color: $orange;
+ border: 1px solid rgba($orange, .5);
+ border-radius: 20px;
 
-        display: block;
-
-        margin-left: 0;
-        padding: 4px 0 0;
-
-        border: 0;
-        border-radius: 0;
-    }
+ text-transform: uppercase;
 }
 
 .method__list__item__description {
-    @include respond-to(large-screens) {
-        position: relative;
-        z-index: z-index(above);
+ @include respond-to(large-screens) {
+  @include dark-mode {
+   background-color: darken($grey-14, 4);
+  }
+  @include rtl {
+   margin: 0 200px 0 0;
+  }
 
-        margin: 0 0 0 200px;
+  position: relative;
+  margin: 0 0 0 200px;
+  z-index: z-index(above);
 
-        background-color: $white;
-        transition: background-color 0.8s ease;
+  background-color: $white;
 
-        @include dark-mode {
-            background-color: darken($grey-14, 4);
-        }
+  transition: background-color .8s ease;
 
-        @include rtl {
-            margin: 0 200px 0 0;
-        }
+  p {
+   margin-top: 0;
+  }
+ }
 
-        p {
-            margin-top: 0;
-        }
-    }
-
-    p {
-        font-size: 14px;
-        line-height: 21px;
-    }
+ p {
+  font-size: 14px;
+  line-height: 21px;
+ }
 }
 
 .method__example {
-    position: relative;
-    z-index: z-index(default) + 1;
+ @include respond-to(narrow-screens) {
+  @include dark-mode {
+   background-color: $background__example__background--dark;
+  }
 
-    margin-left: 50%;
-    padding: 42px 0 52px;
+  width: 100%;
+  padding-top: 0;
 
-    color: $grey-04;
+  background-color: $background__example__background--light;
+ }
 
+ position: relative;
+ width: 50%;
+ padding-top: 72px;
+ z-index: z-index(default) + 1;
 
-    @include respond-to(small-screens) {
-        padding-top: 0;
-    }
+ color: $grey-04;
 
-    @include respond-to(narrow-screens) {
-        margin-left: 0;
-        background-color: lighten($indigo, 1.5);
+ .method.first-of-group:not(:first-child) & {
+  @include dark-mode {
+   @include respond-to(narrow-screens) {
+    border-top: 0;
+   }
 
-        @include dark-mode {
-            background-color: darken($grey-14, 8);
-        }
-    }
+   border-top: 1px solid darken($grey-14, 6);
+  }
 
+  border-top: 1px solid $grey-09;
+ }
+
+ .table {
+  @include dark-mode {
+   background-color: darken($grey-14, 6);
+  }
+  @include respond-to(narrow-screens) {
+   th,
+   td {
     @include rtl {
-        margin-left: 0;
-        margin-right: 50%;
-
-        @include respond-to(narrow-screens) {
-            margin-right: 0;
-            margin-left: 0;
-        }
+     text-align: right;
     }
 
-    .method.first-of-group:not(:first-child) & {
-        border-top: 1px solid $grey-09;
+    display: block;
+    width: 100%;
 
-        @include dark-mode {
-            border-top: 1px solid darken($grey-14, 6);
+    text-align: left;
+   }
+   th {
+    padding: 12px 12px 0 12px !important;
+   }
+   td {
+    padding: 0 12px 12px 12px !important;
+   }
+  }
 
-            @include respond-to(narrow-screens) {
-                border-top: 0;
-            }
-        }
-    }
+  margin: 0 0 20px;
+  overflow: hidden;
 
-    .method__area:first-child & {
-        padding-top: 72px;
+  color: $grey-05;
+  background-color: $grey-13;
+  border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
+ }
 
-        @include respond-to(small-screens) {
-            padding-top: 0;
-        }
-    }
+ .table__container {
+  width: 100%;
 
-    .table {
-        margin: 0 0 44px;
-        overflow: hidden;
-        background-color: $grey-13;
-        border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
-        color: $grey-05;
+  background-clip: padding-box;
 
-        @include dark-mode {
-            background-color: darken($grey-14, 6);
-        }
+  table-layout: fixed;
 
-        @include respond-to(narrow-screens) {
-            th, td {
-                width: 100%;
-                display: block;
+  tr:nth-child(even) {
+   background-color: rgba($indigo, .2);
+  }
 
-                text-align: left;
+  tr:first-child .table__row {
+   padding-top: 16px;
+  }
 
-                @include rtl {
-                    text-align: right;
-                }
-            }
-            th {
-                padding: 12px 12px 0 12px !important;
-            }
-            td {
-                padding: 0 12px 12px 12px !important;
-            }
-        }
-    }
+  tr:last-child .table__row {
+   padding-bottom: 16px;
+  }
+ }
 
-    .table__container {
-        table-layout: fixed;
-        width: 100%;
-        background-clip: padding-box;
+ .table__row {
+  font-size: 14px;
+  font-weight: 400;
 
-        tr:nth-child(even) {
-            background-color: rgba($indigo, 0.2);
-        }
+  display: table-cell;
+  padding: 8px 20px;
+  vertical-align: top;
 
-        tr:first-child .table__row {
-            padding-top: 16px;
-        }
+  text-align: left;
+ }
 
-        tr:last-child .table__row {
-            padding-bottom: 16px;
-        }
-    }
+ .table__row--property {
+  @extend .table__row;
 
-    .table__row {
-        display: table-cell;
-        padding: 8px 20px;
-        font-size: 14px;
-        text-align: left;
-        font-weight: 400;
-        vertical-align: top;
-    }
+  font-weight: 600;
 
-    .table__row--property {
-        @extend .table__row;
+  width: 180px;
 
-        width: 180px;
-        font-weight: 600;
-        text-align: right;
-    }
+  text-align: right;
+ }
 
-    h3 {
-        font-size: 15px;
-        font-weight: 500;
+ h3 {
+  @include dark-mode {
+   background-color: darken($grey-14, 12);
+  }
 
-        display: inline-block;
-        width: 100%;
-        padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 500;
 
-        color: $grey-05;
-        background-color: $indigo;
-        border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
+  display: inline-block;
+  width: 100%;
+  padding: 8px 12px;
 
-        letter-spacing: .1px;
+  color: $grey-05;
+  background-color: $indigo;
+  border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
 
-        @include dark-mode {
-            background-color: darken($grey-14, 12);
-        }
-    }
+  letter-spacing: .1px;
+ }
 
-    pre,
-    code {
-        text-align: left;
-        white-space: pre-wrap;
-        word-spacing: normal;
-        word-break: break-word;
-        tab-size: 4;
-        hyphens: none;
+ pre,
+ code {
+  color: $grey-06;
 
-        color: $grey-06;
+  hyphens: none;
+  tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-spacing: normal;
 
-        direction: ltr;
+  direction: ltr;
 
-        .token {
-            &.punctuation {
-                color: $token-punctuation;
-            }
+  .token {
+   &.punctuation {
+    color: $token-punctuation;
+   }
 
-            &.property {
-                color: $token-property;
-            }
+   &.property {
+    color: $token-property;
+   }
 
-            &.number,
-            &.boolean {
-                color: $token-number;
-            }
+   &.number,
+   &.boolean {
+    color: $token-number;
+   }
 
-            &.null {
-                color: $token-null;
-            }
-        }
-    }
+   &.null {
+    color: $token-null;
+   }
+  }
+ }
 
-    pre {
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 1.5em;
+ pre {
+  @include font-source-code-pro;
+  @include dark-mode {
+   background-color: darken($grey-14, 9.5);
+  }
+  @include respond-to(medium-screens) {
+   padding: 16px 20px;
+  }
+  @include respond-to(small-screens) {
+   padding: 12px 16px;
+  }
+  @include respond-to(narrow-screens) {
+   padding: 8px 16px;
+  }
 
-        padding: 20px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5em;
 
-        border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
-        background-color: $grey-13;
-        transition: background-color 0.8s ease;
+  padding: 20px 32px;
 
-        @include font-source-code-pro;
+  background-color: $grey-13;
+  border-radius: 0 0 $border-radius-of-cards $border-radius-of-cards;
 
-        @include dark-mode {
-            background-color: darken($grey-14, 9.5);
-        }
-        @include respond-to(medium-screens) {
-            padding: 16px 20px;
-        }
-        @include respond-to(small-screens) {
-            padding: 12px 16px;
-        }
-        @include respond-to(narrow-screens) {
-            padding: 8px 16px;
-        }
+  transition: background-color .8s ease;
 
-        code {
-            padding: 0;
+  code {
+   padding: 0;
 
-            border: none;
-            border-radius: 0;
-            background-color: transparent;
-        }
-    }
+   background-color: transparent;
+   border: none;
+   border-radius: 0;
+  }
+ }
 }
 
 .method__example__part {
-    padding: 28px 52px;
-    max-width: $max-content-width;
-    margin: 0 auto;
+ @include respond-to(medium-screens) {
+  padding-right: 20px;
+  padding-left: 20px;
+ }
+ @include respond-to(narrow-screens) {
+  position: relative;
+  top: unset;
+  padding-right: 16px;
+  padding-left: 16px;
+ }
 
-    @include respond-to(medium-screens) {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    @include respond-to(narrow-screens) {
-        padding-right: 16px;
-        padding-left: 16px;
-    }
+ position: sticky;
+ top: 40px;
+ max-width: $max-content-width;
+ margin: 0 auto;
+ padding: 28px 52px;
 }
 
 %method__example__type {
-    padding: 20px 0;
+ padding: 20px 0;
 
-    &:first-child {
-        padding-top: 0;
-    }
+ &:first-child {
+  padding-top: 0;
+ }
 
-    &:before {
-        font-size: 15px;
-        font-weight: 500;
+ &:before {
+  @include dark-mode {
+   background-color: darken($grey-14, 12);
+  }
 
-        display: inline-block;
-        width: 100%;
-        padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 500;
 
-        color: $grey-05;
-        background-color: $indigo;
-        border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
+  display: inline-block;
+  width: 100%;
+  padding: 8px 12px;
 
-        letter-spacing: .1px;
+  color: $grey-05;
+  background-color: $indigo;
+  border-radius: $border-radius-of-cards $border-radius-of-cards 0 0;
 
-        @include dark-mode {
-            background-color: darken($grey-14, 12);
-        }
-    }
+  letter-spacing: .1px;
+ }
 }
 
 .method__example__base-url {
-    @extend %method__example__type;
+ @extend %method__example__type;
 
-    &:before {
-        content: 'Base URL';
-    }
+ &:before {
+  content: 'Base URL';
+ }
 }
 
 .method__example__github-url {
-    @extend %method__example__type;
+ @extend %method__example__type;
 
-    &:before {
-        content: 'GitHub URL';
-    }
+ &:before {
+  content: 'GitHub URL';
+ }
 }
 
 .method__example__declaration {
-    @extend %method__example__type;
+ @extend %method__example__type;
 
-    &:before {
-        content: 'Definition';
-    }
+ &:before {
+  content: 'Definition';
+ }
 }
 
 .method__example__response {
-    @extend %method__example__type;
+ @extend %method__example__type;
 
-    &:before {
-        content: 'Example Response';
-    }
+ &:before {
+  content: 'Example Response';
+ }
 }
+
 </style>
