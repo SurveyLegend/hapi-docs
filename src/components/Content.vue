@@ -279,6 +279,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .content {
  @include respond-to(wide-screens) {
   left: $sidebar-width-in-wide-screens;
@@ -399,7 +400,7 @@ export default {
   padding: 0 0 0 16px;
 
   li {
-   margin-bottom: 8px;
+   margin-top: 8px;
   }
  }
  ul {
@@ -451,6 +452,66 @@ export default {
   padding-bottom: 0;
  }
 }
+
+.method__copy__padding__info,
+.method__copy__padding__warning {
+ @include dark-mode {
+  background-color: darken($grey-14, 1);
+ }
+
+ position: relative;
+ padding: 16px 20px;
+
+ background-color: $grey-01;
+ border-radius: $border-radius-of-cards;
+
+ transition: background-color .8s ease;
+
+ p,
+ li {
+  &:first-child {
+   margin-top: 0;
+  }
+ }
+
+
+ &:before {
+  @include rtl {
+   right: -10px;
+   left: unset;
+  }
+
+  content: '';
+
+  position: absolute;
+  top: 18px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+
+  border-radius: 100%;
+ }
+}
+
+.method__copy__padding__info {
+ &:before {
+  @include dark-mode {
+   background-color: darken($green, 28);
+  }
+  @include icon('../assets/svg/info.svg');
+
+  background-color: $green;
+ }
+}
+
+.method__copy__padding__warning {
+ &:before {
+  @include icon('../assets/svg/warning.svg');
+
+  background-color: $red;
+ }
+}
+
 
 .method__copy__full-with-picture {
  position: relative;
