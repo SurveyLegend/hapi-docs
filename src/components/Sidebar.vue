@@ -59,13 +59,13 @@
                     </li>
                 </ul>
             </template>
-            <footer class="sidebar__footer">
-                <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
-                <p>
-                    Made with <span style="color: #e04c4c">♥</span> by <a href="http://surveylegend.com">SurveyLegend®</a>
-                </p>
-            </footer>
         </ScrollSpy>
+        <footer class="sidebar__footer">
+            <img src="http://www.surveylegend.com/wordpress/wp-content/themes/SurveyLegendTemplate-child/images/branding/SurveyLegend-logo.svg" class="sidebar__footer__sponsor-logo" />
+            <p>
+                Made with <span style="color: #e04c4c">♥</span> by <a href="http://surveylegend.com">SurveyLegend®</a>
+            </p>
+        </footer>
     </div>
 </template>
 
@@ -89,227 +89,234 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
-    position: absolute;
-    z-index: z-index(fixed);
-    top: 0;
-    bottom: 0;
-    left: 0;
+ @include dark-mode {
+  background-color: darken($grey-14, 1);
+  border-color: lighten($grey-14, 1);
+ }
+ @include respond-to(wide-screens) {
+  width: $sidebar-width-in-wide-screens;
+ }
+ @include respond-to(medium-screens) {
+  width: $sidebar-width-in-medium-screens;
+ }
+ @include respond-to(small-screens) {
+  display: none;
+ }
+ @include rtl {
+  right: 0;
+  left: initial;
 
-    width: $sidebar-width-in-large-screens;
-    border: {
-        style: solid;
-        width: 0 1px 0 0;
-        color: $grey-02;
-    }
+  border-width: 0 0 0 1px;
+ }
 
-    background-color: $grey-01;
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ width: $sidebar-width-in-large-screens;
+ z-index: z-index(fixed);
 
-    transition: background-color 0.8s ease 0.06s, border-color 1s ease 0.08s;
+ background-color: $grey-01;
+ border: {
+  width: 0 1px 0 0;
 
-    @include dark-mode {
-        border-color: lighten($grey-14, 1);
-        background-color: darken($grey-14, 1);
-    }
+  color: $grey-02;
 
-    @include respond-to(medium-screens) {
-        width: $sidebar-width-in-medium-screens;
-    }
+  style: solid;
+ };
 
-    @include respond-to(wide-screens) {
-        width: $sidebar-width-in-wide-screens;
-    }
-
-    @include respond-to(small-screens) {
-        display: none;
-    }
-
-    @include rtl {
-        left: initial;
-        right: 0;
-        border-width: 0 0 0 1px;
-    }
+ transition: background-color .8s ease .06s, border-color 1s ease .08s;
 }
 
 .sidebar__navigation {
-    position: absolute;
-    top: 49px;
-    right: 0;
-    bottom: 0;
-    left: 0;
+ @include dark-mode {
+  border-color: lighten($grey-14, 1);
+ }
 
-    overflow-y: scroll;
-    overflow-x: auto;
+ position: absolute;
+ top: 49px;
+ right: 0;
+ bottom: 0;
+ left: 0;
+ padding-bottom: 32px;
+ overflow-x: auto;
+ overflow-y: scroll;
 
-    border: {
-        color: $grey-02;
-        style: solid;
-        width: 1px 0 0 0;
-    }
-    transition: border-color 1s ease 0.08s;
+ border: {
+  width: 1px 0 0 0;
 
-    @include dark-mode {
-        border-color: lighten($grey-14, 1);
-    }
+  color: $grey-02;
+
+  style: solid;
+ };
+
+ transition: border-color 1s ease .08s;
 }
 
 .sidebar__navigation__heading {
-    padding: 0 20px 4px;
+ padding: 0 20px 4px;
 
-    &:first-child {
-        padding-top: 20px;
-    }
+ &:first-child {
+  padding-top: 20px;
+ }
 }
 
 .sidebar__navigation__items {
-    padding-bottom: 24px;
+ line-height: 20px;
 
-    line-height: 20px;
+ padding-bottom: 24px;
 
-    li {
-        line-height: 20px;
-    }
+ li {
+  line-height: 20px;
+ }
 
-    & li .sidebar__navigation__item + .sidebar__navigation__items {
-        overflow: hidden;
+ & li .sidebar__navigation__item + .sidebar__navigation__items {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
 
-        height: 0;
-        padding: 0;
+  transition: height .1s ease;
 
-        will-change: height;
-        transition: height 0.1s ease;
+  will-change: height;
 
-        li {
-            opacity: 0;
-            transform: translateY(-10px);
-            will-change: transform, opacity;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            transition-delay: 0.2s;
+  li {
+   opacity: 0;
 
-            &:nth-child(1) {
-                transition-delay: 0s;
-            }
+   transform: translateY(-10px);
+   transition: transform .2s ease, opacity .2s ease;
+   transition-delay: .2s;
 
-            &:nth-child(1) {
-                transition-delay: 0.02s;
-            }
+   will-change: transform, opacity;
 
-            &:nth-child(2) {
-                transition-delay: 0.08s;
-            }
+   &:nth-child(1) {
+    transition-delay: 0s;
+   }
 
-            &:nth-child(3) {
-                transition-delay: 0.14s;
-            }
+   &:nth-child(1) {
+    transition-delay: .02s;
+   }
 
-            &:nth-child(4) {
-                transition-delay: 0.18s;
-            }
+   &:nth-child(2) {
+    transition-delay: .08s;
+   }
 
-            &:nth-child(5) {
-                transition-delay: 0.2s;
-            }
-        }
-    }
+   &:nth-child(3) {
+    transition-delay: .14s;
+   }
 
-    & li .sidebar__navigation__item.is-active + .sidebar__navigation__items,
-    & li .sidebar__navigation__item.is-active-parent + .sidebar__navigation__items {
-        height: 100%;
-        transition: height 0.2s ease;
+   &:nth-child(4) {
+    transition-delay: .18s;
+   }
 
-        li {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
+   &:nth-child(5) {
+    transition-delay: .2s;
+   }
+  }
+ }
+
+ & li .sidebar__navigation__item.is-active + .sidebar__navigation__items,
+ & li .sidebar__navigation__item.is-active-parent + .sidebar__navigation__items {
+  height: 100%;
+
+  transition: height .2s ease;
+
+  li {
+   opacity: 1;
+
+   transform: translateY(0);
+  }
+ }
 }
 
 .sidebar__navigation__item {
-    font-size: 15px;
-    font-weight: 400;
+ @include dark-mode {
+  color: $grey-05;
 
-    display: block;
-    overflow: hidden;
+  &:hover {
+   color: $white;
+  }
 
-    padding: 6px 20px;
+  &.is-active {
+   color: $dark-blue;
 
-    text-overflow: ellipsis;
-    white-space: nowrap;
+   &:hover {
+    color: $white;
+   }
+  }
+ }
 
-    color: $grey-08;
+ font-size: 15px;
+ font-weight: 400;
 
-    user-select: none;
+ display: block;
+ padding: 6px 20px;
+ overflow: hidden;
 
-    &:hover {
-        text-decoration: underline;
+ color: $grey-08;
 
-        color: $grey-12;
-    }
+ text-overflow: ellipsis;
+ white-space: nowrap;
 
-    &.is-active {
-        color: $blue;
+ user-select: none;
 
-        &:hover {
-            color: $grey-12;
-        }
-    }
+ &:hover {
+  color: $grey-12;
 
-    + .sidebar__navigation__items .sidebar__navigation__item {
-        font-size: 14px;
+  text-decoration: underline;
+ }
 
-        padding-left: 32px;
+ &.is-active {
+  color: $blue;
 
-        @include rtl {
-            padding-left: 20px;
-            padding-right: 32px;
-        }
-    }
+  &:hover {
+   color: $grey-12;
+  }
+ }
 
-    @include dark-mode {
-        color: $grey-05;
+  + .sidebar__navigation__items .sidebar__navigation__item {
+  @include rtl {
+   padding-right: 32px;
+   padding-left: 20px;
+  }
 
-        &:hover {
-            color: $white;
-        }
+  font-size: 14px;
 
-        &.is-active {
-            color: $blue;
-
-            &:hover {
-                color: $white;
-            }
-        }
-    }
+  padding-left: 32px;
+ }
 }
 
 .sidebar__footer {
-    position: absolute;
-    bottom: 0;
-    background-color: $grey-02;
-    width: 100%;
-    padding: 8px;
-    transition: background-color 0.8s ease 0.06s, border-color 1s ease 0.08s;
+ @include dark-mode {
+  background-color: darken($grey-14, 3);
+ }
 
-    p {
-        font-size: 11px;
-        margin: 0;
-        line-height: 160%;
-        display: inline-block;
-    }
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ padding: 8px;
 
-    @include dark-mode {
-        background-color: darken($grey-14, 3);
-    }
+ background-color: $grey-02;
+
+ transition: background-color .8s ease .06s, border-color 1s ease .08s;
+
+ p {
+  font-size: 11px;
+  line-height: 160%;
+
+  display: inline-block;
+  margin: 0;
+ }
 }
 
 .sidebar__footer__sponsor-logo {
-    display: inline-block;
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 4px;
+ @include rtl {
+  margin-right: 0;
+  margin-left: 4px;
+ }
 
-    @include rtl {
-        margin-right: 0;
-        margin-left: 4px;
-    }
+ display: inline-block;
+ height: 24px;
+ margin-right: 4px;
+ vertical-align: middle;
 }
 </style>

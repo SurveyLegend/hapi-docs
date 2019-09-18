@@ -1,10 +1,13 @@
 $baby-blue: #4aafed;
 $blue: #0099e5;
+$dark-blue: #6c8eef;
+$indigo: #363b4e;
 $green: #c1ef65;
 $purple: #b93d6a;
 $red: #e04c4c;
 $pink: #f099a6;
 $orange: #ffae54;
+$yellow: #ffcc01;
 $white: #fff;
 $grey-01: #fafcfc;
 $grey-02: #f0f4f7;
@@ -21,6 +24,14 @@ $grey-12: #292e31;
 $grey-13: #272b2d;
 $grey-14: #242729;
 $black: #000;
+
+// Light\Dark mode colors
+$header__example__background--light: darken($indigo, 3);
+$header__example__background--dark: darken($grey-14, 14);
+$background__example__background--light: lighten($indigo, 1.5);
+$background__example__background--dark: darken($grey-14, 8);
+$app__background--light: $white;
+$app__background--dark: darken($grey-14, 4);
 
 // Code colors
 $token-punctuation: #f099a6;

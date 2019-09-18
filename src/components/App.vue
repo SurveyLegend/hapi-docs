@@ -54,13 +54,13 @@ h5 {
 }
 
 h1 {
+ @include dark-mode {
+  color: lighten($grey-05, 2);
+ }
+
  font-size: 25px;
  font-weight: 400;
  line-height: 32px;
- @include dark-mode {
-     color: lighten($grey-05, 2);
-
- }
 }
 
 h3 {
@@ -78,16 +78,20 @@ h5 {
 }
 
 a {
+ @include dark-mode {
+  color: $dark-blue;
+ }
+
  color: $blue;
 
  transition: color .2s ease;
 
  &:hover {
-  color: darken($blue, 10);
-
   @include dark-mode {
-      color: lighten($blue, 10);
+   color: lighten($dark-blue, 10);
   }
+
+  color: darken($blue, 10);
  }
 }
 
@@ -123,33 +127,34 @@ code {
  background-color: $grey-01;
  border: 1px solid $grey-02;
  border-radius: 4px;
- transition: background-color 0.8s ease, border-color 1s ease;
+
+ transition: background-color .8s ease, border-color 1s ease;
 }
 
 #app {
-    @include font-hind;
+ @include font-hind;
+ @include dark-mode {
+  color: $grey-05;
+  background-color: $app__background--dark;
+ }
+ @include rtl {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+ }
 
-    width: 100%;
-    height: 100%;
+ font-size: 14px;
+ font-weight: 500;
+ line-height: 26px;
 
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 26px;
+ width: 100%;
+ height: 100%;
 
-    color: $grey-08;
-    background-color: $white;
+ color: $grey-08;
+ background-color: $app__background--light;
 
-    letter-spacing: 0.1px;
-    transition: background-color 0.8s ease;
+ letter-spacing: .1px;
 
-    @include dark-mode {
-        color: $grey-05;
-        background-color: darken($grey-14, 4);
-    }
-
-    @include rtl {
-        direction: rtl;
-        unicode-bidi: bidi-override;
-    }
+ transition: background-color .8s ease;
 }
+
 </style>
