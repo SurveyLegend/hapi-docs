@@ -27,7 +27,7 @@
         "hoek": "^6.0.2",
         "joi": "^14.0.4",
         "js-cookie": "^2.2.0",
-        "marked": "^0.5.1",
+        "marked": "^0.6.1",
         "prismjs": "^1.15.0",
         "vue": "^2.5.17",
         "vue-prism-component": "^1.0.1",
