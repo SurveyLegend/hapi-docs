@@ -48,7 +48,7 @@ $ yarn add @surveylegend/hapi-docs
 ```
 
 ## Usage
-
+Note that you need to install and register the `inert` plugin. Otherwise you'll get a runtime error.
 ```javascript
 import Hapi from 'hapi'
 import Inert from 'inert'
