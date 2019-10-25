@@ -46,7 +46,7 @@
         "eslint-plugin-vue": "^5.0.0-beta.0",
         "hapi": "^17.5.4",
         "inert": "^5.1.0",
-        "node-sass": "^4.9.0",
+        "node-sass": "^4.13.0",
         "nodemon": "^1.18.9",
         "sass-loader": "^7.0.1",
         "svg-url-loader": "^2.3.2",
