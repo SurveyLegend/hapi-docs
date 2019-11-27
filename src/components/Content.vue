@@ -181,7 +181,7 @@
                                 v-if="path.queryParams !== null"
                                 class="method__list"
                             >
-                                <h5>Payload Arguments</h5>
+                                <h5>Query Arguments</h5>
                                 <ul class="method__list__group">
                                     <li
                                         v-for="param in path.queryParams.children"
