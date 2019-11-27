@@ -5,7 +5,7 @@ export const state = {
     host: '',
     scheme: '',
     info: null,
-    security: null,
+    security: [],
     errors: [],
     paths: null,
     groups: null,
@@ -30,6 +30,8 @@ export const getters = {
                     name: tag.name,
                     descriptions: tag.descriptions || null,
                     deprecated: tag.deprecated || false,
+                    internal: tag.internal || false,
+                    uppercase: tag.uppercase || false,
                     paths: getters.paths.filter(path => path.group === tag.name)
                 })
             })
@@ -44,6 +46,8 @@ export const getters = {
                         name: group,
                         descriptions: null,
                         deprecated: false,
+                        internal: false,
+                        uppercase: false,
                         paths: getters.paths.filter(path => path.group === group)
                     })
                 }

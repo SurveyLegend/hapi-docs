@@ -88,91 +88,92 @@ export default {
 
 <style scoped lang="scss">
 .dark-toggle {
- @include rtl {
-  transform: translate(3px, -1px);
- }
+    position: relative;
+    z-index: z-index(above) + 1;
 
- position: relative;
- z-index: z-index(above) + 1;
+    transform: translate(-3px, -1px);
 
- transform: translate(-3px, -1px);
+    cursor: pointer;
+    user-select: none;
 
- cursor: pointer;
- user-select: none;
+    @include rtl {
+        transform: translate(3px, -1px);
+    }
 
- &:after {
-  @include icon('../assets/svg/toggle--night.svg');
-  @include dark-mode {
-   opacity: 0;
+    &:after {
+        @include icon('../assets/svg/toggle--night.svg');
 
-   transform: scale(.7) rotate(60deg);
-  }
+        content: '';
 
-  content: '';
+        display: block;
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        width: 34px;
+        height: 34px;
 
-  display: block;
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  width: 34px;
-  height: 34px;
+        border-radius: 50%;
+        opacity: 1;
 
-  border-radius: 50%;
-  opacity: 1;
+        transform: scale(0.9) rotate(0deg);
+        transition: transform 0.9s ease, opacity 0.3s ease;
 
-  transform: scale(.9) rotate(0deg);
-  transition: transform .9s ease, opacity .3s ease;
- }
+        @include dark-mode {
+            opacity: 0;
+
+            transform: scale(0.7) rotate(60deg);
+        }
+    }
 }
 
 .dark-toggle__source {
- position: absolute;
- width: 100%;
- height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
- opacity: 0;
+    opacity: 0;
 
- pointer-events: none;
+    pointer-events: none;
 }
 
 .dark-toggle__controls {
- @include dark-mode {
-  background-color: $white;
-  box-shadow: rgba($black, .6) 0 0 4px 3px, rgba($white, .7) 0 0 16px 2px,
-  rgba($white, .6) 0 0 2px;
- }
+    position: relative;
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
 
- position: relative;
- width: 18px;
- height: 18px;
- overflow: hidden;
+    background-color: rgba($white, 0.3);
+    border-radius: 50%;
+    box-shadow: rgba($yellow, 0.9) 0 0 22px 3px, $orange 0 0 0 1px;
 
- background-color: rgba($white, .3);
- border-radius: 50%;
- box-shadow: rgba($yellow, .9) 0 0 22px 3px, $orange 0 0 0 1px;
+    transition: background-color 0.8 ease, box-shadow 0.8s ease;
 
- transition: background-color .8 ease, box-shadow .8s ease;
+    will-change: background-color, transform;
 
- will-change: background-color, transform;
+    @include dark-mode {
+        background-color: $white;
+        box-shadow: rgba($black, 0.6) 0 0 4px 3px, rgba($white, 0.7) 0 0 16px 2px,
+            rgba($white, 0.6) 0 0 2px;
+    }
 }
 
 .dark-toggle__controls__fill {
- @include dark-mode {
-  background-color: rgba($black, .6);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 22px;
+    height: 22px;
 
-  transform: translate(3px, -3px) scale(.7);
- }
+    background-color: rgba($orange, 0.4);
+    border-radius: 50%;
 
- position: absolute;
- top: -2px;
- left: -2px;
- width: 22px;
- height: 22px;
+    transform: translate(0, 0) scale(1);
+    transition: transform 0.6s ease 0.1s, background-color 0.6s ease;
 
- background-color: rgba($orange, .4);
- border-radius: 50%;
+    @include dark-mode {
+        background-color: rgba($black, 0.6);
 
- transform: translate(0, 0) scale(1);
- transition: transform .6s ease .1s, background-color .6s ease;
+        transform: translate(3px, -3px) scale(0.7);
+    }
 }
 </style>

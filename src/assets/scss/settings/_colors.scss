@@ -25,16 +25,13 @@ $grey-13: #272b2d;
 $grey-14: #242729;
 $black: #000;
 
+$token-punctuation: #f099a6;
+$token-property: #c1ef65;
+$token-number: #77bcd7;
+$token-null: #ebde68;
+
 // Light\Dark mode colors
 $header__example__background--light: darken($indigo, 3);
 $header__example__background--dark: darken($grey-14, 14);
 $background__example__background--light: lighten($indigo, 1.5);
 $background__example__background--dark: darken($grey-14, 8);
-$app__background--light: $white;
-$app__background--dark: darken($grey-14, 4);
-
-// Code colors
-$token-punctuation: #f099a6;
-$token-property: #c1ef65;
-$token-number: #77bcd7;
-$token-null: #ebde68;

@@ -68,14 +68,18 @@ export default {
                     : this.$el.querySelector(`a[href='${hash}']`)
                 const currentSection = document.getElementById(hash.substr(1))
 
-                this.updateActiveItem(activeItem)
-                this.updateTitle(activeItem.textContent)
+                if (activeItem) {
+                    this.updateActiveItem(activeItem)
+                    this.updateTitle(activeItem.textContent)
+                }
 
-                currentSection.scrollIntoView({
-                    behavior: 'instant',
-                    block: 'start',
-                    inline: 'nearest'
-                })
+                if (currentSection) {
+                    currentSection.scrollIntoView({
+                        behavior: 'instant',
+                        block: 'start',
+                        inline: 'nearest'
+                    })
+                }
             } else {
                 this.currentItem = this.getItemInsideWindow()
 
@@ -204,21 +208,25 @@ export default {
         },
 
         updateTitle(item) {
-            document.title = this.title ? `${item} – ${this.title}` : item
+            if (item) {
+                document.title = this.title ? `${item} – ${this.title}` : item
+            }
         },
 
         updateActiveItem(item) {
-            this.removeActiveClass()
+            if (item) {
+                this.removeActiveClass()
 
-            item.classList.add(this.activeClass)
+                item.classList.add(this.activeClass)
 
-            const parent = item.closest(this.itemClass + 's').previousElementSibling.classList
+                const parent = item.closest(this.itemClass + 's').previousElementSibling.classList
 
-            if (parent.contains(this.itemClass.substr(1))) {
-                parent.add(this.activeParentClass)
+                if (parent.contains(this.itemClass.substr(1))) {
+                    parent.add(this.activeParentClass)
+                }
+
+                item.scrollIntoView({ block: 'end', inline: 'nearest' })
             }
-
-            item.scrollIntoView({ block: 'end', inline: 'nearest' })
         },
 
         removeActiveClass() {

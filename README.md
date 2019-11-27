@@ -114,6 +114,8 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
     -   `descriptions`: (array) The description of the group.
     -   `order`: (int) The order which groups are sorted by.
     -   `deprecated`: (boolean) Whether a group is deprecated - default: `false`
+    -   `internal`: (boolean) Whether a group is internal - default: `false`
+    -   `uppercase`: (boolean) Whether a group name is uppercase - default: `false`
 -   `errors`:
     -   `descriptions`: (array) The description of the errors.
     -   `codes`: (array) Contains error code objects
@@ -125,6 +127,7 @@ You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](http
 
 -   `order`: (int) The order which endpoints are sorted by.
 -   `deprecated`: (boolean) Whether an endpoint is deprecated - default: `false`
+-   `internal`: (boolean) Whether an endpoint is internal - default: `false`
 
 ### Tagging API Routes
 
@@ -164,4 +167,4 @@ hapi-docs is inspired by [hapi-swagger](https://github.com/glennjones/hapi-swagg
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

@@ -37,124 +37,126 @@ h2,
 h3,
 h4,
 h5 {
- @include dark-mode {
-  color: lighten($grey-05, 2);
- }
+    color: $grey-12;
 
- color: $grey-12;
+    @include dark-mode {
+        color: lighten($grey-05, 2);
+    }
 }
 
 h4,
 h5 {
- font-size: 13px;
- font-weight: 500;
- line-height: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
 
- text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 h1 {
- @include dark-mode {
-  color: lighten($grey-05, 2);
- }
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 32px;
 
- font-size: 25px;
- font-weight: 400;
- line-height: 32px;
+    @include dark-mode {
+        color: lighten($grey-05, 2);
+    }
 }
 
 h3 {
- font-size: 17px;
- font-weight: 500;
- line-height: 22px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 22px;
 }
 
 h5 {
- @include dark-mode {
-  color: darken($grey-07, 30);
- }
+    color: $grey-07;
 
- color: $grey-07;
+    @include dark-mode {
+        color: darken($grey-07, 30);
+    }
 }
 
 a {
- @include dark-mode {
-  color: $dark-blue;
- }
+    color: $blue;
 
- color: $blue;
+    transition: color 0.2s ease;
 
- transition: color .2s ease;
+    @include dark-mode {
+        color: $dark-blue;
+    }
 
- &:hover {
-  @include dark-mode {
-   color: lighten($dark-blue, 10);
-  }
+    &:hover {
+        color: darken($blue, 10);
 
-  color: darken($blue, 10);
- }
+        @include dark-mode {
+            color: lighten($dark-blue, 10);
+        }
+    }
 }
 
 p {
- font-size: 15px;
- font-weight: 400;
+    font-size: 15px;
+    font-weight: 400;
 
- margin-top: 20px;
+    margin-top: 20px;
 }
 
 strong {
- font-weight: 600;
+    font-weight: 600;
 }
 
 em {
- font-style: italic;
+    font-style: italic;
 }
 
 code {
- @include font-source-code-pro;
- @include dark-mode {
-  background-color: darken($grey-14, 6.5);
-  border: 1px solid darken($grey-09, 5);
- }
+    @include font-source-code-pro;
 
- font-size: 13px;
- line-height: 20px;
+    font-size: 13px;
+    line-height: 20px;
 
- display: inline-block;
- padding: 0 5px;
+    display: inline-block;
+    padding: 0 5px;
 
- color: $purple;
- background-color: $grey-01;
- border: 1px solid $grey-02;
- border-radius: 4px;
+    color: $purple;
+    background-color: $grey-01;
+    border: 1px solid $grey-02;
+    border-radius: 4px;
 
- transition: background-color .8s ease, border-color 1s ease;
+    transition: background-color 0.8s ease, border-color 1s ease;
+
+    @include dark-mode {
+        background-color: darken($grey-14, 6.5);
+        border: 1px solid darken($grey-09, 5);
+    }
 }
 
 #app {
- @include font-hind;
- @include dark-mode {
-  color: $grey-05;
-  background-color: $app__background--dark;
- }
- @include rtl {
-  direction: rtl;
-  unicode-bidi: bidi-override;
- }
+    @include font-hind;
 
- font-size: 14px;
- font-weight: 500;
- line-height: 26px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 26px;
 
- width: 100%;
- height: 100%;
+    width: 100%;
+    height: 100%;
 
- color: $grey-08;
- background-color: $app__background--light;
+    color: $grey-08;
+    background-color: $white;
 
- letter-spacing: .1px;
+    letter-spacing: 0.1px;
 
- transition: background-color .8s ease;
+    transition: background-color 0.8s ease;
+
+    @include dark-mode {
+        color: $grey-05;
+        background-color: darken($grey-14, 4);
+    }
+
+    @include rtl {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+    }
 }
-
 </style>
