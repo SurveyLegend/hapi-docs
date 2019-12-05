@@ -216,6 +216,13 @@ const startServer = async () => {
                 notes:
                     'Returns a list of your customers. The customers are returned sorted by creation date, with the most recent customers appearing first.',
                 tags: ['api'],
+                validate: {
+                  query: {
+                    verification: Joi.array().items(
+                        Joi.string().only([ 'verified', 'pending', 'unverified', 'investigate', 'more', 'required', 'question', 'specialist', 'check', 'unknown', 'restricted', 'cancelled' ])
+                    ).single().optional().description('Restrict results to these verification states')
+                  }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 5

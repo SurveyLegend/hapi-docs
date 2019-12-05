@@ -176,9 +176,10 @@
                                         <div
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                            <p>
+                                                <span class="method__list__item__valids__prefix">Allows:</span>
+                                                <ul class="method__list__item__valids__list option__list">
+                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -202,6 +203,7 @@
                                                 class="header-anchor"
                                             />
                                             <span>{{ param.name }}</span>
+                                            <span class="method__list__item__type">{{ param.type }}</span>
                                             <span
                                                 v-if="param.flags && param.flags.required"
                                                 class="method__list__item__label__badge"
@@ -215,9 +217,20 @@
                                         <div
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                            <p>
+                                                <span class="method__list__item__valids__prefix">Allows:</span>
+                                                <ul class="method__list__item__valids__list option__list">
+                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                        <div
+                                            v-if="param.items"
+                                            class="method__list__item__items__type">
+                                            <p>
+                                                <span class="method__list__item__items__type__prefix">One or more of:</span>
+                                                <ul v-for="(item, index) in param.items" :key="index"  class="method__list__item__items__formats__list option__list">
+                                                    <li v-for="(valid, index2) in item.valids" :key="index2">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -254,9 +267,20 @@
                                         <div
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                            <p>
+                                                <span>Allows:</span>
+                                                <ul class="method__list__item__valids__list option__list">
+                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                        <div
+                                            v-if="param.items"
+                                            class="method__list__item__items__type">
+                                            <p>
+                                                <span class="method__list__item__items__type__prefix">One or more of:</span>
+                                                <ul v-for="(item, index) in param.items" :key="index"  class="method__list__item__items__formats__list option__list">
+                                                    <li v-for="(valid, index2) in item.valids" :key="index2">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -602,9 +626,8 @@ export default {
     font-weight: 600;
 }
 
+.method__list__item__type,
 .method__list__item__label__badge {
-    font-size: 11px;
-    font-weight: 600;
     line-height: 20px;
 
     display: inline-block;
@@ -613,11 +636,6 @@ export default {
     padding: 0 8px;
 
     vertical-align: top;
-    text-transform: uppercase;
-
-    color: #ffae54;
-    border: 1px solid rgba(255, 174, 84, 0.5);
-    border-radius: 11px;
 
     @extend .method__list__item__label__details;
     @include respond-to(large-screens) {
@@ -627,14 +645,34 @@ export default {
 
         margin-left: 0;
         padding: 4px 0 0;
+    }
+}
 
+.method__list__item__type {
+  font-weight: 400;
+  color: #939da3
+}
+
+.method__list__item__label__badge {
+    text-transform: uppercase;
+
+    font-weight: 600;
+    font-size: 11px;
+
+    color: #ffae54;
+    border: 1px solid rgba(255, 174, 84, 0.5);
+    border-radius: 11px;
+
+    @extend .method__list__item__label__details;
+    @include respond-to(large-screens) {
         border: 0;
         border-radius: 0;
     }
 }
 
 .method__list__item__description,
-.method__list__item__valids__label {
+.method__list__item__valids__label,
+.method__list__item__items__type {
     @include respond-to(large-screens) {
         position: relative;
         z-index: z-index(above);
@@ -654,34 +692,42 @@ export default {
 
     p {
         display: flex;
+        flex-direction: column;
         font-size: 14px !important;
         line-height: 21px !important;
-
-        ul {
-          list-style-type: none;
-          display: flex;
-          flex-direction: row;
-
-          li {
-            margin: 0 3px;
-
-            &::before {
-              content: '"'
-            }
-
-            &:not(:last-child)::after {
-              content: '",'
-            }
-
-            &:last-child::after {
-              content: '"'
-            }
-          }
-        }
     }
 }
 
-.method__list__item__valids__label {
+.method__list__item__items__type__prefix,
+.method__list__item__valids__prefix {
+  font-weight: 500;
+}
+
+.option__list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  li {
+    margin: 0 3px;
+
+    &::before {
+      content: '"'
+    }
+
+    &:not(:last-child)::after {
+      content: '",'
+    }
+
+    &:last-child::after {
+      content: '"'
+    }
+  }
+}
+
+.method__list__item__valids__label,
+.method__list__item__items__type {
   font-weight: 500;
   color: #939da3;
 }
