@@ -177,9 +177,9 @@
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
                                             <p>Allows:
-                                              <ul class="method__list__item__valids__list">
-                                                  <li v-for="valid in param.valids">{{ valid }}</li>
-                                              </ul>
+                                                <ul class="method__list__item__valids__list">
+                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                                </ul>
                                             </p>
                                         </div>
                                     </li>
@@ -216,9 +216,9 @@
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
                                             <p>Allows:
-                                              <ul class="method__list__item__valids__list">
-                                                  <li v-for="valid in param.valids">{{ valid }}</li>
-                                              </ul>
+                                                <ul class="method__list__item__valids__list">
+                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                                </ul>
                                             </p>
                                         </div>
                                     </li>
@@ -255,9 +255,9 @@
                                             v-if="param.valids"
                                             class="method__list__item__valids__label">
                                             <p>Allows:
-                                              <ul class="method__list__item__valids__list">
-                                                  <li v-for="valid in param.valids">{{ valid }}</li>
-                                              </ul>
+                                                <ul class="method__list__item__valids__list">
+                                                    <li v-for="valid in param.valids">{{ valid }}</li>
+                                                </ul>
                                             </p>
                                         </div>
                                     </li>
