@@ -173,6 +173,15 @@
                                             >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{ param.description }}</Marked>
+                                        <div
+                                            v-if="param.valids"
+                                            class="method__list__item__valids__label">
+                                            <p>Allows:
+                                              <ul class="method__list__item__valids__list">
+                                                  <li v-for="valid in param.valids">{{ valid }}</li>
+                                              </ul>
+                                            </p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -203,6 +212,15 @@
                                             >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{ param.description }}</Marked>
+                                        <div
+                                            v-if="param.valids"
+                                            class="method__list__item__valids__label">
+                                            <p>Allows:
+                                              <ul class="method__list__item__valids__list">
+                                                  <li v-for="valid in param.valids">{{ valid }}</li>
+                                              </ul>
+                                            </p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -233,6 +251,15 @@
                                             >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{ param.description }}</Marked>
+                                        <div
+                                            v-if="param.valids"
+                                            class="method__list__item__valids__label">
+                                            <p>Allows:
+                                              <ul class="method__list__item__valids__list">
+                                                  <li v-for="valid in param.valids">{{ valid }}</li>
+                                              </ul>
+                                            </p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -606,7 +633,8 @@ export default {
     }
 }
 
-.method__list__item__description {
+.method__list__item__description,
+.method__list__item__valids__label {
     @include respond-to(large-screens) {
         position: relative;
         z-index: z-index(above);
@@ -625,9 +653,41 @@ export default {
     }
 
     p {
+        display: flex;
         font-size: 14px !important;
         line-height: 21px !important;
+
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-direction: row;
+
+          li {
+            margin: 0 3px;
+
+            &::before {
+              content: '"'
+            }
+
+            &:not(:last-child)::after {
+              content: '",'
+            }
+
+            &:last-child::after {
+              content: '"'
+            }
+          }
+        }
     }
+}
+
+.method__list__item__valids__label {
+  font-weight: 500;
+  color: #939da3;
+}
+
+.method__list__item__valids__list {
+  color: #939da3;
 }
 
 .method__example {

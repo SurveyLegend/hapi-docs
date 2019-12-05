@@ -340,6 +340,11 @@ const startServer = async () => {
                     'Creates a new `Recipient`. object and verifies the recipient’s identity. Also verifies the recipient’s bank account information or debit card, if either is provided.'
                 ],
                 tags: ['api'],
+                validate: {
+                  query: {
+                    type: Joi.string().only('bank', 'card').description('Account type').required()
+                  }
+                },
                 plugins: {
                     'hapi-docs': {
                         order: 1
