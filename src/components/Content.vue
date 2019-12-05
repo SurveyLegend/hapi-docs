@@ -179,7 +179,9 @@
                                             <p>
                                                 <span class="method__list__item__valids__prefix">Allows:</span>
                                                 <ul class="method__list__item__valids__list option__list">
-                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
+                                                    <li
+                                                        v-for="(valid, index) in param.valids"
+                                                        :key="index">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -220,7 +222,9 @@
                                             <p>
                                                 <span class="method__list__item__valids__prefix">Allows:</span>
                                                 <ul class="method__list__item__valids__list option__list">
-                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
+                                                    <li
+                                                        v-for="(valid, index) in param.valids"
+                                                        :key="index">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -229,8 +233,13 @@
                                             class="method__list__item__items__type">
                                             <p>
                                                 <span class="method__list__item__items__type__prefix">One or more of:</span>
-                                                <ul v-for="(item, index) in param.items" :key="index"  class="method__list__item__items__formats__list option__list">
-                                                    <li v-for="(valid, index2) in item.valids" :key="index2">{{ valid }}</li>
+                                                <ul
+                                                    v-for="(item, index) in param.items"
+                                                    :key="index"
+                                                    class="method__list__item__items__formats__list option__list">
+                                                    <li
+                                                        v-for="(valid, index2) in item.valids"
+                                                        :key="index2">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -270,7 +279,9 @@
                                             <p>
                                                 <span>Allows:</span>
                                                 <ul class="method__list__item__valids__list option__list">
-                                                    <li v-for="(valid, index) in param.valids" :key="index">{{ valid }}</li>
+                                                    <li
+                                                        v-for="(valid, index) in param.valids"
+                                                        :key="index">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
@@ -279,8 +290,13 @@
                                             class="method__list__item__items__type">
                                             <p>
                                                 <span class="method__list__item__items__type__prefix">One or more of:</span>
-                                                <ul v-for="(item, index) in param.items" :key="index"  class="method__list__item__items__formats__list option__list">
-                                                    <li v-for="(valid, index2) in item.valids" :key="index2">{{ valid }}</li>
+                                                <ul
+                                                    v-for="(item, index) in param.items"
+                                                    :key="index"
+                                                    class="method__list__item__items__formats__list option__list">
+                                                    <li
+                                                        v-for="(valid, index2) in item.valids"
+                                                        :key="index2">{{ valid }}</li>
                                                 </ul>
                                             </p>
                                         </div>
