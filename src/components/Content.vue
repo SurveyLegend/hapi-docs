@@ -147,7 +147,7 @@
                                 <h5>Path Arguments</h5>
                                 <ul class="method__list__group">
                                     <li
-                                        v-for="param in path.pathParams.children"
+                                        v-for="param in path.pathParams"
                                         :id="`${path.slug}-${param.name}`"
                                         class="method__list__item"
                                     >
@@ -167,12 +167,12 @@
                                             >optional<template
                                                 v-if="param.flags && param.flags.default"
                                             >, default is
-                                                <span
-                                                    class="method__list__item__label__promote"
-                                                >{{ param.flags.default }}</span></template></span>
+                                            <span
+                                                class="method__list__item__label__promote"
+                                            >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{
-                                            param.description
+                                            param.flags.description
                                         }}</Marked>
                                     </li>
                                 </ul>
@@ -184,7 +184,7 @@
                                 <h5>Query Arguments</h5>
                                 <ul class="method__list__group">
                                     <li
-                                        v-for="param in path.queryParams.children"
+                                        v-for="param in path.queryParams"
                                         :id="`${path.slug}-${param.name}`"
                                         class="method__list__item"
                                     >
@@ -204,12 +204,12 @@
                                             >optional<template
                                                 v-if="param.flags && param.flags.default"
                                             >, default is
-                                                <span
-                                                    class="method__list__item__label__promote"
-                                                >{{ param.flags.default }}</span></template></span>
+                                            <span
+                                                class="method__list__item__label__promote"
+                                            >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{
-                                            param.description
+                                            param.flags.description
                                         }}</Marked>
                                     </li>
                                 </ul>
@@ -221,7 +221,7 @@
                                 <h5>Payload Arguments</h5>
                                 <ul class="method__list__group">
                                     <li
-                                        v-for="param in path.payloadParams.children"
+                                        v-for="param in path.payloadParams"
                                         :id="`${path.slug}-${param.name}`"
                                         class="method__list__item"
                                     >
@@ -241,12 +241,12 @@
                                             >optional<template
                                                 v-if="param.flags && param.flags.default"
                                             >, default is
-                                                <span
-                                                    class="method__list__item__label__promote"
-                                                >{{ param.flags.default }}</span></template></span>
+                                            <span
+                                                class="method__list__item__label__promote"
+                                            >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked class="method__list__item__description">{{
-                                            param.description
+                                            param.flags.description
                                         }}</Marked>
                                     </li>
                                 </ul>
