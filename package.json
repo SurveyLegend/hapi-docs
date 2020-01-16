@@ -1,7 +1,7 @@
 {
     "name": "@surveylegend/hapi-docs",
     "version": "0.3.21",
-    "description": "Beatiful API documentation generator for Hapi using Vue",
+    "description": "Beautiful API documentation generator for Hapi using Vue",
     "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
     "contributors": [
         "Henrik Ruscon",
@@ -22,14 +22,14 @@
         "lib"
     ],
     "dependencies": {
-        "@hapi/hoek": "^6.2.4",
-        "@hapi/joi": "^14.5.0",
+        "@hapi/hoek": "^9.0.2",
+        "@hapi/joi": "^17.0.2",
         "axios": "^0.19.1",
         "esm": "^3.2.25",
         "js-cookie": "^2.2.1",
         "marked": "^0.5.1",
         "prismjs": "^1.15.0",
-        "vue": "^2.5.22",
+        "vue": "^2.6.11",
         "vue-prism-component": "^1.1.1",
         "vuex": "^3.1.2"
     },
@@ -38,7 +38,7 @@
     },
     "devDependencies": {
         "@hapi/hapi": "^18.4.0",
-        "@hapi/inert": "5.2.1",
+        "@hapi/inert": "^5.2.2",
         "@vue/cli-plugin-babel": "3.0.5",
         "@vue/cli-plugin-eslint": "3.0.5",
         "@vue/cli-service": "3.0.5",

@@ -142,11 +142,11 @@ const startServer = async () => {
                     'Retrieves the details of an existing customer. You need only supply the unique customer identifier that was returned upon customer creation.',
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the customer to be retrieved.')
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -169,9 +169,9 @@ const startServer = async () => {
                 ],
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string().required()
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -192,11 +192,11 @@ const startServer = async () => {
                     'Permanently deletes a customer. It cannot be undone. Also immediately cancels any active subscriptions on the customer.',
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the customer to be deleted.')
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -239,20 +239,18 @@ const startServer = async () => {
                 ],
                 tags: ['api'],
                 validate: {
-                    payload: {
+                    payload: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the charge to refund.'),
                         amount: Joi.number()
                             .integer()
                             .positive()
-                            .default(() => {
-                                return 100
-                            }, 'entire charge')
+                            .default(100)
                             .description(
                                 'A positive integer representing how much of this charge to refund. Can refund only up to the remaining, unrefunded amount of the charge.'
                             )
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -272,11 +270,11 @@ const startServer = async () => {
                 notes: 'Retrieves the details of an existing refund.',
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the refund to be retrieved.')
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -299,9 +297,9 @@ const startServer = async () => {
                 ],
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string().required()
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -359,11 +357,11 @@ const startServer = async () => {
                     'Retrieves the details of an existing recipient. You need only supply the unique recipient identifier that was returned upon recipient creation.',
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the recipient to be retrieved.')
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -386,9 +384,9 @@ const startServer = async () => {
                 ],
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string().required()
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
@@ -408,11 +406,11 @@ const startServer = async () => {
                 notes: 'Permanently deletes a recipient. It cannot be undone.',
                 tags: ['api'],
                 validate: {
-                    params: {
+                    params: Joi.object({
                         id: Joi.string()
                             .required()
                             .description('The identifier of the recipient to be deleted.')
-                    }
+                    })
                 },
                 plugins: {
                     'hapi-docs': {
