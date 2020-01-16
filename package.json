@@ -22,10 +22,10 @@
         "lib"
     ],
     "dependencies": {
+        "@hapi/hoek": "^9.0.2",
+        "@hapi/joi": "^17.0.2",
         "axios": "^0.18.0",
         "esm": "^3.0.84",
-        "hoek": "^6.0.2",
-        "joi": "^14.0.4",
         "js-cookie": "^2.2.0",
         "marked": "^0.5.1",
         "prismjs": "^1.15.0",
@@ -34,9 +34,11 @@
         "vuex": "^3.0.1"
     },
     "peerDependencies": {
-        "hapi": "^18.0.0"
+        "@hapi/hapi": "^19.0.4"
     },
     "devDependencies": {
+        "@hapi/hapi": "^19.0.4",
+        "@hapi/inert": "^6.0.1",
         "@vue/cli-plugin-babel": "3.0.5",
         "@vue/cli-plugin-eslint": "3.0.5",
         "@vue/cli-service": "3.0.5",
@@ -44,8 +46,6 @@
         "babel-eslint": "^10.0.1",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0-beta.0",
-        "hapi": "^17.5.4",
-        "inert": "^5.1.0",
         "node-sass": "^4.13.0",
         "nodemon": "^1.18.9",
         "sass-loader": "^7.0.1",
