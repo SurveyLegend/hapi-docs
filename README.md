@@ -50,9 +50,9 @@ $ yarn add @surveylegend/hapi-docs
 ## Usage
 
 ```javascript
-import Hapi from 'hapi'
-import Inert from 'inert'
-import Joi from 'joi'
+import Hapi from '@hapi/hapi'
+import Inert from '@hapi/inert'
+import Joi from '@hapi/joi'
 import HapiDocs from '@surveylegend/hapi-docs'
 import { version } from './package'
 
