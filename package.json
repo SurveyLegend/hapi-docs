@@ -34,11 +34,11 @@
         "vuex": "^3.1.2"
     },
     "peerDependencies": {
-        "@hapi/hapi": "^18.x"
+        "@hapi/hapi": ">=18"
     },
     "devDependencies": {
-        "@hapi/hapi": "^18.4.0",
-        "@hapi/inert": "^5.2.2",
+        "@hapi/hapi": "^19.0.5",
+        "@hapi/inert": "^6.0.1",
         "@vue/cli-plugin-babel": "3.0.5",
         "@vue/cli-plugin-eslint": "3.0.5",
         "@vue/cli-service": "3.0.5",
