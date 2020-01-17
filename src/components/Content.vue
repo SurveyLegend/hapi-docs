@@ -179,10 +179,12 @@
                                                     class="method__list__item__label__promote"
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked
-                                            v-if="param.flags && param.flags.description"
-                                            class="method__list__item__description"
-                                        >{{ param.flags.description }}</Marked>
+                                        <template v-if="param.flags">
+                                            <Marked
+                                                v-if="param.flags.description"
+                                                class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked>
+                                        </template>
                                     </li>
                                 </ul>
                             </div>
@@ -217,10 +219,12 @@
                                                     class="method__list__item__label__promote"
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked
-                                            v-if="param.flags && param.flags.description"
-                                            class="method__list__item__description"
-                                        >{{ param.flags.description }}</Marked>
+                                        <template v-if="param.flags">
+                                            <Marked
+                                                v-if="param.flags.description"
+                                                class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked>
+                                        </template>
                                     </li>
                                 </ul>
                             </div>
@@ -255,10 +259,12 @@
                                                     class="method__list__item__label__promote"
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked
-                                            v-if="param.flags && param.flags.description"
-                                            class="method__list__item__description"
-                                        >{{ param.flags.description }}</Marked>
+                                        <template v-if="param.flags">
+                                            <Marked
+                                                v-if="param.flags.description"
+                                                class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked>
+                                        </template>
                                     </li>
                                 </ul>
                             </div>
