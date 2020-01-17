@@ -11,11 +11,6 @@ export default {
             default: false
         },
 
-        sanitize: {
-            type: Boolean,
-            default: true
-        },
-
         prerender: {
             type: Function,
             default: sourceData => {
@@ -49,8 +44,7 @@ export default {
 
     render(createElement) {
         const options = {
-            breaks: this.breaks,
-            sanitize: this.sanitize
+            breaks: this.breaks
         }
 
         let outHtml = marked(this.prerender(this.sourceData), options)

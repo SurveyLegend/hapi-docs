@@ -180,7 +180,7 @@
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked
-                                            v-if="param.flags && param.flags.default"
+                                            v-if="param.flags && param.flags.description"
                                             class="method__list__item__description"
                                         >{{ param.flags.description }}</Marked>
                                     </li>
@@ -218,7 +218,7 @@
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked
-                                            v-if="param.flags && param.flags.default"
+                                            v-if="param.flags && param.flags.description"
                                             class="method__list__item__description"
                                         >{{ param.flags.description }}</Marked>
                                     </li>
@@ -256,7 +256,7 @@
                                                 >{{ param.flags.default }}</span></template></span>
                                         </h3>
                                         <Marked
-                                            v-if="param.flags && param.flags.default"
+                                            v-if="param.flags && param.flags.description"
                                             class="method__list__item__description"
                                         >{{ param.flags.description }}</Marked>
                                     </li>
