@@ -91,7 +91,9 @@
                         <div class="method__copy__padding">
                             <h1>
                                 <span>
-                                    <template v-if="group.uppercase">{{ group.name | uppercase }}</template>
+                                    <template v-if="group.uppercase">{{
+                                        group.name | uppercase
+                                    }}</template>
                                     <template v-else>{{ group.name | capitalize }}</template>
                                 </span>
                                 <span
@@ -170,9 +172,17 @@
                                             <span
                                                 v-else
                                                 class="method__list__item__label__details"
-                                            >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                            >optional<template
+                                                v-if="param.flags && param.flags.default"
+                                            >, default is
+                                                <span
+                                                    class="method__list__item__label__promote"
+                                                >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked class="method__list__item__description">{{ param.flags.description }}</Marked>
+                                        <Marked
+                                            v-if="param.flags && param.flags.default"
+                                            class="method__list__item__description"
+                                        >{{ param.flags.description }}</Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -200,9 +210,17 @@
                                             <span
                                                 v-else
                                                 class="method__list__item__label__details"
-                                            >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                            >optional<template
+                                                v-if="param.flags && param.flags.default"
+                                            >, default is
+                                                <span
+                                                    class="method__list__item__label__promote"
+                                                >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked class="method__list__item__description">{{ param.flags.description }}</Marked>
+                                        <Marked
+                                            v-if="param.flags && param.flags.default"
+                                            class="method__list__item__description"
+                                        >{{ param.flags.description }}</Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -230,9 +248,17 @@
                                             <span
                                                 v-else
                                                 class="method__list__item__label__details"
-                                            >optional<template v-if="param.flags && param.flags.default">, default is <span class="method__list__item__label__promote">{{ param.flags.default }}</span></template></span>
+                                            >optional<template
+                                                v-if="param.flags && param.flags.default"
+                                            >, default is
+                                                <span
+                                                    class="method__list__item__label__promote"
+                                                >{{ param.flags.default }}</span></template></span>
                                         </h3>
-                                        <Marked class="method__list__item__description">{{ param.flags.description }}</Marked>
+                                        <Marked
+                                            v-if="param.flags && param.flags.default"
+                                            class="method__list__item__description"
+                                        >{{ param.flags.description }}</Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -240,7 +266,10 @@
                         <div class="method__example">
                             <div class="method__example__part">
                                 <div class="method__example__declaration">
-                                    <Prism language="bash">{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</Prism>
+                                    <Prism
+                                        language="bash"
+                                    >{{ path.method }} {{ scheme }}://{{ host
+                                    }}{{ path.path }}</Prism>
                                 </div>
                             </div>
                         </div>

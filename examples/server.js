@@ -156,25 +156,6 @@ const startServer = async () => {
             }
         },
         {
-            method: 'GET',
-            path: '/test/{id}',
-            handler() {
-                return ''
-            },
-            options: {
-                tags: ['api'],
-                validate: {
-                    params: Joi.object({
-                        survey_id: Joi.string()
-                            .required(),
-                        integration_id: Joi.number()
-                            .integer()
-                            .positive()
-                    })
-                }
-            }
-        },
-        {
             method: 'POST',
             path: '/customers/{id}',
             handler() {
