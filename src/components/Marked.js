@@ -36,7 +36,7 @@ export default {
         if (this.$slots.default) {
             this.sourceData = ''
 
-            for (let slot of this.$slots.default) {
+            for (const slot of this.$slots.default) {
                 this.sourceData += slot.text
             }
         }
