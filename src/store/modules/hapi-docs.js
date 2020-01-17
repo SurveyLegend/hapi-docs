@@ -26,15 +26,17 @@ export const getters = {
 
         if (getters.tags) {
             getters.tags.forEach(tag => {
-                grouped.push({
-                    name: tag.name,
-                    descriptions: tag.descriptions || null,
-                    deprecated: tag.deprecated || false,
-                    internal: tag.internal || false,
-                    experimental: tag.experimental || false,
-                    uppercase: tag.uppercase || false,
-                    paths: getters.paths.filter(path => path.group === tag.name)
-                })
+                if (tag.name) {
+                    grouped.push({
+                        name: tag.name,
+                        descriptions: tag.descriptions || null,
+                        deprecated: tag.deprecated || false,
+                        internal: tag.internal || false,
+                        experimental: tag.experimental || false,
+                        uppercase: tag.uppercase || false,
+                        paths: getters.paths.filter(path => path.group === tag.name)
+                    })
+                }
             })
         }
 
@@ -42,7 +44,7 @@ export const getters = {
             getters.groups.forEach(group => {
                 const tag = getters.tags.find(tag => tag.name === group)
 
-                if (!tag) {
+                if (!tag && group) {
                     grouped.push({
                         name: group,
                         descriptions: null,
