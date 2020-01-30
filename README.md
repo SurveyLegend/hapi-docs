@@ -52,7 +52,7 @@ $ yarn add @surveylegend/hapi-docs
 ```javascript
 import Hapi from 'hapi'
 import Inert from 'inert'
-import Joi from 'joi'
+import Joi from '@hapi/joi'
 import HapiDocs from '@surveylegend/hapi-docs'
 import { version } from './package'
 
