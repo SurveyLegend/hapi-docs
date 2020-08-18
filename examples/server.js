@@ -1,6 +1,6 @@
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 import { name, version } from '../package'
 import plugin from '../'
 

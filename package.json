@@ -22,10 +22,10 @@
         "lib"
     ],
     "dependencies": {
-        "@hapi/hoek": "^9.0.2",
-        "@hapi/joi": "^17.0.2",
-        "axios": "^0.19.1",
+        "@hapi/hoek": "^9.0.4",
+        "axios": "^0.19.2",
         "esm": "^3.2.25",
+        "joi": "^17.2.0",
         "js-cookie": "^2.2.1",
         "marked": "^0.8.0",
         "prismjs": "^1.15.0",
