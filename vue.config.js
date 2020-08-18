@@ -18,8 +18,8 @@ module.exports = {
     },
     css: {
         loaderOptions: {
-            sass: {
-                data: `
+            scss: {
+                additionalData: `
                     @import "@/assets/scss/settings/_breakpoints.scss";
                     @import "@/assets/scss/settings/_layout.scss";
                     @import "@/assets/scss/settings/_typography.scss";
