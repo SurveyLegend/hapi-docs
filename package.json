@@ -23,7 +23,7 @@
     ],
     "dependencies": {
         "@hapi/hoek": "^9.0.4",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "esm": "^3.2.25",
         "joi": "^17.2.0",
         "js-cookie": "^2.2.1",
