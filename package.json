@@ -22,40 +22,39 @@
         "lib"
     ],
     "dependencies": {
-        "@hapi/hoek": "^9.0.4",
-        "axios": "^0.19.2",
+        "@hapi/hoek": "^9.2.1",
+        "axios": "^0.24.0",
         "esm": "^3.2.25",
-        "joi": "^17.2.0",
-        "js-cookie": "^2.2.1",
-        "marked": "^0.8.2",
-        "prismjs": "^1.15.0",
-        "vue": "^2.6.11",
+        "joi": "^17.5.0",
+        "js-cookie": "^3.0.1",
+        "marked": "^3.0.8",
+        "prismjs": "^1.26.0",
+        "vue": "^2.6.14",
         "vue-prism-component": "^1.2.0",
-        "vuex": "^3.5.1"
+        "vuex": "^3.6.2"
     },
     "peerDependencies": {
         "@hapi/hapi": ">=19"
     },
     "devDependencies": {
-        "@hapi/hapi": "^19.2.0",
-        "@hapi/inert": "^6.0.2",
-        "@vue/cli-plugin-babel": "^4.5.4",
-        "@vue/cli-plugin-eslint": "^4.5.4",
-        "@vue/cli-service": "^4.5.4",
-        "@vue/eslint-config-standard": "^5.1.2",
+        "@hapi/hapi": "^20.2.1",
+        "@hapi/inert": "^6.0.4",
+        "@vue/cli-plugin-babel": "^4.5.15",
+        "@vue/cli-plugin-eslint": "^4.5.15",
+        "@vue/cli-service": "^4.5.15",
+        "@vue/eslint-config-standard": "^6.1.0",
         "babel-eslint": "^10.1.0",
-        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.1",
-        "eslint-plugin-vue": "^6.2.2",
-        "eslint": "^6.8.0",
-        "node-sass": "^4.14.1",
-        "nodemon": "^2.0.4",
-        "sass-loader": "^9.0.3",
-        "svg-url-loader": "^6.0.0",
-        "vue-template-compiler": "^2.6.11",
-        "webpack": "^4.44.1"
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-vue": "^7.20.0",
+        "eslint": "^7.32.0",
+        "sass": "^1.47.0",
+        "nodemon": "^2.0.15",
+        "sass-loader": "^10.2.0",
+        "svg-url-loader": "^7.1.1",
+        "vue-template-compiler": "^2.6.14",
+        "webpack": "^4.46.0"
     },
     "keywords": [
         "hapi",
@@ -76,6 +75,6 @@
     "browserslist": [
         "> 1%",
         "last 2 versions",
-        "not ie <= 8"
+        "not ie <= 10"
     ]
 }
