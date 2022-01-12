@@ -39,7 +39,7 @@ hapi-docs is perhaps the best and most modern <em>API Documentation Generator</e
 
 ## Installation
 
-> This package can be used in hapi v17 or higher.
+> This package can be used in hapi v19 or higher.
 
 You can install the package via yarn:
 
