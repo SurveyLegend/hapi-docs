@@ -5,7 +5,7 @@
             :title="info.title"
             class="sidebar__navigation"
         >
-            <template>
+            <div>
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li v-if="info">
@@ -27,8 +27,8 @@
                         >Errors</a>
                     </li>
                 </ul>
-            </template>
-            <template>
+            </div>
+            <div>
                 <h5 class="sidebar__navigation__heading">API</h5>
                 <ul class="sidebar__navigation__items">
                     <li
@@ -55,7 +55,7 @@
                         </ul>
                     </li>
                 </ul>
-            </template>
+            </div>
         </ScrollSpy>
     </div>
 </template>
