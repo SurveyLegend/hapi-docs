@@ -27,7 +27,7 @@
         "esm": "^3.2.25",
         "joi": "^17.5.0",
         "js-cookie": "^3.0.1",
-        "marked": "^3.0.8",
+        "marked": "^4.0.9",
         "prismjs": "^1.26.0",
         "vue": "^2.6.14",
         "vue-prism-component": "^1.2.0",

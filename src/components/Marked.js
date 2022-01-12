@@ -1,4 +1,4 @@
-import marked from 'marked'
+import { marked } from 'marked'
 
 export default {
     name: 'Marked',
@@ -47,7 +47,7 @@ export default {
             breaks: this.breaks
         }
 
-        let outHtml = marked(this.prerender(this.sourceData), options)
+        let outHtml = marked.parse(this.prerender(this.sourceData), options)
 
         outHtml = this.postrender(outHtml)
 
