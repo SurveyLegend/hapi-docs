@@ -22,26 +22,26 @@
         "lib"
     ],
     "dependencies": {
-        "@hapi/hoek": "^9.3.0",
-        "axios": "^0.27.2",
+        "@hapi/hoek": "^11.0.2",
+        "axios": "^1.2.2",
         "esm": "^3.2.25",
-        "joi": "^17.6.0",
+        "joi": "^17.7.0",
         "js-cookie": "^3.0.1",
-        "marked": "^4.0.17",
-        "prismjs": "^1.28.0",
-        "vue": "^2.6.14",
+        "marked": "^4.2.5",
+        "prismjs": "^1.29.0",
+        "vue": "^2.7.14",
         "vue-prism-component": "^1.2.0",
         "vuex": "^3.6.2"
     },
     "peerDependencies": {
-        "@hapi/hapi": ">=19"
+        "@hapi/hapi": ">=20"
     },
     "devDependencies": {
-        "@hapi/hapi": "^20.2.2",
-        "@hapi/inert": "^6.0.5",
-        "@vue/cli-plugin-babel": "^4.5.17",
-        "@vue/cli-plugin-eslint": "^4.5.17",
-        "@vue/cli-service": "^4.5.17",
+        "@hapi/hapi": "^21.1.0",
+        "@hapi/inert": "^7.0.0",
+        "@vue/cli-plugin-babel": "^4.5.19",
+        "@vue/cli-plugin-eslint": "^4.5.19",
+        "@vue/cli-service": "^4.5.19",
         "@vue/eslint-config-standard": "^6.1.0",
         "babel-eslint": "^10.1.0",
         "eslint-plugin-import": "^2.26.0",
@@ -49,11 +49,11 @@
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-vue": "^7.20.0",
         "eslint": "^7.32.0",
-        "sass": "^1.52.3",
-        "nodemon": "^2.0.16",
+        "sass": "^1.57.1",
+        "nodemon": "^2.0.20",
         "sass-loader": "^10.2.1",
         "svg-url-loader": "^7.1.1",
-        "vue-template-compiler": "^2.6.14",
+        "vue-template-compiler": "^2.7.14",
         "webpack": "^4.46.0"
     },
     "keywords": [
@@ -72,7 +72,7 @@
         "url": "https://github.com/surveylegend/hapi-docs/issues"
     },
     "engines": {
-        "node": ">=12"
+        "node": ">=14 < 18"
     },
     "homepage": "https://github.com/surveylegend/hapi-docs#readme",
     "browserslist": [
