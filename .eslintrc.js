@@ -19,7 +19,8 @@ module.exports = {
         'vue/html-indent': ['error', 4],
         'vue/require-v-for-key': 'off',
         'vue/singleline-html-element-content-newline': 'off',
-        'vue/multiline-html-element-content-newline': 'off'
+        'vue/multiline-html-element-content-newline': 'off',
+        'vue/multi-word-component-names': 'off'
     },
     parserOptions: {
         parser: 'babel-eslint'
