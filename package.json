@@ -37,7 +37,7 @@
         "@hapi/hapi": ">=20"
     },
     "devDependencies": {
-        "@hapi/hapi": "^21.1.0",
+        "@hapi/hapi": "^21.2.1",
         "@hapi/inert": "^7.0.0",
         "@vue/cli-plugin-babel": "^5.0.8",
         "@vue/cli-plugin-eslint": "^5.0.8",
@@ -49,7 +49,7 @@
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-vue": "^9.8.0",
         "eslint": "^7.32.0",
-        "sass": "^1.57.1",
+        "sass": "^1.58.0",
         "nodemon": "^2.0.20",
         "sass-loader": "^13.2.0",
         "svg-url-loader": "^8.0.0",
