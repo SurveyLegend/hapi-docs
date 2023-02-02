@@ -10,7 +10,7 @@ async function initServer() {
     const server = Hapi.server({
         host: process.env.HOSTNAME || 'localhost',
         address: process.env.IP || '0.0.0.0',
-        port: Number(process.env.PORT || 3000),
+        port: Number(process.env.PORT || 3000)
     })
 
     server.settings.debug = true // print logs in console
