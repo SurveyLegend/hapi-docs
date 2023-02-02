@@ -5,7 +5,7 @@ module.exports = {
         port: 3001,
         proxy: 'http://localhost:3000'
     },
-    chainWebpack: config => {
+    chainWebpack: (config) => {
         const svgRule = config.module.rule('svg')
 
         svgRule.uses.clear()
@@ -13,7 +13,7 @@ module.exports = {
 
         // Fix for Safari caching bug https://github.com/vuejs/vue-cli/issues/1132
         if (process.env.NODE_ENV === 'development') {
-            config.output.filename('[name].[hash].js').end()
+            config.output.filename('[name].[fullHash].js').end()
         }
     },
     css: {

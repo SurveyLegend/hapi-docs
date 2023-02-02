@@ -13,14 +13,14 @@ export default {
 
         prerender: {
             type: Function,
-            default: sourceData => {
+            default: (sourceData) => {
                 return sourceData
             }
         },
 
         postrender: {
             type: Function,
-            default: htmlData => {
+            default: (htmlData) => {
                 return htmlData
             }
         }

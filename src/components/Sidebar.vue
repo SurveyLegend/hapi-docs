@@ -1,56 +1,35 @@
 <template>
     <div class="sidebar">
-        <ScrollSpy
-            v-if="dataReady"
-            :title="info.title"
-            class="sidebar__navigation"
-        >
+        <ScrollSpy v-if="dataReady" :title="info.title" class="sidebar__navigation">
             <div>
                 <h5 class="sidebar__navigation__heading">Topics</h5>
                 <ul class="sidebar__navigation__items">
                     <li v-if="info">
-                        <a
-                            href="#intro"
-                            class="sidebar__navigation__item"
-                        >Introduction</a>
+                        <a href="#intro" class="sidebar__navigation__item">Introduction</a>
                     </li>
                     <li v-if="security.length !== 0">
-                        <a
-                            href="#authentication"
-                            class="sidebar__navigation__item"
-                        >Authentication</a>
+                        <a href="#authentication" class="sidebar__navigation__item"
+                            >Authentication</a
+                        >
                     </li>
                     <li v-if="errors.length !== 0">
-                        <a
-                            href="#errors"
-                            class="sidebar__navigation__item"
-                        >Errors</a>
+                        <a href="#errors" class="sidebar__navigation__item">Errors</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <h5 class="sidebar__navigation__heading">API</h5>
                 <ul class="sidebar__navigation__items">
-                    <li
-                        v-for="group in groups"
-                        :key="group.name"
-                    >
-                        <a
-                            :href="`#${group.name}`"
-                            class="sidebar__navigation__item"
-                        >
+                    <li v-for="group in groups" :key="group.name">
+                        <a :href="`#${group.name}`" class="sidebar__navigation__item">
                             <template v-if="group.uppercase">{{ group.name | uppercase }}</template>
                             <template v-else>{{ group.name | capitalize }}</template>
                         </a>
                         <ul class="sidebar__navigation__items">
-                            <li
-                                v-for="path in group.paths"
-                                :key="path.name"
-                            >
-                                <a
-                                    :href="`#${path.slug}`"
-                                    class="sidebar__navigation__item"
-                                >{{ path.description }}</a>
+                            <li v-for="path in group.paths" :key="path.name">
+                                <a :href="`#${path.slug}`" class="sidebar__navigation__item">{{
+                                    path.description
+                                }}</a>
                             </li>
                         </ul>
                     </li>
@@ -66,10 +45,10 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
-            info: 'hapi-docs/info',
-            security: 'hapi-docs/security',
-            errors: 'hapi-docs/errors',
-            groups: 'hapi-docs/groupedPaths'
+            info: 'hapiDocs/info',
+            security: 'hapiDocs/security',
+            errors: 'hapiDocs/errors',
+            groups: 'hapiDocs/groupedPaths'
         }),
         dataReady() {
             return this.info && this.groups.length !== 0

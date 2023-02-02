@@ -24,7 +24,7 @@ export default {
     },
 
     async beforeCreate() {
-        await this.$store.dispatch('hapi-docs/fetchData')
+        await this.$store.dispatch('hapiDocs/fetchData')
     }
 }
 </script>

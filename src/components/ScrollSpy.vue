@@ -104,7 +104,7 @@ export default {
     },
 
     methods: {
-        onScroll(event) {
+        onScroll() {
             this.currentItem = this.getItemInsideWindow()
 
             if (this.currentItem && this.currentItem !== this.lastActiveItem) {
@@ -121,7 +121,7 @@ export default {
         getItemInsideWindow() {
             let currentItem
 
-            this.items.forEach(item => {
+            this.items.forEach((item) => {
                 const target = document.getElementById(item.hash.substr(1))
                 const isScreenPastSection =
                     this.scrollContainer.scrollTop >= this.getOffsetTop(target) - this.offset
@@ -136,11 +136,11 @@ export default {
             this.items = this.$el.querySelectorAll(this.itemClass)
             this.anchors = this.scrollContainer.querySelectorAll('a[href*="#"]')
 
-            this.items.forEach(item => {
+            this.items.forEach((item) => {
                 item.addEventListener('click', this.handleClick)
             })
 
-            this.anchors.forEach(anchor => {
+            this.anchors.forEach((anchor) => {
                 anchor.addEventListener('click', this.handleClick)
             })
         },
@@ -230,7 +230,7 @@ export default {
         },
 
         removeActiveClass() {
-            this.items.forEach(item => {
+            this.items.forEach((item) => {
                 item.classList.remove(this.activeClass, this.activeParentClass)
             })
         }

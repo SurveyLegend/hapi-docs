@@ -3,23 +3,16 @@ module.exports = {
     env: {
         node: true
     },
-    extends: ['plugin:vue/recommended', '@vue/standard'],
+    extends: ['plugin:vue/recommended', 'eslint:recommended', 'prettier'],
+    plugins: ['vue', 'prettier'],
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-        indent: [
+        'vue/no-v-html': 'off',
+        'vue/multi-word-component-names': [
             'error',
-            4,
             {
-                SwitchCase: 1
+                ignores: ['Background', 'Content', 'Header', 'Sidebar']
             }
         ],
-        'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
-        'no-global-assign': 'off',
-        'vue/html-indent': ['error', 4],
-        'vue/require-v-for-key': 'off',
-        'vue/singleline-html-element-content-newline': 'off',
-        'vue/multiline-html-element-content-newline': 'off',
-        'vue/multi-word-component-names': 'off'
+        'prettier/prettier': 'error'
     }
 }

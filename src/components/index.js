@@ -3,10 +3,6 @@ import Marked from './Marked'
 import DarkMode from './DarkMode'
 import ScrollSpy from './ScrollSpy'
 
-[
-    Marked,
-    DarkMode,
-    ScrollSpy
-].forEach(Component => {
-    Vue.component(Component.name, Component)
-})
+Vue.component(Marked.name, Marked)
+Vue.component(DarkMode.name, DarkMode)
+Vue.component(ScrollSpy.name, ScrollSpy)

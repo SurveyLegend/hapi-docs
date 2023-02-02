@@ -1,10 +1,7 @@
 <template>
     <div class="header">
         <div class="header__sidebar">
-            <a
-                class="header__logo"
-                href="/"
-            />
+            <a class="header__logo" href="/" />
         </div>
         <div class="header__copy">
             <div class="header__navigation">
@@ -15,10 +12,9 @@
                         <option>Errors</option>
                     </optgroup>
                     <optgroup label="API">
-                        <option
-                            v-for="group in groups"
-                            :key="group.name"
-                        >{{ group.name | capitalize }}</option>
+                        <option v-for="group in groups" :key="group.name">
+                            {{ group.name | capitalize }}
+                        </option>
                     </optgroup>
                 </select>
             </div>
@@ -37,10 +33,10 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
-            info: 'hapi-docs/info',
-            security: 'hapi-docs/security',
-            errors: 'hapi-docs/errors',
-            groups: 'hapi-docs/groupedPaths'
+            info: 'hapiDocs/info',
+            security: 'hapiDocs/security',
+            errors: 'hapiDocs/errors',
+            groups: 'hapiDocs/groupedPaths'
         }),
         dataReady() {
             return this.info && this.groups.length !== 0
