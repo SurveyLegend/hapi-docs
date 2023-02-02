@@ -13,7 +13,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "start": "nodemon examples/server.js -x \"node\"",
+        "start": "nodemon examples/server.js",
         "prepublishOnly": "yarn build",
         "heroku-postbuild": "yarn build"
     },
