@@ -65,193 +65,205 @@
                 </div>
             </div>
         </section>
-        <section
-            v-for="group in groups"
-            :id="group.name"
-            :key="group.name"
-            class="method first-of-group"
-        >
-            <div class="method__area">
-                <div class="method__copy">
-                    <div class="method__copy__padding">
-                        <h1>
-                            <span>
-                                <template v-if="group.uppercase">{{
-                                    group.name | uppercase
-                                }}</template>
-                                <template v-else>{{ group.name | capitalize }}</template>
-                            </span>
-                            <span
-                                v-if="group.deprecated"
-                                class="method__badge method__badge--danger"
-                                >Deprecated</span
-                            >
-                            <span v-if="group.internal" class="method__badge method__badge--warning"
-                                >Internal</span
-                            >
-                            <span
-                                v-if="group.experimental"
-                                class="method__badge method__badge--experiment"
-                                >Experimental</span
-                            >
-                        </h1>
-                        <template v-if="group.descriptions">
-                            <p v-for="(description, index) in group.descriptions" :key="index">
-                                <Marked>{{ description }}</Marked>
-                            </p>
-                        </template>
-                    </div>
-                </div>
-                <div class="method__example" />
-            </div>
-        </section>
-        <section v-for="(path, index) in group.paths" :id="path.slug" :key="index" class="method">
-            <div class="method__area">
-                <div class="method__copy">
-                    <div class="method__copy__padding">
-                        <h1>
-                            <span>{{ path.description }}</span>
-                            <span v-if="path.deprecated" class="method__badge method__badge--danger"
-                                >Deprecated</span
-                            >
-                            <span v-if="path.internal" class="method__badge method__badge--warning"
-                                >Internal</span
-                            >
-                            <span
-                                v-if="path.experimental"
-                                class="method__badge method__badge--experiment"
-                                >Experimental</span
-                            >
-                        </h1>
-                        <template v-if="path.notes">
-                            <p v-for="(note, noteIndex) in path.notes" :key="noteIndex">
-                                <Marked>{{ note }}</Marked>
-                            </p>
-                        </template>
-                    </div>
-                    <div v-if="path.pathParams !== null" class="method__list">
-                        <h5>Path Arguments</h5>
-                        <ul class="method__list__group">
-                            <li
-                                v-for="(param, paramIndex) in path.pathParams"
-                                :id="`${path.slug}-${param.name}`"
-                                :key="paramIndex"
-                                class="method__list__item"
-                            >
-                                <h3 class="method__list__item__label">
-                                    <a
-                                        :href="`#${path.slug}-${param.name}`"
-                                        class="header-anchor"
-                                    />
-                                    <span>{{ param.name }}</span>
-                                    <span
-                                        v-if="param.flags && param.flags.required"
-                                        class="method__list__item__label__badge"
-                                        >required</span
-                                    >
-                                    <span v-else class="method__list__item__label__details"
-                                        >optional<template v-if="param.flags && param.flags.default"
-                                            >, default is
-                                            <span class="method__list__item__label__promote">{{
-                                                param.flags.default
-                                            }}</span></template
-                                        ></span
-                                    >
-                                </h3>
-                                <Marked
-                                    v-if="param.flags && param.flags.description"
-                                    class="method__list__item__description"
-                                    >{{ param.flags.description }}</Marked
+        <div v-for="group in groups" :key="group.name">
+            <section :id="group.name" class="method first-of-group">
+                <div class="method__area">
+                    <div class="method__copy">
+                        <div class="method__copy__padding">
+                            <h1>
+                                <span>
+                                    <template v-if="group.uppercase">{{
+                                        group.name | uppercase
+                                    }}</template>
+                                    <template v-else>{{ group.name | capitalize }}</template>
+                                </span>
+                                <span
+                                    v-if="group.deprecated"
+                                    class="method__badge method__badge--danger"
+                                    >Deprecated</span
                                 >
-                            </li>
-                        </ul>
-                    </div>
-                    <div v-if="path.queryParams !== null" class="method__list">
-                        <h5>Query Arguments</h5>
-                        <ul class="method__list__group">
-                            <li
-                                v-for="(param, queryParamIndex) in path.queryParams"
-                                :id="`${path.slug}-${param.name}`"
-                                :key="queryParamIndex"
-                                class="method__list__item"
-                            >
-                                <h3 class="method__list__item__label">
-                                    <a
-                                        :href="`#${path.slug}-${param.name}`"
-                                        class="header-anchor"
-                                    />
-                                    <span>{{ param.name }}</span>
-                                    <span
-                                        v-if="param.flags && param.flags.required"
-                                        class="method__list__item__label__badge"
-                                        >required</span
-                                    >
-                                    <span v-else class="method__list__item__label__details"
-                                        >optional<template v-if="param.flags && param.flags.default"
-                                            >, default is
-                                            <span class="method__list__item__label__promote">{{
-                                                param.flags.default
-                                            }}</span></template
-                                        ></span
-                                    >
-                                </h3>
-                                <Marked
-                                    v-if="param.flags && param.flags.description"
-                                    class="method__list__item__description"
-                                    >{{ param.flags.description }}</Marked
+                                <span
+                                    v-if="group.internal"
+                                    class="method__badge method__badge--warning"
+                                    >Internal</span
                                 >
-                            </li>
-                        </ul>
-                    </div>
-                    <div v-if="path.payloadParams !== null" class="method__list">
-                        <h5>Payload Arguments</h5>
-                        <ul class="method__list__group">
-                            <li
-                                v-for="(param, payloadParamsIndex) in path.payloadParams"
-                                :id="`${path.slug}-${param.name}`"
-                                :key="payloadParamsIndex"
-                                class="method__list__item"
-                            >
-                                <h3 class="method__list__item__label">
-                                    <a
-                                        :href="`#${path.slug}-${param.name}`"
-                                        class="header-anchor"
-                                    />
-                                    <span>{{ param.name }}</span>
-                                    <span
-                                        v-if="param.flags && param.flags.required"
-                                        class="method__list__item__label__badge"
-                                        >required</span
-                                    >
-                                    <span v-else class="method__list__item__label__details"
-                                        >optional<template v-if="param.flags && param.flags.default"
-                                            >, default is
-                                            <span class="method__list__item__label__promote">{{
-                                                param.flags.default
-                                            }}</span></template
-                                        ></span
-                                    >
-                                </h3>
-                                <Marked
-                                    v-if="param.flags && param.flags.description"
-                                    class="method__list__item__description"
-                                    >{{ param.flags.description }}</Marked
+                                <span
+                                    v-if="group.experimental"
+                                    class="method__badge method__badge--experiment"
+                                    >Experimental</span
                                 >
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="method__example">
-                    <div class="method__example__part">
-                        <div class="method__example__declaration">
-                            <Prism language="bash"
-                                >{{ path.method }} {{ scheme }}://{{ host }}{{ path.path }}</Prism
-                            >
+                            </h1>
+                            <template v-if="group.descriptions">
+                                <p v-for="(description, index) in group.descriptions" :key="index">
+                                    <Marked>{{ description }}</Marked>
+                                </p>
+                            </template>
                         </div>
                     </div>
+                    <div class="method__example" />
                 </div>
+            </section>
+            <div v-for="(path, index) in group.paths" :key="index">
+                <section :id="path.slug" class="method">
+                    <div class="method__area">
+                        <div class="method__copy">
+                            <div class="method__copy__padding">
+                                <h1>
+                                    <span>{{ path.description }}</span>
+                                    <span
+                                        v-if="path.deprecated"
+                                        class="method__badge method__badge--danger"
+                                        >Deprecated</span
+                                    >
+                                    <span
+                                        v-if="path.internal"
+                                        class="method__badge method__badge--warning"
+                                        >Internal</span
+                                    >
+                                    <span
+                                        v-if="path.experimental"
+                                        class="method__badge method__badge--experiment"
+                                        >Experimental</span
+                                    >
+                                </h1>
+                                <template v-if="path.notes">
+                                    <p v-for="(note, noteIndex) in path.notes" :key="noteIndex">
+                                        <Marked>{{ note }}</Marked>
+                                    </p>
+                                </template>
+                            </div>
+                            <div v-if="path.pathParams !== null" class="method__list">
+                                <h5>Path Arguments</h5>
+                                <ul class="method__list__group">
+                                    <li
+                                        v-for="(param, paramIndex) in path.pathParams"
+                                        :id="`${path.slug}-${param.name}`"
+                                        :key="paramIndex"
+                                        class="method__list__item"
+                                    >
+                                        <h3 class="method__list__item__label">
+                                            <a
+                                                :href="`#${path.slug}-${param.name}`"
+                                                class="header-anchor"
+                                            />
+                                            <span>{{ param.name }}</span>
+                                            <span
+                                                v-if="param.flags && param.flags.required"
+                                                class="method__list__item__label__badge"
+                                                >required</span
+                                            >
+                                            <span v-else class="method__list__item__label__details"
+                                                >optional<template
+                                                    v-if="param.flags && param.flags.default"
+                                                    >, default is
+                                                    <span
+                                                        class="method__list__item__label__promote"
+                                                        >{{ param.flags.default }}</span
+                                                    ></template
+                                                ></span
+                                            >
+                                        </h3>
+                                        <Marked
+                                            v-if="param.flags && param.flags.description"
+                                            class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div v-if="path.queryParams !== null" class="method__list">
+                                <h5>Query Arguments</h5>
+                                <ul class="method__list__group">
+                                    <li
+                                        v-for="(param, queryParamIndex) in path.queryParams"
+                                        :id="`${path.slug}-${param.name}`"
+                                        :key="queryParamIndex"
+                                        class="method__list__item"
+                                    >
+                                        <h3 class="method__list__item__label">
+                                            <a
+                                                :href="`#${path.slug}-${param.name}`"
+                                                class="header-anchor"
+                                            />
+                                            <span>{{ param.name }}</span>
+                                            <span
+                                                v-if="param.flags && param.flags.required"
+                                                class="method__list__item__label__badge"
+                                                >required</span
+                                            >
+                                            <span v-else class="method__list__item__label__details"
+                                                >optional<template
+                                                    v-if="param.flags && param.flags.default"
+                                                    >, default is
+                                                    <span
+                                                        class="method__list__item__label__promote"
+                                                        >{{ param.flags.default }}</span
+                                                    ></template
+                                                ></span
+                                            >
+                                        </h3>
+                                        <Marked
+                                            v-if="param.flags && param.flags.description"
+                                            class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                            <div v-if="path.payloadParams !== null" class="method__list">
+                                <h5>Payload Arguments</h5>
+                                <ul class="method__list__group">
+                                    <li
+                                        v-for="(param, payloadParamsIndex) in path.payloadParams"
+                                        :id="`${path.slug}-${param.name}`"
+                                        :key="payloadParamsIndex"
+                                        class="method__list__item"
+                                    >
+                                        <h3 class="method__list__item__label">
+                                            <a
+                                                :href="`#${path.slug}-${param.name}`"
+                                                class="header-anchor"
+                                            />
+                                            <span>{{ param.name }}</span>
+                                            <span
+                                                v-if="param.flags && param.flags.required"
+                                                class="method__list__item__label__badge"
+                                                >required</span
+                                            >
+                                            <span v-else class="method__list__item__label__details"
+                                                >optional<template
+                                                    v-if="param.flags && param.flags.default"
+                                                    >, default is
+                                                    <span
+                                                        class="method__list__item__label__promote"
+                                                        >{{ param.flags.default }}</span
+                                                    ></template
+                                                ></span
+                                            >
+                                        </h3>
+                                        <Marked
+                                            v-if="param.flags && param.flags.description"
+                                            class="method__list__item__description"
+                                            >{{ param.flags.description }}</Marked
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="method__example">
+                            <div class="method__example__part">
+                                <div class="method__example__declaration">
+                                    <Prism language="bash"
+                                        >{{ path.method }} {{ scheme }}://{{ host
+                                        }}{{ path.path }}</Prism
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </div>
 </template>
 
