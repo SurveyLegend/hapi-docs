@@ -1,7 +1,7 @@
 module.exports = {
     root: true,
     env: {
-        node: true
+        node: true,
     },
     extends: ['plugin:vue/recommended', '@vue/standard'],
     rules: {
@@ -11,8 +11,8 @@ module.exports = {
             'error',
             4,
             {
-                SwitchCase: 1
-            }
+                SwitchCase: 1,
+            },
         ],
         'space-before-function-paren': ['error', { anonymous: 'always', named: 'never' }],
         'no-global-assign': 'off',
@@ -20,9 +20,6 @@ module.exports = {
         'vue/require-v-for-key': 'off',
         'vue/singleline-html-element-content-newline': 'off',
         'vue/multiline-html-element-content-newline': 'off',
-        'vue/multi-word-component-names': 'off'
+        'vue/multi-word-component-names': 'off',
     },
-    parserOptions: {
-        parser: 'babel-eslint'
-    }
 }
