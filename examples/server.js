@@ -1,8 +1,8 @@
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert'
 import Joi from 'joi'
-import Package from '../package.json'
 import plugin from '../lib/index.js'
+import Fs from 'node:fs/promises'
 
 const options = {
     sortTags: 'ordered',
@@ -435,8 +435,8 @@ const startServer = async () => {
 
     await server.start()
 
-    // eslint-disable-next-line
-    console.log(`${Package.name} (v.${Package.version}) server listening on ${server.info.uri}`)
+    const { name, version } = Fs.readFile('./package.json')
+    server.log([],`${name} (v.${version}) server listening on ${server.info.uri}`)
 }
 
 // eslint-disable-next-line
