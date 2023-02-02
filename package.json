@@ -8,15 +8,16 @@
         "Robert Michalski",
         "Kiarokh Moattar"
     ],
+    "type": "module",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
-        "start": "nodemon examples/server.js -x \"node -r esm\"",
+        "start": "nodemon examples/server.js -x \"node --experimental-json-modules\"",
         "prepublishOnly": "yarn build",
         "heroku-postbuild": "yarn build"
     },
-    "main": "index.js",
+    "main": "lib/index.js",
     "files": [
         "dist",
         "lib"
@@ -24,7 +25,6 @@
     "dependencies": {
         "@hapi/hoek": "^11.0.2",
         "axios": "^1.2.2",
-        "esm": "^3.2.25",
         "joi": "^17.7.0",
         "js-cookie": "^3.0.1",
         "marked": "^4.2.5",
@@ -39,18 +39,19 @@
     "devDependencies": {
         "@hapi/hapi": "^21.2.1",
         "@hapi/inert": "^7.0.0",
+        "@vue/babel-preset-app": "^5.0.8",
         "@vue/cli-plugin-babel": "^5.0.8",
         "@vue/cli-plugin-eslint": "^5.0.8",
         "@vue/cli-service": "^5.0.8",
         "@vue/eslint-config-standard": "^8.0.1",
         "babel-eslint": "^10.1.0",
+        "eslint": "^8.0.1",
         "eslint-plugin-import": "^2.27.4",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-vue": "^9.8.0",
-        "eslint": "^7.32.0",
-        "sass": "^1.58.0",
         "nodemon": "^2.0.20",
+        "sass": "^1.58.0",
         "sass-loader": "^13.2.0",
         "svg-url-loader": "^8.0.0",
         "vue-template-compiler": "^2.7.14",
