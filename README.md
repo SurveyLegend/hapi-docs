@@ -49,6 +49,9 @@ $ yarn add @surveylegend/hapi-docs
 
 ## Usage
 
+> **Note**
+> Inert is a required dependency for hapi-docs to work properly.
+
 ```javascript
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert'
