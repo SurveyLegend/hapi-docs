@@ -159,7 +159,7 @@ If you discover any security-related issues, please email [henrik@surveylegend.c
 
 Developed and designed by:
 
--   [Henrik Ruscon](https://github.com/henrikdahl)
+-   [Henrik Ruscon](https://github.com/henrikruscon)
 -   [Robert Michalski](https://github.com/robman87)
 -   [Kiarokh Moattar](https://github.com/Kiarokh)
 
