@@ -94,7 +94,7 @@ startServer().catch(console.error)
 
 ![](https://user-images.githubusercontent.com/1430576/51147085-3d3bdc80-1859-11e9-8acb-daf5f52fcab4.png)
 
-You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](https://hapi-docs.herokuapp.com/)
+You can see a live demo version of `hapi-docs`. Check it out at [hapi-docs](https://api.surveylegend.com/docs/)
 
 ## Documentation
 
