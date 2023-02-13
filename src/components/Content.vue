@@ -168,21 +168,6 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
-                                        <div
-                                            v-if="param.valids"
-                                            class="method__list__item__valids__label"
-                                        >
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li
-                                                        v-for="(valid, validIndex) in param.valids"
-                                                        :key="validIndex"
-                                                    >
-                                                        {{ valid }}
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -222,21 +207,6 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
-                                        <div
-                                            v-if="param.valids"
-                                            class="method__list__item__valids__label"
-                                        >
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li
-                                                        v-for="(valid, validIndex) in param.valids"
-                                                        :key="validIndex"
-                                                    >
-                                                        {{ valid }}
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -276,21 +246,6 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
-                                        <div
-                                            v-if="param.valids"
-                                            class="method__list__item__valids__label"
-                                        >
-                                            <p>Allows:
-                                                <ul class="method__list__item__valids__list">
-                                                    <li
-                                                        v-for="(valid, validIndex) in param.valids"
-                                                        :key="validIndex"
-                                                    >
-                                                        {{ valid }}
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -667,8 +622,7 @@ export default {
     }
 }
 
-.method__list__item__description,
-.method__list__item__valids__label {
+.method__list__item__description {
     @include respond-to(large-screens) {
         position: relative;
         z-index: z-index(above);
@@ -687,38 +641,9 @@ export default {
     }
 
     p {
-        display: flex;
         font-size: 14px !important;
         line-height: 21px !important;
-
-        ul {
-          list-style-type: none;
-          display: flex;
-          flex-direction: row;
-
-          li {
-            margin: 0 3px;
-
-            &::before {
-              content: '"'
-            }
-            &:not(:last-child)::after {
-              content: '",'
-            }
-            &:last-child::after {
-              content: '"'
-            }
-          }
-        }
     }
-}
-
-.method__list__item__valids__label {
-  font-weight: 500;
-  color: #939da3;
-}
-.method__list__item__valids__list {
-  color: #939da3;
 }
 
 .method__example {
