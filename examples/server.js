@@ -21,14 +21,16 @@ async function initServer() {
         }
     ])
 
-    await server.route([
-        {
-            method: 'GET',
-            path: '/',
-            handler(request, h) {
-                return h.redirect('/docs')
+    await server.route(
+        [
+            {
+                method: 'GET',
+                path: '/',
+                handler(request, h) {
+                    return h.redirect('/docs')
+                }
             }
-        }].concat(exampleRoutes)
+        ].concat(exampleRoutes)
     )
 
     // Register last after all routes have been registered
