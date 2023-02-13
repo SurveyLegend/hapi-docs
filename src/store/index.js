@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
 import * as types from './mutation-types'
 
 Vue.use(Vuex)
@@ -33,7 +32,8 @@ export default new Vuex.Store({
             },
             actions: {
                 async fetchData({ commit }) {
-                    const { data } = await axios.get('/hapi-docs')
+                    const response = await fetch('/hapi-docs')
+                    const data = await response.json()
 
                     commit(types.FETCH_DATA, { data })
                 }
