@@ -219,13 +219,16 @@ export default [
         options: {
             description: 'Create a recipient',
             notes: [
-                'Creates a new `Recipient`. object and verifies the recipient’s identity. Also verifies the recipient’s bank account information or debit card, if either is provided.'
+                'Creates a new `Recipient` object and verifies the recipient’s identity. Also verifies the recipient’s bank account information or debit card, if either is provided.'
             ],
             tags: ['api'],
             validate: {
-                query: {
-                    type: Joi.string().only('bank', 'card').description('Account type').required()
-                }
+                query: Joi.object({
+                    type: Joi.string()
+                        .valid('bank', 'card')
+                        .required()
+                        .description('Type of the recipient’s payment method.')
+                })
             },
             plugins: {
                 'hapi-docs': {
