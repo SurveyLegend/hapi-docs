@@ -164,7 +164,6 @@ Developed and designed by:
 
 -   [Henrik Ruscon](https://github.com/henrikruscon)
 -   [Robert Michalski](https://github.com/robman87)
--   [Kiarokh Moattar](https://github.com/Kiarokh)
 
 hapi-docs is inspired by [hapi-swagger](https://github.com/glennjones/hapi-swagger), [lout](https://github.com/hapijs/lout), and [Stripe’s](https://stripe.com/docs/api) API docs; and fully sponsored by [SurveyLegend®](https://www.surveylegend.com/).
 
