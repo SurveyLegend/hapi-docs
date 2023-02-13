@@ -168,6 +168,12 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
+                                        <Marked
+                                            v-if="param.allow"
+                                            class="method__list__item__allow"
+                                        >
+                                            {{ param.allow }}
+                                        </Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -207,6 +213,12 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
+                                        <Marked
+                                            v-if="param.allow"
+                                            class="method__list__item__allow"
+                                        >
+                                            {{ param.allow }}
+                                        </Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -246,6 +258,12 @@
                                             class="method__list__item__description"
                                             >{{ param.flags.description }}</Marked
                                         >
+                                        <Marked
+                                            v-if="param.allow"
+                                            class="method__list__item__allow"
+                                        >
+                                            {{ param.allow }}
+                                        </Marked>
                                     </li>
                                 </ul>
                             </div>
@@ -622,7 +640,8 @@ export default {
     }
 }
 
-.method__list__item__description {
+.method__list__item__description,
+.method__list__item__allow {
     @include respond-to(large-screens) {
         position: relative;
         z-index: z-index(above);
