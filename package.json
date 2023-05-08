@@ -1,6 +1,6 @@
 {
     "name": "@surveylegend/hapi-docs",
-    "version": "1.1.3",
+    "version": "2.0.0",
     "description": "Beautiful API documentation generator for Hapi using Vue",
     "author": "SurveyLegend <git@surveylegend.com> (https://github.com/SurveyLegend)",
     "contributors": [
