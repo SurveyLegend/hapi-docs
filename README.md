@@ -15,6 +15,10 @@
 
 ## Introduction
 
+NOTE: Version 2.x of this project is in CommonJS and 3.x and newer is pure ESM.
+They have feature parity, just use different ways of importing modules.
+This is to support those who have not made the switch to ESM yet.
+
 hapi-docs is perhaps the best and most modern <em>API Documentation Generator</em> out there. From your code blocks to description texts, you simply type everything in Markdown. Then all you need to do is to enjoy a blazing fast single-page responsive documentation, which smartly supports linkability, Syntax highlighting, RTL languages, and perfectionist eyes. hapi-docs is an open-source library brought to you by [SurveyLegend®](https://www.surveylegend.com/).
 
 ## Features
@@ -53,11 +57,11 @@ $ yarn add @surveylegend/hapi-docs
 > Inert is a required dependency for hapi-docs to work properly.
 
 ```javascript
-import Hapi from '@hapi/hapi'
-import Inert from '@hapi/inert'
-import Joi from 'joi'
-import HapiDocs from '@surveylegend/hapi-docs'
-import { version } from './package'
+const Hapi = require('@hapi/hapi')
+const Inert = require('@hapi/inert')
+const Joi = require('joi')
+const HapiDocs = require('@surveylegend/hapi-docs')
+const { version } = require('./package')
 
 const options = {
     info: {

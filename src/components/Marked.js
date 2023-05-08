@@ -1,4 +1,4 @@
-import { marked } from 'marked'
+const { marked } = require('marked')
 
 export default {
     name: 'Marked',

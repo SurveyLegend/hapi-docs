@@ -1,10 +1,10 @@
-import Fs from 'node:fs/promises'
-import Hapi from '@hapi/hapi'
-import Inert from '@hapi/inert'
+const Fs = require('node:fs/promises')
+const Hapi = require('@hapi/hapi')
+const Inert = require('@hapi/inert')
 
-import exampleRoutes from './routes.js'
-import pluginOptions from './pluginOptions.js'
-import HapiDocs from '../lib/index.js'
+const exampleRoutes = require('./routes')
+const pluginOptions = require('./pluginOptions')
+const HapiDocs = require('../lib')
 
 async function initServer() {
     const server = Hapi.server({

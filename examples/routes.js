@@ -1,6 +1,6 @@
-import Joi from 'joi'
+const Joi = require('joi')
 
-export default [
+const routes = [
     {
         method: 'POST',
         path: '/customers',
@@ -328,3 +328,6 @@ export default [
         }
     }
 ]
+
+module.exports = routes
+exports.default = routes

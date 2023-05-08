@@ -1,4 +1,4 @@
-export default {
+const options = {
     sortTags: 'ordered',
     sortEndpoints: 'ordered',
     info: {
@@ -80,3 +80,6 @@ export default {
         }
     ]
 }
+
+module.exports = options
+exports.default = options
