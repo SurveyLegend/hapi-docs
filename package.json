@@ -71,7 +71,7 @@
         "url": "https://github.com/surveylegend/hapi-docs/issues"
     },
     "engines": {
-        "node": ">=14 < 18"
+        "node": ">=14"
     },
     "homepage": "https://github.com/surveylegend/hapi-docs#readme",
     "browserslist": [
