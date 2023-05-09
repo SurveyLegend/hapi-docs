@@ -1,4 +1,4 @@
-import Fs from 'node:fs/promises'
+import { readFile } from 'node:fs/promises'
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert'
 
@@ -47,7 +47,7 @@ initServer()
     .then(async (server) => {
         await server.start()
 
-        const { name, version } = JSON.parse((await Fs.readFile('./package.json')).toString())
+        const { name, version } = JSON.parse((await readFile('./package.json')).toString())
         console.log(`${name} (v.${version}) server listening on ${server.info.uri}`)
 
         return server
