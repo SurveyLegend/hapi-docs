@@ -15,8 +15,9 @@
 
 ## Introduction
 
-NOTE: Version 2.x of this project is in CommonJS and 3.x and newer is pure ESM.
-They have feature parity, just use different ways of importing modules.
+NOTE: Version 3.x of this project is in pure ESM and can not be used in CommonJS projects.
+If you want to use this project in a CommonJS project, please use v2.x.
+Version 2 and 3 are at feature parity, it's jst the imports and exports that differ.
 This is to support those who have not made the switch to ESM yet.
 
 hapi-docs is perhaps the best and most modern <em>API Documentation Generator</em> out there. From your code blocks to description texts, you simply type everything in Markdown. Then all you need to do is to enjoy a blazing fast single-page responsive documentation, which smartly supports linkability, Syntax highlighting, RTL languages, and perfectionist eyes. hapi-docs is an open-source library brought to you by [SurveyLegend®](https://www.surveylegend.com/).
@@ -63,18 +64,13 @@ const Joi = require('joi')
 const HapiDocs = require('@surveylegend/hapi-docs')
 const { version } = require('./package')
 
-const options = {
-    info: {
-        title: 'Test API Reference',
-        version
-    }
-}
-
-const startServer = async () => {
+async function startServer() {
     const server = Hapi.server({
         host: 'localhost',
         port: 3000
     })
+    
+    const { version } = JSON.parse((await readFile('./package.json')).toString())
 
     await server.register([
         {
@@ -82,7 +78,12 @@ const startServer = async () => {
         },
         {
             plugin: HapiDocs,
-            options
+            options: {
+                info: {
+                    title: 'Test API Reference',
+                    version
+                }
+            }
         }
     ])
 
