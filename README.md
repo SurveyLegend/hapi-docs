@@ -58,24 +58,19 @@ $ yarn add @surveylegend/hapi-docs
 > Inert is a required dependency for hapi-docs to work properly.
 
 ```javascript
+import { readFile } from 'node:fs/promises'
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert'
 import Joi from 'joi'
 import HapiDocs from '@surveylegend/hapi-docs'
-import { version } from './package'
 
-const options = {
-    info: {
-        title: 'Test API Reference',
-        version
-    }
-}
-
-const startServer = async () => {
+async function startServer() {
     const server = Hapi.server({
         host: 'localhost',
         port: 3000
     })
+    
+    const { version } = JSON.parse((await readFile('./package.json')).toString())
 
     await server.register([
         {
@@ -83,7 +78,12 @@ const startServer = async () => {
         },
         {
             plugin: HapiDocs,
-            options
+            options: {
+                info: {
+                    title: 'Test API Reference',
+                    version
+                }
+            }
         }
     ])
 
